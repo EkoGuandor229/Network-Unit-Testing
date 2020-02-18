@@ -9,10 +9,10 @@
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
 
 % Dokumenteninformationen ----------------------------------------------------
-\newcommand{\titel}{Protokoll XY}
+\newcommand{\titel}{Network Unit Testing System}
 \newcommand{\untertitel}{Studienarbeit \semester}
 \newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
-\newcommand{\datum}{XX.XX.XXXX}
+\newcommand{\datum}{\today}
 
 \newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
 
@@ -21,53 +21,50 @@
 % Konfiguration -------------------------------------------------------------
 \input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
 \input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
-\input{\vorlagenOrdner/Konfiguration/Seitenstil_Protokoll} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
 \input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
 
 \begin{document}
+
+% Deckblatt ------------------------------------------------------------------
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{\vorlagenOrdner/Konfiguration/Deckblatt}
+\cleardoublepage
+
+% Preface --------------------------------------------------------------------
+\pagenumbering{Roman}
+
+% Zweck
+\section*{Zweck}
+Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das Projekt NUTS, dessen Planung und Organisation, sowie über weitere Bereiche des Projektaufbaus. Der Projektplan dient als Grundlage und Referenz für nachfolgende Projektdokumente
+
+% Änderungsgeschichte
+\section*{Änderungsgeschichte}
+\begin{tabularx}{0.9\textwidth}{llXl}
+	\toprule
+	Datum & Version & Änderung & Autor \\
+	\midrule
+	18.02.2020 & 1.0 & Initial Setup & Janik Schlatter \\
+	\bottomrule
+\end{tabularx}
+\cleardoublepage
+
+% Inhaltsverzeichnis
+\phantomsection
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
+\tableofcontents
+\cleardoublepage
+
 \pagenumbering{arabic}
-\begin{center}
-    \LARGE \textbf{\titel} \\[2ex]
-    \large \datum \\[2ex]
-\end{center}
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
 
 % Inhalt ---------------------------------------------------------------------
-\section*{Sitzungsteilnehmer}
-\begin{tabularx}{0.9\linewidth}{Xl}
-	\toprule
-	Wer & Email \\
-	\midrule
-	Mike Schmid & \scriptsize \url{mschmid@hsr.ch}\\
-	Janik Schlatter & \scriptsize \url{jschlatt@hsr.ch} \\
-	\bottomrule
-\end{tabularx}
+\newpage
+\subfile{Kapitel/Beispielkapitel}
 
-\section*{Traktanden}
-\begin{enumerate}
-    \item Traktand 1
-\end{enumerate}
-
-\section*{Beschlüsse}
-\begin{itemize}
-    \item Beschluss 1
-\end{itemize}
-
-\section*{Offene Punkte}
-\begin{tabularx}{0.9\linewidth}{Xl}
-	\toprule
-	Was & Verantwortlicher \\
-	\midrule
-	OffenerPunkt & Zuständiger \\
-	\bottomrule
-\end{tabularx}
-
-\section*{Kommende Abwesenheiten}
-\begin{tabularx}{0.9\linewidth}{lllX}
-	\toprule
-	Wer & Von & Bis & Grund \\
-	\midrule
-	Person & Dat1 & Dat2 & Deshalb \\
-	\bottomrule
-\end{tabularx}
 
 \end{document}
