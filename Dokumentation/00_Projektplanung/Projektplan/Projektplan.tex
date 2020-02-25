@@ -66,24 +66,41 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 \section{Einführung}
 
 	\subsection{Sprache}
-		Wir haben uns entschieden für die allgemeine Projektsprache (Dokumentation, Use Cases, etc.) Deutsch zu wählen.
-		Nur für den Code und die Versionskontrolle wird English als Sprache verwendet.
+		Die allgemeine Projektsprache (Dokumentation, Use Cases, etc.) wird in Deutscher Schriftsprache verfasst.
+		Der Code, das GitHub-Repository und die Versionskontrolle wird in Englischer Sprache geschrieben.
 
 	\subsection{Referenzen}
-		Alle Dokumente werden auf dem Git abgelegt.
+		Alle Dokumente werden auf dem GitHub-Repository abgelegt und verwaltet.
 
 	\begin{tabularx}{\textwidth}{lX}
 		Git Repository & \url{https://github.com/EkoGuandor229/Network-Unit-Testing.git} \\
+		Vorarbeit NUTS & \url{https://github.com/HSRNetwork/Nuts.git}\\
 	\end{tabularx}
 
 	\subsection{Vorarbeit NUTS}
-		Es existiert bereits eine Vorarbeit, zu diesem Thema. BLABLABLA
+		Die Studienarbeit aus dem Jahr 2016 hat ein Programm erarbeitet, die mit SaltStack, einer Lösung für die Automatisierung von Projekten, das Testen von Netzwerkumgebungen mittels Python ermöglicht.
+		Dabei wurden umfangreiche Tests in der Serialisierungssprache YAML spezifiziert und umgesetzt. 
+		Die Schwierigkeit lag vor allem darin, dass nicht jedes Netzwerkgerät dieselben Funktionen für spezifische Befehle bietet, da Hersteller Unterschiedliche Befehle für ihre Geräte verwenden.	
+		Darauf aufbauend wird in dieser Arbeit die Testdefinition weiter verwendet und nach Bedarf ergänzt oder ausgebaut.
 
 \section{Projektübersicht}
 
 	\subsection{Projektübersicht}
 
 	\subsection{Zweck und Ziel}
+		Das Testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlic mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
+		Wenn der Netzwerktechniker einen Test vergisst, oder die Formulierung nicht stimmt,	kann es vorkommen, dass im Netzwerk Fehler auftreten, deren Ursprung schwierig zu ermitteln ist und eine komplette Repetition der (handgeschriebenen) Tests erfordert. 
+		Ein Programm, welches wie in der Softwareentwicklung vordefinierte und automatisch durchgeführte Tests, sogenannte Unit-Tests, ermöglicht, könnte diese Probleme stark verringern.
+		Dabei können zwei grobe Arbeitsvorgänge beschrieben werden. 
+		Im ersten schreibt ein Netzwerktechniker Tests, die ein bestehendes Netzwerk möglichst genau abbilden/beschreiben sollen.
+		Die tests lassen sich jederzeit durchführen und testen den Zustand und die Konfiguration des Netzwerks. 
+		Falls nun ein Fehler auftritt, können die Tests automatisiert durchgeführt werden und dann, vorausgesetzt sie sind vollständig, sollte der Report aufzeigen, was genau schiefgegangen ist und wo der Fehler liegt.
+		Der Zweite Arbeitsvorgang entspricht dem in der Softwareentwicklung gängigen Test-Driven-Developmet (TDD). 
+		Beim TDD werden Tests geschrieben, bevor das System verändert wird oder bevor man neuen Code schreibt. 
+		Auf ein Netzwerk abstrahiert könnte beispielsweise ein Administrator, der eine Änderung am Netzwerk vornehmen will, zuerst die Tests schreiben, welche die Änderung testen sollen. 
+		Danach werden die Konfigurationen verändert und die Tests durchgeführt. 
+		Falls die Tests nun fehlschlagen, kann man die Konfiguration anpassen oder sogar auf einen früheren Zustand zurücksetzen. 
+		Beide Arbeitsvorgänge erleichtern die Fehlersuche und erhöhen die Stabilität des Netzwerks.	
 
 	\subsection{Lieferumfang}
 		Im Rahmen der Studienarbeit wird folgendes erstellt:
@@ -119,7 +136,8 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Kostenvoranschlag}
 		Das Projekt wurde am 20.02.2020 gestartet und wird voraussichtlich am 28.05.2020 enden.
 		Das heisst, es stehen 14 Wochen Zeit zur Verfügung während dem Semester. 
-		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied. 
+		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied, inklusive sieben Dokumentationstermine jede zweite Woche mit ca 2-4 Stunden.
+
 		\begin{tabularx}{\textwidth}{Xl}
 			\midrule
 			Projektdauer & 14 Wochen \\
@@ -167,7 +185,17 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\toprule
 			Nr & Bezeichnung & Termin & Beschreibung \\
 			\midrule
-			M0 & Name & Datum & Bla \\
+			M1 & Projektplan & So 01.03.2020 & Grundentwurf der Requirements, Risikoanalyse \& -management, Projektorganisation, Managementabläufe, Infrastrukturentwurf, Qualitätsmassnahmen Grundentwurf.\\
+			\midrule
+			M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
+			\midrule 
+			M3 & Prototyp & So 05.04.2020 & Architektur festgeleg, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
+			\midrule
+			M4 & Feature Freeze & So 03.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
+			\midrule
+			M5 & Codefreeze \& Codeabgabe & So 17.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
+			\midrule
+			M6 & Projektabgabe & So 24.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
 			\bottomrule
 		\end{tabularx}
 
