@@ -105,7 +105,8 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Lieferumfang}
 		Im Rahmen der Studienarbeit wird folgendes erstellt:
 		\begin{itemize}
-			\item Ein Framework mit blablabla
+			\item Eine Überarbeitung der Testdefinionssprache (TDS), die in der Vorarbeit ausgearbeitet wurde.
+			\item Python-Software, die die TDS umsetzt und auf Netzwerkinfrastrukturen Tests durchführen kann.
 		\end{itemize}
 	\subsection{Annahmen und Einschränkungen}
 
@@ -135,12 +136,15 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 
 	\subsection{Kostenvoranschlag}
 		Das Projekt wurde am 20.02.2020 gestartet und wird voraussichtlich am 28.05.2020 enden.
-		Das heisst, es stehen 14 Wochen Zeit zur Verfügung während dem Semester. 
-		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied, inklusive sieben Dokumentationstermine jede zweite Woche mit ca 2-4 Stunden.
+		Das heisst, es stehen 15 Wochen während dem Semester zur Verfügung. 
+		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied.
+		Da der Dienstag 14.04.2020 und der Donnerstag 21.05.2020 jeweils ein Unterrichtsfreier Tag ist, werden die 16 Stunden pro Projektmitglied auf jeweils vier Samstage im Projekt verteilt aufgeteilt.
+		Diese Samstage dienen dem Ziel, die Dokumentation nachzutragen und die Risiken, wie sie im Kapitel~\ref{sec:risikomanagement} beschrieben sind, zu minimieren. 
+		Dazu gehören Bugfixing, Recherchen und Aufarbeiten von Themen, die ungenügend verstanden sind und Refactoring des Code.
 
 		\begin{tabularx}{\textwidth}{Xl}
 			\midrule
-			Projektdauer & 14 Wochen \\
+			Projektdauer & 15 Wochen \\
 			\midrule
 			Anzahl Projektmitglieder & 2 \\
 			\midrule
@@ -177,8 +181,8 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 		\end{tabularx}
 	
 		\minisec{Iterationen}
-		Die Iterationen werden wöchentlich gemacht. Da wir auch ein Mal wöchentlich das Meeting haben passt das gut aufeinander.
-
+		Die Iterationen werden wöchentlich durchgeführt.
+		Da wir auch ein Mal in der Woche das Meeting haben passt das gut aufeinander.
 
 	\subsection{Meilensteine}
 		\begin{tabularx}{0.9\linewidth}{lllX}
@@ -191,15 +195,16 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\midrule 
 			M3 & Prototyp & So 05.04.2020 & Architektur festgeleg, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
 			\midrule
-			M4 & Feature Freeze & So 03.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
+			M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
 			\midrule
-			M5 & Codefreeze \& Codeabgabe & So 17.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
+			M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
 			\midrule
-			M6 & Projektabgabe & So 24.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
+			M6 & Projektabgabe & Do 28.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
 			\bottomrule
 		\end{tabularx}
 
 	\subsection{Besprechungen/Protokolle}
+	\label{sec:dates}
 		Es wurden zwei Termine vereinbart, an welchen sich die Projektmitglieder treffen. 
 		Bei beiden Terminen stehen jeweils mindestens 6 Lektionen zur Verfügung.
 
@@ -210,10 +215,18 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			1 & Dienstag 10:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
 			2 & Donnerstag 08:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
 			3 & Donnerstag 14:00 - 15:00 & Besprechung mit Projektbetreuern \\
+			4 & Samstag 14.03.2020 & Dokumentation und Risikoreduktion\\
+			5 & Samstag 28.03.2020 & Dokumentation und Risikoreduktion\\
+			6 & Samstag 11.04.2020 & Dokumentation und Risikoreduktion\\
+			7 & Samstag 25.04.2020 & Dokumentation und Risikoreduktion\\
+			8 & Samstag 09.05.2020 & Dokumentation und Risikoreduktion\\
+			9 & Samstag 23.05.2020 & Dokumentation und Risikoreduktion\\
+
 			\bottomrule
 		\end{tabularx}
 
 \section{Risikomanagement}
+\label{sec:risikomanagement}
 
 	\subsection{Risiken}
 		Eine Riskoanalyse mit gewichtetem Schaden und Informationen zur Vorbeugung ist auf der Ablage zu
@@ -222,11 +235,15 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Umgang mit Risiken}
 		Um Probleme gerade während der Init/Analyse Phase möglichst früh zu erkennen, 
 		arbeiten wir wöchentlich zwei Tage nebeneinander, um uns über mögliche Probleme auszutauschen. 
-		Desweiteren suchen wir auch den Kontakt zum Betreuer sobald Unklarheiten im Team herrschen. 
+		Desweiteren suchen wir auch den Kontakt zum Betreuer sobald Unklarheiten im Team herrschen.
+		Einmal alle zwei Wochen treffen wir uns am Samstag für drei bis vier Stunden, um an der Dokumentation und and der Reduktion aufgetretener Risiken zu arbeiten. Die genauen Termine werden im Kapitel~\ref{sec:dates} beschrieben.
 
 \section{Infrastruktur}
 	Alle Arbeiten zum Projekt werden von den Projektmitgliedern auf Ihrem jeweiligen Laptop verrichtet.
-	(Evt erhalten wir noch ein physikalische Netzwerk um zu testen?!?!?!)
+	Alternativ stehen in den Studienarbeitszimmern Computer zur Verfügung, mit denen im falle eines Geräteausfalls weitergearbeitet werden kann.
+	Für das Testen der Software wird vom Institut für Networked Solutions eine Routerinfrastruktur zur Verfügung gestellt.
+	Die genauen Ausmasse der Infrastruktur sind zum Zeitpunkt der Erstellung des Projektplans noch nicht spezifiziert.
+	
 
 	\subsection{Übersicht der Tools}
 		Für die Umsetzung des Projektes werden folgende Tools verwendet: \\[2ex]
@@ -236,6 +253,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\midrule
 			Git & Versionsverwaltung \\
 			PyCharm & Entwicklungsumgebung \\
+			Visual Studio Code & Editor für die Dokumentation\\
 			\bottomrule
 		\end{tabularx}
 
@@ -243,15 +261,25 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Allgemein}
 
 	\subsection{Testing}
+		Für das Unti-Testing wird das Python-Modul PyTest verwendet, ein Framework, welches das einfache Testen von Pythoncode erlaubt.
 
 	\subsection{Besprechungen}
 
 	\subsection{Versionskontrolle}
 		Sämtliche Dokumente werden in einem Git Repository abgelegt. Damit wird, dank der Versionskontrolle, 
-		jede Änderung nachvollziehbar sein und es können auf sämtlichen alten Versionen zugegriffen werden.
+		jede Änderung nachvollziehbar und es können auf sämtlichen alten Versionen zugegriffen werden.
 
 	\subsection{Dokumente}
 
 	\subsection{Code-Qualität}
-
+		Um die Codequalität zu gewährleisten, werden folgende Massnahmen ergriffen:
+		\begin{itemize}
+			\item Unittests, um Fehler im Code zu verhindern oder früh zu finden.
+			\item In der Versionsverwaltung wird mit Feature-Branches gearbeitet, damit Änderungen nicht zu Merge-Konflikten führen.
+			\item Merges in den Development-Branch dürfen nur nach einem erfolgreichen Pull-Request durchgeführt werden.
+			\item Pull-Requests werden vom jewils anderen Teammitglied überprüft und allfällige Probleme müssen vor der Annahme korrigiert werden.
+			\item Im Git wird ein CI/CD (Continous Integration/Continous Delivery) aufgesetzt, das bei Änderungen im Development-Branch Tests durchführt.
+			\item Getestet wird die einhaltung der Coderichtlinien, Vorherig definierte Tests und das erfolgreiche durchlaufen des Build-Prozesses.
+			\item Bekannte Bugs werden mittels Git Issues erfasst und verwaltet. Das Abarbeiten dieser Issues ist teil des Projekts und beim Meilenstein M5:Codefreeze \& -abgabe sollten sich keine Issues mehr auf dem Repository befinden
+		\end{itemize}
 \end{document}
