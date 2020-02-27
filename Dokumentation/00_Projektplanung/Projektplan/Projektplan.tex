@@ -81,21 +81,21 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 		Die Studienarbeit aus dem Jahr 2016 hat ein Programm erarbeitet, die mit SaltStack, einer Lösung für die Automatisierung von Projekten, das Testen von Netzwerkumgebungen mittels Python ermöglicht.
 		Dabei wurden umfangreiche Tests in der Serialisierungssprache YAML spezifiziert und umgesetzt. 
 		Die Schwierigkeit lag vor allem darin, dass nicht jedes Netzwerkgerät dieselben Funktionen für spezifische Befehle bietet, da Hersteller Unterschiedliche Befehle für ihre Geräte verwenden.	
-		Darauf aufbauend wird in dieser Arbeit die Testdefinition weiter verwendet und nach Bedarf ergänzt oder ausgebaut.
+		Darauf aufbauend wird in dieser Arbeit die Testdefinition weiterverwendet und nach Bedarf ergänzt oder ausgebaut.
 
 \section{Projektübersicht}
 
 	\subsection{Projektübersicht}
 
 	\subsection{Zweck und Ziel}
-		Das Testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlic mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
+		Das Testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlich mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
 		Wenn der Netzwerktechniker einen Test vergisst, oder die Formulierung nicht stimmt,	kann es vorkommen, dass im Netzwerk Fehler auftreten, deren Ursprung schwierig zu ermitteln ist und eine komplette Repetition der (handgeschriebenen) Tests erfordert. 
 		Ein Programm, welches wie in der Softwareentwicklung vordefinierte und automatisch durchgeführte Tests, sogenannte Unit-Tests, ermöglicht, könnte diese Probleme stark verringern.
 		Dabei können zwei grobe Arbeitsvorgänge beschrieben werden. 
 		Im ersten schreibt ein Netzwerktechniker Tests, die ein bestehendes Netzwerk möglichst genau abbilden/beschreiben sollen.
-		Die tests lassen sich jederzeit durchführen und testen den Zustand und die Konfiguration des Netzwerks. 
+		Die Tests lassen sich jederzeit durchführen und testen den Zustand und die Konfiguration des Netzwerks. 
 		Falls nun ein Fehler auftritt, können die Tests automatisiert durchgeführt werden und dann, vorausgesetzt sie sind vollständig, sollte der Report aufzeigen, was genau schiefgegangen ist und wo der Fehler liegt.
-		Der Zweite Arbeitsvorgang entspricht dem in der Softwareentwicklung gängigen Test-Driven-Developmet (TDD). 
+		Der Zweite Arbeitsvorgang entspricht dem in der Softwareentwicklung gängigen Test-Driven-Development (TDD). 
 		Beim TDD werden Tests geschrieben, bevor das System verändert wird oder bevor man neuen Code schreibt. 
 		Auf ein Netzwerk abstrahiert könnte beispielsweise ein Administrator, der eine Änderung am Netzwerk vornehmen will, zuerst die Tests schreiben, welche die Änderung testen sollen. 
 		Danach werden die Konfigurationen verändert und die Tests durchgeführt. 
@@ -135,7 +135,6 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 \section{Management Abläufe}
 
 	\subsection{Kostenvoranschlag}
-
 		Das Projekt wurde am 20.02.2020 gestartet und wird voraussichtlich am 28.05.2020 enden.
 		Das heisst, es stehen 15 Wochen während dem Semester zur Verfügung. 
 		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied.
@@ -279,15 +278,15 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Umgang mit Risiken}
 		Um Probleme gerade während der Init/Analyse Phase möglichst früh zu erkennen, 
 		arbeiten wir wöchentlich zwei Tage nebeneinander, um uns über mögliche Probleme auszutauschen. 
-		Desweiteren suchen wir auch den Kontakt zum Betreuer sobald Unklarheiten im Team herrschen.
-		Einmal alle zwei Wochen treffen wir uns am Samstag für drei bis vier Stunden, um an der Dokumentation und and der Reduktion aufgetretener Risiken zu arbeiten. Die genauen Termine werden im Kapitel~\ref{sec:dates} beschrieben.
+		Des Weiteren suchen wir auch den Kontakt zum Betreuer sobald Unklarheiten im Team herrschen.
+		Einmal alle zwei Wochen treffen wir uns am Samstag für drei bis vier Stunden, um an der Dokumentation und and der Reduktion aufgetretener Risiken zu arbeiten. 
+		Die genauen Termine werden im Kapitel~\ref{sec:dates} beschrieben.
 
 \section{Infrastruktur}
 	Alle Arbeiten zum Projekt werden von den Projektmitgliedern auf Ihrem jeweiligen Laptop verrichtet.
 	Alternativ stehen in den Studienarbeitszimmern Computer zur Verfügung, mit denen im falle eines Geräteausfalls weitergearbeitet werden kann.
-	Für das Testen der Software wird vom Institut für Networked Solutions eine Routerinfrastruktur zur Verfügung gestellt.
+	Für das Testen der Software wird vom Institut für Networked Solutions eine Router Infrastruktur zur Verfügung gestellt.
 	Die genauen Ausmasse der Infrastruktur sind zum Zeitpunkt der Erstellung des Projektplans noch nicht spezifiziert.
-	
 
 	\subsection{Übersicht der Tools}
 		Für die Umsetzung des Projektes werden folgende Tools verwendet: \\[2ex]
