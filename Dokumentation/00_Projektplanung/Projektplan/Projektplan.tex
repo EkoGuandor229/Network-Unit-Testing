@@ -66,8 +66,8 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 \section{Einführung}
 
 	\subsection{Sprache}
-		Die allgemeine Projektsprache (Dokumentation, Use Cases, etc.) wird in Deutscher Schriftsprache verfasst.
-		Der Code, das GitHub-Repository und die Versionskontrolle wird in Englischer Sprache geschrieben.
+		Die allgemeine Projektsprache (Dokumentation, Use Cases, etc.) wird in deutscher Schriftsprache verfasst.
+		Der Code, das GitHub-Repository und die Versionskontrolle wird in englischer Sprache geschrieben.
 
 	\subsection{Referenzen}
 		Alle Dokumente werden auf dem GitHub-Repository abgelegt und verwaltet.
@@ -78,9 +78,9 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\end{tabularx}
 
 	\subsection{Vorarbeit NUTS}
-		Die Studienarbeit aus dem Jahr 2016 hat ein Programm erarbeitet, die mit SaltStack, einer Lösung für die Automatisierung von Projekten, das Testen von Netzwerkumgebungen mittels Python ermöglicht.
+		Die Studienarbeit aus dem Jahr 2016 hat ein Programm erarbeitet, die mit SaltStack, einer Lösung für die Automatisierung von Projekten, das testen von Netzwerkumgebungen mittels Python ermöglicht.
 		Dabei wurden umfangreiche Tests in der Serialisierungssprache YAML spezifiziert und umgesetzt. 
-		Die Schwierigkeit lag vor allem darin, dass nicht jedes Netzwerkgerät dieselben Funktionen für spezifische Befehle bietet, da Hersteller Unterschiedliche Befehle für ihre Geräte verwenden.	
+		Die Schwierigkeit lag vor allem darin, dass nicht jedes Netzwerkgerät dieselben Funktionen für spezifische Befehle bietet, da Hersteller unterschiedliche Befehle für ihre Geräte verwenden.	
 		Darauf aufbauend wird in dieser Arbeit die Testdefinition weiterverwendet und nach Bedarf ergänzt oder ausgebaut.
 
 \section{Projektübersicht}
@@ -88,7 +88,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Projektübersicht}
 
 	\subsection{Zweck und Ziel}
-		Das Testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlich mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
+		Das testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlich mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
 		Wenn der Netzwerktechniker einen Test vergisst, oder die Formulierung nicht stimmt,	kann es vorkommen, dass im Netzwerk Fehler auftreten, deren Ursprung schwierig zu ermitteln ist und eine komplette Repetition der (handgeschriebenen) Tests erfordert. 
 		Ein Programm, welches wie in der Softwareentwicklung vordefinierte und automatisch durchgeführte Tests, sogenannte Unit-Tests, ermöglicht, könnte diese Probleme stark verringern.
 		Dabei können zwei grobe Arbeitsvorgänge beschrieben werden. 
@@ -109,6 +109,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\item Python-Software, die die TDS umsetzt und auf Netzwerkinfrastrukturen Tests durchführen kann.
 		\end{itemize}
 	\subsection{Annahmen und Einschränkungen}
+		Das Programm soll so entwickelt werden, dass künftige Anpassungen und Erweiterungen, z.B. automatische Penetration-Tests, einfach eingebaut werden können.
 
 \section{Projektorganisation}
 
@@ -140,7 +141,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied.
 		Da der Dienstag 14.04.2020 und der Donnerstag 21.05.2020 jeweils ein Unterrichtsfreier Tag ist, werden die 16 Stunden pro Projektmitglied auf jeweils vier Samstage im Projekt verteilt aufgeteilt.
 		Diese Samstage dienen dem Ziel, die Dokumentation nachzutragen und die Risiken, wie sie im Kapitel~\ref{sec:risikomanagement} beschrieben sind, zu minimieren. 
-		Dazu gehören Bugfixing, Recherchen und Aufarbeiten von Themen, die ungenügend verstanden sind und Refactoring des Code.
+		Dazu gehören Bugfixing, Recherchen und Aufarbeiten von Themen, die ungenügend verstanden sind und Refactoring des Codes.
 
 		\begin{table}[!h]
 			\begin{tabularx}{\textwidth}{Xl}
@@ -193,6 +194,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 		\minisec{Iterationen}
 		Die Iterationen werden wöchentlich durchgeführt.
 		Da wir auch ein Mal in der Woche das Meeting haben passt das gut aufeinander.
+		Die Iterationen in der Realisierungsphase, welche zum Zeitpunkt der Projektplanung noch nicht eindeutig festgelegt werden können, werden mit \textcolor{red}{TODO} annotiert.
 
 		\begin{table}[!h]
 			\begin{tabularx}{\textwidth}{lXll}
@@ -206,11 +208,11 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 				Design 1 & Architekturdesign & 16.03.2020 & 22.03.2020 \\
 				Design 2 & Testen der Module & 23.03.2020 & 29.03.2020 \\
 				Design 3 & Prototyp programmieren & 30.03.2020 & 05.04.2020 \\
-				Realisierung 1 & [Placeholder] & 06.04.2020 & 12.04.2020 \\
-				Realisierung 2 & [Placeholder] & 13.04.2020 & 19.04.2020 \\
-				Realisierung 3 & [Placeholder] & 20.04.2020 & 26.04.2020 \\
-				Realisierung 4 & [Placeholder] & 27.04.2020 & 03.05.2020 \\
-				Realisierung 5 & [Placeholder] & 04.05.2020 & 10.05.2020 \\
+				Realisierung 1 & \textcolor{red}{TODO} & 06.04.2020 & 12.04.2020 \\
+				Realisierung 2 & \textcolor{red}{TODO} & 13.04.2020 & 19.04.2020 \\
+				Realisierung 3 & \textcolor{red}{TODO} & 20.04.2020 & 26.04.2020 \\
+				Realisierung 4 & \textcolor{red}{TODO} & 27.04.2020 & 03.05.2020 \\
+				Realisierung 5 & \textcolor{red}{TODO} & 04.05.2020 & 10.05.2020 \\
 				Realisierung 6 & Fertigstellung und Refactoring & 11.05.2020 & 19.05.2020 \\
 				Abschluss 1 & Bugfixes, Refactoring und Dokumentation & 08.05.2020 & 19.05.2020\\
 				Abschluss 2 & Fertigstellung Schlussbericht & 20.05.2020 & 28.04.2020\\
@@ -222,7 +224,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	\subsection{Meilensteine}
 	Im Projekt wurden folgende Meilensteine festgelegt.
 		\begin{table}[!h]	
-			\begin{tabularx}{0.9\linewidth}{lllX}
+			\begin{tabularx}{\linewidth}{lllX}
 				\toprule
 				Nr & Bezeichnung & Termin & Beschreibung \\
 				\midrule
@@ -230,17 +232,57 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 				\midrule
 				M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
 				\midrule 
-				M3 & Prototyp & So 05.04.2020 & Architektur festgeleg, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
+				M3 & Prototyp & So 05.04.2020 & Architektur festgelegt, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
 				\midrule
 				M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
 				\midrule
-				M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
+				M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 80\% fertiggestellt.\\
 				\midrule
 				M6 & Projektabgabe & Do 28.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
 				\bottomrule
 			\end{tabularx}
 		\caption{Meilensteine}
 		\end{table}	
+
+	\subsection{Arbeitspakete (Tickets) }
+	Die Arbeitspakete, welche zu Beginn der Arbeit feststehen, werden in diesem Dokument erfasst.
+	Arbeitspaketverwaltung werden mit Git-Issues vorgenommen und über das Projekt verteilt dokumentiert.
+	Pakete, die zum Zeitpunkt der Projektplanung noch nicht feststehen, werden mit \textcolor{red}{TODO} annotiert	
+	\begin{landscape}
+			\begin{table}[!h]
+				\begin{tabularx}{\linewidth}{lXllll}
+					\toprule
+					Name & Inhalt & Iteration & Wer & Soll & Ist\\
+					\midrule
+					Projektstart & Projektübersicht verschaffen \& erststudium der Vorarbeit & Initialisierung & alle & 8 & 8 \\
+					\midrule
+					Projektplanung & Zeitplanung, Projektphasen, Iterationen, Meilensteine, Risikoanalyse und grobe Arbeitspakete & Analyse 1 & alle & 32 & 28 \\
+					Netzwerktests Analyse & Recherche und Vergleich mit mit Vorarbeit & Analyse 2 & alle & 16 & 0 \\
+					Analyse und einarbeitung mit Tools & Python, PyTest, Nornir, Napalm, OpenConnect, Netconf und Restconf & Analyse 2 \& 3 & alle & 16 & 0 \\
+					Anforderungen & Use Cases in brief-Format, Personas beschreiben, Nichtfunktionale Anforderungen spezifizieren & Analyse 3 & alle & 8 & 0 \\
+					\midrule
+					Evaluation Tools & Auswahl der zu verwendenden Tools aufgrund der Erkenntnisse aus der Analysephase & Design 1 & alle & 8 & 0 \\
+					Erstellung Prototyp & Ausarbeiten eines ersten Prototypen für eine einfache Netzwerkkonfiguration & Design 2 & alle & 32 & 0 \\
+					Architekturdesign & Domänenmodell, Softwarearchitektur, Deployment Diagramm, Use Cases im Fully-Dressed-Format & Design 3 & 8 & 0 \\
+					\midrule
+					Umsetzung 1 & \textcolor{red}{TODO} & Umsetzung 1 & alle & 32 & 0 \\
+					Umsetzung 2 & \textcolor{red}{TODO} & Umsetzung 2 & alle & 32 & 0 \\
+					Umsetzung 3 & \textcolor{red}{TODO} & Umsetzung 3 & alle & 32 & 0 \\
+					Umsetzung 4 & \textcolor{red}{TODO} & Umsetzung 4 & alle & 32 & 0 \\
+					Umsetzung 5 & \textcolor{red}{TODO} & Umsetzung 5 & alle & 32 & 0 \\
+	
+					Unittesting fertingstellen & Abschliessen der Unittests und Dokumentation & Umsetzung 6 & alle & 10 & 0 \\
+					Refactoring des Code & Verbessern und verschönern des Code & Umsetzung 6 & alle & 10 & 0 \\
+					Bugfixes & Abarbeiten der im Bugtracking erfassten Fehler & Umsetzung 6 & alle & 12 & 0 \\
+					\midrule
+					Installationspackages erstellen & Finalen Build erstellen und Deployen & Abschluss 1 & Janik Schlatter & 16 & 0 \\
+					Benutzeranleitungen fertigstellen & Installations- und Benutzeranleitung schreiben & Abschluss 1 & Mike Schmid & 16 & 0 \\
+					Schlussbericht erstellen & Fertigstellung des Schlussberichts und Abgabe Projekt & Abschluss 2 & alle & 32 & 0 \\
+					\bottomrule
+				\end{tabularx}
+			\caption{Arbeitspakete}	
+			\end{table}
+		\end{landscape}
 
 	\subsection{Besprechungen/Protokolle}
 	\label{sec:dates}
@@ -254,7 +296,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 				\midrule
 				1 & Dienstag 10:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
 				2 & Donnerstag 08:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
-				3 & Donnerstag 14:00 - 15:00 & Besprechung mit Projektbetreuern \\
+				3 & Donnerstag 10:30 ~ 12:00 & Besprechung mit Projektbetreuern \\
 				4 & Samstag 14.03.2020 & Dokumentation und Risikoreduktion\\
 				5 & Samstag 28.03.2020 & Dokumentation und Risikoreduktion\\
 				6 & Samstag 11.04.2020 & Dokumentation und Risikoreduktion\\
