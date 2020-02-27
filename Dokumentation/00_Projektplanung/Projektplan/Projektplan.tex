@@ -135,6 +135,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 \section{Management Abläufe}
 
 	\subsection{Kostenvoranschlag}
+
 		Das Projekt wurde am 20.02.2020 gestartet und wird voraussichtlich am 28.05.2020 enden.
 		Das heisst, es stehen 15 Wochen während dem Semester zur Verfügung. 
 		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied.
@@ -142,110 +143,131 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 		Diese Samstage dienen dem Ziel, die Dokumentation nachzutragen und die Risiken, wie sie im Kapitel~\ref{sec:risikomanagement} beschrieben sind, zu minimieren. 
 		Dazu gehören Bugfixing, Recherchen und Aufarbeiten von Themen, die ungenügend verstanden sind und Refactoring des Code.
 
-		\begin{tabularx}{\textwidth}{Xl}
-			\midrule
-			Projektdauer & 15 Wochen \\
-			\midrule
-			Anzahl Projektmitglieder & 2 \\
-			\midrule
-			Arbeitsstunden pro Woche und Person & 16 \\
-			\midrule
-			Arbeitsstunden insgesamt & 480 \\
-			\midrule
-			Projektstart & 20.02.2020 \\
-			\midrule
-			Projektende & 28.05.2020 \\
-			\midrule
-		\end{tabularx}
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{Xl}
+				\midrule
+				Projektdauer & 15 Wochen \\
+				\midrule
+				Anzahl Projektmitglieder & 2 \\
+				\midrule
+				Arbeitsstunden pro Woche und Person & 16 \\
+				\midrule
+				Arbeitsstunden insgesamt & 480 \\
+				\midrule
+				Projektstart & 20.02.2020 \\
+				\midrule
+				Projektende & 28.05.2020 \\
+				\midrule
+			\end{tabularx}
+			\caption{Projektparameter}
+		\end{table}
 
 	\subsection{Zeitliche Planung}
-		Die 15 Wochen des Projekts werden in fünf Phasen unterteilt: Initialisierung, Analyse, Design, Realisierung und Abschluss.
-		\begin{center}
-			\label{ZeitplanOverview}
-			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Projektphasen}
-		\end{center}
+		Die 15 Wochen des Projekts werden in fünf Phasen unterteilt: Initialisierung, Analyse, Design, Realisierung und Abschluss.\\
+		\begin{figure}[!h]
+			\begin{center}
+				\label{ZeitplanOverview}
+				\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/Projektphasen}
+			\end{center}
+			\caption{Zeitplanung}
+		\end{figure}
 
 	\subsection{Phasen/Iterationen}
 	\minisec{Phasen}
-		Wir halten uns an die folgenden 5 Phasen: \\
-		\begin{tabularx}{\textwidth}{lll}
-			\toprule
-			Farbe* & Bezeichnung & Zeitrahmen \\
-			\midrule
-			\textcolor{green}{Grün} & Initialisierung & 1 Woche \\
-			\textcolor{orange}{Orange} & Analyse & 3 Wochen \\
-			\textcolor{red}{Rot} & Design & 3 Wochen \\
-			\textcolor{blue}{Blau} & Realisierung & 6 Wochen \\
-			\textcolor{yellow}{Gelb} & Abschluss & 2 Wochen \\
-			\bottomrule
-		\end{tabularx}
-	
+		Wir halten uns an die folgenden 5 Phasen: 
+
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lll}
+				\toprule
+				Farbe* & Bezeichnung & Zeitrahmen \\
+				\midrule
+				\textcolor{green}{Grün} & Initialisierung & 1 Woche \\
+				\textcolor{orange}{Orange} & Analyse & 3 Wochen \\
+				\textcolor{red}{Rot} & Design & 3 Wochen \\
+				\textcolor{blue}{Blau} & Realisierung & 6 Wochen \\
+				\textcolor{yellow}{Gelb} & Abschluss & 2 Wochen \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Projektphasen}
+		\end{table}
+
 		\minisec{Iterationen}
 		Die Iterationen werden wöchentlich durchgeführt.
 		Da wir auch ein Mal in der Woche das Meeting haben passt das gut aufeinander.
 
-		\begin{tabularx}{\textwidth}{lXll}
-			\toprule
-			Iteration & Inhalt & Start & Ende \\
-			\midrule
-			Initialisierung & Projektstart und Kick-Off Meeting & 20.02.2020 & 23.02.2020 \\
-			Analyse 1 & Projektplanung & 24.02.2020 & 01.03.2020 \\
-			Analyse 2 & Evaluation Module (Nornir, Napalm, Openconnect) & 02.03.2020 & 08.03.2020 \\
-			Analyse 3 & Requirements \& Analyse Testcases & 09.03.2020 & 15.03.2020 \\
-			Design 1 & Architekturdesign & 16.03.2020 & 22.03.2020 \\
-			Design 2 & Testen der Module & 23.03.2020 & 29.03.2020 \\
-			Design 3 & Prototyp programmieren & 30.03.2020 & 05.04.2020 \\
-			Realisierung 1 & [Placeholder] & 06.04.2020 & 12.04.2020 \\
-			Realisierung 2 & [Placeholder] & 13.04.2020 & 19.04.2020 \\
-			Realisierung 3 & [Placeholder] & 20.04.2020 & 26.04.2020 \\
-			Realisierung 4 & [Placeholder] & 27.04.2020 & 03.05.2020 \\
-			Realisierung 5 & [Placeholder] & 04.05.2020 & 10.05.2020 \\
-			Realisierung 6 & Fertigstellung und Refactoring & 11.05.2020 & 19.05.2020 \\
-			Abschluss 1 & Bugfixes, Refactoring und Dokumentation & 08.05.2020 & 19.05.2020\\
-			Abschluss 2 & Fertigstellung Schlussbericht & 20.05.2020 & 28.04.2020\\
-			\bottomrule
-		\end{tabularx}
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lXll}
+				\toprule
+				Iteration & Inhalt & Start & Ende \\
+				\midrule
+				Initialisierung & Projektstart und Kick-Off Meeting & 20.02.2020 & 23.02.2020 \\
+				Analyse 1 & Projektplanung & 24.02.2020 & 01.03.2020 \\
+				Analyse 2 & Evaluation Module (Nornir, Napalm, Openconnect) & 02.03.2020 & 08.03.2020 \\
+				Analyse 3 & Requirements \& Analyse Testcases & 09.03.2020 & 15.03.2020 \\
+				Design 1 & Architekturdesign & 16.03.2020 & 22.03.2020 \\
+				Design 2 & Testen der Module & 23.03.2020 & 29.03.2020 \\
+				Design 3 & Prototyp programmieren & 30.03.2020 & 05.04.2020 \\
+				Realisierung 1 & [Placeholder] & 06.04.2020 & 12.04.2020 \\
+				Realisierung 2 & [Placeholder] & 13.04.2020 & 19.04.2020 \\
+				Realisierung 3 & [Placeholder] & 20.04.2020 & 26.04.2020 \\
+				Realisierung 4 & [Placeholder] & 27.04.2020 & 03.05.2020 \\
+				Realisierung 5 & [Placeholder] & 04.05.2020 & 10.05.2020 \\
+				Realisierung 6 & Fertigstellung und Refactoring & 11.05.2020 & 19.05.2020 \\
+				Abschluss 1 & Bugfixes, Refactoring und Dokumentation & 08.05.2020 & 19.05.2020\\
+				Abschluss 2 & Fertigstellung Schlussbericht & 20.05.2020 & 28.04.2020\\
+				\bottomrule
+			\end{tabularx}
+			\caption{Projektiterationen}
+		\end{table}
 
 	\subsection{Meilensteine}
-		\begin{tabularx}{0.9\linewidth}{lllX}
-			\toprule
-			Nr & Bezeichnung & Termin & Beschreibung \\
-			\midrule
-			M1 & Projektplan & So 01.03.2020 & Grundentwurf der Requirements, Risikoanalyse \& -management, Projektorganisation, Managementabläufe, Infrastrukturentwurf, Qualitätsmassnahmen Grundentwurf.\\
-			\midrule
-			M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
-			\midrule 
-			M3 & Prototyp & So 05.04.2020 & Architektur festgeleg, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
-			\midrule
-			M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
-			\midrule
-			M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
-			\midrule
-			M6 & Projektabgabe & Do 28.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
-			\bottomrule
-		\end{tabularx}
+	Im Projekt wurden folgende Meilensteine festgelegt.
+		\begin{table}[!h]	
+			\begin{tabularx}{0.9\linewidth}{lllX}
+				\toprule
+				Nr & Bezeichnung & Termin & Beschreibung \\
+				\midrule
+				M1 & Projektplan & So 01.03.2020 & Grundentwurf der Requirements, Risikoanalyse \& -management, Projektorganisation, Managementabläufe, Infrastrukturentwurf, Qualitätsmassnahmen Grundentwurf.\\
+				\midrule
+				M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
+				\midrule 
+				M3 & Prototyp & So 05.04.2020 & Architektur festgeleg, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
+				\midrule
+				M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
+				\midrule
+				M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 60\% fertiggestellt.\\
+				\midrule
+				M6 & Projektabgabe & Do 28.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
+				\bottomrule
+			\end{tabularx}
+		\caption{Meilensteine}
+		\end{table}	
 
 	\subsection{Besprechungen/Protokolle}
 	\label{sec:dates}
 		Es wurden zwei Termine vereinbart, an welchen sich die Projektmitglieder treffen. 
 		Bei beiden Terminen stehen jeweils mindestens 6 Lektionen zur Verfügung.
 
-		\begin{tabularx}{0.9 \linewidth}{llX}
-			\toprule
-			Nr & Wann & Beschreibung \\
-			\midrule
-			1 & Dienstag 10:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
-			2 & Donnerstag 08:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
-			3 & Donnerstag 14:00 - 15:00 & Besprechung mit Projektbetreuern \\
-			4 & Samstag 14.03.2020 & Dokumentation und Risikoreduktion\\
-			5 & Samstag 28.03.2020 & Dokumentation und Risikoreduktion\\
-			6 & Samstag 11.04.2020 & Dokumentation und Risikoreduktion\\
-			7 & Samstag 25.04.2020 & Dokumentation und Risikoreduktion\\
-			8 & Samstag 09.05.2020 & Dokumentation und Risikoreduktion\\
-			9 & Samstag 23.05.2020 & Dokumentation und Risikoreduktion\\
+		\begin{table}[!h]
+			\begin{tabularx}{0.9 \linewidth}{llX}
+				\toprule
+				Nr & Wann & Beschreibung \\
+				\midrule
+				1 & Dienstag 10:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
+				2 & Donnerstag 08:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
+				3 & Donnerstag 14:00 - 15:00 & Besprechung mit Projektbetreuern \\
+				4 & Samstag 14.03.2020 & Dokumentation und Risikoreduktion\\
+				5 & Samstag 28.03.2020 & Dokumentation und Risikoreduktion\\
+				6 & Samstag 11.04.2020 & Dokumentation und Risikoreduktion\\
+				7 & Samstag 25.04.2020 & Dokumentation und Risikoreduktion\\
+				8 & Samstag 09.05.2020 & Dokumentation und Risikoreduktion\\
+				9 & Samstag 23.05.2020 & Dokumentation und Risikoreduktion\\
 
-			\bottomrule
-		\end{tabularx}
+				\bottomrule
+			\end{tabularx}
+			\caption{Termine}
+		\end{table}
+			
 
 \section{Risikomanagement}
 \label{sec:risikomanagement}
@@ -269,15 +291,20 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 
 	\subsection{Übersicht der Tools}
 		Für die Umsetzung des Projektes werden folgende Tools verwendet: \\[2ex]
-		\begin{tabularx}{0.9\linewidth}{lX}
-			\toprule
-			Bezeichung & Beschreibung \\
-			\midrule
-			Git & Versionsverwaltung \\
-			PyCharm & Entwicklungsumgebung \\
-			Visual Studio Code & Editor für die Dokumentation\\
-			\bottomrule
-		\end{tabularx}
+		\begin{table}[!h]
+			\begin{tabularx}{0.9\linewidth}{lX}
+				\toprule
+				Bezeichung & Beschreibung \\
+				\midrule
+				Git & Versionsverwaltung \\
+				PyCharm & Entwicklungsumgebung \\
+				Visual Studio Code & Editor für die Dokumentation\\
+				\bottomrule
+			\end{tabularx}
+		\caption{Tools im Projekt}
+		\end{table}
+		
+		
 
 \section{Qualitätsmassnahmen}
 	\subsection{Allgemein}
