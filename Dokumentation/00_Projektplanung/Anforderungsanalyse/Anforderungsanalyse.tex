@@ -80,12 +80,47 @@
 	\subsection{Use Case Diagramm}
 
 \section{Nichtfunktionale Anforderungen}
-
+	In diesem Kapitel behandeln wir die nichtfunktionalen Anforderungen an das Projekt.
+	Wir behandeln Aspekte und Anforderungen aus den Bereichen Performance, Qualität und Sicherheit.
+	
 	\subsection{Performance}
 
 	\subsection{Qualität}
+		\subsubsection{Funktionalität}
+		Netzwerkdevices können von vielen unterschiedlichen Herstellern kommen. 
+		Diese Hersteller verwenden unterschiedliche Syntax und Ausgabeformate. 
+		Um die Funktionalität bestmöglich sicherzustellen, wird die Herstellerunterstützung vorerst stark eingeschränkt. 
+		Vorgesehen sind vorerst Cisco Netzwerkdevices und Linux Hosts. \textcolor{red}{TODO Update}
+
+		\subsubsection{Zuverlässikeit}
+		Tests sind wichtig und nützlich, jedoch nicht businesskritisch bei einem möglichen
+		Ausfall. Es muss vor allem darauf geachtet werden, dass bei ssh Verbindungen ein
+		sauberes Exception Handling implementiert wird, falls beim Verbindungsaufbau oder
+		bei abgesetzten Kommandos etwas schief geht. Es müssen für gewisse Tests auch
+		Timeouts eingeplant werden, damit das Programm nicht unendlich lange blockieren
+		kann.\textcolor{red}{TODO Update}
+
+		\subsubsection{Benutzbarkeit}
+		Wir möchten ein schmales User Interface auf Konsolen Ebene bieten. Der Anwender
+		muss über Kenntnisse auf der Linux Shell verfügen. Mittels eingebauter Hilfe soll es
+		versierten Benutzern möglich sein, die Software zu verwenden. \textcolor{red}{TODO Update}
+
+		\subsubsection{Effizienz}
+		Die Software wird lokal betrieben. Die einzelnen Unit Tests laufen seriell ab. Die gesamt
+		benötigte Ausführungszeit ist also die Summe aller Ausführungszeiten einzelner Tests. \textcolor{red}{TODO Update}
+
+		\subsubsection{Wartbarkeit}
+		Eigene Test Cases sollen mit den notwendigen Kenntnissen selbst ergänzt werden können. Command-Mapping und Outputs müssen bekannt sein, dann ist eine Erweiterung
+		des Funktionsumfangs der Test Cases denkbar. \textcolor{red}{TODO Update}
+
+		\subsubsection{Übertragbarkeit}
+		Die Übertragbarkeit auf andere Plattformen oder Hersteller ist schwierig und vorerst
+		nicht vorgesehen. \textcolor{red}{TODO Update}
 
 	\subsection{Sicherheit}
+	Um auf Devices verbinden zu können, muss man sich auf diesen authentifizieren. Administrator Zugänge müssen deshalb best möglichst geschützt sein. Die Übertragung
+	muss verschlüsselt sein (SSH) und die Passwörter dürfen, wenn überhaupt, nur mittels
+	sicherem Hashverfahren abgelegt werden. \textcolor{red}{TODO Update}
 
 \section{Weitere Anforderungen}
 	\subsection{Schnittstellen}
