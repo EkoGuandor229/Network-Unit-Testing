@@ -9,10 +9,10 @@
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
 
 % Dokumenteninformationen ----------------------------------------------------
-\newcommand{\titel}{Protokoll XY}
+\newcommand{\titel}{Initial-Sitzung}
 \newcommand{\untertitel}{Studienarbeit \semester}
 \newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
-\newcommand{\datum}{XX.XX.XXXX}
+\newcommand{\datum}{20.02.2020}
 
 \newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
 
@@ -46,29 +46,35 @@
 
 \section*{Traktanden}
 \begin{enumerate}
-    \item Traktand 1
+    \item Definition der Use-Cases
+    \item Liste der abzugebenden Dokumenten per Meilenstein
+    \item Grösse, Art und Definition des zu testenden Netzwerks
+    \item Liste der zu bearbeitenden Protokollen
+    \item Testkaskadierung (Ping -> Traffic) sinvoll/erwünscht?
+    \item Ist ein privates GitHub Repository nötig?
+    \item Art der Abgabe (Form, etc.)
 \end{enumerate}
 
 \section*{Beschlüsse}
 \begin{itemize}
-    \item Beschluss 1
+	\item Der primäre Use-Case ist, ein Tool zu entwickeln, bei dem ein User (Network Engineer, -Administrator oder -Techniker) Tests spezifizieren kann, welche dann auf einem belebigen Netzwerk automatisiert ausgeführt werden. Hierbei sollte auf eine gute Abstraktion geachtet werden.
+	\item In erster Linie soll eine Definitionssprache für Tests ausgearbeitet werden, die als Abstraktionslayer zwischen der Testautomationssoftware und der Hardware dient.
+	\item Die Dokumente und die Abgabe werden gemäss der von der HSR zur Verfügung gestellten Vorlage vorgenommen.
+	\item Die Grösse, Art und Definition des zu testenden Netzwerks soll keine Rolle spielen. 
+	\item Die Reihenfolge, in der die Netzwerkprotokolle während der Arbeit umgesetzt werden, sind im Kontext der Arbeit nebensächlich. Die Autoren können selber bestimmen, welche Protokolle in welcher Reihenfolge abgearbeitet werden.
+	\item Testkaskadierung, d.H. die Abarbeitung der Test in logischen Gruppen, ist Bestandteil der Requirements und wird in der Analyse berücksichtigt.
+	\item Das GitHub Repository wird als öffentliches Repository mit einer OpenSource-Lizenz erstellt.
+	\item Es sollte eine History (Logs) erstellt werden, bei welcher man über die letzten Tage alle Testdurchläufe mit Resultaten ansehen kann.
 \end{itemize}
 
 \section*{Offene Punkte}
-\begin{tabularx}{0.9\linewidth}{Xl}
+\begin{tabularx}{0.9\linewidth}{Xll}
 	\toprule
-	Was & Verantwortlicher \\
+	Was & Verantwortlicher & Datum \\
 	\midrule
-	OffenerPunkt & Zuständiger \\
-	\bottomrule
-\end{tabularx}
-
-\section*{Kommende Abwesenheiten}
-\begin{tabularx}{0.9\linewidth}{lllX}
-	\toprule
-	Wer & Von & Bis & Grund \\
-	\midrule
-	Person & Dat1 & Dat2 & Deshalb \\
+	GitHub Repository gemäss Beschlüssen anpassen & Mike Schmid & 25.02.2020 \\
+	Projektplanung erstellen & Janik Schlatter, Mike Schmid & 27.02.2020 \\
+	Mit Analyse der zu verwendenden Technologien beginnen & Janik Schlatter, Mike Schmid & 27.02.2020 \\
 	\bottomrule
 \end{tabularx}
 
