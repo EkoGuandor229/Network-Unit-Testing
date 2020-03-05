@@ -1,0 +1,7 @@
+---
+# Pings the own ip-address for demonstration
+- name : Ping myself
+  command : Connectivity
+  parameter : [152.96.18.175]
+  operator : '='
+  expected : True
