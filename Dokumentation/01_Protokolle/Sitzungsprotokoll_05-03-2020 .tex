@@ -1,0 +1,75 @@
+\documentclass[
+	ngerman,
+	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
+	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
+]{scrartcl}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+
+% Dokumenteninformationen ----------------------------------------------------
+\newcommand{\titel}{Sitzung Analyse 2}
+\newcommand{\untertitel}{Studienarbeit \semester}
+\newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
+\newcommand{\datum}{05.03.2020}
+
+\newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
+
+\newcommand{\betriebLogo}{\vorlagenOrdner/Bilder/logo}
+
+% Konfiguration -------------------------------------------------------------
+\input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
+\input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Protokoll} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
+
+\begin{document}
+\pagenumbering{arabic}
+\begin{center}
+    \LARGE \textbf{\titel} \\[2ex]
+    \large \datum \\[2ex]
+\end{center}
+
+% Inhalt ---------------------------------------------------------------------
+\section*{Sitzungsteilnehmer}
+\begin{tabularx}{0.9\linewidth}{Xl}
+	\toprule
+	Wer & Email \\
+	\midrule
+	Mike Schmid & \scriptsize \url{mschmid@hsr.ch} \\
+	Janik Schlatter & \scriptsize \url{jschlatt@hsr.ch} \\
+	Beat Stettler & \scriptsize \url{beat.stettler@hsr.ch} \\
+	Urs Baumann & \scriptsize \url{urs.baumann@hsr.ch} \\
+	\bottomrule
+\end{tabularx}
+
+\section*{Traktanden}
+\begin{enumerate}
+    \item Besprechung Technologien
+    \item Besprechung Anforderungsanalyse
+    \item Besprechung Toplogie des Testnetzwerks
+\end{enumerate}
+
+\section*{Beschlüsse}
+\begin{itemize}
+	\item Das Projekt wird mit Nornir umgesetzt.
+	\item Es wird mit einer virtuellen Topologie gearbeitet.
+	\item Als erste Schnittstelle zwischen der Hardware und der Sotware soll mit Restconf/Netconf gearbeitet werden.
+\end{itemize}
+
+\section*{Topologie}
+	Aus dem Meeting folgte folgende Konfiguration mit OSPF: \\
+	\includegraphics[scale=0.5]{\vorlagenOrdner/Bilder/Topologie}
+
+\section*{Offene Punkte}
+\begin{tabularx}{0.9\linewidth}{Xll}
+	\toprule
+	Was & Verantwortlicher & Datum \\
+	\midrule
+	 Anforderungsanalyse & Mike Schmid, Janik Schlatter & 12.03.2020 \\
+	 Topologie Diagramm & Janik Schlatter & 10.03.2020 \\
+	\bottomrule
+\end{tabularx}
+
+\end{document}
