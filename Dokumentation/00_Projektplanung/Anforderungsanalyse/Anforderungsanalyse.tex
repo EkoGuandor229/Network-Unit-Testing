@@ -67,17 +67,41 @@
 			\toprule
 			Person & Beschreibung & Technisches Wissen \\
 			\midrule
-			Net-Admin & Der Net-Administrator ist der Chef über das ganze Netzwerk und trägt die ganze Verantwortung darüber. & Der Net-Administrator hat grundlegendes Wissen über Python.\\
+			Net-Admin & Der Netzwerk-Administrator ist der Chef über das ganze Netzwerk und trägt die ganze Verantwortung darüber. & Der Netzwerk-Administrator hat grundlegendes Wissen über Python.\\
 			\midrule
-			Net-Engineer & Der Net-Engineer ist die Person, welche das Netwerk aufgesetzt hat und es am laufen hält. & Der Net-Engineer hat wissen über Python und sollte im Stande sein, das Programm in Betrieb zu nehmen. \\
+			Net-Engineer & Der Netzwerk-Engineer ist die Person, welche das Netwerk aufgesetzt hat und es am laufen hält. & Der Netzwerk-Engineer hat wissen über Python und sollte im Stande sein, das Programm in Betrieb zu nehmen. \\
 			\midrule
-			Net-Techniker & Der Net-Techniker unterstützt den Net-Engineer bei der Wartung und erledigt den Support. & Der Net-Techniker hat kein wissen über Python. Er ist nur im Stande das Programm zu benutzen, aber nicht aufzusetzen. \\
+			Net-Techniker & Der Netzwerk-Techniker unterstützt den Netzwerk-Engineer bei der Wartung und erledigt den Support. & Der Netzwerk-Techniker hat kein wissen über Python. Er ist nur im Stande das Programm zu benutzen, aber nicht aufzusetzen. \\
 			\bottomrule
 		\end{tabularx}
 
 	\subsection{Use Cases Brief}
+		\subsubsection{Tests CRUD}
+			Der User kann Tests mit der definierten Sprache erstellen.
+
+		\subsubsection{Device erfassen}
+			Für einen Test sind ein- oder mehrere Devices notwendig. Devices haben Eigenschaften
+			wie Beispielsweise Name, IP-Adresse, Device-Typ (Router, Switch,...) und Login Daten.
+			Diese Devices müssen mittels einem Setup definiert werden.
+
+		\subsubsection{Command erfassen}
+			Sobald man ein Device erfasst hat, möchte man Kommandos auf diesem ausführen.
+			Dies könnten beispielsweise show-Befehle oder andere Programme zum Senden von
+			Daten sein. Diese Kommandos sind als Queries auf die Devices zu verstehen.
+
+		\subsubsection{Ergebnis erfassen}
+			Sobald Devices und Commands erfasst wurden, kann nun das 
+			erwartete Ergebnis formuliert werden.
+
+		\subsubsection{Tests ausführen}
+			Ein fertig formulierter Test kann ausgeführt werden. Mit diesem Vorgang wird die
+			Verbindung zum Device aufgebaut und das im Test definierte Kommando ausgeführt.
+
+		\subsubsection{Logs}
+			Die Auswertung der jeweiligen Durchführung der Tests wird in einem Logging gespeichert, welches der User jederzeit ansehen kann.
 
 	\subsection{Use Case Diagramm}
+		\includegraphics[scale=0.5]{\vorlagenOrdner/Bilder/UseCaseDiagram}
 
 \section{Nichtfunktionale Anforderungen}
 	In diesem Kapitel behandeln wir die nichtfunktionalen Anforderungen an das Projekt.
@@ -135,6 +159,5 @@
 		\end{tabularx}
 
 	\subsection {Randbedingungen}
-
 
 \end{document}
