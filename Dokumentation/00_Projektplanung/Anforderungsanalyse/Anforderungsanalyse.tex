@@ -105,41 +105,86 @@
 
 \section{Nichtfunktionale Anforderungen}
 	In diesem Kapitel behandeln wir die nichtfunktionalen Anforderungen an das Projekt.
-	Wir behandeln Aspekte und Anforderungen aus den Bereichen Performance, Qualität und Sicherheit.
+	Es werden Aspekte und Anforderungen aus den Bereichen Änderbarkeit, Benutzbarkeit, Effizienz, Zuverlässigkeit, Betriebbarkeit und Sonstige Qualitätsanforderungen.
+	Die jeweiligen Aspekte werden in ihren Unterkapiteln genauer beschrieben.
+	Es werden mögliche Szenarien beschrieben, die in der Erstellung oder dem Betrieb der Software auftreten können.
+
+	\subsection{Änderbarkeit}
+		Aufwand, der zur Durchführung von vorgegebenen Änderungsarbeiten benötigt wird.
+		Unter Änderungen gehen Korrekturen, Anpassungen oder Veränderungen der Umgebung, Anforderungen oder funktionalen Spezifikation.
+		Gem. ISO 9126 gehören zur Änderbarkeit folgende Teilmerkmale:
+		\subsubsection{Analysierbarkeit}
+			Aufwand, der benötigt wird, um das System zu verstehen, z.B. um Ursachen von Versagen oder Mängel zu diagnostizieren oder Änderungen zu spezifizieren.
+
+		\subsubsection{Modifizierbarkeit}
+			Wie leicht lässt sich das System anpassen, um Verbesserungen oder Fehlerbeseitigungen durchzuführen.
+
+		\subsubsection{Stabilität}
+			Wahrscheinlichkeit, dass mit Änderungen unerwartete Nebenwirkungen auftreten.
+
+		\subsubsection{Testbarkeit}
+			Wie gross wird der Aufwand, bei Änderungen die Software zu prüfen.
+
+		\subsubsection{Szenario: Neue Netzwerkschnittstelle}
+			Wenn zum bestehenden System eine neue Netzwerkschnittstelle definiert werden soll, so muss die dafür notwendige Software innerhalb von einer Arbeitswoche entwickelt, integriert und in Betrieg genommen werden können.
+
+			\minisec{Geschäftsziele}
+				Flexibilität und Reaktionsfähigkeit bei Änderungswünschen
+
+			\minisec{Auslöser}
+				Entwickler möchte für eine nicht vorhandene Netzwerkschnittstelle eine Erweiterung erstellen, z.B. Einbindung von OpenConfig.
+
+			\minisec{Reaktion}
+				Betreiber der Software können gem. ihren eigenen Anforderungen an die Netzwerkschnittstellen auf Basis vordefinierter Erweiterungspunkte das System erweitern.
+
+			\minisec{Zielwert}
+				Erweiterungen der Netzwerkschnittstellen sind innerhalb von 40 Personenstunden umsetzbar
+
+		\subsubsection{Szenario: Verständlichkeit von generiertem Code}
+			Generierter Code für die Testsuites und Testfälle ist leicht verständlich und manuell anpassbar.
+
+			\minisec{Qualitätsziele}
+				Verständlichkeit, Testbarkeit, Modifizierbarkeit
+
+			\minisec{Geschäftsziel(e)}
+				Tester können den generierten Code für die Testsuites und die Testfälle leicht verstehen und ihren eigenen Bedürfnissen anpassen.
+
+			\minisec{Reaktion}
+				Testcode (Python pytest-Code) für bestimmte Teile des Systems wird durch den Test-Generator in möglichst einfacher Form erzeugt.
+
+			\minisec{Zielwert}
+				Ein Tester kann den generieten Quellcode fü einen Testfall in weniger als 30 Minuten verstehen und einfache Änderungen daran vornehmen.
+
+		\subsection{Scenario: Schnelle Fehlerlokalisierung}
+			Die Ursache von fehlgeschlagenen Tests (Software-Unittests) lässt sich in kurzer Zeit lokalisieren.
+
+			\minisec{Geschäftsziele}
+				Kurze Fehlerbehebungszeiten, Änderbarkeit, geringes Risiko bei Änderungen
+
+			\minisec{Reaktion}
+				Wenn ein Test fehlschlägt, kann ein Entwickler aufgrund von Fehler- und/oder Log-Nachrichten die Ursache in kurzer Zeit lokalisieren.
+
+			\minisec{Zielwert}
+				Fehlerlokalisierung findet durchschnittlich in unter 10 Minuten statt.
 	
-	\subsection{Performance}
+	\subsection{Benutzbarkeit}
+		Zeitlicher Aufwand, der für die Erlernung der Benutzung des Programms benötigt wird. Die User werden hierfür in spezifische Nutzergruppen mit festgelegten Fähigkeiten unterteilt.
+		Teilmerkmale:
+		
+		\subsubsection{Verständlichkeit}
+			Aufwand für den Nutzer, die Konzepte und Menüführung der Anwendung zu verstehen.
 
-	\subsection{Qualität}
-		\subsubsection{Funktionalität}
-		Netzwerkdevices können von vielen unterschiedlichen Herstellern kommen. 
-		Diese Hersteller verwenden unterschiedliche Syntax und Ausgabeformate. 
-		Um die Funktionalität bestmöglich sicherzustellen, wird die Herstellerunterstützung vorerst stark eingeschränkt. 
-		Vorgesehen sind vorerst Cisco Netzwerkdevices und Linux Hosts. \textcolor{red}{TODO Update}
+		\subsubsection{Erlernbarkeit}
+			Aufwand für den User, sich ohne Vorwissen in das System einzuarbeiten.
 
-		\subsubsection{Zuverlässikeit}
-		Tests sind wichtig und nützlich, jedoch nicht businesskritisch bei einem möglichen
-		Ausfall. Es muss vor allem darauf geachtet werden, dass bei ssh Verbindungen ein
-		sauberes Exception Handling implementiert wird, falls beim Verbindungsaufbau oder
-		bei abgesetzten Kommandos etwas schief geht. Es müssen für gewisse Tests auch
-		Timeouts eingeplant werden, damit das Programm nicht unendlich lange blockieren
-		kann.\textcolor{red}{TODO Update}
+		\subsubsection{Bedienbarkeit}
+			Aufwand für den Benutzer, die Anwendung zu bedienen.
 
-		\subsubsection{Benutzbarkeit}
-		Wir möchten ein schmales User Interface auf Konsolen Ebene bieten. Der Anwender
-		muss über Kenntnisse auf der Linux Shell verfügen. Mittels eingebauter Hilfe soll es
-		versierten Benutzern möglich sein, die Software zu verwenden. \textcolor{red}{TODO Update}
+		\subsubsection{Szenario: Einfachheit der Testdefinitionen}
+			Die Definitionen von Tests in YAML sind so aufgebaut, dass ein User in kurzer Zeit die Struktur und den Aufbau versteht und eigene Tests implementieren kann.
+			\minisec{Geschäftsziele}
+			\textcolor{red}{TODO FINISH ZHIS}
 
-		\subsubsection{Effizienz}
-		Die Software wird lokal betrieben. Die einzelnen Unit Tests laufen seriell ab. Die gesamt
-		benötigte Ausführungszeit ist also die Summe aller Ausführungszeiten einzelner Tests. \textcolor{red}{TODO Update}
-
-		\subsubsection{Wartbarkeit}
-		Eigene Test Cases sollen mit den notwendigen Kenntnissen selbst ergänzt werden können. Command-Mapping und Outputs müssen bekannt sein, dann ist eine Erweiterung
-		des Funktionsumfangs der Test Cases denkbar. \textcolor{red}{TODO Update}
-
-		\subsubsection{Übertragbarkeit}
-		Die Übertragbarkeit auf andere Plattformen oder Hersteller ist schwierig und vorerst
-		nicht vorgesehen. \textcolor{red}{TODO Update}
 
 	\subsection{Sicherheit}
 	Um auf Devices verbinden zu können, muss man sich auf diesen authentifizieren. Administrator Zugänge müssen deshalb best möglichst geschützt sein. Die Übertragung
