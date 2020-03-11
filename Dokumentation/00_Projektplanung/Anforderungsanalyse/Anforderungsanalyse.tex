@@ -61,6 +61,102 @@ Dieses Dokument beschreibt die Personas, die Use-Cases und die nichtfunktionalen
 \renewcommand\section{\clearpage\stdsection}
 
 % Inhalt ---------------------------------------------------------------------
+\section{Allgemeine Übersicht}
+	\subsection{Generell}
+		Die Applikation soll das Testing im Netzwerkbereich automatisieren. \\
+		\textcolor{red}{TODO Genereele Beschreibung des Projektes} \\
+		In den folgenden Abschnitten wird auf die einzelnen Komponente des Projektes eingegangen.
+	
+	\subsection{Devices}
+		Für einen Test sind ein, oder mehrere Devices notwendig. Devices sind Geräte im Netzwerk wie z.B. Router und Switches.
+		Um einen Ping abzusetzen braucht es einen Sender und einen Empfänger.
+		Um diese Tests durchführen zu können muss der Benutzer diese Devices hinzufügen, bearbeiten und löschen können. 
+
+		\subsubsection{Devices erfassen}
+			Es bestehen mehrere Möglichkeiten ein Device zu erfassen. Dies wurde in mehrere Stufen unterteilt:\\
+
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Stufe & Beschreibung\\
+				\midrule
+				Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt. Der Benutzer muss hierbei alle Devices eines Netzwerks manuell in ein File übertragen. Jedes Device wird in einem File gespeichert und diese Files werden in einem Repository gespeichert damit, falls das Netzwerk sich einmal ändert, die Devices einach erweitert/angepasst werden können. Das Programm liest danach alle erfassten Devices ein. \\
+				\midrule
+				Stufe Formular & Der Benutzer kann mit Hilfe eines Formulares der Benutzeroberfläche die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er muss nur noch die Devices erfassen.\\
+				\midrule
+				Stufe Automatisiert & Die Devices werden automatisch aus dem Netzwerk ausgelesen und hinzugefügt. Der Benutzer muss keine weiteren manuellen Device Eingaben betätigen. You know Mgic and Stuff. \\
+				\bottomrule
+			\end{tabularx}
+
+		\subsubsection{Device Informationen}
+			Je speziefischer die Tests des Programmes sind desto mehr Informationen eines einzelnen Devices werden benötigt.
+			Die Informationen der Devices werden in Kategorien unterteilt: \textcolor{green}{Basic} , \textcolor{yellow}{Advanced} , \textcolor{red}{Eskalation}.
+			Mit diesen Kategorien wird spezifiziert, wie weit fortgeschritten die Tests sind, die man ausführen möchte. \\
+
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Property & Beschreibung\\
+				\midrule
+				\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden um dort die Befehle für die Tests auszuführen. \\	
+				\textcolor{green}{IP Adresse} & Die Ip Adresse eines Devices wird benötigt um zum Beispiel einen Ping Test zu machen. \\
+				\textcolor{green}{Seriennummer} & Spanning Tree bei Switches als deciding Faktor \\
+				\midrule
+				\textcolor{yellow}{OSPF Neighbors} & OSPF \\
+				\midrule
+				\textcolor{red}{wiiteri eskalation} & wiiteri eskalation \\				
+				\bottomrule
+			\end{tabularx}
+
+			\textcolor{red}{TODO complete Table}
+
+		\subsubsection{Device Gruppen}
+			Die Devices können in Gruppen unterteilt werden. Somit kann man zum Beispiel alle Devices in einem Gebäude in die Gruppe: 'Gebäude 1' schieben.
+			Wenn der Benutzer später einen Test erstellt kann er so direkt alle Devices des Gebäudes auswählen. 
+
+	\subsection{Tests}
+		Dies sind die Tests, die vom Benutzer definiert werden und danach auf dem Netzwerk ausgeführt werden.
+		
+		\subsubsection{Test Kategorien/Typen}
+			Die Tests werden nach Kategorien unterschieden (wie zum Beispiel Connectivity). Diese Kategorien werden auf verschiedene Protokolle und Funktionalitäten unterteilt, um es dem Benutzer möglichst zu vereinfachen.
+			Ein wichtiger Punkt der Test Kategorien ist, dass Benutzer in Zukunft möglichst einfach weitere Kategorien/Testarten hinzufügen können.
+
+		\subsubsection{Test erfassen}
+			Auch hier gibt es wieder mehrere Stufen, wie die Tests erfasst werden können.\\
+
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Stufe & Beschreibung\\
+				\midrule
+				Stufe Manuell & Der Benutzer erfasst die Tests komplett manuell in einem File. In diesem File muss der Benutzer die Testart, die beteiligten Devices und weitere Optionen des Testes festlegen. \\
+				\midrule
+				Stufe Formular & Das Programm stellt ein Formular zur Verfügung, welches die ganze Testerfassung Formular vereinfacht. Der Benutzer muss sich hierbei den Test nur noch über die Benutzeroberfläche zusammenklicken. Das Programm speichert danach den Test automatisch in einem File. \\
+				\bottomrule
+			\end{tabularx}
+
+		\subsubsection{Ergebniss erfassen}
+			Bei gewissen Tests wird ein speziefisches Ergebnis erwartet. Dieses Ergebnis kann der Benutzer bei der Testerfassung eingeben, falls der ausgewählte Testtyp ein Ergebnis verlangt.
+
+		\subsubsection{Testreihenfolge}
+			Die Tests, die ein Benutzer erfasst können mit Hilfe von Tags in Gruppen unterteilt werden. Mithilfe dieser Gruppen kann der Benutzer später die Reihenfolge der Testdurchführung bestimmen.
+	
+
+		\subsubsection{Test Durchführung}
+			Wenn der Benutzer die Durchführung startet kann er mit Hilfe der Test-Gruppen die Reihenfolge der Tests bestimmen. Der Benutzer kann zudem noch bestimmen welche Tests synchron und welche asynchron durchgeführt werden.
+			Das Programm greift danach über die Netzwerkschnittstelle auf die Devices zu und führt die Tests in der angegebenen Reihenfolge durch.
+
+	\subsection{Netzwerkschnitstelle}
+		Die Netzwerkschnittstelle ist so gelöst, dass mit minimalen Aufwand jede beliebeige Technologie verwendet werden kann, um eine Connection zu den Devices aufzubauen.
+
+	\subsection{Logging}
+	Die Auswertung der jeweiligen Durchführung der Tests wird in einem Testreport gespeichert, welcher der User jederzeit einsehen kann, 
+	um sich einen Überblich über die Historie vergangener Testdurch-führungen zu verschaffen. Diese Testreports werden in eine Repository gespeichert.
+
+
+
+
+
+
+
+
 \section{Use Cases}
 	\subsection{Personas}
 		\begin{tabularx}{\textwidth}{lXX}
