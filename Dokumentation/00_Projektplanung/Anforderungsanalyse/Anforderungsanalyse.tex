@@ -65,36 +65,80 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 \renewcommand\section{\clearpage\stdsection}
 
 % Inhalt ---------------------------------------------------------------------
-\section{Allgemeine Übersicht}
+\section{Übersicht Problemstellung}
 	\subsection{Generell}
 		Bei der Entwicklung von Netzwerkumgebungen werden auch in modernen Systemen die Überprüfungen und Tests der Konfigurationen meistens von Hand vorgenommen.
 		Die Applikation soll ein Framework zur Verfügung stellen, mit dem Netzwerke automatisiert getestet werden können, vergleichbar mit Unit-Tests in der Software-Entwicklung.
 		Die folgenden Abschnitte sollen aufzeigen, welche Herausforderungen an ein solches System gestellt werden und wie ein Framework damit umgehen könnte.
 		Dazu wurden die Kern-Akteure in einem Netzwerk identifiziert und deren Funktionalität und gegenseitige Abhängigkeiten so generalisiert wie möglich formuliert, um auf dieser Basis die Testsoftware zu entwerfen.
 		Es wurden Annahmen bezüglich der Namensgebung getroffen. Beispielsweise sind die Bezeichnungen der einzelnen Netzwerk-Techniker überall ein wenig anders formuliert.
+		\newpage
 
 	\subsection{Akteure im aktuellen System}
-		\begin{tabularx}{\textwidth}{lX}
+	\label{Akteure}
+	Die hier beschriebenen Akteure sind in einem herkömmlichen Netzwerksystem anzutreffen. 
+		
+	\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Akteur &  Beschreibung \\
 			\midrule
 			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. In der Praxis oft auch als Network-Engineer bezeichnet. Im zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. \\ 
 			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
 			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. Ein Netzwerk Administrator hat, je nach grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. \\
-			Netzwerk-User & Benutzer der Netzwerkumgebung. User müssen das Netzwerk verwenden können ohne dass ihr Arbeitsfluss gestört wird. Das System soll unabhängig von Netzwerkbenutzern ohne Netzwerkkenntnisse entwickelt werden, da User üblicherweise nur Nutzträger des Netzwerks sind, darauf aber kaum einfluss haben. Sie wenden sich mit Bedürfnissen an die Netzwerkbetreiber. \\
+			Netzwerk-User & Benutzer der Netzwerkumgebung. User müssen das Netzwerk verwenden, aber nicht dessen Konfigurationen anpassen können. \\
 			\midrule
 			Netzwerk-Gerät  & Ein Netzwerkgerät kann aus Hardware wie Switch, Router oder Server bestehen oder Virtuell als Software implementiert sein. Im Zuge der Arbeit werden Netzwerkgeräte auch als Netzwerk-Devices oder einfach Device bezeichnet. Typischerweise haben Devices eine Statische Konfiguration und einen Zustand zur Laufzeit. In den kommenden Kapiteln wird genauer auf Netzwerkgeräte eingegangen. \\
-			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
 			Repository/Inventar &  Im Inventar werden die Unterschiedlichen Devices mit den für den Betrieb wichtigsten Parametern abgelegt. Das Inventar kann in digitaler Form als Repository, als File auf einem Ordner/Computer, oder analog in einem Order abgelegt sein. Das Inventar wird benötigt, um die aktuellen Konfigurationen, die physische Position des Geräts oder sonstige für den Betrieb relevanten Informationen zu dokumentieren. \\
 			\bottomrule
 		\end{tabularx}
+		\newpage
 
 	\subsection{Zusätzliche Akteure im zu entwickelnden System}
+	Diese Akteure müssen zusätzlich zu den im Abschnitt \ref{Akteure} beschriebenen Entitäten in einem Netzwerk, welches ein System für das automatisierte Testen beinhaltet, auftreten.
+
 		\begin{tabularx}{\textwidth}{lX}
+			\toprule
 			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
-			Testdefinitionssprache & 
+			Testdefinitionssprache & Kann auch Testbeschreibungssprache genannt werden. Testbeschreibungen sollten zwischen dem Systemmodell und den low-level-Testcases angelegt werden und möglichst einfach und allgemein aufgebaut sein. Eine Testdefinition beschreibt unabhängig von der zu verwendeten Programmiersprache oder ausführenden Plattform die einzelnen Testfälle. \\
+			Testreport & Ausgabewerte der durchgeführten Tests. Reports sollten so strukturiert sein, dass ein Netzwerk-Techniker mit wenig Aufwand erkennen kann, welche Tests erfolgreich verlaufen sind, welche nicht erfolgreich waren und was mögliche Ursachen dafür waren. Testreports können in der Dokumentenablage des ausführenden Systems oder in einem Repository abgelegt werden und benötigen neben den Testfällen im Minimum noch ein Durchführungsdatum und -Uhrzeit. \\
+			\midrule
+			Kommunikationskanal & Der Kommunikationskanal verbindet das zu testende Netzwerk mit dem Testprogramm. Abhängig vom Netzwerk geschieht dies über Kabelverbindungen oder Kabellos. Es gibt verschiedene Technologien, die die Kommunikation über das Medium ermöglichen und je nach Schnittstelle unterschiedliche Ergebnisse und -formate liefert. \\
+			Netzwerktest & Werden meistens von Hand oder über Scripts ausgeführt. Ein automatisierter Netzwerktest sollte hypothetisch ad-hoc nach jeder Konfigurationsänderung durchgeführt werden um zu validieren, dass das Netzwerk noch wie gewollt läuft. \\
+			\bottomrule
 		\end{tabularx}
+		\newpage
+
+	\subsection{Herausforderungen}
+	Das Testen von Netzwerken ist ein komplexes Unterfangen. 
+	Die Netzwerkkonfiguration ändert sich zur Laufzeit dauernd, um sich an Änderungen von einzelnen Geräten anzupassen.
+	User treten dem Netzwerk bei oder verlassen dieses und Netzwerkgeräte passen über dynamische Protokolle die Verbindungen an um eine möglichst performante Verbindung zu ermöglichen oder um Fehler/Ausfälle zu korrigieren.
+	Weiterhin können spezielle Konfigurationen wie die Priorisierung von verschiedenen Kommunikationsarten z.B. Internettelefonie (VoIP), auch Quality of Service (QoS) genannt, im System vorkommen, was die genaue Erfassung des Ist-Zustandes noch komplizierter macht.
+	In diesem Kontext muss ein Netzwerk-Testsystem nicht nur die Gerätekonfiguration beim Starten, sondern auch die dynamische Laufzeitkonfiguration berücksichtigen.
 	
+	\subsection{Beschreibung Software-Unit-Testing}
+	Das Testen von Software kann grob in zwei Kategorien unterteilt werden, statisch und dynamisch. 
+	Darüber hinaus gibt es weitere Unterteilungen, je nachdem, was in welchem Umfang wie getestet werden soll. Die Unittests sind dabei in der dynamischen Kategorie angesiedelt und dienen der Verifikation der Software-Implementation.
+
+	Statische Tests umfassen Code- und Design-Reiview, Code-Guidelines und formale Methoden.
+
+	Dynamische Tests sind üblicherweise Softwarebestandteile, die andere Komponenten mit verschiedenen Methoden auf die korrekte Ausführung testen. 
+
+		\subsubsection{Anforderungen an Softwaretests}
+		Softwaretests müssen folgende Anforderungen erfüllen:
+
+		Die Tests müssen geplant sein und es muss ein Test Plan existieren.
+
+		Tests müssen Systematisch spezifiziert sein.
+
+		Die Resultate der Tests müssen dokumentiert werden.
+
+		Nach Möglichkeit sollen Tests automatisch ausgeführt werden.
+
+		Tests müssen reproduzierbar und nachvollziehbar sein, d.H. sie müssen sich im Debugger Schritt für Schritt durchführen lassen.
+		
+		Wie sich diese Anforderungen in einem Netzwerk-Testsystem umsetzen lassen, wird im Abschnitt \textcolor{red}{TODO add reference} behandelt.
+	\section{Detailbeschreibung Akteure}
+
 	\subsection{Devices}
 		Für einen Test sind ein, oder mehrere Devices notwendig. Devices sind Geräte im Netzwerk wie z.B. Router und Switches.
 		Um einen Ping abzusetzen braucht es einen Sender und einen Empfänger.
