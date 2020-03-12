@@ -37,14 +37,18 @@
 \pagenumbering{Roman}
 
 \section{Sinn und Zweck}
-Dieses Dokument beschreibt die Personas, die Use-Cases und die nichtfunktionalen Anforderungen an die Studienarbeit Nuts 2.0
+Dieses Dokument beschreibt die Anforderungen an die Studienarbeit Nuts 2.0.
+Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse und die nichtfunktionalen Anforderungen an das zu entwickelnde System.
+
 % Änderungsgeschichte
 \section*{Änderungsgeschichte}
 \begin{tabularx}{\textwidth}{llXl}
 	\toprule
 	Datum & Version & Änderung & Autor \\
 	\midrule
-	27.02.2020 & 1.0 & Initial Setup & Janik Schlatter \\
+	03.03.2020 & 1.0 & Initial Setup & Janik Schlatter \\
+	11.03.2020 & 1.0 & Fertigstellung für Meilenstein: Requirements & Janik Schlatter, Mike Schmid \\
+	12.03.2020 & 2.0 & Revision gem. Beschprechung vom 11.03.2020 & Janik Schlatter, Mike Schmid \\
 	\bottomrule
 \end{tabularx}
 \cleardoublepage
@@ -63,9 +67,33 @@ Dieses Dokument beschreibt die Personas, die Use-Cases und die nichtfunktionalen
 % Inhalt ---------------------------------------------------------------------
 \section{Allgemeine Übersicht}
 	\subsection{Generell}
-		Die Applikation soll das Testing im Netzwerkbereich automatisieren. \\
-		\textcolor{red}{TODO Genereele Beschreibung des Projektes} \\
-		In den folgenden Abschnitten wird auf die einzelnen Komponente des Projektes eingegangen.
+		Bei der Entwicklung von Netzwerkumgebungen werden auch in modernen Systemen die Überprüfungen und Tests der Konfigurationen meistens von Hand vorgenommen.
+		Die Applikation soll ein Framework zur Verfügung stellen, mit dem Netzwerke automatisiert getestet werden können, vergleichbar mit Unit-Tests in der Software-Entwicklung.
+		Die folgenden Abschnitte sollen aufzeigen, welche Herausforderungen an ein solches System gestellt werden und wie ein Framework damit umgehen könnte.
+		Dazu wurden die Kern-Akteure in einem Netzwerk identifiziert und deren Funktionalität und gegenseitige Abhängigkeiten so generalisiert wie möglich formuliert, um auf dieser Basis die Testsoftware zu entwerfen.
+		Es wurden Annahmen bezüglich der Namensgebung getroffen. Beispielsweise sind die Bezeichnungen der einzelnen Netzwerk-Techniker überall ein wenig anders formuliert.
+
+	\subsection{Akteure im aktuellen System}
+		\begin{tabularx}{\textwidth}{lX}
+			\toprule
+			Akteur &  Beschreibung \\
+			\midrule
+			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. In der Praxis oft auch als Network-Engineer bezeichnet. Im zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. \\ 
+			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
+			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. Ein Netzwerk Administrator hat, je nach grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. \\
+			Netzwerk-User & Benutzer der Netzwerkumgebung. User müssen das Netzwerk verwenden können ohne dass ihr Arbeitsfluss gestört wird. Das System soll unabhängig von Netzwerkbenutzern ohne Netzwerkkenntnisse entwickelt werden, da User üblicherweise nur Nutzträger des Netzwerks sind, darauf aber kaum einfluss haben. Sie wenden sich mit Bedürfnissen an die Netzwerkbetreiber. \\
+			\midrule
+			Netzwerk-Gerät  & Ein Netzwerkgerät kann aus Hardware wie Switch, Router oder Server bestehen oder Virtuell als Software implementiert sein. Im Zuge der Arbeit werden Netzwerkgeräte auch als Netzwerk-Devices oder einfach Device bezeichnet. Typischerweise haben Devices eine Statische Konfiguration und einen Zustand zur Laufzeit. In den kommenden Kapiteln wird genauer auf Netzwerkgeräte eingegangen. \\
+			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
+			Repository/Inventar &  Im Inventar werden die Unterschiedlichen Devices mit den für den Betrieb wichtigsten Parametern abgelegt. Das Inventar kann in digitaler Form als Repository, als File auf einem Ordner/Computer, oder analog in einem Order abgelegt sein. Das Inventar wird benötigt, um die aktuellen Konfigurationen, die physische Position des Geräts oder sonstige für den Betrieb relevanten Informationen zu dokumentieren. \\
+			\bottomrule
+		\end{tabularx}
+
+	\subsection{Zusätzliche Akteure im zu entwickelnden System}
+		\begin{tabularx}{\textwidth}{lX}
+			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
+			Testdefinitionssprache & 
+		\end{tabularx}
 	
 	\subsection{Devices}
 		Für einen Test sind ein, oder mehrere Devices notwendig. Devices sind Geräte im Netzwerk wie z.B. Router und Switches.
