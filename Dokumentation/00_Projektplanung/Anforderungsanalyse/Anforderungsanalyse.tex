@@ -75,7 +75,7 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 		\newpage
 
 	\subsection{Akteure im aktuellen System}
-	\label{Akteure}
+	\label{sec:Akteure}
 	Die hier beschriebenen Akteure sind in einem herkömmlichen Netzwerksystem anzutreffen. 
 		
 	\begin{tabularx}{\textwidth}{lX}
@@ -93,9 +93,9 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 		\end{tabularx}
 		\newpage
 
-	\subsection{Zusätzliche Akteure im zu entwickelnden System}
-	Diese Akteure müssen zusätzlich zu den im Abschnitt \ref{Akteure} beschriebenen Entitäten in einem Netzwerk, welches ein System für das automatisierte Testen beinhaltet, auftreten.
-
+	\subsection{Zusätzliche Entitäten im zu entwickelnden System}
+	Diese Entitäten müssen zusätzlich zu den im Abschnitt \ref{sec:Akteure} beschriebenen Akteuren in einem Netzwerk, welches ein System für das automatisierte Testen beinhaltet, auftreten.
+	
 		\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
@@ -137,7 +137,84 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 		Tests müssen reproduzierbar und nachvollziehbar sein, d.H. sie müssen sich im Debugger Schritt für Schritt durchführen lassen.
 		
 		Wie sich diese Anforderungen in einem Netzwerk-Testsystem umsetzen lassen, wird im Abschnitt \textcolor{red}{TODO add reference} behandelt.
-	\section{Detailbeschreibung Akteure}
+	
+\section{Detailbeschreibung Akteure}
+Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} genannt werden und ihre spezifischen Anforderungen an ein Testsystem sowie Einschränkungen, die vom System auf die Akteure gelten.
+	
+	\subsection{Personen}
+	Akteure interagieren mit dem zu entwickelnden System und hat in dessen Kontext eine Rolle und Ziele.
+	Akteure lassen sich in drei Kategorien unterteilen: 
+		
+		\begin{tabularx}{\textwidth}{lX}
+			\toprule
+				Primärer Aktor & Person oder Objekt, dessen ziele durch interaktion mit dem zu entwickelnden System erfüllt werden.\\
+				Unterstützender Akteur & Bietet dem System Services an, z.B. Techniksupport eines Herstellers.\\
+				Nebenaktor & Hat interesse am Verhalten des Systems oder zieht einen Nutzen daraus, ist aber nicht primär oder unterstützend. \\
+			\bottomrule
+		\end{tabularx}
+
+		\subsubsection{Netzwerk-Architekt}
+		
+			\paragraph{Rolle} ~\\
+			Primärer Aktor 
+
+			\paragraph{Ziele} ~\\
+			Verwalten von Devices in einem Inventar, 
+			Konfiguration automatisierter Tests, 
+			Durchführung der Tests, 
+			Sichten der Resultate,
+			Erweiterung des Testsystems
+			
+		\subsubsection{Netzwerk-Engineer}
+		
+			\paragraph{Rolle} ~\\
+			Primärer Aktor 
+
+			\paragraph{Ziele} ~\\
+			Verwalten von Devices in einem Inventar, 
+			Konfiguration automatisierter Tests, 
+			Durchführung der Tests, 
+			Sichten der Resultate
+			Erweiterung des Testsystems
+			\newpage
+
+		\subsubsection{Netzwerk-Administrator}
+
+			\paragraph{Rolle} ~\\
+			Primärer Aktor 
+			\paragraph{Ziele} ~\\
+			Verwalten von Devices in einem Inventar, 
+			Konfiguration automatisierter Tests, 
+			Durchführung der Tests, 
+			Sichten der Resultate
+
+		\subsubsection{User}
+
+			\paragraph{Rolle} ~\\
+			Nebenaktor 
+			\paragraph{Ziele} ~\\
+			Verwenden des Systems
+
+		\subsubsection{Einschränkungen}
+
+			\paragraph{User} ~\\
+			Für das zu entwickelnde System hat der User keinen Einfluss auf die Funktionalen Anforderungen. 
+			Er ist darauf angewiesen, dass das Netzwerk möglichst schnell und fehlerfrei funktioniert. 
+			In den Nichtfunktionalen Anforderungen wird auf diese Bedürfnisse eingegangen.
+
+			\paragraph{Kenntnisse der Netzwerk-Techniker} ~\\
+			Um Tests auf dem Netzwerk effektiv durchführen zu können, benötigen die primären Akteure einige Fähigkeiten:
+
+			Sie müssen wissen, wie sich das Netzwerk zur Laufzeit verhalten soll.
+
+			Tester müssen Benutzeraktivitäten gegenüber dem Netzwerk imitieren können.
+
+			Falls gewisse Devices nicht getestet werden können, müssen Tester deren Funktionalitäten bei bedarf gegenüber dem Netzwerk imitieren können.
+
+			Sie müssen wissen, was das Netzwerk als Reaktion auf ihre Aktivitäten macht.
+
+			Tester müssen in der Lage sein, den Fortschritt und die Resultate der Tests zu interpretieren und die Ursachen von gescheiterten Tests ausfindig machen.
+
 
 	\subsection{Devices}
 		Für einen Test sind ein, oder mehrere Devices notwendig. Devices sind Geräte im Netzwerk wie z.B. Router und Switches.
