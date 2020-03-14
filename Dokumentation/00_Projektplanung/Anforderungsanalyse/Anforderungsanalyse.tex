@@ -135,9 +135,7 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 		Nach Möglichkeit sollen Tests automatisch ausgeführt werden.
 
 		Tests müssen reproduzierbar und nachvollziehbar sein, d.H. sie müssen sich im Debugger Schritt für Schritt durchführen lassen.
-		
-		Wie sich diese Anforderungen in einem Netzwerk-Testsystem umsetzen lassen, wird im Abschnitt \textcolor{red}{TODO add reference} behandelt.
-	
+			
 \section{Detailbeschreibung Akteure}
 Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} genannt werden und ihre spezifischen Anforderungen an ein Testsystem sowie Einschränkungen, die vom System auf die Akteure gelten.
 	
@@ -320,49 +318,56 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		um sich einen Überblich über die Historie vergangener Testdurch-führungen zu verschaffen. 
 		Diese Testreports werden in einem Repository gespeichert und benötigen ein Durchführungsdatum und -Zeit.
 
-
-
-
-
-
-
-
 \section{Use Cases}
 	\subsection{Personas}
+	Personas lassen sich in zwei Gruppen aufteilen. Der Netzwerk-Architekt und Netzwerk-Engineer sind eine Gruppe. 
+	Sie sind in der Lage, Python Code zu verstehen und anzupassen. Sie werden in den Personas als Engineer zusammengefasst.
+	Der Netzwerk-Administrator gehört zur zweiten Gruppe und wird in den Personas als Administrator bezeichnet.
+	Es wird nicht von ihm erwartet, dass er am Python-Code des zu entwickelnden Systems etwas verändert.
+	Der Benutzer des Netzwerks bekommt keine eigene Perona. 
+	Er ist daran interessiert, das Netzwerk zu verwenden, nimmt aber auf dessen Funktionen keinen direkten Einfluss.
+
 		\begin{tabularx}{\textwidth}{lXX}
 			\toprule
 			Person & Beschreibung & Technisches Wissen \\
 			\midrule
-			Net-Admin & Der Netzwerk-Administrator hat die Verantwortung über das ganze Netzwerk & Er sollte in der Lage sein, Python-Code zu interpretieren und allenfalls zu erweitern.\\
+			Engineer & Hat fundierte Kenntnisse über das Netzwerk und dessen Zustände & Er versteht Python-Code und kann das zu entwickelnde System seinen Bedürfnissen anpassen.\\
 			\midrule
-			Net-Engineer & Der Netzwerk-Engineer ist die Person, welche das Netwerk betreibt, er setzt Änderungen und Erweiterungen um und betreibt im Fehlerfall Troubleshooting. & Der Netzwerk-Engineer sollte fundierte Python-Kenntnisse haben und in der Lage sein, das Programm bei Bedarf zu verändern. \\
-			\midrule
-			Net-Techniker & Der Netzwerk-Techniker unterstützt den Netzwerk-Engineer bei der Wartung und dem Betrieb des Netzwerks. & Der Netzwerk-Techniker hat, wenn überhaupt, nur geringe Kenntnisse über Python. Er soll, ohne Code zu schreiben, dazu in der Lage sein, das Programm auszuführen. \\
+			Administrator & Setzt Änderungen am Netzwerk um und hat Kenntnisse über die ihm zugeteilten Bereiche. & Es wird nicht davon ausgegangen, dass ein Administrator genügend Python-Kenntnisse hat, um am System etwas zu verändern.\\
 			\bottomrule
 		\end{tabularx}
+		\newpage
 
 	\subsection{Use Cases Brief}
-		\subsubsection{Tests CRUD}
-			Ein User kann Netzwerktests mit der definierten Sprache definieren. Er benötigt dazu Kenntnisse des Netzwerks und grundlegende Erfahrung in YAML.
+	Die Use-Cases beschreiben die Funktionalen Anforderungen an das zu entwickelnde System und dessen Komponenten.
 
-		\subsubsection{Device erfassen}
-			Für einen Test sind ein, oder mehrere Devices notwendig. Devices haben Eigenschaften wie Name, IP-Adresse, Device-Typ (Router, Switch,...) und Login Daten.
-			Diese Devices werden in einer eigenen Sektion in der Testdefinition erfasst.
 
-		\subsubsection{Command erfassen}
-			Sobald man ein Device erfasst hat, möchte man Kommandos auf diesem ausführen.
-			Dies könnten beispielsweise show-Befehle oder andere Befehle zum Senden von Daten sein. 
+		\subsubsection{Inventar CRUD}
+			Der Engineer oder der Administrator möchte die physischen und virtuellen Geräte und deren Konfigurationen in einem Inventar verwalten.
+			Das Inventar wird vom zu entwickelnden System verwendet um die Gerätekonfigurationen wie Zugangsdaten oder Herstellerinformationen abzurufen.
+			Es soll möglich sein, das Inventar möglichst automatisiert zu erstellen und Geräte in distinkte Gruppen zu kategorisieren.
 
-		\subsubsection{Ergebnis erfassen}
-			Sobald Devices und Commands erfasst wurden, können nun die zu erwartete Ergebnis formuliert werden. Diese sind als Soll-Werte zu interpretieren und werden vom Programm bei der Durchführung mit den Ist-Werten verglichen.
+		\subsubsection{Netzwerktest erfassen}
+			Ein Netzwerktest setzt sich zusammen aus den zu testenden Devices, Befehle, die auf den Devices ausgeführt werden, einem oder mehreren Kommunikationskanälen und einem Erwartungswert für das Ergebnis.
+			Diese informationen werden in einer Testdefinitionssprache gespeichert, welche so strukturiert sein muss, dass sie ein Softwaresystem einfach laden kann und soll trotzdem von Menschen interpretiert werden können.
+			Die Erfassung eines Netzwerktests soll so einfach wie möglich gehalten werden, damit Administratoren und Engineers effizient neue Tests spezifizieren können.
 
-		\subsubsection{Tests ausführen}
-			Ein fertig formulierter Test kann ausgeführt werden.
-			Dafür wird eine Verbindung zum Netzwerkgerät aufgebaut und das in der Testdefinition spezifizierte Kommando ausgeführt.
+		\subsubsection{Testausführung planen}
+			Themen, die in der Testausführung relevant sind, sind die Auswahl, welche Tests überhaupt ausgeführt werden sollen, die Reihenfolge der Tests, auf welchen Teil des Systems sie angewandt werden sollen und ob sie synchron oder asynchron durchgeführt werden.
+			Weitere Punkte wären das automatische durchführen von Tests zu spezifischen Zeiten oder Wochentagen und dass die Testkonfiguration gespeichert wird um sie später anzupassen.
+			Auch hier ist darauf zu achten, dass das zu entwickelnde System so aufgebaut ist, dass Engineers und Administrator effizient arbeiten können.
 
-		\subsubsection{Logging/Reports betrachten}
-			Die Auswertung der jeweiligen Durchführung der Tests wird in einem Testreport gespeichert, welchen der User jederzeit einsehen kann, um sich einen Überblich über die Historie vergangener Testdurchführungen zu verschaffen.
-
+		\subsubsection{Testergebnisse einsehen}
+			Nachdem ein Test durchgeführt wurde, soll ein Testresultat angezeigt werden.
+			In den Resultaten soll ersichtlich sein, welcher Test durchgeführt wurde, was der Test genau gemacht hat, welche Befehle auf welchen Devices ausgeführt wurde und wie das Ergebnis ist.
+			Die Testergebnisse sollen auf der Konsole/Benutzeroberfläche ersichtlich sein und zusätzlich in einem Testreport mit Datum und Uhrzeit gespeichert werden, damit die Historie des Netzwerks ermittelt werden kann.
+			Wenn Tests durch einen Fehler im zu entwickelnden System nicht durchgeführt werden kann, sollen alle anderen Tests nicht davon beeinflusst werden und das Ergebnis soll einen Vermerk für das Versagen des Systems beinhalten.
+	
+		\subsubsection{System erweitern}
+			Engineers sollen in der Lage sein, das System bei Bedarf zu erweitern, z.B. um weitere Tests oder Netzwerkschnittstellen hinzuzufügen oder Fehler zu verbessern.
+			Die Erweiterungen beschränken sich aber auf rein funktionale Bereiche des Systems. Für Änderungen an der Benutzeroberfläche sollen Softwareengineers mit Erfahrung auf dem Gebiet hinzugezogen werden.
+			 
+			
 	\subsection{Use Case Diagramm}
 		\includegraphics[scale=0.5]{\vorlagenOrdner/Bilder/UseCaseDiagram}
 
@@ -398,28 +403,11 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				\midrule
 				Geschäftsziel(e) & Software kann mit geringem Aufwand an geänderte Anforderungen angepasst werden  \\
 				\midrule
-				Auslöser & Es besteht eine andere Möglichkeit, auf ein Netzwerkgerät über eine Schnittstelle zuzugreifen, die nicht im System integriert und der implementierten Methode zu bevorzugen ist.  \\
+				Auslöser & Ein Engineer möchte weitere Tests einbinden oder Schnittstellen, die nicht im System integriert sind.  \\
 				\midrule
 				Reaktion & Die Software lässt sich von einem Entwickler in weniger als einer Woche um benötigte Komponenten erweitern.  \\
 				\midrule
-				Zielwert & 	Erweiterungen der Netzwerkschnittstellen sind innerhalb von 40 Personenstunden umsetzbar.  \\
-				\bottomrule
-			\end{tabularx}
-
-		\subsubsection{Szenario: Verständlichkeit von generiertem Code}
-			Generierter Code für die Netzwerktests ist leicht verständlich und manuell anpassbar.
-
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Qualitätsziele & Verständlichkeit, Testbarkeit, Modifizierbarkeit  \\
-				\midrule
-				Geschäftsziel(e) &  Tester können den generierten Code für die Testsuites und die Testfälle leicht verstehen und ihren eigenen Bedürfnissen anpassen. \\
-				\midrule
-				Auslöser & Ein Netzwerengineer möchte an der Software Änderungen vornehmen und dafür die Tests anpassen.  \\
-				\midrule
-				Reaktion & Die Testsuites und der Testcode für die Netzwerkeinstellungen werden durch einen Test-Generator in möglichst einfacher Form generiert. \\
-				\midrule
-				Zielwert & Tester und Entwickler können die generierten Tests in weniger als 30 Minuten verstehen und einfache Anpassungen vornehmen. \\
+				Zielwert & 	Erweiterungen der Netzwerkschnittstellen oder Anpassungen von Tests sind innerhalb von 40 Personenstunden umsetzbar.  \\
 				\bottomrule
 			\end{tabularx}
 
@@ -439,9 +427,11 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				Zielwert & Fehlerlokalisierung findet durchschnittlich in weniger als 10 Minuten statt.  \\
 				\bottomrule
 			\end{tabularx}
+			\newpage
 
 	\subsection{Benutzbarkeit}
-		Zeitlicher Aufwand, der für die Erlernung der Benutzung des Programms benötigt wird. Die User werden hierfür in spezifische Nutzergruppen mit festgelegten Fähigkeiten unterteilt.
+		Zeitlicher Aufwand, der für die Erlernung der Benutzung des Programms benötigt wird. 
+		Die User werden hierfür in spezifische Nutzergruppen mit festgelegten Fähigkeiten unterteilt.
 		
 		\subsubsection{Verständlichkeit}
 			Aufwand für den Nutzer, die Konzepte und Menüführung der Anwendung zu verstehen.
@@ -452,8 +442,8 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		\subsubsection{Bedienbarkeit}
 			Aufwand für den Benutzer, die Anwendung zu bedienen.
 
-		\subsubsection{Szenario: Einfachheit der Testdefinitionen}
-			Die Definitionen von Tests in YAML sind so aufgebaut, dass ein User in kurzer Zeit die Struktur und den Aufbau versteht und eigene Tests implementieren kann.
+		\subsubsection{Szenario: Einfachheit der Definitionssprache}
+			Die Definitionen von Inventar und Tests sind so aufgebaut, dass ein User in kurzer Zeit die Struktur und den Aufbau versteht und eigene Tests implementieren kann.
 			
 			\begin{tabularx}{\textwidth}{lX}
 				\toprule
@@ -496,40 +486,6 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 
 		\subsubsection{Verbrauchsverhalten}
 		Wie viel Speicherbedarf hat das Programm, wie lange werden Betriebsmittel in Anspruch genommen und welche Hardwarekomponenten werden benötigt.
-
-		\subsubsection{Szenario: Schnelle Erzeugung der Netztestdaten}
-		Nach der Erstellung von Testdefinitionen können die Netztests ohne lange Wartezeiten erstellt werden um eine rasche Arbeitsweise zu garantieren.
-			
-		\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Qualitätsziele & Performanz, Laufzeitverhalten, Flexibilität, Geschwindigkeit  \\
-				\midrule
-				Geschäftsziel(e) & Die Zeit zwischen der Erstellung und der Durchführung von Tests wird gering gehalten.  \\
-				\midrule
-				Auslöser & Ein Benutzer erstellt Netztests und möchte diese rasch in das System einspeisen.  \\
-				\midrule
-				Reaktion & Tests werdem vom Testgenerator erstellt, so dass die Wartezeiten für Benutzer möglichst gering sind.  \\
-				\midrule
-				Zielwert & Netztests werden in weniger als 10 Sekunden generiert.  \\
-				\bottomrule
-			\end{tabularx}
-
-		\subsubsection{Szenario: Optimierte Durchführung von Tests}
-		Die Tests werden möglichst parallel abgearbeitet und nur dann seriell durchgeführt, wenn eine asynchrone Ausführung zu Störungen im Netzwerk führen würden. 
-		
-		\begin{tabularx}{\textwidth}{lX}
-			\toprule
-			Qualitätsziele & Effizienz, geringe Störung im zu testenden Netzwerk, Robustheit  \\
-			\midrule
-			Geschäftsziel(e) & Die Durchführung von Netzwerktests führt nicht zu Performanzeinbussen im Netzwerk.  \\
-			\midrule
-			Auslöser & Es werden mehrere parallelisierbare (z.B. Ping) und mehrere performanzstörende (z.B. Traffic-Test) Tests definiert.  \\
-			\midrule
-			Reaktion & Parallelisierbare Tests werden asynchron durchgeführt. Alle Tests, die das Netzwerk stören können werden nacheinander abgearbeitet. \\
-			\midrule
-			Zielwert & Es entstehen maximal 30\% Performanzeinbussen im Netzwerk während die Tests durchgeführt werden.  \\
-			\bottomrule
-		\end{tabularx}
 
 	\subsection{Zuverlässigkeit}
 	Unter Zuverlässigkeit versteht man die Fähigkeit der Software, unter festgelegten Bedingungen die Funktionalität über einen definierten Zeitraum zu gewährleisten
@@ -605,6 +561,5 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		Die Netzwerktest werden über eine Verschlüsselte Verbindung durchgeführt, die dem aktuellen Stand der Technik entspricht.
 
 		\subsubsection{Umgang mit Passwörtern}
-		\textcolor{red}{Zum Zeitpunkt der Erstellung dieses Dokuments ist noch nicht klar, wie mit Passwörtern sicher umgegangen werden soll. Die Usability setzt voraus, dass der Testdurchführer nicht für jeden Test einzeln ein Passwort eingeben muss, Security-verhaltensweisen verbieten aber das Abspeichern von Passwörtern als lesbaren Text.}
-
+		Zugangsdaten der Devices werden im Inventar in Unverschlüsselter Form abgelegt. Es liegt in der Verantortung der Betreiber des Netzwerks, dass die Zugangsdaten nicht von dritten eingesehen werden.
 \end{document}
