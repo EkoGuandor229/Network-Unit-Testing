@@ -217,56 +217,67 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 
 
 	\subsection{Devices}
-		Für einen Test sind ein, oder mehrere Devices notwendig. Devices sind Geräte im Netzwerk wie z.B. Router und Switches.
-		Um einen Ping abzusetzen braucht es einen Sender und einen Empfänger.
-		Um diese Tests durchführen zu können muss der Benutzer diese Devices hinzufügen, bearbeiten und löschen können. 
+	Um Tests durchführen zu können, werden mehrere Devices benötigt, die in einer bestehenden Konfiguration in eiem Netzwerk integriert sind.
+	Die Devices müssen dafür einen oder mehrere Kommunikationskanäle bereitstellen, über die man die Konfiguration abfragen und Befehle senden kann.
+	Um einen Netzwerktest Schritt-für-Schritt durchführen zu können, werden verschiedene Zwischenschritte benötigt, welche die Anforderungen and das zu entwickelnde System darstellen.
+	Geräte müssen mit ihrer Start-Konfiguration in einem Inventar erfasst werden, die Startkonfiguration und Laufzeitkonfiguration muss abrufbar und speicherbar sein,
+	und die Geräte sollten sich in logische Gruppen, wie Beispielsweise aufteilung nach Gebäude oder nach VLAN (Virtual Local Area Network), kategoriesieren lassen.
 
 		\subsubsection{Devices erfassen}
-			Es bestehen mehrere Möglichkeiten ein Device zu erfassen. Dies wurde in mehrere Stufen unterteilt:\\
+			Das Erfassen von Geräten beinhaltet das Abrufen der Gerätekonfiguration und das speichern dieser Konfiguration in einem Inventar. 
+			Das Inventar kann mit einer Beschreibungssprache wie XML, YAML, YANG oder weitere, geführt werden, die es erlaubt, die Informationen dynamisch in das zu entwickelnden System zu laden und für die Testdefinition zu verwenden.
+			Die Erfassung der Devices kann dabei in folgende Stufen unterteilt werden, die mit steigender Automatisierung ein komplexeres System voraussetzen.
 
 			\begin{tabularx}{\textwidth}{lX}
 				\toprule
 				Stufe & Beschreibung\\
 				\midrule
-				Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt. Der Benutzer muss hierbei alle Devices eines Netzwerks manuell in ein File übertragen. Jedes Device wird in einem File gespeichert und diese Files werden in einem Repository gespeichert damit, falls das Netzwerk sich einmal ändert, die Devices einach erweitert/angepasst werden können. Das Programm liest danach alle erfassten Devices ein. \\
+				Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt welches optimalerweise in einem Repository gespeichert wird. \\
 				\midrule
-				Stufe Formular & Der Benutzer kann mit Hilfe eines Formulares der Benutzeroberfläche die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er muss nur noch die Devices erfassen.\\
+				Stufe Formular & Der Netzwerk-Techniker kann mit Hilfe eines Formulares oder einem Grafikinterface des zu entwickelnden Systems die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er kann sich das Inventar im GUI zusammenklicken.\\
 				\midrule
-				Stufe Automatisiert & Die Devices werden automatisch aus dem Netzwerk ausgelesen und hinzugefügt. Der Benutzer muss keine weiteren manuellen Device Eingaben betätigen. You know Mgic and Stuff. \\
+				Stufe Automatisiert & Die Devices werden automatisch von dem zu entwickelnden System aus dem Netzwerk ausgelesen und in ein Inventar hinzugefügt. Das Ergebnis kann vom Techniker dann gesichtet werden und lässt sich bei Bedarf anpassen. \\
 				\bottomrule
 			\end{tabularx}
+			\newpage
 
 		\subsubsection{Device Informationen}
-			Je speziefischer die Tests des Programmes sind desto mehr Informationen eines einzelnen Devices werden benötigt.
-			Die Informationen der Devices werden in Kategorien unterteilt: \textcolor{green}{Basic} , \textcolor{yellow}{Advanced} , \textcolor{red}{Eskalation}.
-			Mit diesen Kategorien wird spezifiziert, wie weit fortgeschritten die Tests sind, die man ausführen möchte. \\
+			Je speziefischer die Tests des zu entwickelnden Programms sind, desto mehr Informationen eines einzelnen Devices werden benötigt.
+			Die Informationen der Devices werden in Kategorien unterteilt: \textcolor{green}{Minimaleinstellungen} , \textcolor{yellow}{Erweiterte Einstellungen} und \textcolor{red}{Alle Informationen}.
+			Je mehr Informationen von einem Gerät im Inventar abgelegt sind, desto mehr Tests lassen sich ohne Erfassung von zusätzlichen Infos durchführen. \\
+			Die folgende Tabelle zählt einige Beispiele dieser Einstellungen auf und beschreibt, wozu die Informationen benötigt werden.
 
 			\begin{tabularx}{\textwidth}{lX}
 				\toprule
-				Property & Beschreibung\\
+				Einstellung & Beschreibung\\
 				\midrule
-				\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden um dort die Befehle für die Tests auszuführen. \\	
-				\textcolor{green}{IP Adresse} & Die Ip Adresse eines Devices wird benötigt um zum Beispiel einen Ping Test zu machen. \\
-				\textcolor{green}{Seriennummer} & Spanning Tree bei Switches als deciding Faktor \\
+				\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden, um dort Befehle für die Tests ausführen zu können. \\	
+				\textcolor{green}{MAC-Adresse} & Die Media Access Control Addresse ist für die eindeutige Identifikation eines Netzwerkgerätes. Die MAC kann z.B. für die Berechnung von IPv6 Addressen verwendet werden.\\
+				\textcolor{green}{IP Adresse} & Die Ip Adresse eines Devices ist die Virtuelle Addresse, die das Gerät im Netzwerk hat. \\
+				\textcolor{green}{Seriennummer} & Die Seriennummer eines Geräts wird nur für sehr spezielle Anwendungen benötigt z.B. die Entscheidung des Wurzelknotens im Zweifelsfall beim Spanning Tree Protokoll. \\
 				\midrule
-				\textcolor{yellow}{OSPF Neighbors} & OSPF \\
+				\textcolor{yellow}{Statische Routen} & Statische Routen sind manuell konfigurierte Einstellungen, die nicht verändert werden, wenn das Netz nicht angepasst wird. Sie sind einfach zu konfigurieren, aber sie können sich nicht an Systemfehler anpassen. \\
+				\textcolor{yellow}{Dynamisches Routing} & Routing Protokolle passen die konfigurierten Routen der Geräte zur Laufzeit an, um auf Änderungen im Netz zu reagieren. Dynamische Protokolle sind flexibler aber auch komplexer als statische Routen. \\
 				\midrule
-				\textcolor{red}{wiiteri eskalation} & wiiteri eskalation \\				
+				\textcolor{red}{Virtual LAN} & Das Virtuelle Local Area Network unterteilt Geräte im Netzwerk in logische Gruppen und bewirkt eine Segmentierung des Netzwerks was zu erhöhter Sicherheit, Erweiterbarkeit und besserem Netzwerkmanagement führen kann. \\
+				\textcolor{red}{Overlay Netzwerk} & In einem Overlay Netzwerk werden logische Verbindungen von der virtuellen Konfiguration getrennt. In jedem Layer nummt ein physisches Gerät dabei eine andere Rolle wahr, was dazu führt, dass die Gerätekonfiguration schwieriger zu testen sind. \\				
 				\bottomrule
 			\end{tabularx}
-
-			\textcolor{red}{TODO complete Table}
+			\newpage
 
 		\subsubsection{Device Gruppen}
-			Die Devices können in Gruppen unterteilt werden. Somit kann man zum Beispiel alle Devices in einem Gebäude in die Gruppe: 'Gebäude 1' schieben.
-			Wenn der Benutzer später einen Test erstellt kann er so direkt alle Devices des Gebäudes auswählen. 
+			Die Devices sollen sich in logische Gruppen unterteilen lassen. Somit könnte man zum Beispiel alle Devices in einem Gebäude in die Gruppe: 'Gebäude 1' schieben.
+			Im Kontext des zu entwickelnden Systems würde man damit die Möglichkeit haben, Filter auf die Geräte anzuwenden um nur spezifische Einstellungen zu testen.
 
-	\subsection{Tests}
-		Dies sind die Tests, die vom Benutzer definiert werden und danach auf dem Netzwerk ausgeführt werden.
+	\subsection{Netzwerktest}
+		Netzwerktest werden von den Technikern in einer Testbeschreibungssprache erfasst und vom zu entwickelnden System automatisiert ausgeführt.
+		Dabei werden verschiedene Anforderungen an eine Testbeschreibung gestellt. Zum Beispiel sollten sich Tests in logische Kategorien unterteilen lassen, die Erfassung der Tests soll möglichst automatisch durchführbar sein und die Ergebnisse der Tests müssen verständlich sein und sich in einem Report speichern lassen.
+
 		
 		\subsubsection{Test Kategorien/Typen}
-			Die Tests werden nach Kategorien unterschieden (wie zum Beispiel Connectivity). Diese Kategorien werden auf verschiedene Protokolle und Funktionalitäten unterteilt, um es dem Benutzer möglichst zu vereinfachen.
-			Ein wichtiger Punkt der Test Kategorien ist, dass Benutzer in Zukunft möglichst einfach weitere Kategorien/Testarten hinzufügen können.
+			Die Tests werden grundsätzlich nach Kategorien unterschieden, beispielsweise sind alle Ping-Tests eine Art.
+			Die Einteilung von Tests in Kategorien und Typen erlaubt es dem Tester, diese Tests im System zu filtern und Tests kategorisch auszuwählen, wenn er eine Testausführung plant.
+			Ein wichtiger Anforderungspunkt ist dabei, dass Techniker in Zukunft möglichst einfach weitere Kategorien/Testarten hinzufügen können.
 
 		\subsubsection{Test erfassen}
 			Auch hier gibt es wieder mehrere Stufen, wie die Tests erfasst werden können.\\
@@ -275,29 +286,39 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				\toprule
 				Stufe & Beschreibung\\
 				\midrule
-				Stufe Manuell & Der Benutzer erfasst die Tests komplett manuell in einem File. In diesem File muss der Benutzer die Testart, die beteiligten Devices und weitere Optionen des Testes festlegen. \\
+				Stufe Manuell & Der Benutzer erfasst die Tests komplett manuell in einem File mit einer Testdefinitionssprache. In diesem File muss der Benutzer die Testart, die beteiligten Devices und weitere Optionen des Testes festlegen. Ausserdem ist das zu erwartende Ergebnis für einen Test zu spezifizieren. \\
 				\midrule
-				Stufe Formular & Das Programm stellt ein Formular zur Verfügung, welches die ganze Testerfassung Formular vereinfacht. Der Benutzer muss sich hierbei den Test nur noch über die Benutzeroberfläche zusammenklicken. Das Programm speichert danach den Test automatisch in einem File. \\
+				Stufe Formular & Das Programm stellt ein Formular zur Verfügung, welches die ganze Testerfassung vereinfacht. Der Benutzer kann sich hierbei den Test nur noch über die Benutzeroberfläche zusammenklicken. Das Programm speichert danach den Test automatisch in einem File oder Repository. \\
 				\bottomrule
 			\end{tabularx}
 
-		\subsubsection{Ergebniss erfassen}
-			Bei gewissen Tests wird ein speziefisches Ergebnis erwartet. Dieses Ergebnis kann der Benutzer bei der Testerfassung eingeben, falls der ausgewählte Testtyp ein Ergebnis verlangt.
+		\subsubsection{Erwartungswert erfassen}
+			Ein Test findet in der Regel durch einen Vergleich vom Ist-Wert mit dem Soll-Wert statt. Der Ist-Wert in einem Netzwerk ist die Konfiguration und der Zustand zur Laufzeit. Der Sollwert muss vom Netwerk-Techniker bei der Testdefinition erfasst werden.
+			
 
 		\subsubsection{Testreihenfolge}
-			Die Tests, die ein Benutzer erfasst können mit Hilfe von Tags in Gruppen unterteilt werden. Mithilfe dieser Gruppen kann der Benutzer später die Reihenfolge der Testdurchführung bestimmen.
-	
+			Es kann sein, dass vom Tester eine gewisse Reihenfolge für die Ausführung der Tests gewünscht ist. 
+			Dafür sollten sich Tests nach Kategorie (Ping, Traceroute etc.), nach Layer, nach Gerätetyp (Switch, Router, Server, etc.) oder nach eigenen Kategorien (z.B. nur Gebäude 1), filtern lassen. 
+			Die Auswahl der Testreihenfolge soll dabei möglichst intuitiv mit einer grafischen Benutzeroberfläche geschehen und mit wenigen Klicks durchführbar sein.
 
 		\subsubsection{Test Durchführung}
-			Wenn der Benutzer die Durchführung startet kann er mit Hilfe der Test-Gruppen die Reihenfolge der Tests bestimmen. Der Benutzer kann zudem noch bestimmen welche Tests synchron und welche asynchron durchgeführt werden.
-			Das Programm greift danach über die Netzwerkschnittstelle auf die Devices zu und führt die Tests in der angegebenen Reihenfolge durch.
+			Wenn der Benutzer die Durchführung startet kann er mit Hilfe der Test-Gruppen die Reihenfolge der Tests bestimmen. 
+			Der Benutzer kann zudem noch bestimmen welche Tests synchron und welche asynchron durchgeführt werden.
+			Das Programm lädt aus der Testdefinition und dem Inventar die benötigten Informationen und greift danach über die Netzwerkschnittstelle auf die Devices zu und führt die Tests in der angegebenen Reihenfolge durch.
+			Die vom Netzwerk zurückgegebenen Werte werden mit den Erwartungswerten verglichen und es wird darüber entschieden, ob ein Test bestanden oder nicht bestanden ist.
+			Die Ergebnisse werden danach direkt über das Terminal oder GUI angezeigt und zusätzlich in einem Testreport gespeichert.
+			\newpage
 
 	\subsection{Netzwerkschnitstelle}
-		Die Netzwerkschnittstelle ist so gelöst, dass mit minimalen Aufwand jede beliebeige Technologie verwendet werden kann, um eine Connection zu den Devices aufzubauen.
+		Jedes Netzwerkgerät hat eigene Methoden, wie man darauf zugreift und welche Werte für unterschiedliche Befehle zurückgegebenen werden.
+		Die Auswahl der Netzwerkschnittstelle soll dabei optimalerweise dem Netzwerk-Techniker überlassen werden.
+		Das zu entwickelnde System zeigt dafür die zur Verfügung stehenden Schnittstellen an und der Techniker wählt daraus eine aus. 
+		Es wird eine empfohlene Default-Schnittstelle benötigt, um Technikern mit geringer Erfahrung die Möglichkeit zu bieten, die Auswahl zu umgehen.
 
 	\subsection{Logging}
-	Die Auswertung der jeweiligen Durchführung der Tests wird in einem Testreport gespeichert, welcher der User jederzeit einsehen kann, 
-	um sich einen Überblich über die Historie vergangener Testdurch-führungen zu verschaffen. Diese Testreports werden in eine Repository gespeichert.
+		Die Auswertung der jeweiligen Durchführung der Tests wird in einem Testreport gespeichert, welcher der User jederzeit einsehen kann, 
+		um sich einen Überblich über die Historie vergangener Testdurch-führungen zu verschaffen. 
+		Diese Testreports werden in einem Repository gespeichert und benötigen ein Durchführungsdatum und -Zeit.
 
 
 
