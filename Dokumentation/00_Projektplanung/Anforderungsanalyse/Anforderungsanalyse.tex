@@ -217,14 +217,14 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 
 
 	\subsection{Devices}
-	Um Tests durchführen zu können, werden mehrere Devices benötigt, die in einer bestehenden Konfiguration in eiem Netzwerk integriert sind.
+	Um Tests durchführen zu können, werden mehrere Devices benötigt, die in einer bestehenden Konfiguration in einem Netzwerk integriert sind.
 	Die Devices müssen dafür einen oder mehrere Kommunikationskanäle bereitstellen, über die man die Konfiguration abfragen und Befehle senden kann.
 	Um einen Netzwerktest Schritt-für-Schritt durchführen zu können, werden verschiedene Zwischenschritte benötigt, welche die Anforderungen and das zu entwickelnde System darstellen.
 	Geräte müssen mit ihrer Start-Konfiguration in einem Inventar erfasst werden, die Startkonfiguration und Laufzeitkonfiguration muss abrufbar und speicherbar sein,
-	und die Geräte sollten sich in logische Gruppen, wie Beispielsweise aufteilung nach Gebäude oder nach VLAN (Virtual Local Area Network), kategoriesieren lassen.
+	und die Geräte sollten sich in logische Gruppen, wie beispielsweise Aufteilung nach Gebäude oder nach VLAN (Virtual Local Area Network), kategorisieren lassen.
 
 		\subsubsection{Devices erfassen}
-			Das Erfassen von Geräten beinhaltet das Abrufen der Gerätekonfiguration und das speichern dieser Konfiguration in einem Inventar. 
+			Das Erfassen von Geräten beinhaltet das Abrufen der Gerätekonfiguration und das Speichern dieser Konfiguration in einem Inventar. 
 			Das Inventar kann mit einer Beschreibungssprache wie XML, YAML, YANG oder weitere, geführt werden, die es erlaubt, die Informationen dynamisch in das zu entwickelnden System zu laden und für die Testdefinition zu verwenden.
 			Die Erfassung der Devices kann dabei in folgende Stufen unterteilt werden, die mit steigender Automatisierung ein komplexeres System voraussetzen.
 
@@ -234,7 +234,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				\midrule
 				Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt welches optimalerweise in einem Repository gespeichert wird. \\
 				\midrule
-				Stufe Formular & Der Netzwerk-Techniker kann mit Hilfe eines Formulares oder einem Grafikinterface des zu entwickelnden Systems die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er kann sich das Inventar im GUI zusammenklicken.\\
+				Stufe Formular & Der Netzwerk-Techniker kann mit Hilfe eines Formulars oder einem Grafikinterface des zu entwickelnden Systems die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er kann sich das Inventar im GUI zusammenklicken.\\
 				\midrule
 				Stufe Automatisiert & Die Devices werden automatisch von dem zu entwickelnden System aus dem Netzwerk ausgelesen und in ein Inventar hinzugefügt. Das Ergebnis kann vom Techniker dann gesichtet werden und lässt sich bei Bedarf anpassen. \\
 				\bottomrule
@@ -242,7 +242,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			\newpage
 
 		\subsubsection{Device Informationen}
-			Je speziefischer die Tests des zu entwickelnden Programms sind, desto mehr Informationen eines einzelnen Devices werden benötigt.
+			Je spezifischer die Tests des zu entwickelnden Programms sind, desto mehr Informationen eines einzelnen Devices werden benötigt.
 			Die Informationen der Devices werden in Kategorien unterteilt: \textcolor{green}{Minimaleinstellungen} , \textcolor{yellow}{Erweiterte Einstellungen} und \textcolor{red}{Alle Informationen}.
 			Je mehr Informationen von einem Gerät im Inventar abgelegt sind, desto mehr Tests lassen sich ohne Erfassung von zusätzlichen Infos durchführen. \\
 			Die folgende Tabelle zählt einige Beispiele dieser Einstellungen auf und beschreibt, wozu die Informationen benötigt werden.
@@ -252,22 +252,22 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				Einstellung & Beschreibung\\
 				\midrule
 				\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden, um dort Befehle für die Tests ausführen zu können. \\	
-				\textcolor{green}{MAC-Adresse} & Die Media Access Control Addresse ist für die eindeutige Identifikation eines Netzwerkgerätes. Die MAC kann z.B. für die Berechnung von IPv6 Addressen verwendet werden.\\
-				\textcolor{green}{IP Adresse} & Die Ip Adresse eines Devices ist die Virtuelle Addresse, die das Gerät im Netzwerk hat. \\
+				\textcolor{green}{MAC-Adresse} & Die Media Access Control Adresse ist für die eindeutige Identifikation eines Netzwerkgerätes. Die MAC kann z.B. für die Berechnung von IPv6 Adressen verwendet werden.\\
+				\textcolor{green}{IP Adresse} & Die IP-Adresse eines Devices ist die Virtuelle Adresse, die das Gerät im Netzwerk hat. \\
 				\textcolor{green}{Seriennummer} & Die Seriennummer eines Geräts wird nur für sehr spezielle Anwendungen benötigt z.B. die Entscheidung des Wurzelknotens im Zweifelsfall beim Spanning Tree Protokoll. \\
 				\midrule
 				\textcolor{yellow}{Statische Routen} & Statische Routen sind manuell konfigurierte Einstellungen, die nicht verändert werden, wenn das Netz nicht angepasst wird. Sie sind einfach zu konfigurieren, aber sie können sich nicht an Systemfehler anpassen. \\
-				\textcolor{yellow}{Dynamisches Routing} & Routing Protokolle passen die konfigurierten Routen der Geräte zur Laufzeit an, um auf Änderungen im Netz zu reagieren. Dynamische Protokolle sind flexibler aber auch komplexer als statische Routen. \\
+				\textcolor{yellow}{Dynamisches Routing} & Routing Protokolle passen die konfigurierten Routen der Geräte zur Laufzeit an, um auf Änderungen im Netz zu reagieren. Dynamische Protokolle sind flexibler, aber auch komplexer als statische Routen. \\
 				\midrule
 				\textcolor{red}{Virtual LAN} & Das Virtuelle Local Area Network unterteilt Geräte im Netzwerk in logische Gruppen und bewirkt eine Segmentierung des Netzwerks was zu erhöhter Sicherheit, Erweiterbarkeit und besserem Netzwerkmanagement führen kann. \\
-				\textcolor{red}{Overlay Netzwerk} & In einem Overlay Netzwerk werden logische Verbindungen von der virtuellen Konfiguration getrennt. In jedem Layer nummt ein physisches Gerät dabei eine andere Rolle wahr, was dazu führt, dass die Gerätekonfiguration schwieriger zu testen sind. \\				
+				\textcolor{red}{Overlay Netzwerk} & In einem Overlay Netzwerk werden logische Verbindungen von der virtuellen Konfiguration getrennt. In jedem Layer nimmt ein physisches Gerät dabei eine andere Rolle wahr, was dazu führt, dass die Gerätekonfiguration schwieriger zu testen sind. \\				
 				\bottomrule
 			\end{tabularx}
 			\newpage
 
 		\subsubsection{Device Gruppen}
 			Die Devices sollen sich in logische Gruppen unterteilen lassen. Somit könnte man zum Beispiel alle Devices in einem Gebäude in die Gruppe: 'Gebäude 1' schieben.
-			Im Kontext des zu entwickelnden Systems würde man damit die Möglichkeit haben, Filter auf die Geräte anzuwenden um nur spezifische Einstellungen zu testen.
+			Im Kontext des zu entwickelnden Systems würde man damit die Möglichkeit haben, Filter auf die Geräte anzuwenden, um nur spezifische Einstellungen zu testen.
 
 	\subsection{Netzwerktest}
 		Netzwerktest werden von den Technikern in einer Testbeschreibungssprache erfasst und vom zu entwickelnden System automatisiert ausgeführt.
@@ -293,7 +293,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			\end{tabularx}
 
 		\subsubsection{Erwartungswert erfassen}
-			Ein Test findet in der Regel durch einen Vergleich vom Ist-Wert mit dem Soll-Wert statt. Der Ist-Wert in einem Netzwerk ist die Konfiguration und der Zustand zur Laufzeit. Der Sollwert muss vom Netwerk-Techniker bei der Testdefinition erfasst werden.
+			Ein Test findet in der Regel durch einen Vergleich vom Ist-Wert mit dem Soll-Wert statt. Der Ist-Wert in einem Netzwerk ist die Konfiguration und der Zustand zur Laufzeit. Der Sollwert muss vom Netzwerk-Techniker bei der Testdefinition erfasst werden.
 			
 
 		\subsubsection{Testreihenfolge}
