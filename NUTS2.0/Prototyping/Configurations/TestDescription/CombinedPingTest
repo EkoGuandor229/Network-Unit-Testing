@@ -1,0 +1,14 @@
+---
+# Ping private Ipv4 address
+- name : Ping own private IPv4
+  command : Connectivity
+  parameter : [192.168.84.49]
+  operator : '='
+  expected : True
+
+# Ping hsr.ch
+- name : Ping HSR-Website
+  command : Connectivity
+  parameter : [www.hsr.ch]
+  operator : '='
+  expected : True

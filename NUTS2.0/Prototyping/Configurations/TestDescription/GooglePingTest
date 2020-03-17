@@ -1,0 +1,7 @@
+---
+# Pings the own ip-address for demonstration
+- name : Ping Google
+  command : Connectivity
+  parameter : [www.google.com]
+  operator : '='
+  expected : True
