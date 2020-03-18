@@ -82,9 +82,16 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 			\toprule
 			Akteur &  Beschreibung \\
 			\midrule
-			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. In der Praxis oft auch als Network-Engineer bezeichnet. Im Zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. \\ 
-			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
-			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. Ein Netzwerk Administrator hat, je nach Grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. \\
+			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. 
+			In der Praxis oft auch als Network-Engineer bezeichnet. 
+			Im Zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. 
+			Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. Er führt dabei normalerweise keine Konfigurationen am Netzwerk durch. \\ 
+			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. 
+			Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
+			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. 
+			Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. 
+			Ein Netzwerk Administrator hat, je nach Grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. 
+			Er führt dabei ihm vom Architekten oder Engineer vorgegebene Arbeiten aus und muss dazu nicht den vollen Überblick über das Netzwerk und die darin verwendeten Technologien kennen.\\
 			Netzwerk-User & Benutzer der Netzwerkumgebung. User müssen das Netzwerk verwenden, aber nicht dessen Konfigurationen anpassen können. \\
 			\midrule
 			Netzwerk-Gerät  & Ein Netzwerkgerät kann aus Hardware wie Switch, Router oder Server bestehen oder Virtuell als Software implementiert sein. Im Zuge der Arbeit werden Netzwerkgeräte auch als Netzwerk-Devices oder einfach Device bezeichnet. Typischerweise haben Devices eine Statische Konfiguration und einen Zustand zur Laufzeit. In den kommenden Kapiteln wird genauer auf Netzwerkgeräte eingegangen. \\
@@ -110,7 +117,7 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 
 	\subsection{Herausforderungen}
 	Das Testen von Netzwerken ist ein komplexes Unterfangen. 
-	Die Netzwerkkonfiguration ändert sich zur Laufzeit dauernd, um sich an Änderungen von einzelnen Geräten anzupassen.
+	Der Netzwerkzustand ändert sich zur Laufzeit dauernd, um sich an Änderungen von einzelnen Geräten anzupassen.
 	User treten dem Netzwerk bei oder verlassen dieses und Netzwerkgeräte passen über dynamische Protokolle die Verbindungen an um eine möglichst performante Verbindung zu ermöglichen oder um Fehler/Ausfälle zu korrigieren.
 	Weiterhin können spezielle Konfigurationen wie die Priorisierung von verschiedenen Kommunikationsarten z.B. Internettelefonie (VoIP), auch Quality of Service (QoS) genannt, im System vorkommen, was die genaue Erfassung des Ist-Zustandes noch komplizierter macht.
 	In diesem Kontext muss ein Netzwerk-Testsystem nicht nur die Gerätekonfiguration beim Starten, sondern auch die dynamische Laufzeitkonfiguration berücksichtigen.
@@ -156,12 +163,10 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			\paragraph{Rolle} ~\\
 			Primärer Aktor 
 
-			\paragraph{Ziele} ~\\
-			Verwalten von Devices in einem Inventar, 
-			Konfiguration automatisierter Tests, 
+			\paragraph{Ziele} ~\\ 
+			Konfiguration automatisierter Tests (welche er für analytische Zwecke benötigt) 
 			Durchführung der Tests, 
-			Sichten der Resultate,
-			Erweiterung des Testsystems
+			Sichten der Resultate
 			
 		\subsubsection{Netzwerk-Engineer}
 		
@@ -182,7 +187,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Primärer Aktor 
 			\paragraph{Ziele} ~\\
 			Verwalten von Devices in einem Inventar, 
-			Konfiguration automatisierter Tests, 
+			Konfiguration automatisierter Tests (einfachere Tests, die für einen Administrator wichtig sind), 
 			Durchführung der Tests, 
 			Sichten der Resultate
 
@@ -194,6 +199,10 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Verwenden des Systems
 
 		\subsubsection{Einschränkungen}
+
+			\paragraph{Prioritärer Aktor} ~\\
+			Das zu entwickelnde System wird primär mit dem Netzwerk-Engineer als Aktor aufgebaut, da der Architekt eher eine planende/managende Rolle einnimmt und der Administrator für einfachere Aufträge, wie das umschalten von Ports oder Interfaces, zusständig ist.
+
 
 			\paragraph{User} ~\\
 			Für das zu entwickelnde System hat der User keinen Einfluss auf die Funktionalen Anforderungen. 
