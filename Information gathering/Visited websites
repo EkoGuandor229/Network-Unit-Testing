@@ -1,0 +1,59 @@
+Webseiten/Literaturverzeichnis
+Description		                            Webseite 	                                                                            Accessdatum
+Wikipedia - Routing Information Protokoll 	https://en.wikipedia.org/wiki/Routing_Information_Protocol								18.02.2020 
+Wikipedia - Netconf 						https://en.wikipedia.org/wiki/NETCONF													18.02.2020
+Wikipedia - YANG							https://en.wikipedia.org/wiki/YANG#cite_note-RESTCONF-5									18.02.2020
+RFC6020 - YANG 								https://tools.ietf.org/html/rfc6020														18.02.2020
+RFC6241	- NETCONF							https://tools.ietf.org/html/rfc6241														18.02.2020
+RFC8040 - RESTCONF							https://tools.ietf.org/html/rfc8040														18.02.2020
+Networkworld Netconf and Yang description	https://www.networkworld.com/article/2173842/understanding-netconf-and-yang.html		18.02.2020
+IAB Network Management Workshop Memo		https://tools.ietf.org/html/rfc3535														18.02.2020
+NETCONF over SSH							https://tools.ietf.org/html/rfc4742														18.02.2020
+Netconf online Documentation				http://www.netconfcentral.org/															18.02.2020
+Introduction to Netconf&YANG				https://www.fir3net.com/Networking/Protocols/an-introduction-to-netconf-yang.html		18.02.2020
+
+
+Accessdatum: 20.02.2020
+https://github.com/CiscoDevNet/python_code_samples_network/tree/master/restconf_update_ipaddress
+https://www.fir3net.com/Networking/Protocols/how-to-operate-a-device-using-netconf-and-python.html
+https://dave.dev/blog/2014/11/python-building-simple-netconf-rpc-tool/
+https://dave.dev/blog/2014/05/from-cli-to-python-beginner/
+https://dave.dev/blog/2014/05/using-ciscos-onepk-python/
+https://dave.dev/blog/2014/05/cli-scraping-python/
+https://dave.dev/blog/2014/11/pypi-custom-python-packages-networking-peoples/
+https://dave.dev/blog/2015/04/git-for-network-engineers/
+https://dave.dev/blog/2018/10/yang-openapi-swagger-code-generation/
+https://www.learnpython.org/
+https://docs.pytest.org/en/latest/
+https://www.tutorialspoint.com/pytest/index.htm
+https://www.guru99.com/pytest-tutorial.html
+https://developer.cisco.com/site/python/
+https://developer.cisco.com/learning/modules/fundamentals
+
+Accessdatum 25.02.2020
+https://www.brianlinkletter.com/vrnetlab-emulate-networks-using-kvm-and-docker/
+https://www.digiampietro.com/2014/1109/cisco_network_emulation_gns3_docker_container.html
+https://web.dit.upm.es/vnxwiki/index.php/Docintro
+https://nornir.readthedocs.io/en/latest/
+https://github.com/nornir-automation/nornir
+https://github.com/napalm-automation/napalm
+https://napalm.readthedocs.io/en/latest/
+
+Accessdatum 02.03.2020
+http://www.openconfig.net/projects/models/
+https://github.com/openconfig/public
+https://github.com/robshakir/pyangbind
+https://github.com/openconfig/oc-pyang
+https://napalm-logs.readthedocs.io/en/latest/
+https://www.reddit.com/r/networking/comments/bb5be6/need_help_understanding_network_automation_tools/
+
+Accessdatum 12.03.2020
+https://www.researchgate.net/publication/274634887_The_ETSI_test_description_language_TDL_and_its_application
+https://netbeez.net/blog/why-network-testing-is-important/
+https://iperf.fr/
+https://netbeez.net/blog/how-to-troubleshoot-and-validate-qos/
+https://www.computerweekly.com/feature/White-Paper-An-introduction-to-network-testing
+http://comet.lehman.cuny.edu/griffeth/NetworkTesting.html
+
+
+

@@ -1,0 +1,5 @@
+---
+thaVM:
+  hostname : 192.168.56.1
+  groups:
+    - me
