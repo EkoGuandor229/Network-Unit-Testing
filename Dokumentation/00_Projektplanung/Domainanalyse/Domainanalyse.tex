@@ -39,6 +39,7 @@
 % Zweck
 \section*{Zweck}
 Dieses Dokument soll einen Überblick über die Problemdomäne erlauben und die Konzepte des Domänenmodells erklären.
+Daraus wird das Klassendiagramm abgeleitet und für die Systemabläufe ein Systemsequenzdiagramm erstellt.
 
 % Änderungsgeschichte
 \section*{Änderungsgeschichte}
@@ -47,6 +48,7 @@ Dieses Dokument soll einen Überblick über die Problemdomäne erlauben und die 
 	Datum & Version & Änderung & Autor \\
 	\midrule
 	10.03.2020 & 1.0 & Initial Setup & Janik Schlatter \\
+
 	\bottomrule
 \end{tabularx}
 \cleardoublepage
@@ -63,6 +65,19 @@ Dieses Dokument soll einen Überblick über die Problemdomäne erlauben und die 
 \renewcommand\section{\clearpage\stdsection}
 
 % Inhalt ---------------------------------------------------------------------
+\begin{landscape}
+	\section{Domänenmodell}
+	\includegraphics[scale = 0.825]{\vorlagenOrdner/Bilder/DomainModell}
+	\newpage	
+\end{landscape}
+
+
+	\subsection{Prosa}
+	Ein Netzwerk (Network System) setzt sich aus mindestens zwei Geräten (Device) und Verbindungen dazwischen (Connection) zusammen.
+	Es kann auch mehrere Teilnetzwerke in sich vereinen, z.B die beiden Netzwerke aus Haupt- und Nebengebäude ergeben das gesammte Firmennetzwerk.
+	Ein Device kann in die vier Kategorien Switch, Router (Level-3-Switch), Server und Client eingeteilt werden und hat eine oder mehrere Konfigurationen.
+	Beispielsweise kann ein Router das OSPF (Open Shortest Path First) Protokoll und zusätzlich als Fallback statische Routen konfiguriert haben.
+
 \section{Klassendiagramm}
 	\subsection{Bemerkungen}
 	\subsection{Konzepte}
