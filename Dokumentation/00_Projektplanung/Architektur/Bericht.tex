@@ -1,0 +1,112 @@
+\documentclass[
+	ngerman,
+	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
+	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
+]{scrartcl}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+
+% Dokumenteninformationen ----------------------------------------------------
+\newcommand{\titel}{Architektur}
+\newcommand{\untertitel}{Studienarbeit \semester}
+\newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
+\newcommand{\datum}{\today}
+
+\newcommand{\vorlagenOrdner}{../../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
+
+\newcommand{\betriebLogo}{\vorlagenOrdner/Bilder/logo}
+
+% Konfiguration -------------------------------------------------------------
+\input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
+\input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
+
+\begin{document}
+
+% Deckblatt ------------------------------------------------------------------
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{\vorlagenOrdner/Konfiguration/Deckblatt}
+\cleardoublepage
+
+% Preface --------------------------------------------------------------------
+\pagenumbering{Roman}
+
+% Zweck
+\section*{Zweck}
+Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die Entscheidungen zum Design und der Architektur des Projektes.
+
+% Änderungsgeschichte
+\section*{Änderungsgeschichte}
+\begin{tabularx}{\textwidth}{llXl}
+	\toprule
+	Datum & Version & Änderung & Autor \\
+	\midrule
+	24.03.2018 & 1.0 & Initial Setup & Janik Schlatter \\
+	\bottomrule
+\end{tabularx}
+\cleardoublepage
+
+% Inhaltsverzeichnis
+\phantomsection
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+% Inhalt ---------------------------------------------------------------------
+\section{Designentscheidungen}
+	\subsection{Allgemein}
+		Bei der Architektur wurde vor allem Wert darauf gelegt, dass das Projekt in der Zukunft einfach erweiterbar ist und dass der Code möglichst abstrahiert von allen Technologien ist.
+
+	\subsection{Abstriche}
+		\subsubsection{GUI}
+			Auf das GUI wird vorerst komplett verzichtet, da dies vom Aufwand her zu gros ist, da zu viel Zeit für das Grundkonstrukt benötigt wird.
+
+		\subsubsection{Tests}
+			Grundsätzlich wird zum Beginn nur ein Test implementiert, sodass der Fokus ganz auf der Erweiterbarkeit steht. Falls es noch Zeit gibt werden noch mehr Tests implementiert.
+
+		\subsubsection{Devices}
+			Das automatische Erkennen von Devices wird im Rahmen von dieser SA wegeglassen, da dies zeitlich nicht im Rahmen liegt. Das Projekt wird jedoch so angelegt, dass dies mit wenig Code-Umstellung noch einfach anzufügen ist.
+
+		\subsubsection{Connection}
+			Grundsätzlich wird zum Beginn nur eine Connection implementiert, sodass der Fokus ganz auf der Erweiterbarkeit steht. Falls es noch Zeit gibt werden noch mehr Connections implementiert.
+
+	\subsection{Eingesetzte Technologien}
+		Das Projekt wird in Python umgesetzt. Zusätzlich wird Nornir verwendet um die Tests und die Verbindung zum Netzwerk zu vereinfachen. nornir hat mehrere Möglichkeiten auf ein Netzwerk zu verbinden (Napalm, Netmiko, Paramiko, Netconf).
+
+
+\section{Systemübersicht}
+	Die Systemübersicht gibt einen Überblick über die verschiedenen Komponenten des Systems. Nachfolgend sind die einzelnen Komponenten detaillierter beschrieben.\\
+	\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/SystemUebersicht}
+
+	\subsection{NUTS}
+		Dies entspricht unserem Client. Er besteht aus einer Python- App die mit Hilfe von Nornir und Netconf mit dem zu testenden Netzwerk kommuniziert.
+
+	\subsection{Netzwerk}
+		Dies ist das Netzwerk des Benutzers, welches dieser gerne automatisch testen möchte.
+
+	\subsection{Datenablage}
+		Alle unsere bneötigten Daten werden mit Hilfe von YAML Files und Key-Value Stores abgespeichert. 
+
+\section{Deployment}
+	\subsection{Deploymentdiagramm}
+		\includegraphics[scale=0.9]{\vorlagenOrdner/Bilder/Deploymentdiagramm}
+	\subsection{Client}
+		Der Client wird via PyCharm auf das Gerät des Benutzers verteilt. Später soll dies durch eine automatische Exe Datei passieren.
+
+\section{Datenspeicherung}
+	Die Datenspeicherung wird mit Hilfe von YAML Dateien und key-value Stores realisiert. Deshalb ist es nicht nötig eine Datenbank anzulegen. Die hierbei entstandenen Files werden mit Hilfe eines FileHandlers eingelesen.
+
+\section{Ausbauszenarien}
+	
+
+\end{document}
