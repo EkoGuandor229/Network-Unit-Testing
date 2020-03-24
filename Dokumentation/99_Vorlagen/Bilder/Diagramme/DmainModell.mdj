@@ -981,7 +981,7 @@
 											"top": 515,
 											"width": 104.40625,
 											"height": 13,
-											"text": "NetworkAdress",
+											"text": "NetworkAddress",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2932,7 +2932,7 @@
 											"top": 183,
 											"width": 121.33544921875,
 											"height": 13,
-											"text": "MonitorinngSystem"
+											"text": "MonitoringSystem"
 										},
 										{
 											"_type": "LabelView",
@@ -3281,7 +3281,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAFw6E8RbiZHCKM="
 									},
-									"text": "1..*"
+									"text": "0..*"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -7218,7 +7218,7 @@
 										"$ref": "AAAAAAFw6GwDXHtuE/w="
 									},
 									"edgePosition": 2,
-									"text": "1..*"
+									"text": "2..*"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8502,7 +8502,7 @@
 								"reference": {
 									"$ref": "AAAAAAFw6EvD0xKkLwI="
 								},
-								"multiplicity": "1..*"
+								"multiplicity": "2..*"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -8552,8 +8552,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFw6EvD0xKkLwI="
 							},
-							"name": "NetworkAdress",
-							"type": ""
+							"name": "NetworkAddress"
 						}
 					]
 				},
@@ -8687,7 +8686,7 @@
 								"reference": {
 									"$ref": "AAAAAAFw6E7L4iOSols="
 								},
-								"multiplicity": "1..*"
+								"multiplicity": "0..*"
 							}
 						},
 						{
@@ -8904,7 +8903,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "MonitorinngSystem",
+					"name": "MonitoringSystem",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",

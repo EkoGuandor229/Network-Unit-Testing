@@ -10538,7 +10538,7 @@
 											"top": 820,
 											"width": 170.47265625,
 											"height": 13,
-											"text": "ConnectionStrategyFactory"
+											"text": "TestStrategyFactory"
 										},
 										{
 											"_type": "LabelView",
@@ -10625,7 +10625,7 @@
 											"top": 853,
 											"width": 170.47265625,
 											"height": 13,
-											"text": "+getConnection()",
+											"text": "getTest()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10674,6 +10674,7 @@
 							"top": 800,
 							"width": 180.47265625,
 							"height": 71,
+							"showVisibility": false,
 							"nameCompartment": {
 								"$ref": "AAAAAAFw8samH+2g1FE="
 							},
@@ -11101,7 +11102,7 @@
 											"top": 812,
 											"width": 170.47265625,
 											"height": 13,
-											"text": "ConnectionStrategyFactory"
+											"text": "TestStrategyFactory"
 										},
 										{
 											"_type": "LabelView",
@@ -11188,7 +11189,7 @@
 											"top": 845,
 											"width": 170.47265625,
 											"height": 13,
-											"text": "getConnection()",
+											"text": "getTest()",
 											"horizontalAlignment": 0
 										}
 									],
@@ -14530,7 +14531,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "ConnectionStrategyFactory",
+					"name": "TestStrategyFactory",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -14568,7 +14569,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFw8samHu2dY4M="
 							},
-							"name": "getConnection"
+							"name": "getTest"
 						}
 					]
 				}
