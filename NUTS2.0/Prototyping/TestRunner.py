@@ -1,7 +1,7 @@
 class TestRunner:
     logger = 0
     connection = 0
-    testSuite = 0
+    testSuite = []
     testResult = 0
 
     def run_all_tests(self):
