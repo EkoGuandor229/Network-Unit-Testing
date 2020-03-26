@@ -77,25 +77,37 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 	\subsection{Akteure im aktuellen System}
 	\label{sec:Akteure}
 	Die hier beschriebenen Akteure sind in einem herkömmlichen Netzwerksystem anzutreffen. 
-		
-	\begin{tabularx}{\textwidth}{lX}
+	
+	\begin{table}[!h]
+		\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Akteur &  Beschreibung \\
 			\midrule
-			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. In der Praxis oft auch als Network-Engineer bezeichnet. Im Zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. \\ 
-			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
-			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. Ein Netzwerk Administrator hat, je nach Grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. \\
+			Netzwerk-Architekt  & Ein Netzwerk-Architekt plant und erstellt Kommunikationsnetzwerke. 
+			In der Praxis oft auch als Network-Engineer bezeichnet. 
+			Im Zuge dieser Arbeit wurde zwischen dem Architekten als Verantwortlichen Senior Network Engineer und einem Network Engineer (Junior oder Senior) als operativen Mitarbeiter unterschieden. 
+			Der Architekt nimmt dabei eher die Rolle des Managers oder Teamleiters ein. Er führt dabei normalerweise keine Konfigurationen am Netzwerk durch. \\ 
+			Netzwerk-Engineer  & Ein Netzwerk-Engineer ist für die Installation und Instandhaltung eines Netzwerks zuständig. 
+			Er ist dem Netzwerk-Architekten unterstellt und setzt mit Ihm zusammen die geplanten Arbeiten um. \\
+			Netzwerk-Administrator  & Der Netzwerk Administrator hat üblicherweise eine abgeschlossene Berufslehre in der Informatik und arbeitet zusammen mit dem Netzwerk-Engineer am Netzwerk. 
+			Es wird davon ausgegangen, dass ein Netz-Admin wenige bis keine Programmierkenntnisse hat. 
+			Ein Netzwerk Administrator hat, je nach Grösse des Netzwerks, nur Kenntnisse über einen Teil der Netzwerkumgebung. 
+			Er führt dabei ihm vom Architekten oder Engineer vorgegebene Arbeiten aus und muss dazu nicht den vollen Überblick über das Netzwerk und die darin verwendeten Technologien kennen.\\
 			Netzwerk-User & Benutzer der Netzwerkumgebung. User müssen das Netzwerk verwenden, aber nicht dessen Konfigurationen anpassen können. \\
 			\midrule
 			Netzwerk-Gerät  & Ein Netzwerkgerät kann aus Hardware wie Switch, Router oder Server bestehen oder Virtuell als Software implementiert sein. Im Zuge der Arbeit werden Netzwerkgeräte auch als Netzwerk-Devices oder einfach Device bezeichnet. Typischerweise haben Devices eine Statische Konfiguration und einen Zustand zur Laufzeit. In den kommenden Kapiteln wird genauer auf Netzwerkgeräte eingegangen. \\
 			Repository/Inventar &  Im Inventar werden die Unterschiedlichen Devices mit den für den Betrieb wichtigsten Parametern abgelegt. Das Inventar kann in digitaler Form als Repository, als File auf einem Ordner/Computer, oder analog in einem Order abgelegt sein. Das Inventar wird benötigt, um die aktuellen Konfigurationen, die physische Position des Geräts oder sonstige für den Betrieb relevanten Informationen zu dokumentieren. \\
 			\bottomrule
 		\end{tabularx}
-		\newpage
+			\caption{Akteure in einem Netzwerksystem}
+	\end{table}
+	
+	\newpage
 
 	\subsection{Zusätzliche Entitäten im zu entwickelnden System}
 	Diese Entitäten müssen zusätzlich zu den im Abschnitt \ref{sec:Akteure} beschriebenen Akteuren in einem Netzwerk, welches ein System für das automatisierte Testen beinhaltet, auftreten.
 	
+	\begin{table}[!h]
 		\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Testprogramm &  Das Testprogramm ist das zu entwickelnde System in dieser Arbeit. Es interagiert mit den anderen Akteuren und hat, abhängig von Akteur und Kontext, unterschiedliche Anforderungen. \\
@@ -106,11 +118,13 @@ Es umfasst eine Übersicht über die Problemdomäne, die Requirements-Analyse un
 			Netzwerktest & Werden meistens von Hand oder über Scripts ausgeführt. Ein automatisierter Netzwerktest sollte hypothetisch ad-hoc nach jeder Konfigurationsänderung durchgeführt werden um zu validieren, dass das Netzwerk noch wie gewollt läuft. \\
 			\bottomrule
 		\end{tabularx}
-		\newpage
+		\caption{Entitäten im zu entwickelnden System}
+	\end{table}
+	\newpage
 
 	\subsection{Herausforderungen}
 	Das Testen von Netzwerken ist ein komplexes Unterfangen. 
-	Die Netzwerkkonfiguration ändert sich zur Laufzeit dauernd, um sich an Änderungen von einzelnen Geräten anzupassen.
+	Der Netzwerkzustand ändert sich zur Laufzeit dauernd, um sich an Änderungen von einzelnen Geräten anzupassen.
 	User treten dem Netzwerk bei oder verlassen dieses und Netzwerkgeräte passen über dynamische Protokolle die Verbindungen an um eine möglichst performante Verbindung zu ermöglichen oder um Fehler/Ausfälle zu korrigieren.
 	Weiterhin können spezielle Konfigurationen wie die Priorisierung von verschiedenen Kommunikationsarten z.B. Internettelefonie (VoIP), auch Quality of Service (QoS) genannt, im System vorkommen, was die genaue Erfassung des Ist-Zustandes noch komplizierter macht.
 	In diesem Kontext muss ein Netzwerk-Testsystem nicht nur die Gerätekonfiguration beim Starten, sondern auch die dynamische Laufzeitkonfiguration berücksichtigen.
@@ -143,6 +157,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 	Akteure interagieren mit dem zu entwickelnden System und hat in dessen Kontext eine Rolle und Ziele.
 	Akteure lassen sich in drei Kategorien unterteilen: 
 		
+	\begin{table}[!h]
 		\begin{tabularx}{\textwidth}{lX}
 			\toprule
 				Primärer Aktor & Person oder Objekt, dessen ziele durch Interaktion mit dem zu entwickelnden System erfüllt werden.\\
@@ -150,18 +165,18 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 				Nebenaktor & Hat Interesse am Verhalten des Systems oder zieht einen Nutzen daraus, ist aber nicht primär oder unterstützend. \\
 			\bottomrule
 		\end{tabularx}
+		\caption{Kategorien der Akteure}
+	\end{table}
 
 		\subsubsection{Netzwerk-Architekt}
 		
 			\paragraph{Rolle} ~\\
 			Primärer Aktor 
 
-			\paragraph{Ziele} ~\\
-			Verwalten von Devices in einem Inventar, 
-			Konfiguration automatisierter Tests, 
+			\paragraph{Ziele} ~\\ 
+			Konfiguration automatisierter Tests (welche er für analytische Zwecke benötigt) 
 			Durchführung der Tests, 
-			Sichten der Resultate,
-			Erweiterung des Testsystems
+			Sichten der Resultate
 			
 		\subsubsection{Netzwerk-Engineer}
 		
@@ -182,7 +197,7 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Primärer Aktor 
 			\paragraph{Ziele} ~\\
 			Verwalten von Devices in einem Inventar, 
-			Konfiguration automatisierter Tests, 
+			Konfiguration automatisierter Tests (einfachere Tests, die für einen Administrator wichtig sind), 
 			Durchführung der Tests, 
 			Sichten der Resultate
 
@@ -194,6 +209,10 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Verwenden des Systems
 
 		\subsubsection{Einschränkungen}
+
+			\paragraph{Prioritärer Aktor} ~\\
+			Das zu entwickelnde System wird primär mit dem Netzwerk-Engineer als Aktor aufgebaut, da der Architekt eher eine planende/managende Rolle einnimmt und der Administrator für einfachere Aufträge, wie das umschalten von Ports oder Interfaces, zusständig ist.
+
 
 			\paragraph{User} ~\\
 			Für das zu entwickelnde System hat der User keinen Einfluss auf die Funktionalen Anforderungen. 
@@ -226,17 +245,21 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Das Inventar kann mit einer Beschreibungssprache wie XML, YAML, YANG oder weitere, geführt werden, die es erlaubt, die Informationen dynamisch in das zu entwickelnden System zu laden und für die Testdefinition zu verwenden.
 			Die Erfassung der Devices kann dabei in folgende Stufen unterteilt werden, die mit steigender Automatisierung ein komplexeres System voraussetzen.
 
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Stufe & Beschreibung\\
-				\midrule
-				Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt welches optimalerweise in einem Repository gespeichert wird. \\
-				\midrule
-				Stufe Formular & Der Netzwerk-Techniker kann mit Hilfe eines Formulars oder einem Grafikinterface des zu entwickelnden Systems die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er kann sich das Inventar im GUI zusammenklicken.\\
-				\midrule
-				Stufe Automatisiert & Die Devices werden automatisch von dem zu entwickelnden System aus dem Netzwerk ausgelesen und in ein Inventar hinzugefügt. Das Ergebnis kann vom Techniker dann gesichtet werden und lässt sich bei Bedarf anpassen. \\
-				\bottomrule
-			\end{tabularx}
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Stufe & Beschreibung\\
+					\midrule
+					Stufe Manuell & Die Devices werden vom Benutzer manuell in einem File hinzugefügt welches optimalerweise in einem Repository gespeichert wird. \\
+					\midrule
+					Stufe Formular & Der Netzwerk-Techniker kann mit Hilfe eines Formulars oder einem Grafikinterface des zu entwickelnden Systems die Devices erfassen. Da dies über ein Formular geschieht, muss der Benutzer nicht manuell für jedes Device ein neues File anlegen, sondern das Programm erledigt all das für den Benutzer und er kann sich das Inventar im GUI zusammenklicken.\\
+					\midrule
+					Stufe Automatisiert & Die Devices werden automatisch von dem zu entwickelnden System aus dem Netzwerk ausgelesen und in ein Inventar hinzugefügt. Das Ergebnis kann vom Techniker dann gesichtet werden und lässt sich bei Bedarf anpassen. \\
+					\bottomrule
+				\end{tabularx}
+				\caption{Stufen der Device-Erfassung}
+			\end{table}
+			
 			\newpage
 
 		\subsubsection{Device Informationen}
@@ -245,22 +268,26 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Je mehr Informationen von einem Gerät im Inventar abgelegt sind, desto mehr Tests lassen sich ohne Erfassung von zusätzlichen Infos durchführen. \\
 			Die folgende Tabelle zählt einige Beispiele dieser Einstellungen auf und beschreibt, wozu die Informationen benötigt werden.
 
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Einstellung & Beschreibung\\
-				\midrule
-				\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden, um dort Befehle für die Tests ausführen zu können. \\	
-				\textcolor{green}{MAC-Adresse} & Die Media Access Control Adresse ist für die eindeutige Identifikation eines Netzwerkgerätes. Die MAC kann z.B. für die Berechnung von IPv6 Adressen verwendet werden.\\
-				\textcolor{green}{IP Adresse} & Die IP-Adresse eines Devices ist die Virtuelle Adresse, die das Gerät im Netzwerk hat. \\
-				\textcolor{green}{Seriennummer} & Die Seriennummer eines Geräts wird nur für sehr spezielle Anwendungen benötigt z.B. die Entscheidung des Wurzelknotens im Zweifelsfall beim Spanning Tree Protokoll. \\
-				\midrule
-				\textcolor{yellow}{Statische Routen} & Statische Routen sind manuell konfigurierte Einstellungen, die nicht verändert werden, wenn das Netz nicht angepasst wird. Sie sind einfach zu konfigurieren, aber sie können sich nicht an Systemfehler anpassen. \\
-				\textcolor{yellow}{Dynamisches Routing} & Routing Protokolle passen die konfigurierten Routen der Geräte zur Laufzeit an, um auf Änderungen im Netz zu reagieren. Dynamische Protokolle sind flexibler, aber auch komplexer als statische Routen. \\
-				\midrule
-				\textcolor{red}{Virtual LAN} & Das Virtuelle Local Area Network unterteilt Geräte im Netzwerk in logische Gruppen und bewirkt eine Segmentierung des Netzwerks was zu erhöhter Sicherheit, Erweiterbarkeit und besserem Netzwerkmanagement führen kann. \\
-				\textcolor{red}{Overlay Netzwerk} & In einem Overlay Netzwerk werden logische Verbindungen von der virtuellen Konfiguration getrennt. In jedem Layer nimmt ein physisches Gerät dabei eine andere Rolle wahr, was dazu führt, dass die Gerätekonfiguration schwieriger zu testen sind. \\				
-				\bottomrule
-			\end{tabularx}
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Einstellung & Beschreibung\\
+					\midrule
+					\textcolor{green}{Name und Passwort} & Diese Informationen werden benötigt, um sich bei einem Device (z.B. Router) anzumelden, um dort Befehle für die Tests ausführen zu können. \\	
+					\textcolor{green}{MAC-Adresse} & Die Media Access Control Adresse ist für die eindeutige Identifikation eines Netzwerkgerätes. Die MAC kann z.B. für die Berechnung von IPv6 Adressen verwendet werden.\\
+					\textcolor{green}{IP Adresse} & Die IP-Adresse eines Devices ist die Virtuelle Adresse, die das Gerät im Netzwerk hat. \\
+					\textcolor{green}{Seriennummer} & Die Seriennummer eines Geräts wird nur für sehr spezielle Anwendungen benötigt z.B. die Entscheidung des Wurzelknotens im Zweifelsfall beim Spanning Tree Protokoll. \\
+					\midrule
+					\textcolor{yellow}{Statische Routen} & Statische Routen sind manuell konfigurierte Einstellungen, die nicht verändert werden, wenn das Netz nicht angepasst wird. Sie sind einfach zu konfigurieren, aber sie können sich nicht an Systemfehler anpassen. \\
+					\textcolor{yellow}{Dynamisches Routing} & Routing Protokolle passen die konfigurierten Routen der Geräte zur Laufzeit an, um auf Änderungen im Netz zu reagieren. Dynamische Protokolle sind flexibler, aber auch komplexer als statische Routen. \\
+					\midrule
+					\textcolor{red}{Virtual LAN} & Das Virtuelle Local Area Network unterteilt Geräte im Netzwerk in logische Gruppen und bewirkt eine Segmentierung des Netzwerks was zu erhöhter Sicherheit, Erweiterbarkeit und besserem Netzwerkmanagement führen kann. \\
+					\textcolor{red}{Overlay Netzwerk} & In einem Overlay Netzwerk werden logische Verbindungen von der virtuellen Konfiguration getrennt. In jedem Layer nimmt ein physisches Gerät dabei eine andere Rolle wahr, was dazu führt, dass die Gerätekonfiguration schwieriger zu testen sind. \\				
+					\bottomrule
+				\end{tabularx}
+				\caption{Beispiele für Device-Informationen}
+			\end{table}
+			
 			\newpage
 
 		\subsubsection{Device Gruppen}
@@ -279,16 +306,19 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 
 		\subsubsection{Test erfassen}
 			Auch hier gibt es wieder mehrere Stufen, wie die Tests erfasst werden können.\\
-
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Stufe & Beschreibung\\
-				\midrule
-				Stufe Manuell & Der Benutzer erfasst die Tests komplett manuell in einem File mit einer Testdefinitionssprache. In diesem File muss der Benutzer die Testart, die beteiligten Devices und weitere Optionen des Testes festlegen. Ausserdem ist das zu erwartende Ergebnis für einen Test zu spezifizieren. \\
-				\midrule
-				Stufe Formular & Das Programm stellt ein Formular zur Verfügung, welches die ganze Testerfassung vereinfacht. Der Benutzer kann sich hierbei den Test nur noch über die Benutzeroberfläche zusammenklicken. Das Programm speichert danach den Test automatisch in einem File oder Repository. \\
-				\bottomrule
-			\end{tabularx}
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Stufe & Beschreibung\\
+					\midrule
+					Stufe Manuell & Der Benutzer erfasst die Tests komplett manuell in einem File mit einer Testdefinitionssprache. In diesem File muss der Benutzer die Testart, die beteiligten Devices und weitere Optionen des Testes festlegen. Ausserdem ist das zu erwartende Ergebnis für einen Test zu spezifizieren. \\
+					\midrule
+					Stufe Formular & Das Programm stellt ein Formular zur Verfügung, welches die ganze Testerfassung vereinfacht. Der Benutzer kann sich hierbei den Test nur noch über die Benutzeroberfläche zusammenklicken. Das Programm speichert danach den Test automatisch in einem File oder Repository. \\
+					\bottomrule
+				\end{tabularx}
+				\caption{Stufen der Test-Erfassung}
+			\end{table}
+			
 
 		\subsubsection{Erwartungswert erfassen}
 			Ein Test findet in der Regel durch einen Vergleich vom Ist-Wert mit dem Soll-Wert statt. Der Ist-Wert in einem Netzwerk ist die Konfiguration und der Zustand zur Laufzeit. Der Sollwert muss vom Netzwerk-Techniker bei der Testdefinition erfasst werden.
@@ -326,7 +356,8 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 	Es wird nicht von ihm erwartet, dass er am Python-Code des zu entwickelnden Systems etwas verändert.
 	Der Benutzer des Netzwerks bekommt keine eigene Perona. 
 	Er ist daran interessiert, das Netzwerk zu verwenden, nimmt aber auf dessen Funktionen keinen direkten Einfluss.
-
+	
+	\begin{table}[!h]
 		\begin{tabularx}{\textwidth}{lXX}
 			\toprule
 			Person & Beschreibung & Technisches Wissen \\
@@ -336,7 +367,10 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			Administrator & Setzt Änderungen am Netzwerk um und hat Kenntnisse über die ihm zugeteilten Bereiche. & Es wird nicht davon ausgegangen, dass ein Administrator genügend Python-Kenntnisse hat, um am System etwas zu verändern.\\
 			\bottomrule
 		\end{tabularx}
-		\newpage
+		\caption{Personas}
+	\end{table}
+		
+	\newpage
 
 	\subsection{Use Cases Brief}
 	Die Use-Cases beschreiben die Funktionalen Anforderungen an das zu entwickelnde System und dessen Komponenten.
@@ -373,8 +407,13 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 			 
 			
 	\subsection{Use Case Diagramm}
-		\includegraphics[scale=0.5]{\vorlagenOrdner/Bilder/UseCaseDiagram}
-
+	\begin{figure}[!h]
+		\begin{center}
+			\includegraphics[scale=0.6]{\vorlagenOrdner/Bilder/UseCaseDiagram}
+		\end{center}
+		\caption{Use Case Diagramm}
+	\end{figure}
+		
 \section{Nichtfunktionale Anforderungen}
 	In diesem Kapitel werden die nichtfunktionalen Anforderungen an das Projekt behandelt.
 	Es werden Aspekte und Anforderungen aus den Bereichen Änderbarkeit, Benutzbarkeit, Effizienz, Zuverlässigkeit, Betreibbarkeit und Sicherheit betrachtet.
@@ -398,39 +437,49 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		\subsubsection{Testbarkeit}
 			Wie gross wird der Aufwand, bei Änderungen die Software zu prüfen.
 
+		\newpage
+
 		\subsubsection{Szenario: Neue Netzwerkschnittstelle}
 			Wenn zum bestehenden System eine neue Netzwerkschnittstelle definiert werden soll, so muss die dafür notwendige Software innerhalb von einer Arbeitswoche entwickelt, integriert und in Betrieg genommen werden können.
-
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Qualitätsziele & Flexibilität, Erweiterbarkeit, Anpassbarkeit, Austauschbarkeit  \\
-				\midrule
-				Geschäftsziel(e) & Software kann mit geringem Aufwand an geänderte Anforderungen angepasst werden  \\
-				\midrule
-				Auslöser & Ein Engineer möchte weitere Tests einbinden oder Schnittstellen, die nicht im System integriert sind.  \\
-				\midrule
-				Reaktion & Die Software lässt sich von einem Entwickler in weniger als einer Woche um benötigte Komponenten erweitern.  \\
-				\midrule
-				Zielwert & 	Erweiterungen der Netzwerkschnittstellen oder Anpassungen von Tests sind innerhalb von 40 Personenstunden umsetzbar.  \\
-				\bottomrule
-			\end{tabularx}
+			
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Qualitätsziele & Flexibilität, Erweiterbarkeit, Anpassbarkeit, Austauschbarkeit  \\
+					\midrule
+					Geschäftsziel(e) & Software kann mit geringem Aufwand an geänderte Anforderungen angepasst werden  \\
+					\midrule
+					Auslöser & Ein Engineer möchte weitere Tests einbinden oder Schnittstellen, die nicht im System integriert sind.  \\
+					\midrule
+					Reaktion & Die Software lässt sich von einem Entwickler in weniger als einer Woche um benötigte Komponenten erweitern.  \\
+					\midrule
+					Zielwert & 	Erweiterungen der Netzwerkschnittstellen oder Anpassungen von Tests sind innerhalb von 40 Personenstunden umsetzbar.  \\
+					\bottomrule
+				\end{tabularx}
+				\caption{Szenario: Neue Schnittstelle}
+			\end{table}
+			
 
 		\subsection{Scenario: Schnelle Fehlerlokalisierung}
 			Die Ursache von fehlgeschlagenen Tests (Software-Unittests) lässt sich in kurzer Zeit lokalisieren.
-
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Qualitätsziele & Schnelle Fehlerbehebung, Änderbarkeit, Anpassbarkeit, geringes Risiko bei Erweiterungen  \\
-				\midrule
-				Geschäftsziel(e) & Entwickler können das Programm einfach anpassen und erkennen im Fehlerfall schnell, was nicht funktioniert hat.  \\
-				\midrule
-				Auslöser & Eine Änderung im Code führt zu Fehlnern in der Ausführung.  \\
-				\midrule
-				Reaktion & Wenn ein Fehler dazu führt, dass die Softwareausführung fehlschlägt, kann ein Entwickler aufgrund von Fehler- und/oder Log-Nachrichten die Ursache in kurzer Zeit lokalisieren.  \\
-				\midrule
-				Zielwert & Fehlerlokalisierung findet durchschnittlich in weniger als 10 Minuten statt.  \\
-				\bottomrule
-			\end{tabularx}
+			
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Qualitätsziele & Schnelle Fehlerbehebung, Änderbarkeit, Anpassbarkeit, geringes Risiko bei Erweiterungen  \\
+					\midrule
+					Geschäftsziel(e) & Entwickler können das Programm einfach anpassen und erkennen im Fehlerfall schnell, was nicht funktioniert hat.  \\
+					\midrule
+					Auslöser & Eine Änderung im Code führt zu Fehlnern in der Ausführung.  \\
+					\midrule
+					Reaktion & Wenn ein Fehler dazu führt, dass die Softwareausführung fehlschlägt, kann ein Entwickler aufgrund von Fehler- und/oder Log-Nachrichten die Ursache in kurzer Zeit lokalisieren.  \\
+					\midrule
+					Zielwert & Fehlerlokalisierung findet durchschnittlich in weniger als 10 Minuten statt.  \\
+					\bottomrule
+				\end{tabularx}
+				\caption{Szenario: Schnelle Fehlerlokalisierung}
+			\end{table}
+			
 			\newpage
 
 	\subsection{Benutzbarkeit}
@@ -449,36 +498,44 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		\subsubsection{Szenario: Einfachheit der Definitionssprache}
 			Die Definitionen von Inventar und Tests sind so aufgebaut, dass ein User in kurzer Zeit die Struktur und den Aufbau versteht und eigene Tests implementieren kann.
 			
-			\begin{tabularx}{\textwidth}{lX}
-				\toprule
-				Qualitätsziele & Produktivität, Einfachheit, Verständlichkeit \\
-				\midrule
-				Geschäftsziel(e) & Einarbeitung in die Testdefinition erfolg möglichst einfach und benötigt nur geringes Vorwissen.  \\
-				\midrule
-				Auslöser & Ein Nutzer, welcher keine Erfahrung im Umgang mit der Software hat, möchte eigene Tests definieren.  \\
-				\midrule
-				Reaktion & Benutzer können sich schnell in die Testdefinitionen einlesen und rasch eigene Tests definieren, vorausgesetzt, sie haben Kenntnisse des Netzwerkes.  \\
-				\midrule
-				Zielwert & Ungeschulte Nutzer verstehen innerhalb von durchschnittlich 30 Minuten die Struktur und den Aufbau der Testdefinitionen und sind in der Lage, eigene Tests zu erstellen.  \\
-				\bottomrule
-			\end{tabularx}
+			\begin{table}[!h]
+				\begin{tabularx}{\textwidth}{lX}
+					\toprule
+					Qualitätsziele & Produktivität, Einfachheit, Verständlichkeit \\
+					\midrule
+					Geschäftsziel(e) & Einarbeitung in die Testdefinition erfolg möglichst einfach und benötigt nur geringes Vorwissen.  \\
+					\midrule
+					Auslöser & Ein Nutzer, welcher keine Erfahrung im Umgang mit der Software hat, möchte eigene Tests definieren.  \\
+					\midrule
+					Reaktion & Benutzer können sich schnell in die Testdefinitionen einlesen und rasch eigene Tests definieren, vorausgesetzt, sie haben Kenntnisse des Netzwerkes.  \\
+					\midrule
+					Zielwert & Ungeschulte Nutzer verstehen innerhalb von durchschnittlich 30 Minuten die Struktur und den Aufbau der Testdefinitionen und sind in der Lage, eigene Tests zu erstellen.  \\
+					\bottomrule
+				\end{tabularx}
+				\caption{Szenario: Einfachheit der Definitionssprache}
+			\end{table}
+			\newpage
 			
 		\subsubsection{Szenario: Hinweis auf Fehleingaben}
 		Fehlerhafte Eingaben werden vom System ignoriert und der Benutzer wird auf die falsche Eingabe hingewiesen. Das Programm führt fehlerfreie Programmteile unabhängig von den Fehlern durch.
-			
-		\begin{tabularx}{\textwidth}{lX}
-			\toprule
-			Qualitätsziele & Robustheit, Verständlichkeit, Fehlertoleranz.  \\
-			\midrule
-			Geschäftsziel(e) & Fehleingaben führen nicht dazu, dass die Tests nicht mehr durchgeführt werden können.  \\
-			\midrule
-			Auslöser & Ein Benutzer macht einen Fehler bei der Testdefinition und startet das Programm.  \\
-			\midrule
-			Reaktion & Das Programm führt alle korrekten Tests durch und informiert den Benutzer, dass es fehlerhafte Tests gibt, die nicht durchgeführt werden können. Die Hinweise werden im Report und auf der Konsolenausgabe geschrieben.   \\
-			\midrule
-			Zielwert & Tests sind einzeln gekapselt und werden unabhängig voneinander durchgeführt. Falscheingaben werden vom Programm detektiert und im Testreport sowie auf der Konsolenausgabe erwähnt.  \\
-			\bottomrule
-		\end{tabularx}
+		
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Qualitätsziele & Robustheit, Verständlichkeit, Fehlertoleranz.  \\
+				\midrule
+				Geschäftsziel(e) & Fehleingaben führen nicht dazu, dass die Tests nicht mehr durchgeführt werden können.  \\
+				\midrule
+				Auslöser & Ein Benutzer macht einen Fehler bei der Testdefinition und startet das Programm.  \\
+				\midrule
+				Reaktion & Das Programm führt alle korrekten Tests durch und informiert den Benutzer, dass es fehlerhafte Tests gibt, die nicht durchgeführt werden können. Die Hinweise werden im Report und auf der Konsolenausgabe geschrieben.   \\
+				\midrule
+				Zielwert & Tests sind einzeln gekapselt und werden unabhängig voneinander durchgeführt. Falscheingaben werden vom Programm detektiert und im Testreport sowie auf der Konsolenausgabe erwähnt.  \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Szenario: Hinweis auf Fehleingaben}
+		\end{table}
+		
 		
 	\subsection{Effizienz}
 	Mit Effizienz ist die 'performance efficiency' gemeint, d.h. das Verhältnis zwischen dem Leistungsniveau der Software und den eingesetzten Hardwarekomponenten. 
@@ -506,19 +563,23 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 		\subsubsection{Szenario: Tests lassen sich auf der Netzwerkseite nicht ausführen}
 		Falls ein Test auf dem jeweiligen Netzwerkgerät nicht erfolgreich durchgeführt werden kann, läuft das Programm weiter und definiert den dazugehörigen Netzwerktest als nicht bestanden.
 		
-		\begin{tabularx}{\textwidth}{lX}
-			\toprule
-			Qualitätsziele & Robustheit, Behandlung Infrastrukturbedingter Fehler.  \\
-			\midrule
-			Geschäftsziel(e) & Das System führt alle Tests unabhängig voneinander durch. Wenn ein Test zu einem Fehler führt, weil z.B. ein falsches Netzwerkgerät angegeben wurde, wird dieser Test unabhängig von allen anderen Tests fehlschlagen.  \\
-			\midrule
-			Auslöser & Test lässt sich auf spezifizierter Infrastruktur nicht ausführen.  \\
-			\midrule
-			Reaktion & Test schlägt fehl und mögliche Ursachen werden im Report und in der Konsole angezeigt. Alle anderen Tests laufen durch.  \\
-			\midrule
-			Zielwert & Das Fehlschlagen eines Tests fürht nicht zum Programmabbruch.  \\
-			\bottomrule
-		\end{tabularx}
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Qualitätsziele & Robustheit, Behandlung Infrastrukturbedingter Fehler.  \\
+				\midrule
+				Geschäftsziel(e) & Das System führt alle Tests unabhängig voneinander durch. Wenn ein Test zu einem Fehler führt, weil z.B. ein falsches Netzwerkgerät angegeben wurde, wird dieser Test unabhängig von allen anderen Tests fehlschlagen.  \\
+				\midrule
+				Auslöser & Test lässt sich auf spezifizierter Infrastruktur nicht ausführen.  \\
+				\midrule
+				Reaktion & Test schlägt fehl und mögliche Ursachen werden im Report und in der Konsole angezeigt. Alle anderen Tests laufen durch.  \\
+				\midrule
+				Zielwert & Das Fehlschlagen eines Tests fürht nicht zum Programmabbruch.  \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Szenario: Testausführung Netzwerkseitig nicht ausführbar}
+		\end{table}
+		
 
 	\subsection{Betreibbarkeit}
 	Die Betriebbarkeit wird in der ISO 9126 nicht definiert. Die ISO spezifiziert aber mehrere Teilmerkmale, die unter dem Begriff Betreibbarkeit zusammengefasst werden können:
@@ -541,20 +602,24 @@ Dieser Abschnitt beschreibt die Akteure, welche im Abschnitt \ref{sec:Akteure} g
 
 		\subsubsection{Szenario: Einfache Installation auf einem neuen Gerät}
 		Das Programm lässt sich auf einem neuen Gerät ohne grossen Mehraufwand installieren, ohne dass die Funktionalität des Geräts beeinflusst wird.
-
-		\begin{tabularx}{\textwidth}{lX}
-			\toprule
-			Qualitätsziele & Einfachheit, Portierbarkeit, Benutzbarkeit  \\
-			\midrule
-			Geschäftsziel(e) & Die Installation der Software ist so einfach, dass sie innert kurzer Zeit und/oder automatisiert durchgeführt werden kann.  \\
-			\midrule
-			Auslöser & Die Testsoftware soll auf einem frisch aufgesetzten Gerät installiert werden.  \\
-			\midrule
-			Reaktion & Installationszeiten sind gering, benötigen wenige bis keine weiteren Softwarekomponenten oder lässt sich mit einigen Kommandozeilenbefehlen automatisch installieren.  \\
-			\midrule
-			Zielwert & Die Software wird mit einer Installationsanleitung ausgeliefert, die einfach und verständlich die Inbetriebnahme des Programms erklärt. Abhängigkeiten zu anderen Softwarekomponenten werden bewusst gering gehalten um eine einfache Installation mit weniger als 30 Minuten Zeitaufwand zu gewährleisten.  \\
-			\bottomrule
-		\end{tabularx}
+		
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Qualitätsziele & Einfachheit, Portierbarkeit, Benutzbarkeit  \\
+				\midrule
+				Geschäftsziel(e) & Die Installation der Software ist so einfach, dass sie innert kurzer Zeit und/oder automatisiert durchgeführt werden kann.  \\
+				\midrule
+				Auslöser & Die Testsoftware soll auf einem frisch aufgesetzten Gerät installiert werden.  \\
+				\midrule
+				Reaktion & Installationszeiten sind gering, benötigen wenige bis keine weiteren Softwarekomponenten oder lässt sich mit einigen Kommandozeilenbefehlen automatisch installieren.  \\
+				\midrule
+				Zielwert & Die Software wird mit einer Installationsanleitung ausgeliefert, die einfach und verständlich die Inbetriebnahme des Programms erklärt. Abhängigkeiten zu anderen Softwarekomponenten werden bewusst gering gehalten um eine einfache Installation mit weniger als 30 Minuten Zeitaufwand zu gewährleisten.  \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Szenario: Einfache Installation auf einem anderen Gerät}
+		\end{table}
+		
 
 
 	\subsection{Sicherheit}
