@@ -47,6 +47,7 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 	Datum & Version & Änderung & Autor \\
 	\midrule
 	24.03.2018 & 1.0 & Initial Setup & Janik Schlatter \\
+	26.03.2020 & 1.0 & Designentscheidungen & Mike Schmid \\
 	\bottomrule
 \end{tabularx}
 \cleardoublepage
@@ -64,24 +65,79 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 
 % Inhalt ---------------------------------------------------------------------
 \section{Designentscheidungen}
-	\subsection{Allgemein}
-		Bei der Architektur wurde vor allem Wert darauf gelegt, dass das Projekt in der Zukunft einfach erweiterbar ist und dass der Code möglichst abstrahiert von allen Technologien ist.
+	\subsection{Architekturentscheidungen (AE's)}
+		\subsubsection{AE 1: Anwendung von Patterns für die Testerstellung}
+		\begin{itemize}
+			\item Im Kontext der Erweiterbarkeit des zu entwickelnden Systems,
+			\item damit weitere Netzwerktest einfach hinzugefügt werden können,
+			\item wurde entschieden, dass für die Testerstellung das Strategy und Factory-Method Pattern angewandt wird,
+			\item um die Instanzierungslogik von den einzelnen Testklassen zu entkoppeln.
+			\item Dabei wird akzeptiert, dass die Implementation des Systems alles in allem komplexer, und die Erstellung umfangreicher wird.			
+		\end{itemize}
 
-	\subsection{Abstriche}
-		\subsubsection{GUI}
-			Auf das GUI wird vorerst komplett verzichtet, da dies vom Aufwand her zu gros ist, da zu viel Zeit für das Grundkonstrukt benötigt wird.
+		\subsubsection{AE 2: Anwendung von Patterns für die Kommunikationsschnittstellen}
+		\begin{itemize}
+			\item Im Kontext der Erweiterbarkeit um weitere Netzwerkschnittstellen,
+			\item damit das Hinzufügen von weiteren Schnittstellen vereinfacht wird,
+			\item wurde entschieden, dass die Auswahl und Instanzierung von Verbindungen über ein Factory Method- und Strategy Pattern realisiert wird.
+			\item um die Verbindungsauswahl vom System zu entkoppeln.
+			\item Es wird dabei akzeptiert, dass das System komplexer wird und die Erstellung mehr Aufwand benötigt.
+		\end{itemize}
 
-		\subsubsection{Tests}
-			Grundsätzlich wird zum Beginn nur ein Test implementiert, sodass der Fokus ganz auf der Erweiterbarkeit steht. Falls es noch Zeit gibt werden noch mehr Tests implementiert.
+		\subsubsection{AE 3: Auswahl der Testdefinitionssprache}
+		\begin{itemize}
+			\item Um die Testdefinitionen in einer möglichst menschenlesbaren Form zu halten,
+			\item und die verwendbarkeit im zu entwickelnden System zu gewährleisten,
+			\item haben wir entschieden, die Testdefinitionen in YAML zu verfassen,
+			\item um ein Format zu verwenden, dass auch von Netzwerkleuten verwendet wird.
+			\item Andere Technologien, wie JSON, XML usw. werden dabei voraussichtlich wegeglassen,
+			\item auch wenn diese in spezifischen Anwendungen wie die Speicherung von Daten geeignet wären.
+		\end{itemize}
+		\newpage
 
-		\subsubsection{Devices}
-			Das automatische Erkennen von Devices wird im Rahmen von dieser SA wegeglassen, da dies zeitlich nicht im Rahmen liegt. Das Projekt wird jedoch so angelegt, dass dies mit wenig Code-Umstellung noch einfach anzufügen ist.
+		\subsubsection{AE 4: Weglassen einer Grafischen Benutzeroberfläche (GUI)}
+		\begin{itemize}
+			\item Im Rahmen der zeitlichen Beschränkung der Arbeit,
+			\item um uns auf die Implementation der Logik zu konzentrieren,
+			\item werden wir kein GUI entwickeln.
+			\item Stattdessen wird, wo nötig, eine Kommandozeileninteraktion implementiert.
+			\item Es wird akzeptiert, dass die Benutzerfreundlichkeit des zu entwickelnden Systems dadurch eingeschränkt wird.
+		\end{itemize}
 
-		\subsubsection{Connection}
-			Grundsätzlich wird zum Beginn nur eine Connection implementiert, sodass der Fokus ganz auf der Erweiterbarkeit steht. Falls es noch Zeit gibt werden noch mehr Connections implementiert.
+		\subsubsection{AE 5: Verwendung von Nornir}
+		\begin{itemize}
+			\item Für die Kommunikation mit verschiedenen Netzwerken,
+			\item um die Implementation möglichst zu vereinfachen,
+			\item wurde entschieden, dass das System das Nornir-Automations-Framework verwendet wird,
+			\item weil Nornir komplett in Python geschrieben ist und sehr gut mit Python-Code interagiert.
+		\end{itemize}
 
-	\subsection{Eingesetzte Technologien}
-		Das Projekt wird in Python umgesetzt. Zusätzlich wird Nornir verwendet um die Tests und die Verbindung zum Netzwerk zu vereinfachen. nornir hat mehrere Möglichkeiten auf ein Netzwerk zu verbinden (Napalm, Netmiko, Paramiko, Netconf).
+		\subsubsection{AE 6: Verzicht auf eine Datenbank}
+		\begin{itemize}
+			\item Um Daten persistent zu speichern, 
+			\item damit sie vom System wieder abgerufen werden können,
+			\item werden die Daten in form von Key-Value Paaren im YAML-Format abgelegt,
+			\item und nicht in einer Datenbank,
+			\item wobei ein Datenbanksystem für die zentralisierte Speicherung möglicherweise besser geeignet wäre.
+		\end{itemize}
+		\newpage
+
+		\subsubsection{AE 7: Deployment als Python-Skript}
+		\begin{itemize}
+			\item Im Kontext des Deployments, der Auslieferung der Software,
+			\item um das Programm auf möglichst vielen Plattformen einfach einsetzen zu können,
+			\item wird das System in form eines Python-Scripts ausgeliefert,
+			\item und nicht als ausführbare Datei im .exe Format,
+			\item da Python auf den meisten Linux-Basierten Systemen und einigen modernen Windows-Systemen bereits vorinstalliert ist,
+			\item womit sich die Installation/Ausführung des Programms stark vereinfacht.
+			\item Die Folge, dass auf einigen Geräten für die Programmausführung zuerst Python installiert werden muss, wird akzeptiert.
+		\end{itemize}
+
+	\subsection{Umsetzungsentscheidungen}
+	Ein Test nach dem anderen
+	Vorerst nur eine Verbingung
+	Auslagerung der automatischen Deviceerfassung
+	Unittesting
 
 
 \section{Systemübersicht}
