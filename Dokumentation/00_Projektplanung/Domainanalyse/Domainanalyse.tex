@@ -70,7 +70,7 @@ Daraus wird das Klassendiagramm abgeleitet und für die Systemabläufe ein Syste
 % Inhalt ---------------------------------------------------------------------
 \begin{landscape}
 	\section{Domänenmodell}
-	\includegraphics[scale = 0.75]{\vorlagenOrdner/Bilder/DomainModell}
+	\includegraphics[scale = 0.7]{\vorlagenOrdner/Bilder/DomainModell}
 	\newpage	
 \end{landscape}
 
@@ -123,6 +123,7 @@ Daraus wird das Klassendiagramm abgeleitet und für die Systemabläufe ein Syste
 			testRunner & Referenz auf das TestRunner-Objekt \\
 			evaluator & Referenz auf das Evaluator-Objekt \\
 			testBuilder & Referenz auf das TestBuilder-Objekt \\
+			testResultMapper & Referenz auf das TestResultMapper-Objekt \\
 		\midrule
 			logic() & Methode, die für die Programmausführung sämtliche referenzierten Komponenten instanziert und deren Funktionalität in der korrekten Reihenfolge ausführt.\\
 		\bottomrule
@@ -146,6 +147,22 @@ Daraus wird das Klassendiagramm abgeleitet und für die Systemabläufe ein Syste
 		\bottomrule
 	\end{tabularx}
 	\newpage
+
+	\subsubsection{TestResultMapper}
+	Da die Ergebnisse der Netzwerktests, je nach Betriebssystem des Neztwerkgeräts und Typ der Verbindung (Netconf, Restconf, NAPALM), ein anderes Rückgabeformat hat, müssen die Testresultate normalisiert werden.
+	Der TestResultMapper bringt die verschiedenen Rückgabeformate in ein einheitliches Format, welches dem Evaluator für den Ist-, Soll-Vergleich übgeben wird.
+
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+			Komponenten & Beschreibung \\
+		\midrule
+			connectionType & Der Typ der Connection, mit welchem auf das Netzwerk verbunden wird. \\
+			logger & Referenz auf das Logger-Objekt. \\	
+			testResult & Die Resultate, welche der TestRunner zurück gibt. \\
+		\midrule
+			mapTestResult() & Methode, die die Resultate des TestRunners in eine einheitliche Norm bringt. \\
+		\bottomrule
+	\end{tabularx}
 
 	\subsubsection{Reporter}
 	Der Reporter schreibt die Testergebnisse der fertig ausgeführten Tests auf die Konsole/Benutzeroberfläche und erstellt ein Testprotokoll, welches er über den FileHandler im Directory abspeichert.
