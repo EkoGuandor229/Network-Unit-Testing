@@ -47,7 +47,7 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 	Datum & Version & Änderung & Autor \\
 	\midrule
 	24.03.2018 & 1.0 & Initial Setup & Janik Schlatter \\
-	26.03.2020 & 1.0 & Designentscheidungen & Mike Schmid \\
+	26.03.2020 & 1.0 & Designentscheidungen & Mike Schmid \\ 
 	\bottomrule
 \end{tabularx}
 \cleardoublepage
@@ -110,7 +110,7 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 			\item um die Implementation möglichst zu vereinfachen,
 			\item wurde entschieden, dass das System das Nornir-Automations-Framework verwendet wird,
 			\item weil Nornir komplett in Python geschrieben ist und sehr gut mit Python-Code interagiert
-			\item und eine umfangreiche Sammlung von nützlichen Funktionen bietet, mit denem man Netzwerktests ausführne kann.
+			\item und eine umfangreiche Sammlung von nützlichen Funktionen bietet, mit denen man Netzwerktests ausführen kann.
 		\end{itemize}
 
 		\subsubsection{AE 6: Verzicht auf eine Datenbank}
@@ -170,11 +170,11 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 
 \section{Deployment}
 	\subsection{Deploymentdiagramm}
-		\includegraphics[scale=0.9]{\vorlagenOrdner/Bilder/Deploymentdiagramm}
+		\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/Deploymentdiagramm}
 	
 		\subsection{Client}
 		Der User Client kann ein Computer oder ein Server sein, welcher die automatisierten Tests ausführen soll.
-		Darauf läfuf ein beliebiges Betriebssystem
+		Darauf läuft ein beliebiges Betriebssystem
 
 		\subsection{Betriebssystem}
 		Es gibt keine spezifischen Anforderungen an das Betriebssystem, welches auf dem Client installiert ist.
@@ -194,7 +194,7 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 	Die Tests können danach in der Testdefinition angelegt werden.
 
 	\subsection{Szenario 2: Erweiterung um Netzwerkschnittstellen}
-	Durch den einsatz des Factory- und Strategy-Pattern wird die Erweiterung um neue Schnittstellen vereinfacht.
+	Durch den Einsatz des Factory- und Strategy-Pattern wird die Erweiterung um neue Schnittstellen vereinfacht.
 	Die Factory muss um die neue Schnittstelle erweitert und die Schnittstelle als Klasse implementiert werden.
 	Danach sollte sich die Schnittstelle über die Testdefinition aufrufen lassen.
 
