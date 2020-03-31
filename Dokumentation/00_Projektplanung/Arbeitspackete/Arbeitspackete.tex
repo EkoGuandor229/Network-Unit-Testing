@@ -38,7 +38,7 @@
 
 % Zweck
 \section*{Zweck}
-Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das Projekt NUTS, dessen Planung und Organisation, sowie über weitere Bereiche des Projektaufbaus. Der Projektplan dient als Grundlage und Referenz für nachfolgende Projektdokumente
+Dieses Dokument beschreibt die Arbeitspackete und deren Aufwandschätzung und Priorisierung.
 
 % Änderungsgeschichte
 \section*{Änderungsgeschichte}
@@ -47,6 +47,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 	Datum & Version & Änderung & Autor \\
 	\midrule
 	31.03.2018 & 1.0 & Initial Setup & Janik Schlatter \\
+	31.03.2020 & 1.0 & Erstellen Arbeitspackete & Mike Schmid \\
 	\bottomrule
 \end{tabularx}
 \cleardoublepage
@@ -64,8 +65,277 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 
 % Inhalt ---------------------------------------------------------------------
 \section{Arbeitspackete}
-	Go Mike
-	DO THE MAGICs!
+Die Arbeitspackete sind in fünf Kategorien eingeteilt, um eine Übersicht zu bieten. 
+\begin{itemize}
+	\item Ausführung der Tests - Alles was mit der Ausführung und Evaluation der Netzwerktests zu tun hat.
+	\item Erstellen der Tests - Alle Arbeitspackete, die sich mit der Erstellung der Testsuite auseinandersetzen.
+	\item Hilfsklassen - Filehandler, Logging, Integration Tests und Kommandozeileninteraktion
+	\item Tests - Integration einzelner Tests in das System
+	\item Connections - Integration weiterer Verbindungsschnittstellen in das System
+\end{itemize}
 
+	\subsection{Kategorie Ausführung der Tests}
+	
+	
+	\subsubsection{AP: Implementation Testrunner}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Die Testrunner-Klasse führt die ihm vom Controller übergebenen Tests gegen das Netzwerk aus und gibt ein Resultat in einem beliebigen Format zurück.\\
+		\midrule
+		Akzeptanzkriterien & Testrunner ist in der Lage, Tests gegen ein Netzwerk auszuführen und reagiert auf Fehler, indem fehlgeschlagene Tests als solche annotiert werden.\\
+		 & Es existieren Unittests für die Testrunner-Klasse und bekannte Bugs sind als weitere Arbeitspackete erfasst. \\
+		\midrule
+		Aufwandschätzung & 6 Stunden\\
+		\midrule
+		Priorität & Mittel \\
+		\bottomrule
+	\end{tabularx}
 
+	\subsubsection{AP: Implementation Evaluator}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Evaluator vergleicht die Resultate der Netzwerktests mit den aus den Testdefinitionen beschriebenen Soll-Werten.\\
+		\midrule
+		Akzeptanzkriterien & Der Evaluator ist in der Lage, die normalisierten Testresultate mit den Testexpectations zu vergleichen und ein verständliches Evaluationsresultat zu erzeugen.\\
+		 & Unittests sind erstellt und bekannte Bugs sind dokumentiert. \\
+		\midrule
+		Aufwandschätzung & 10 Stunden\\
+		\midrule
+		Priorität & Mittel \\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	\subsubsection{AP:Implementation Reporter}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Reporter nimmt die Gesamtergebnisse entgegen und gibt sie auf der Konsole in einem einfach versständlichen Format aus. \\
+		& Zudem schreibt er die Ergebnisse in ein Report-File, welches die Testresultate und allfällige Fehlermeldungen beinhaltet. \\
+		\midrule
+		Akzeptanzkriterien & Die Reporter-Klasse ist in der Lage, detailierte Berichte zu den Ergebnissen zu verfassen und abzuspeichern.\\
+		 & Unittests sind erstellt und laufen alle durch. Bekannte Bugs sind im Issue-Tracher erfasst.\\
+		\midrule
+		Aufwandschätzung & 10 Stunden\\
+		\midrule
+		Priorität & Niedrig \\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Implementation Testresultat-Mapper}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Testresultatmapper normalisiert die Rückgabewerte der einzelnen Netzwerktests in ein einheitliches Format, so dass der Evaluator damit arbeiten kann.\\
+		\midrule
+		Akzeptanzkriterien & Die Normalform der Resultate ist festgelegt und implementiert. Unittests beenden mit status "Grün" und bekannte Bugs sind erfasst.\\
+		\midrule
+		Aufwandschätzung & 12 Stunden\\
+		\midrule
+		Priorität & Mittel \\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Implementation Testcontroller}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Testcontroller ist der Einstiegspunkt in das Programm. Er instanziert die benötigten Klassen und steuert den Programmfluss.\\
+		\midrule
+		Akzeptanzkriterien & Testcontroller ist implementiert und das Programm lässt sich erfolgreich ausführen.\\
+		 & Bekannte Bugs sind erfasst und Unittests sind erstellt und bestanden.\\
+		\midrule
+		Aufwandschätzung & 4 Stunden \\
+		\midrule
+		Priorität & Niedrig \\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	\subsection{Kategorie Erstellen der Tests}
+
+	\subsubsection{AP: Implementation Testbuilder}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Testbuilder übernimmt die Tests aus der Testdefinition und erstellt ein Testbundle mit den angegebenen Parameter. \\
+		\midrule
+		Akzeptanzkriterien & Der Testbuilder ist implementiert und erstellt ausführbare Tests.\\
+		 & Unittests sind implementiert und bekannte Bugs sind dokumentiert. \\
+		\midrule
+		Aufwandschätzung & 6 Stunden\\
+		\midrule
+		Priorität & Mittel\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Auswahl der Testreihenfolge}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Erweiterung des Testbuilder um die Möglichkeit, die Reihenfolge der Tests zu bestimmen.\\
+		\midrule
+		Akzeptanzkriterien & Testdurchführungsreihenfolge lässt sich ändern, ohne dass die Unittests dabei durchfallen. \\
+		\midrule
+		Aufwandschätzung & 6 Stunden\\
+		\midrule
+		Priorität & Niedrig\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Inventar Management Klassen}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Zu diesem Arbeitspacket gehören die Klassen Inventar, Device und DeviceConnection. Diese Klassen beschäftigen sich damit, die Informationen über die Physischen Geräte in einem Netzwerk festzuhalten.\\
+		\midrule
+		Akzeptanzkriterien & Klassen sind implementiert und die Zusammenarbeit funktioniert. Es lassen sich Tests mit den Gerätedaten vom TestBuilder erstellen und durchführen.\\
+		\midrule
+		Aufwandschätzung & 10 Stunden\\
+		\midrule
+		Priorität & Hoch \\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	\subsubsection{AP:Testdefinition Klassen}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Die Testdefinitionen beschreiben die auszuführenden Tests gegen das Netzwerk. Der Loader instanziert die Definitionen der einzelnen Tests und gibt diese als Collection an den Testbuilder weiter, der daraus konkrete Tests instanziert.\\
+		\midrule
+		Akzeptanzkriterien & Testdefinitionen lassen sich erstellen und ausführen.\\
+		 & Unittests sind implementiert und laufen erfolgreich durch. Allfällige Bugs sind im Issue-Tracking dokumentiert.\\
+		\midrule
+		Aufwandschätzung & 8 Stunden\\
+		\midrule
+		Priorität & Hoch\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Connection-Strategy-Factory}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Dieser Teil der Software kümmert sich um die Auswahl und Instanzierung der Kommunikationsschnittstelle.\\
+		\midrule
+		Akzeptanzkriterien & Alle Klassen sind gemäss der Architektur implementiertn und es lässt sich mindestens eine Schnittstelle auswählen und instanzieren.\\
+		 & Tests sind erfolgreich und allfällige Bugs sind dokumentiert.\\
+		\midrule
+		Aufwandschätzung & 20 Stunden\\
+		\midrule
+		Priorität & Hoch\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Testerstellung-Strategy-Factory}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Dieser Teil des Programms entscheidet, welche konkreten Testklassen verwendet werden und instanziert diese.\\
+		\midrule
+		Akzeptanzkriterien & Alle Klassen sind gemäss der Architektur implementiert und es gibt mindestens eine konkrete Testklasse die sich ausführen lässt. \\
+		 & Es existieren Unittests, welche erfolgreich durchlaufen und bekannte Bugs sind erfasst.\\
+		\midrule
+		Aufwandschätzung & 20 Stunden\\
+		\midrule
+		Priorität & Hoch\\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	\subsubsection{AP: Automatische Geräteerfassung}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Damit das Inventar nicht von Hand geführt werden muss, lassen sich die Geräteeinstellungen automatisch erfassen.\\
+		\midrule
+		Akzeptanzkriterien & Die Erfassung lässt sich erfolgreich durchführen, sie erfasst sämtliche Geräte im Netzwerksystem und speichert die Daten im YAML-Format.\\
+		 & Unittests sind erstellt und laufen erfolgreich durch. Allfällige Bugs sind im Issue-Tracker erfasst.\\
+		\midrule
+		Aufwandschätzung & 30 Stunden\\
+		\midrule
+		Priorität & Niedrig\\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	\subsection{Kategorie Hilfsklassen}
+
+	\subsubsection{AP: FileHandler}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Filehandler wird immer dann aufgerufen, wenn etwas aus dem Filesystem geladen werden muss oder etwas darin geschrieben werden soll.\\
+		\midrule
+		Akzeptanzkriterien & Der Filehandler ist implementiert und es lassen sich damit Dokumente im YAML Format schreiben und lesen.\\
+		\midrule
+		Aufwandschätzung & 6 Stunden\\
+		\midrule
+		Priorität & Hoch\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Logging}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Der Logger ist dafür zuständig, dass alle Events, die in der Software geschehen, beispielsweise Exceptions oder Informations-Logs, persistent gespeichert werden.\\
+		\midrule
+		Akzeptanzkriterien & Der Logger ist implementiert.\\
+		\midrule
+		Aufwandschätzung & 6 Stunden\\
+		\midrule
+		Priorität & Niedrig\\
+		\bottomrule
+	\end{tabularx}
+
+	\subsubsection{AP: Integration Tests}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Mit den Integration Tests wird überprüft, ob die Softwarekomponenten alle miteinander zusammen agieren können. Sie dienen der Überprüfung des Systems.\\
+		\midrule
+		Akzeptanzkriterien & Integrationstests wurden systematisch und geplant durchgeführt und die Resultate dokumentiert. Allfällige Fehler wurden im Issue-Tracking erfasst.\\
+		\midrule
+		Aufwandschätzung & 10 Stunden\\
+		\midrule
+		Priorität & Niedrig\\
+		\bottomrule
+	\end{tabularx}
+	
+	\subsubsection{AP: Kommandozeilen-GUI}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Beschreibung & Um mit dem Programm interagieren zu können, wird ein Grafikinterface benötigt.\\
+		 & Vorerst wird dieses mit einem Kommandozeilen-GUI umgesetzt.\\
+		\midrule
+		Akzeptanzkriterien & Es ist möglich, die Erfassung, Orchestrierung und Durchführung über das GUI zu steuern.\\
+		 & Usability-Tests wurden durchgeführt und daraus entstandene Verbesserungspunkte aufgenommen.\\
+		\midrule
+		Aufwandschätzung & 14 Stunden\\
+		\midrule
+		Priorität & Mittel \\
+		\bottomrule
+	\end{tabularx}
+	\newpage
+
+	
+
+	\subsection{Kategorie Test-Integration}
+	Die Testintegration befasst sich mit der Implementation der einzelnen Netzwerktests. 
+	Für die meisten Tests sollte ein Aufwand von vier bis acht Stunden ausreichend sein, wobei umfangreichere Tests durchaus mehr Zeit für die Implementation benötigen können.
+	Die Integration von weiteren Tests hat geringe Priorität, solange die Kernfunktionalität des Programms noch nicht fertiggestellt ist. 
+	Ausnahme dafür ist der Ping-Test, welcher für die Entwicklung zum Ausprobieren verwendet wird und ein bis drei weitere Tests, welche für das Integration-Testing verwendet werden.
+
+	Mögliche Tests:
+	\begin{itemize}
+		\item ping
+		\item tracert
+		\item show ip interface 
+		\item show ip protocols
+		\item show ip route
+		\item show interfaces
+		\item iperf
+		\item nmap portscan
+		\item show ip ospf interface
+		\item show ip ospf neighbor
+		\item show ip eigrp neighbors
+		\item show tag-switching tdp discovery
+		\item show tag-switching tdp bindings
+		\item show tag-switching forwarding-table
+		\item show ip bgp 
+		\item show ip route bgp 
+		\item show ip bgp neighbors
+		\item show mpls lsp extensive
+		\item show isis adjacency
+		\item show isis interface
+	\end{itemize}
 \end{document}
