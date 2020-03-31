@@ -87,7 +87,7 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 		\subsubsection{AE 3: Auswahl der Testdefinitionssprache}
 		\begin{itemize}
 			\item Um die Testdefinitionen in einer möglichst menschenlesbaren Form zu halten,
-			\item und die verwendbarkeit im zu entwickelnden System zu gewährleisten,
+			\item und die Verwendbarkeit im zu entwickelnden System zu gewährleisten,
 			\item haben wir entschieden, die Testdefinitionen in YAML zu verfassen,
 			\item um ein Format zu verwenden, dass auch von Netzwerkleuten verwendet wird.
 			\item Andere Technologien, wie JSON, XML usw. werden dabei voraussichtlich wegeglassen,
@@ -109,7 +109,8 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 			\item Für die Kommunikation mit verschiedenen Netzwerken,
 			\item um die Implementation möglichst zu vereinfachen,
 			\item wurde entschieden, dass das System das Nornir-Automations-Framework verwendet wird,
-			\item weil Nornir komplett in Python geschrieben ist und sehr gut mit Python-Code interagiert.
+			\item weil Nornir komplett in Python geschrieben ist und sehr gut mit Python-Code interagiert
+			\item und eine umfangreiche Sammlung von nützlichen Funktionen bietet, mit denem man Netzwerktests ausführne kann.
 		\end{itemize}
 
 		\subsubsection{AE 6: Verzicht auf eine Datenbank}
@@ -126,43 +127,95 @@ Dieses Dokument beschreibt die Architektur und liefert eine Übersicht über die
 		\begin{itemize}
 			\item Im Kontext des Deployments, der Auslieferung der Software,
 			\item um das Programm auf möglichst vielen Plattformen einfach einsetzen zu können,
-			\item wird das System in form eines Python-Scripts ausgeliefert,
+			\item wird das System in Form eines Python-Scripts ausgeliefert,
 			\item und nicht als ausführbare Datei im .exe Format,
 			\item da Python auf den meisten Linux-Basierten Systemen und einigen modernen Windows-Systemen bereits vorinstalliert ist,
 			\item womit sich die Installation/Ausführung des Programms stark vereinfacht.
 			\item Die Folge, dass auf einigen Geräten für die Programmausführung zuerst Python installiert werden muss, wird akzeptiert.
 		\end{itemize}
 
-	\subsection{Umsetzungsentscheidungen}
-	Ein Test nach dem anderen
-	Vorerst nur eine Verbingung
-	Auslagerung der automatischen Deviceerfassung
-	Unittesting
+		\subsubsection{AE 8: Umgang mit Passwörtern}
+		\begin{itemize}
+			\item Im Hinblick auf die Sicherheit des Systems,
+			\item um die Verwendung des Programms möglichst einfach zu halten,
+			\item werden Passwörter für die verschiedenen Netzwerkgeräte als Plaintext gespeichert,
+			\item und nicht in verschlüsselter Form.
+			\item Der sichere Umgang mit den Konfigurationsdaten ist somit in der Verantwortung des Benutzers.
+		\end{itemize}
 
+	\subsection{Umsetzungsentscheidungen}
+	In erster Linie wird das Framework entwickelt, welches es ermöglicht, automatisiert Netzwerktests durchzuführen.
+	Es werden vorerst nur Tests in das System integriert, welche für das Testen der Software benötigt werden.
+	Weitere Tests werden hinzugefügt, wenn im Projekt dafür die Zeit reicht.
+	Zu Beginn wird die Verbindungsschnittstelle Netmiko umgesetzt und das Fundament für die Erweiterung um weitere Schnittstellen gelegt.
+	Die automatisierte Geräteerfassung in ein Inventar wird in Zusammenarbeit mit dem INS, dem Institut für Netzwerklösungen, umgesetzt.
 
 \section{Systemübersicht}
 	Die Systemübersicht gibt einen Überblick über die verschiedenen Komponenten des Systems. Nachfolgend sind die einzelnen Komponenten detaillierter beschrieben.\\
 	\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/SystemUebersicht}
 
-	\subsection{NUTS}
-		Dies entspricht unserem Client. Er besteht aus einer Python- App die mit Hilfe von Nornir und Netconf mit dem zu testenden Netzwerk kommuniziert.
+	\subsection{Computer}
+		Dies entspricht unserem Client.
+		Auf dem Computer läuft das zu entwickelnde System, welches aus einem Python Programm besteht und mittels Nornir mit einem Netzwerk kommuniziert und Tests darauf ausführt.
 
 	\subsection{Netzwerk}
-		Dies ist das Netzwerk des Benutzers, welches dieser gerne automatisch testen möchte.
+		Dies ist das Netzwerk, auf dem die automatisierten Tests ausgeführt werden sollen. 
+		Es besteht aus mehreren Netzwerkknoten, z.B. Switches, Router und Clients.
+		Das Netzwerk wird über eine lokale Schnittstelle oder über das Internet angesteuert.
 
 	\subsection{Datenablage}
-		Alle unsere bneötigten Daten werden mit Hilfe von YAML Files und Key-Value Stores abgespeichert. 
+		Die Datenablage befindet sich auf dem Computer und kann bei Bedarf über ein Verwaltungstool mit anderen Clients geteilt werden. 
+		Darin befinden sich sämtliche für das Testsystem benötigte Daten.
+		Diese Daten werden in Form von YAML-Files als Key-Value Store angelegt.
 
 \section{Deployment}
 	\subsection{Deploymentdiagramm}
 		\includegraphics[scale=0.9]{\vorlagenOrdner/Bilder/Deploymentdiagramm}
-	\subsection{Client}
-		Der Client wird via PyCharm auf das Gerät des Benutzers verteilt. Später soll dies durch eine automatische Exe Datei passieren.
+	
+		\subsection{Client}
+		Der User Client kann ein Computer oder ein Server sein, welcher die automatisierten Tests ausführen soll.
+		Darauf läfuf ein beliebiges Betriebssystem
 
-\section{Datenspeicherung}
-	Die Datenspeicherung wird mit Hilfe von YAML Dateien und key-value Stores realisiert. Deshalb ist es nicht nötig eine Datenbank anzulegen. Die hierbei entstandenen Files werden mit Hilfe eines FileHandlers eingelesen.
+		\subsection{Betriebssystem}
+		Es gibt keine spezifischen Anforderungen an das Betriebssystem, welches auf dem Client installiert ist.
+		Python Code lässt sich auf beliebigen Betriebssystemen ausführen.
+
+		\subsection{Python Installation}
+		Für die Ausführung von Python-Code muss Python auf dem Client installiert sein. 
+
+		\subsection{NUTS2.0}
+		Das zu entwickelnde Programm, welches auf dem Client installiert wird. 
+		Es verbindet sich mit einem Netzwerk und führt vorher definierte Tests darauf aus.
 
 \section{Ausbauszenarien}
+	\subsection{Szenario 1: Erweiterung um weitere Neztwerktests}
+	Die Erweiterung des Systems um weitere Tests wird durch die Architektur so einfach wie möglich gehalten.
+	Es müssen lediglich die Testfactory angepasst und neue Testklassen erstellt werden, um neue Tests durch das System zu ermöglichen.
+	Die Tests können danach in der Testdefinition angelegt werden.
+
+	\subsection{Szenario 2: Erweiterung um Netzwerkschnittstellen}
+	Durch den einsatz des Factory- und Strategy-Pattern wird die Erweiterung um neue Schnittstellen vereinfacht.
+	Die Factory muss um die neue Schnittstelle erweitert und die Schnittstelle als Klasse implementiert werden.
+	Danach sollte sich die Schnittstelle über die Testdefinition aufrufen lassen.
+
+	\subsection{Szenario 3: Erweiterung um eine Graphische Benutzeroberfläche (GUI)}
+	Das System wird mit einem Fokus auf die Funktionalität entwickelt.
+	Dabei wird die Usability durch die Verwendung eines GUI vorerst vernachlässigt.
+	Die Erfassung von Netzwerkgeräten, das Erfassen von Tests und die Orchestrierung der Tests liessen sich alle über eine Benutzeroberfläche ansteuern.
+	Nach der Einschätzung der Autoren entspricht die GUI-Erweiterung ungefähr drei bis sechs Wochen Arbeit.
+	Es ist darauf zu achten, die Prinzipien der nutzerzentrierten Entwicklung (User Centered Design) anzuwenden und regelmässig Usability-Tests durchzuführen.
+
+	\subsection{Szenario 4: Anbindung einer Datenbank}
+	Eine Datenbank würde dem System diverse Möglichkeiten für die effizientere Datenhaltung ermöglichen:
+	\begin{itemize}
+		\item Geräte liessen sich in einer Graphdatenbank mit den jeweiligen Verbindungen als Relationen speichern, was eine intuitive Darstellung und effiziente Abfragen ermöglicht.
+		\item Durch die Verwendung einer Datenbank liessen sich das Inventar und die Testdefinitionen einfacher von mehreren Clients verwenden und untereinander austauschen.
+		\item Passwörter von Devices, welche nach der aktuellen Architektur in Plaintext gespeichert werden, wären in einer Datenbank besser gesichert.
+	\end{itemize}
+	Auch hier ist mit Aufwand von drei bis vier Wochen zu rechnen. 
+	Ausserdem wird für die Haltung einer Datenbank Hardware, beispielsweise ein DB-Server, benötigt.
+	
+
 	
 
 \end{document}
