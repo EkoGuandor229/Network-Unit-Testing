@@ -49,7 +49,7 @@ class StringCalc(object):
         testFailed = 2
         google = "google.com [172.217.168.68]"
         f = Figlet(font='slant')
-        print(f.renderText("NUTS"))
+        print(f.renderText("NUTS 2.0"))
         print(Fore.CYAN + "+" + 78 * "-" + "+")
         print("|" + 31 * " " + "Test Result Summary" + 28 * " " + "|")
         print("+" + 78 * "-" + "+" + Fore.RESET)
@@ -84,7 +84,7 @@ class StringCalc(object):
         print("|   |    --           192.0.2.37")
         print("|   |    --           192.0.2.42")
         print("|   |   |-- Actual:   192.168.1.1")
-        print("|   |    -- Destination net unreachable")
+        print("|   |    --           Destination net unreachable")
         print(Fore.CYAN + 80 * "-")
         print(Fore.RESET)
 
