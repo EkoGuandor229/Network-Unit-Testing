@@ -3,14 +3,13 @@ import yaml
 
 class FileHandler:
     logger = 0
-    path = 0
+    devicePath = r"C:\Users\Janik\OneDrive\Studium\Studienarbeit\SA-Git\Network-Unit-Testing\NUTS2.0\Prototyping\Configurations\inventory\\Devices\devices.yaml"
+    deviceConnectionPath = r"C:\Users\Janik\OneDrive\Studium\Studienarbeit\SA-Git\Network-Unit-Testing\NUTS2.0\Prototyping\Configurations\inventory\DeviceConnections\deviceconnections.yaml"
+    testDefinitionPath = r"C:\Users\Janik\OneDrive\Studium\Studienarbeit\SA-Git\Network-Unit-Testing\NUTS2.0\Prototyping\Configurations\inventory\TestDefinitions\testDefinitions.yaml"
     fileType = 0
 
-    def __init__(self, path):
-        self.path = path
-
     def read_device_file(self):
-        with open(self.path) as file:
+        with open(self.devicePath) as file:
             devices_yaml = []
             device_list = yaml.full_load(file)
             for device, dev in device_list.items():
@@ -18,12 +17,20 @@ class FileHandler:
             return devices_yaml
 
     def read_device_connection_file(self):
-        with open(self.path) as file:
+        with open(self.deviceConnectionPath) as file:
             device_connection_yaml = []
             device_connection_list = yaml.full_load(file)
             for device_connection, devcon in device_connection_list.items():
                 device_connection_yaml.append(devcon)
             return device_connection_yaml
+
+    def read_test_definition_file(self):
+        with open(self.testDefinitionPath) as file:
+            test_definition_yaml = []
+            test_definition_list = yaml.full_load(file)
+            for test_definition, tedef in test_definition_list.items():
+                test_definition_yaml.append(tedef)
+            return test_definition_yaml
 
     def write_file(self, dict_file):
         with open(self.path, 'w') as file:
