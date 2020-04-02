@@ -26,9 +26,9 @@ class Inventory:
 def main():
     inv = Inventory()
     inv.create_device_object()
-    print(inv.devices["switch01"].print_device())
+    inv.devices["switch01"].print_device()
     inv.create_device_connection_obejct()
-    print(inv.deviceConnections["switch01toswitch02"].print_device_connection())
+    inv.deviceConnections["switch01toswitch02"].print_device_connection()
 
 
 if __name__ == '__main__':

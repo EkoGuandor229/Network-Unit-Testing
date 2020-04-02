@@ -12,3 +12,9 @@ class TestDefinition:
 
     def print_test_definition(self):
         print(self.testId, self.command, self.testDevices, self.expectedResult)
+
+    def get_test_devices(self):
+        return self.testDevices
+
+    def set_test_devices(self, test_devices):
+        self.testDevices = test_devices

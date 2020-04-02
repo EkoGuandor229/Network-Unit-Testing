@@ -1,5 +1,11 @@
 test01:
   - PingTest1
   - Ping
-  - switch02, switch01
+  - switch01,switch02
+  - pingOk
+
+test02:
+  - PingTest2
+  - Ping
+  - switch03,switch04
   - pingOk
