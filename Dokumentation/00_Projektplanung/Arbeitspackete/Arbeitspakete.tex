@@ -65,13 +65,13 @@ Dieses Dokument beschreibt die Arbeitspakete und deren Aufwandschätzung und Pri
 
 % Inhalt ---------------------------------------------------------------------
 \section{Arbeitspakete}
-Die Arbeitspakete sind in fünf Kategorien eingeteilt, um eine Übersicht zu bieten. 
+Die Arbeitspakete sind in vier Kategorien eingeteilt, um eine Übersicht zu bieten. 
 \begin{itemize}
 	\item Ausführung der Tests - Alles was mit der Ausführung und Evaluation der Netzwerktests zu tun hat.
 	\item Erstellen der Tests - Alle Arbeitspakete, die sich mit der Erstellung der Testsuite auseinandersetzen.
 	\item Hilfsklassen - Filehandler, Logging, Integration Tests und Kommandozeileninteraktion
 	\item Tests - Integration einzelner Tests in das System
-	\item Connections - Integration weiterer Verbindungsschnittstellen in das System
+
 \end{itemize}
 
 	\subsection{Kategorie Ausführung der Tests}
@@ -291,13 +291,13 @@ Die Arbeitspakete sind in fünf Kategorien eingeteilt, um eine Übersicht zu bie
 		\bottomrule
 	\end{tabularx}
 	
-	\subsubsection{AP: Kommandozeilen-GUI}
+	\subsubsection{AP: Kommandozeilen-UI}
 	\begin{tabularx}{\textwidth}{lX}
 		\toprule
 		Beschreibung & Um mit dem Programm interagieren zu können, wird ein Grafikinterface benötigt.\\
-		 & Vorerst wird dieses mit einem Kommandozeilen-GUI umgesetzt.\\
+		 & Vorerst wird dieses mit einem Kommandozeilen-Userinterface umgesetzt.\\
 		\midrule
-		Akzeptanzkriterien & Es ist möglich, die Erfassung, Orchestrierung und Durchführung über das GUI zu steuern.\\
+		Akzeptanzkriterien & Es ist möglich, die Erfassung, Orchestrierung und Durchführung über die Kommandozeile zu steuern.\\
 		 & Usability-Tests wurden durchgeführt und daraus entstandene Verbesserungspunkte aufgenommen.\\
 		\midrule
 		Aufwandschätzung & 14 Stunden\\
@@ -328,13 +328,11 @@ Die Arbeitspakete sind in fünf Kategorien eingeteilt, um eine Übersicht zu bie
 		\item show ip ospf interface
 		\item show ip ospf neighbor
 		\item show ip eigrp neighbors
-		\item show tag-switching tdp discovery
-		\item show tag-switching tdp bindings
-		\item show tag-switching forwarding-table
 		\item show ip bgp 
 		\item show ip route bgp 
 		\item show ip bgp neighbors
 		\item show mpls lsp extensive
+		\item show mpls neighbor
 		\item show isis adjacency
 		\item show isis interface
 	\end{itemize}
