@@ -1,5 +1,8 @@
----
-thaVM:
-  hostname : 192.168.56.1
+CSR1000v-Router-1:
+  hostname: 172.16.13.3
+  port: 22
+  username: ins
+  password: ins@lab
+  platform: cisco_ios
   groups:
-    - me
+    - cisco
