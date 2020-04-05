@@ -109,7 +109,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\item Python-Software, die die TDS umsetzt und auf Netzwerkinfrastrukturen Tests durchführen kann.
 		\end{itemize}
 	\subsection{Annahmen und Einschränkungen}
-		Das Programm soll so entwickelt werden, dass künftige Anpassungen und Erweiterungen, z.B. automatische Penetration-Tests, einfach eingebaut werden können.
+		Das Programm soll so entwickelt werden, dass künftige Anpassungen und Erweiterungen, z.B. Ergänzungen um weitere Tests oder automatische Penetration-Tests, einfach eingebaut werden können.
 
 \section{Projektorganisation}
 
@@ -202,24 +202,32 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 				Iteration & Inhalt & Start & Ende \\
 				\midrule
 				Initialisierung & Projektstart und Kick-Off Meeting & 20.02.2020 & 23.02.2020 \\
+				\midrule
 				Analyse 1 & Projektplanung & 24.02.2020 & 01.03.2020 \\
 				Analyse 2 & Evaluation Module (Nornir, Napalm, Openconfig) & 02.03.2020 & 08.03.2020 \\
 				Analyse 3 & Requirements \& Analyse Testcases & 09.03.2020 & 15.03.2020 \\
+				\midrule
 				Design 1 & Architekturdesign & 16.03.2020 & 22.03.2020 \\
 				Design 2 & Testen der Module & 23.03.2020 & 29.03.2020 \\
 				Design 3 & Prototyp programmieren & 30.03.2020 & 05.04.2020 \\
-				Realisierung 1 & \textcolor{red}{TODO} & 06.04.2020 & 12.04.2020 \\
-				Realisierung 2 & \textcolor{red}{TODO} & 13.04.2020 & 19.04.2020 \\
-				Realisierung 3 & \textcolor{red}{TODO} & 20.04.2020 & 26.04.2020 \\
-				Realisierung 4 & \textcolor{red}{TODO} & 27.04.2020 & 03.05.2020 \\
-				Realisierung 5 & \textcolor{red}{TODO} & 04.05.2020 & 10.05.2020 \\
+				\midrule
+				Realisierung 1 & Umsetzung Filehandler, Testrunner,  & 06.04.2020 & 12.04.2020 \\
+				 & Inventarmanagement und Testdefinitionsklassen & & \\
+				Realisierung 2 & Umsetzung Testerstellung-Strategy-Factory & 13.04.2020 & 19.04.2020 \\
+				 & und Testresultat-Mapper & & \\
+				Realisierung 3 & Umsetzung Connection-Strategy-Factory und Evaluator & 20.04.2020 & 26.04.2020 \\
+				Realisierung 4 & Umsetzung Testbuilder, Testcontroller, und Reporter & 27.04.2020 & 03.05.2020 \\
+				Realisierung 5 & Umsetzung Testreihenfolge, automatische  & 04.05.2020 & 10.05.2020 \\
+				 & Geräteerfassung und Kommandozeilen-UI & & \\
 				Realisierung 6 & Fertigstellung und Refactoring & 11.05.2020 & 19.05.2020 \\
+				\midrule
 				Abschluss 1 & Bugfixes, Refactoring und Dokumentation & 18.05.2020 & 22.05.2020\\
 				Abschluss 2 & Fertigstellung Schlussbericht & 23.05.2020 & 28.04.2020\\
 				\bottomrule
 			\end{tabularx}
 			\caption{Projektiterationen}
 		\end{table}
+		\newpage
 
 	\subsection{Meilensteine}
 	Im Projekt wurden folgende Meilensteine festgelegt.
@@ -232,7 +240,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 				\midrule
 				M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
 				\midrule 
-				M3 & Prototyp & So 05.04.2020 & Architektur festgelegt, Schnittstellen angelegt, Architekturdokumentation, Testprozeduren eingerichtet und UnitTests erstellt, Erster lauffähiger Prototyp.\\
+				M3 & Prototyp & So 05.04.2020 & Architektur festgelegt, Schnittstellen angelegt, Architekturdokumentation, Erster lauffähiger Prototyp.\\
 				\midrule
 				M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
 				\midrule
@@ -246,6 +254,7 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 
 	\subsection{Arbeitspakete (Tickets) }
 	Die Arbeitspakete, welche zu Beginn der Arbeit feststehen, werden in diesem Dokument erfasst.
+	Für die definitiven Arbeitspackete wird ein separates Dokument erstellt.
 	Arbeitspaketverwaltung werden mit Git-Issues vorgenommen und über das Projekt verteilt dokumentiert.
 	Pakete, die zum Zeitpunkt der Projektplanung noch nicht feststehen, werden mit \textcolor{red}{TODO} annotiert	
 	\begin{landscape}
@@ -368,7 +377,6 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 			\item In der Versionsverwaltung wird mit Feature-Branches gearbeitet, damit Änderungen nicht zu Merge-Konflikten führen.
 			\item Merges in den Development-Branch dürfen nur nach einem erfolgreichen Pull-Request durchgeführt werden.
 			\item Pull-Requests werden vom jewils anderen Teammitglied überprüft und allfällige Probleme müssen vor der Annahme korrigiert werden.
-			\item Im Git wird ein CI/CD (Continous Integration/Continous Delivery) aufgesetzt, das bei Änderungen im Development-Branch Tests durchführt.
 			\item Getestet wird die einhaltung der Coderichtlinien, Vorherig definierte Tests und das erfolgreiche durchlaufen des Build-Prozesses.
 			\item Bekannte Bugs werden mittels Git Issues erfasst und verwaltet. Das Abarbeiten dieser Issues ist teil des Projekts und beim Meilenstein M5:Codefreeze \& -abgabe sollten sich keine Issues mehr auf dem Repository befinden
 		\end{itemize}
