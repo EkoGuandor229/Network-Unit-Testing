@@ -1,11 +1,7 @@
 from nornir import InitNornir
-from nornir.plugins.tasks import networking
 from nornir.plugins.functions.text import print_result
 from nornir.plugins.tasks.networking import netmiko_send_command
-import colorama
 from colorama import Fore, Style
-
-from Prototyping.Utilities.StringCalc import StringCalc
 
 
 def main():
@@ -24,7 +20,6 @@ def main():
     print("*" * 5 + Fore.GREEN + " TEST COMPLETE " + Style.RESET_ALL + "*" * 46)
     print_result(result)
 
-    myStringCalc = StringCalc()
 
 
 if __name__ == '__main__':
