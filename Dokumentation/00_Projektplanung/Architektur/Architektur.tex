@@ -71,7 +71,7 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Patterns in der Softwareentwicklung sind Vorschläge, wie mit bekannten Problemen umgegangen werden soll.
 		Verschiedene Patterns können auf unterschiedliche Probleme angewandt werden und helfen, verschiedene Probleme zu lösen.
 		Es gibt eine Vielfalt von Patterns mit vielen Anwendungsmöglichkeiten und Kombinationen.
-		Für das Zu entwickelnde System wurden zwei Patterns ausgeählt, die die Erweiterbarkeit gewährleisten sollen.
+		Für das Zu entwickelnde System wurden zwei Patterns ausgewählt, die die Erweiterbarkeit gewährleisten sollen.
 
 		\paragraph{Entscheidung 1: Anwendung von Patterns für die Testerstellung}
 		\begin{itemize}
@@ -109,11 +109,11 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Nachteile sind eine höhere Redundanz als in anderen Formaten was zu höherem Speicherverbrauch und grösserem Bandbreitenverwendung führt, wenn Daten im XML-Format gespeichert oder über das Internet versendet werden.
 
 		JSON (Javascript Object Notation) ist Menschenlesbar, Leichtgewichtig und wird zum effizienten Austausch von Informationen in einem geordneten Format auszutauschen.
-		Das Format baut auf einer Attribut : Attributwert logik auf und ist im Vergleich zu XML effizienter über das Internet austauschbar.
-		Im gegensatz zu XML bietet JSON aber keine Schemas, ein einheitliches Format für den Datenaustausch, was die Verwendung in verschiedenen Systemen komplizierter macht.
+		Das Format baut auf einer Attribut : Attributwert Logik auf und ist im Vergleich zu XML effizienter über das Internet austauschbar.
+		Im Gegensatz zu XML bietet JSON aber keine Schemas, ein einheitliches Format für den Datenaustausch, was die Verwendung in verschiedenen Systemen komplizierter macht.
 
-		YAML (YAML ain't Markup Language) ist ein Datenserialisierungsformat mit Fokus auf Menschenlesbarkeit und wird hautpsächlich für die Erstellung von Konfigurationsdaten verwendet.
-		Die grössten Vorteile sind die Datenkonsistenz der Datenmodel und die hohe portierbarkeit zwischen verschiedenstesn Programmiersprachen.
+		YAML (YAML ain't Markup Language) ist ein Datenserialisierungsformat mit Fokus auf Menschenlesbarkeit und wird hauptsächlich für die Erstellung von Konfigurationsdaten verwendet.
+		Die grössten Vorteile sind die Datenkonsistenz der Datenmodel und die hohe Portierbarkeit zwischen verschiedensten Programmiersprachen.
 		Zu den Nachteilen gehört die geringere Performanz gegenüber XML und JSON und die geringere Verbreitung von YAML.
 		Ein weiterer Wichtiger Punkt ist, dass Netzwerktechniker in der Lage sein sollten, YAML zu lesen und schreiben.
 
@@ -123,7 +123,7 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 			\item und die Verwendbarkeit im zu entwickelnden System zu gewährleisten,
 			\item haben wir entschieden, die Testdefinitionen in YAML zu verfassen,
 			\item um ein Format zu verwenden, dass auch von Netzwerkleuten verwendet wird.
-			\item Andere Technologien, wie JSON, XML usw. werden dabei voraussichtlich wegeglassen,
+			\item Andere Technologien, wie JSON, XML usw. werden dabei voraussichtlich weggelassen,
 			\item auch wenn diese in spezifischen Anwendungen wie die Speicherung von Daten geeignet wären.
 		\end{itemize}
 		\newpage
@@ -152,8 +152,8 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Ansible ist ein Framework für automatisierte Netzwerkoperationen wie Konfiguration, Skalierung oder Testing.
 		Das Framework arbeitet, ohne dass auf dem Zielgerät etwas installiert werden muss, das mit der Software kommuniziert, solange das Zielgerät über SSH erreichbar ist.
 		Ansible ist vergleichsweise einfach zu erlernen und in Python geschrieben.
-		Die Netzwerkkonfiguration wird im YAML format erfasst und das Programm sorgt dafür, dass die gewünschte Konfiguration im Netzwerk umgesetzt wird.
-		Nachteile sind der geringe Windows-Support und das fehlende auflösen von Abhängigkeiten.
+		Die Netzwerkkonfiguration wird im YAML Format erfasst und das Programm sorgt dafür, dass die gewünschte Konfiguration im Netzwerk umgesetzt wird.
+		Nachteile sind der geringe Windows-Support und das fehlende Auflösen von Abhängigkeiten.
 
 		Saltstack ist ein Konfigurations-Management-Framework mit Funktionen für automatische Neztwerktests.
 		Parallele Programmausführung, Skalierbarkeit und eine aktive Community gehören zu den grössten Vorteilen.
@@ -161,11 +161,11 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Auch Saltstack ist in Python geschrieben, was die Erweiterbarkeit erhöht.
 		
 		Puppet ist eine konfigurationsautomatisierungs- und Deployment-organisations-Lösung für verteilte Software und Infrastruktur.
-		Geschrieben in Ruby, bietet Puppet eine vielzahl von Funktionen für die Orchestrierung, Konfigurationsautomatisierung, Visualisierung und Reporting.
+		Geschrieben in Ruby, bietet Puppet eine Vielzahl von Funktionen für die Orchestrierung, Konfigurationsautomatisierung, Visualisierung und Reporting.
 		Stärken sind der Support für eine Vielzahl von Betriebssystemen, hohe Stabilität und Robustheit.
 		Schwierigkeiten können die hohe Anfängerschwierigkeit, schwächere Skalierbarkeit und Flexibilität (verglichen mit den anderen Lösungen).
 
-		Chef war ursprünglich ein Tool für internes End-zu-End Server Deployment und wurde später als Open Source Lösung für Cloud und Infrastruktur automatisierung veröffentlicht.
+		Chef war ursprünglich ein Tool für internes End-zu-End Server Deployment und wurde später als Open Source Lösung für Cloud und Infrastruktur Automatisierung veröffentlicht.
 		Es wird als eine der flexibelsten Lösungen für OS und Middleware Management beschrieben und wurde für Programmierer entwickelt.
 		Chef hat eine ausführliche Dokumentation und ist sehr stabil und verlässlich für grosse Systeme.
 		Die grössten Nachteile sind die steile Lernkurve und ein komplizierteres Inbetriebnehmen gegenüber den anderen Systemen.
@@ -174,7 +174,7 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Das Framework wurde in Python für die Verwendung mit Python entwickelt und bietet eine Vielzahl von Möglichkeiten für die Ausführung von Tests auf verschiedensten Systemen.
 		Nornir führt die Tests als serielle oder parallele Tasks aus und verwendet YAML für die Datenverwaltung.
 		Allerdings lässt sich Nornir nicht einfach ausführen, sondern muss in ein Python-Programms implementiert werden.
-		Desshalb kann Nornir nicht einfach Installiert und danach verwendet werden, sondern ist ein Tool, welches es erlaubt, eigene Netzwerktasks zu definieren und auszuführen.
+		Deshalb kann Nornir nicht einfach Installiert und danach verwendet werden, sondern ist ein Tool, welches es erlaubt, eigene Netzwerktasks zu definieren und auszuführen.
 
 
 
@@ -188,21 +188,21 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		\end{itemize}
 
 		Die gesamte Arbeit wurde von Anfang an darauf ausgelegt, mit Nornir als Automatisierunsframework zu arbeiten.
-		Die Vielseitigen Methoden, um mit Netzwerkgeräten zu kommunizieren und die vielzahl von möglichen Befehlen erlauben es, einfachen und effizienten Code zu schreiben, welcher die Netzwerke testet.
+		Die Vielseitigen Methoden, um mit Netzwerkgeräten zu kommunizieren und die Vielzahl von möglichen Befehlen erlauben es, einfachen und effizienten Code zu schreiben, welcher die Netzwerke testet.
 		\newpage
 
 		\subsubsection{Datenhaltung}
 		Für die Verwaltung von Daten, insbesondere das persistente Speichern und Laden, gibt es diverse Möglichkeiten.
 		Da die Testdefinitionen in YAML verfasst werden, wäre für die Verwaltung der YAML-Files ein0e Dokumentdatenbank geeignet.
 		Dokumentdatenbanken entspringen aus dem NoSQL Paradigma und haben kein fixes definiertes Schema, was eine flexiblere Verwendung ermöglicht, aber auch Fehleranfälliger ist.
-		Üblicherweise werden Dokumentdatenbanken in einem Key-Value Format gehalten, was die Verwwendung mit YAML vereinfacht.
+		Üblicherweise werden Dokumentdatenbanken in einem Key-Value Format gehalten, was die Verwendung mit YAML vereinfacht.
 
-		Weiterhin liesse sich eine Relationale Datenbank implementieren, wobei dafür ein Datenbankschema entworden werden müsste.
+		Weiterhin liesse sich eine Relationale Datenbank implementieren, wobei dafür ein Datenbankschema entworfen werden müsste.
 		Die Verwendung einer SQL-Datenbank würde zu einer stärkeren Konsistenz der Daten führen, da die Datenbank eine strenge Konsistenz erzwingt.
-		Allerdings sind relationale Datenbanken im vergleich zu NoSQL Datenbanken komplexer und lassen sich schwieriger Skalieren.
+		Allerdings sind relationale Datenbanken im Vergleich zu NoSQL Datenbanken komplexer und lassen sich schwieriger Skalieren.
 
-		Eine weitere Möglichkeit für die Speicherung der Daten wäre eine Graphdatenbank. Graphdatenbanken speichern nicht nur die Daten in form von Knoten, sondern auch die Beziehungen zwischen den Daten in Form von Kanten zwischen den Knoten.
-		Graphalgorithmen erlauben es, sehr effiziente Abfragen auf die Daten auszuführen und verknüpfungen zwischen den Daten abzufragen, für die eine Relationale Datenbank viel komplexere und langsamere Queries verwenden würde.
+		Eine weitere Möglichkeit für die Speicherung der Daten wäre eine Graphdatenbank. Graphdatenbanken speichern nicht nur die Daten in Form von Knoten, sondern auch die Beziehungen zwischen den Daten in Form von Kanten zwischen den Knoten.
+		Graphalgorithmen erlauben es, sehr effiziente Abfragen auf die Daten auszuführen und Verknüpfungen zwischen den Daten abzufragen, für die eine Relationale Datenbank viel komplexere und langsamere Queries verwenden würde.
 
 		Ausserdem besteht noch die Möglichkeit, keine Datenbank zu implementieren und die Daten auf dem Clientsystem zu verwalten.
 		Hierbei werden die YAML-Dokumente direkt auf der Dateiablage des Clients gespeichert. 
@@ -231,7 +231,7 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Eine Auslieferung als ausführbare Datei, z.B. im .Exe-Format für Windows-Benutzer, wäre sicher für die Benutzung am einfachsten,
 		allerdings wäre das Programm dann nicht so einfach erweiterbar, weil für jede Änderung das Programm nochmals aktualisiert werden müsste.
 
-		Das Deployment als Dockercontainer ist, unabhängig der eingentlichen Auslieferung, auch eine mögliche Option.
+		Das Deployment als Dockercontainer ist, unabhängig der eigentlichen Auslieferung, auch eine mögliche Option.
 		Diese Möglichkeit hat aber mehr Abhängigkeiten gegenüber einer einfachen ausführbaren Datei, da auf dem Client-Computer zuerst noch Docker installiert werden muss.
 		
 		Die einfachste Variante ist die Auslieferung als reines Python-Skript. Der grösste Vorteil ist, dass sich ein Python Skript auf jedem System ausführen lässt, welches Python installiert hat.
@@ -257,9 +257,9 @@ Dieses Dokument beschreibt die Architektur, die Möglichkeiten für die Auswahl 
 		Sicherheitspraktiken schlagen vor, dass Passwörter nur gespeichert werden sollen, wenn die Verwendung eines Systems eine Authentifizierung benötigt.
 		Passwörter sollten in dem Falle mit einem Hash und Salt encoded und in dieser Form gespeichert werden. 
 		Das zu entwickelnde System benötigt Passwörter, um mit den Netzwerkgeräten kommunizieren zu können. 
-		Jedes Gerät benötigt (üblicherweise) einen Login-Namen und ein Passwort, um darauf die Konfiguration anzusehen, zu verändern oder Befehle auf dem Netzwerkgerät ausfürhen zu können.
+		Jedes Gerät benötigt (üblicherweise) einen Login-Namen und ein Passwort, um darauf die Konfiguration anzusehen, zu verändern oder Befehle auf dem Netzwerkgerät ausführen zu können.
 
-		Es wird davon abgeraten, eingene Algorithmen für die Verschlüsselung von Daten zu implementieren, da diese nicht getestet sind. 
+		Es wird davon abgeraten, eigene Algorithmen für die Verschlüsselung von Daten zu implementieren, da diese nicht getestet sind. 
 		Stattdessen sollen Bibliotheken verwendet werden, die von Kryptographen und Sicherheitsexperten getestet und als sicher eingestuft wurden.
 
 		Ein Nachteil für die Verwendung von Sicherheitspraktiken ist die geringere Benutzbarkeit.
