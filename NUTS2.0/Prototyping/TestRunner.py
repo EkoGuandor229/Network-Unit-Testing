@@ -16,7 +16,7 @@ class TestRunner:
             task=netmiko_send_command,
             command_string="show ip int brief"
         )
-        print_result(result)
+        return result
 
 
 def main():
