@@ -1,6 +1,7 @@
 from nornir import InitNornir
 from nornir.plugins.tasks.networking import netmiko_send_command
 from nornir.plugins.functions.text import print_result
+from nornir.plugins.connections.netmiko import Netmiko
 
 
 class TestRunner:
@@ -10,14 +11,11 @@ class TestRunner:
     testResult = 0
 
     def run_all_tests(self):
-        commands = "show ip int brief"
         nr = InitNornir(config_file="Configurations/config.yaml")
-        print(nr.inventory.hosts)
         result = nr.run(
             task=netmiko_send_command,
-            command_string=commands
+            command_string="show ip int brief"
         )
-
         print_result(result)
 
 
