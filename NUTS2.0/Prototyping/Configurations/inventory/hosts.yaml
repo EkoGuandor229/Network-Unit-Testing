@@ -1,6 +1,33 @@
-CSR1000v-Router-1:
+Router-1:
   platform: cisco_ios
-  hostname: cisco@10.20.0.31
+  hostname: 10.20.0.31
+  username: cisco
+  password: cisco
+  port: 22
+  groups:
+    - cisco
+
+Router-2:
+  platform: cisco_ios
+  hostname: 10.20.0.32
+  username: cisco
+  password: cisco
+  port: 22
+  groups:
+    - cisco
+
+Router-3:
+  platform: cisco_ios
+  hostname: 10.20.0.33
+  username: cisco
+  password: cisco
+  port: 22
+  groups:
+    - cisco
+
+Router-4:
+  platform: cisco_ios
+  hostname: 10.20.0.34
   username: cisco
   password: cisco
   port: 22
