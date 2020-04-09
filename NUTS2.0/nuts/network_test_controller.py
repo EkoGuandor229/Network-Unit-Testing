@@ -4,9 +4,6 @@ import colorama
 from colorama import Fore
 from pyfiglet import Figlet
 from tqdm import tqdm
-from os import sys, path
-
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from nuts.testhandling.evaluator import Evaluator
 from nuts.testhandling.test_builder import TestBuilder
@@ -49,12 +46,12 @@ class TestController:
             sleep(time)
 
 
-def main():
+def run():
     colorama.init()
     f = Figlet(font='slant')
     print(f.renderText("NUTS 2.0"))
     controller = TestController()
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    run()
