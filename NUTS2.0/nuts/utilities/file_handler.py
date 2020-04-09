@@ -3,9 +3,9 @@ import yaml
 
 class FileHandler:
     logger = 0
-    devicePath = r"./Configurations\inventory\\Devices\devices.yaml"
-    deviceConnectionPath = r"./Configurations\inventory\DeviceConnections\deviceconnections.yaml"
-    testDefinitionPath = r"./Configurations\inventory\TestDefinitions\testDefinitions.yaml"
+    devicePath = r"../nuts/resources/inventory/Devices/devices.yaml"
+    deviceConnectionPath = r"../nuts/resources/inventory/DeviceConnections/deviceconnections.yaml"
+    testDefinitionPath = r"../nuts/resources/inventory/TestDefinitions/testDefinitions.yaml"
     fileType = 0
 
     def read_device_file(self):
