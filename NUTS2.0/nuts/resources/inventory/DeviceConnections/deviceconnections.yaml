@@ -1,0 +1,5 @@
+connection1:
+  - switch01toswitch02
+  - switch01
+  - switch02
+  - 100Mbit

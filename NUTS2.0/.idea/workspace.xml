@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="973de3ce-b0d3-4116-93d6-2285f910bdcc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/NUTS2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NUTS2.0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/Prototyping/Configurations/inventory/Devices/devices.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/Configurations/inventory/Devices/devices.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/Configurations/inventory/TestDefinitions/testDefinitions.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/Configurations/inventory/TestDefinitions/testDefinitions.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/Inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/Inventory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/TestBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/TestBuilder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/TestController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/TestController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/TestDefinition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/TestDefinition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototyping/TestDefinitionLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/TestDefinitionLoader.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Prototyping/Utilities/StringCalc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prototyping/Utilities/StringCalc.py" afterDir="false" />
+>>>>>>> feature-prototype
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +33,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1YhcGTSj5UO79WvbadZaW98fVbe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,9 +44,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Math">
-    <configuration name="Math" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Janik\OneDrive\Studium\Studienarbeit\SA-Git\Network-Unit-Testing\NUTS2.0\Prototyping\Configurations\inventory\TestDefinitions" />
+      <recent name="C:\Users\Janik\OneDrive\Studium\Studienarbeit\SA-Git\Network-Unit-Testing\NUTS2.0\Prototyping\Configurations\inventory\Devices" />
+      <recent name="D:\Git-Stuff\Network-Unit-Testing\NUTS2.0\Prototyping" />
+    </key>
+  </component>
+<<<<<<< HEAD
+  <component name="RunManager" selected="Python.TestBuilder">
+=======
+  <component name="RunManager" selected="Python.StringCalc">
+>>>>>>> feature-prototype
+    <configuration name="FileHandler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NUTS2.0" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,7 +72,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/Math.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/FileHandler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Inventory" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NUTS2.0" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Prototyping" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/Inventory.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -75,7 +125,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="stringCalc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="TestBuilder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NUTS2.0" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -83,12 +133,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Prototyping/Utilities" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Prototyping" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/Utilities/stringCalc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/TestBuilder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDefinitionLoader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NUTS2.0" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Prototyping" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prototyping/TestDefinitionLoader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,9 +171,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Math" />
+<<<<<<< HEAD
+        <item itemvalue="Python.TestBuilder" />
+=======
+        <item itemvalue="Python.StringCalc" />
+>>>>>>> feature-prototype
+        <item itemvalue="Python.Inventory" />
+        <item itemvalue="Python.TestDefinitionLoader" />
         <item itemvalue="Python.Prototype" />
-        <item itemvalue="Python.stringCalc" />
+        <item itemvalue="Python.FileHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +196,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Janik\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -131,66 +209,166 @@
       <workItem from="1583408916590" duration="6242000" />
       <workItem from="1583774730342" duration="1330000" />
       <workItem from="1583932797831" duration="48000" />
+      <workItem from="1585034606630" duration="5640000" />
+      <workItem from="1585210431187" duration="10626000" />
+      <workItem from="1585569834831" duration="11344000" />
+      <workItem from="1585654460058" duration="3083000" />
+      <workItem from="1585736760796" duration="2538000" />
+<<<<<<< HEAD
+      <workItem from="1585739561654" duration="4963000" />
+      <workItem from="1585807550807" duration="4047000" />
+=======
+      <workItem from="1585739561654" duration="1708000" />
+      <workItem from="1585741563416" duration="1392000" />
+>>>>>>> feature-prototype
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="false" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="false" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="false" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="false" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="false" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583399364472">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="198" key="#Notifications" timestamp="1585641448847">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="198" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1585641448847" />
+    <state x="713" y="334" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585572219859">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583399364472" />
-    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1583932837760">
+    <state x="713" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1585572219859" />
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585042534012">
       <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585042534012" />
+    <state x="739" y="271" key="FileChooserDialogImpl" timestamp="1585635486011">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583932837760" />
-    <state width="1877" height="401" key="GridCell.Tab.0.bottom" timestamp="1583826454309">
+    <state x="739" y="271" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1585635486011" />
+<<<<<<< HEAD
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom" timestamp="1585811049475">
+      <screen x="0" y="0" width="1920" height="1080" />
+=======
+    <state width="1877" height="224" key="GridCell.Tab.0.bottom" timestamp="1585741997637">
       <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> feature-prototype
     </state>
     <state width="1877" height="401" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583826454309" />
+    <state width="1877" height="224" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741997637" />
+    <state width="1877" height="401" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585220619534" />
     <state width="1877" height="401" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583775387849" />
-    <state width="1877" height="401" key="GridCell.Tab.0.center" timestamp="1583826454309">
+<<<<<<< HEAD
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585811049475" />
+    <state width="1877" height="191" key="GridCell.Tab.0.center" timestamp="1585811049475">
+      <screen x="0" y="0" width="1920" height="1080" />
+=======
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585741400825" />
+    <state width="1877" height="224" key="GridCell.Tab.0.center" timestamp="1585741997637">
       <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> feature-prototype
     </state>
     <state width="1877" height="401" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583826454309" />
+    <state width="1877" height="224" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741997637" />
+    <state width="1877" height="401" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585220619534" />
     <state width="1877" height="401" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583775387849" />
-    <state width="1877" height="401" key="GridCell.Tab.0.left" timestamp="1583826454309">
+<<<<<<< HEAD
+    <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585811049475" />
+    <state width="1877" height="191" key="GridCell.Tab.0.left" timestamp="1585811049475">
+      <screen x="0" y="0" width="1920" height="1080" />
+=======
+    <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585741400824" />
+    <state width="1877" height="224" key="GridCell.Tab.0.left" timestamp="1585741997637">
       <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> feature-prototype
     </state>
     <state width="1877" height="401" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583826454309" />
+    <state width="1877" height="224" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741997637" />
+    <state width="1877" height="401" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585220619534" />
     <state width="1877" height="401" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583775387849" />
-    <state width="1877" height="401" key="GridCell.Tab.0.right" timestamp="1583826454309">
+<<<<<<< HEAD
+    <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585811049475" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right" timestamp="1585811049475">
+      <screen x="0" y="0" width="1920" height="1080" />
+=======
+    <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585741400824" />
+    <state width="1877" height="224" key="GridCell.Tab.0.right" timestamp="1585741997637">
       <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> feature-prototype
     </state>
     <state width="1877" height="401" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583826454309" />
+    <state width="1877" height="224" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741997637" />
+    <state width="1877" height="401" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1585220619534" />
     <state width="1877" height="401" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583775387849" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583419303480">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585811049475" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1585808175703">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583419303480" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583419303480">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585808175703" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center" timestamp="1585808175702">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583419303480" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583419303479">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585808175702" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left" timestamp="1585808175702">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583419303479" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583419303480">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585808175702" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right" timestamp="1585808175703">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583419303480" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1583932799955">
+<<<<<<< HEAD
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585808175703" />
+    <state x="461" y="168" key="SettingsEditor" timestamp="1585642755888">
+      <screen x="0" y="0" width="1920" height="1080" />
+=======
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585646207471" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585741593313">
+      <screen x="0" y="0" width="1920" height="1040" />
+>>>>>>> feature-prototype
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741593313" />
+    <state x="461" y="168" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1585642755888" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1585741564072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040/-1080.-853.1080.1880@0.0.1920.1040" timestamp="1583932799955" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585741564072" />
     <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583774732735" />
+    <state x="656" y="356" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585736763961" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585045563065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585045563065" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NUTS2_0$FileHandler.coverage" NAME="FileHandler Coverage Results" MODIFIED="1585635592212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
     <SUITE FILE_PATH="coverage/NUTS2_0$stringCalc.coverage" NAME="stringCalc Coverage Results" MODIFIED="1583412234572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping/Utilities" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$Inventory.coverage" NAME="Inventory Coverage Results" MODIFIED="1585741603400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$TestController.coverage" NAME="TestController Coverage Results" MODIFIED="1585044948489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/NUTS2_0$FileHandler.coverage" NAME="FileHandler Coverage Results" MODIFIED="1585635592212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$Prototype.coverage" NAME="Prototype Coverage Results" MODIFIED="1585640468185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$Inventory.coverage" NAME="Inventory Coverage Results" MODIFIED="1585810317205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$TestBuilder.coverage" NAME="TestBuilder Coverage Results" MODIFIED="1585811049467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
     <SUITE FILE_PATH="coverage/NUTS2_0$Math.coverage" NAME="Math Coverage Results" MODIFIED="1583775387838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
-    <SUITE FILE_PATH="coverage/NUTS2_0$Prototype.coverage" NAME="Prototype Coverage Results" MODIFIED="1583416503967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$TestDefinitionLoader.coverage" NAME="TestDefinitionLoader Coverage Results" MODIFIED="1585809826056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$StringCalc.coverage" NAME="StringCalc Coverage Results" MODIFIED="1585220736073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping/Utilities" />
+=======
+    <SUITE FILE_PATH="coverage/NUTS2_0$TestDefinitionLoader.coverage" NAME="TestDefinitionLoader Coverage Results" MODIFIED="1585741400813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$Math.coverage" NAME="Math Coverage Results" MODIFIED="1583775387838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$Prototype.coverage" NAME="Prototype Coverage Results" MODIFIED="1585640468185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping" />
+    <SUITE FILE_PATH="coverage/NUTS2_0$StringCalc.coverage" NAME="StringCalc Coverage Results" MODIFIED="1585741997629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prototyping/Utilities" />
+>>>>>>> feature-prototype
   </component>
 </project>

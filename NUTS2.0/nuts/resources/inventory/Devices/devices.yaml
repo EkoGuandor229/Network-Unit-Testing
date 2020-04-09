@@ -1,0 +1,29 @@
+switch01:
+  - ins
+  - ins@lab
+  - switch01
+  - 127.0.0.1
+
+switch02:
+  - ins
+  - ins@lab
+  - switch02
+  - 127.0.0.1
+
+switch03:
+  - ins
+  - ins@lab
+  - switch03
+  - 127.0.0.1
+
+switch04:
+  - ins
+  - ins@lab
+  - switch04
+  - 127.0.0.1
+
+router01:
+  - ins
+  - ins@lab
+  - router01
+  - 127.0.0.1
