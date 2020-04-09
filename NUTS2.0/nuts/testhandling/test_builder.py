@@ -1,7 +1,7 @@
-from Prototyping.Connection import Connection
-from Prototyping.Inventory import Inventory
-from Prototyping.TestBundle import TestBundle
-from Prototyping.TestDefinitionLoader import TestDefinitionLoader
+from nuts.connectionhandling.connection import Connection
+from nuts.inventorymanagement.inventory import Inventory
+from nuts.testcreation.test_bundle import TestBundle
+from nuts.inventorymanagement.test_definition_loader import TestDefinitionLoader
 
 
 class TestBuilder:

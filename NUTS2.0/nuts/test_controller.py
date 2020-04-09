@@ -8,9 +8,9 @@ from os import sys, path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from Prototyping.Evaluator import Evaluator
-from Prototyping.TestBuilder import TestBuilder
-from Prototyping.TestRunner import TestRunner
+from nuts.testhandling.evaluator import Evaluator
+from nuts.testhandling.test_builder import TestBuilder
+from nuts.testhandling.test_runner import TestRunner
 
 
 class TestController:

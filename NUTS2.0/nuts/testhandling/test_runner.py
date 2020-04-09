@@ -11,7 +11,7 @@ class TestRunner:
     testResult = 0
 
     def run_all_tests(self):
-        nr = InitNornir(config_file="Configurations/config.yaml")
+        nr = InitNornir(config_file="../resources/config.yaml")
         result = nr.run(
             task=netmiko_send_command,
             command_string="show ip int brief"

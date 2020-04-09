@@ -1,5 +1,5 @@
-from Prototyping.FileHandler import FileHandler
-from Prototyping.TestDefinition import TestDefinition
+from nuts.utilities.file_handler import FileHandler
+from nuts.inventorymanagement.test_definition import TestDefinition
 
 
 class TestDefinitionLoader:
