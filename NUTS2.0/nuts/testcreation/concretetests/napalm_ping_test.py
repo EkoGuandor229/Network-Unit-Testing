@@ -1,4 +1,4 @@
-from nuts.testcreation.test_strategy import NetworkTestStrategyInterface
+from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
 class NapalmPingTest(NetworkTestStrategyInterface):

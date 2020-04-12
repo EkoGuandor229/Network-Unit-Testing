@@ -6,8 +6,8 @@ from pyfiglet import Figlet
 from tqdm import tqdm
 
 from nuts.testhandling.evaluator import Evaluator
-from nuts.testhandling.test_builder import TestBuilder
-from nuts.testhandling.test_runner import TestRunner
+from nuts.testhandling.network_test_builder import TestBuilder
+from nuts.testhandling.network_test_runner import TestRunner
 
 
 class TestController:

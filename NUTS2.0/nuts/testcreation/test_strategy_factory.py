@@ -1,6 +1,6 @@
 from nuts.testcreation.concretetests.napalm_ping_test import NapalmPingTest
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
-from nuts.testcreation.test_factory import TestFactoryInterface
+from nuts.testcreation.network_test_factory import TestFactoryInterface
 
 
 class TestStrategyFactory(TestFactoryInterface):

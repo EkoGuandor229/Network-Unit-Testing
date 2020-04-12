@@ -1,7 +1,7 @@
 from nuts.connectionhandling.connection import Connection
 from nuts.inventorymanagement.inventory import Inventory
-from nuts.testcreation.test_bundle import TestBundle
-from nuts.inventorymanagement.test_definition_loader import TestDefinitionLoader
+from nuts.testcreation.network_test_bundle import TestBundle
+from nuts.inventorymanagement.network_test_definition_loader import TestDefinitionLoader
 
 
 class TestBuilder:
