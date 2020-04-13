@@ -1,15 +1,18 @@
-import nuts.testcreation.test_strategy_factory as factory
+from nornir.plugins.functions.text import print_result
+
+from nuts.testcreation.network_test_strategy_factory import TestStrategyFactory
 
 
 class TestContext:
-    factory = factory
+    factory_instance = TestStrategyFactory()
     tests = []
-    tests.append(factory.NapalmPingTest("Ping", True))
-    tests.append(factory.NetmikoPingTest("Ping", True))
+    tests.append(factory_instance.factory_method("Netmiko"))
 
     def run_all_tests(self):
         for test in self.tests:
-            test.run_test()
+            result = test.run_test()
+            evaluation = test.evaluate_result((result["host1"][0]))
+            print(evaluation)
 
 
 def main():
