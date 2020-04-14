@@ -1,29 +1,27 @@
-switch01:
-  - ins
-  - ins@lab
-  - switch01
-  - 127.0.0.1
-
-switch02:
-  - ins
-  - ins@lab
-  - switch02
-  - 127.0.0.1
-
-switch03:
-  - ins
-  - ins@lab
-  - switch03
-  - 127.0.0.1
-
-switch04:
-  - ins
-  - ins@lab
-  - switch04
-  - 127.0.0.1
-
 router01:
-  - ins
-  - ins@lab
   - router01
-  - 127.0.0.1
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.31
+
+router02:
+  - router02
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.32
+
+router03:
+  - router03
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.33
+
+router04:
+  - router04
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.34

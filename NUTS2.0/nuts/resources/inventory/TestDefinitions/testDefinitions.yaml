@@ -1,11 +1,11 @@
 test01:
-  - PingTest1
+  - PingGoogle
   - Ping
-  - switch01,switch02
+  - switch01,www.google.com
   - pingOk
 
 test02:
   - PingTest2
   - Ping
-  - switch03,switch04
+  - switch03,127.10.20.3
   - pingOk

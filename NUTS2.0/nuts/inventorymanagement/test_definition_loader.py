@@ -7,17 +7,21 @@ class TestDefinitionLoader:
     fileHandler = FileHandler()
 
     def create_test_definition_object(self):
-        test_definition_yaml = self.fileHandler.read_test_definition_file()
-        for test_definition in test_definition_yaml:
-            devices = test_definition[2].split(',')
-            self.testDefinitions[test_definition[0]] = TestDefinition(test_definition[0], test_definition[1], devices, test_definition[3])
-        return self.testDefinitions
+        test_definition_yaml = self.fileHandler.read_file(r"../resources/inventory/TestDefinitions/testDefinitions.yaml")
+        try:
+            for test_definition in test_definition_yaml:
+                devices = test_definition[2].split(',')
+                self.testDefinitions[test_definition[0]] = TestDefinition(test_definition[0], test_definition[1], devices, test_definition[3])
+            return self.testDefinitions
+        except ValueError:
+            print("There are Values missing or in the wrong Format")
 
 
 def main():
     loader = TestDefinitionLoader()
     loader.create_test_definition_object()
-    print(loader.testDefinitions["PingTest1"].print_test_definition())
+    loader.testDefinitions["PingGoogle"].print_test_definition()
+    loader.testDefinitions["PingTest2"].print_test_definition()
 
 
 if __name__ == '__main__':
