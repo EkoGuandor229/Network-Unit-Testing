@@ -1,11 +1,6 @@
 test01:
-  - PingGoogle
+  - PingR1Lo0
   - Ping
-  - switch01,www.google.com
-  - pingOk
-
-test02:
-  - PingTest2
-  - Ping
-  - switch03,127.10.20.3
+  - router01,router02
+  - 172.16.255.1
   - pingOk

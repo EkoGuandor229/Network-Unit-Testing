@@ -8,6 +8,9 @@ class Inventory:
     deviceConnections = []
     fileHandler = FileHandler()
 
+    def __init__(self):
+        self.create_inventory()
+
     def create_device_object(self):
         devices_yaml = self.fileHandler.read_file(r"../resources/inventory/Devices/devices.yaml")
         for device in devices_yaml:
@@ -39,10 +42,7 @@ class Inventory:
 
 def main():
     inv = Inventory()
-    inv.create_inventory()
     inv.devices["router01"].print_device()
-    #inv.create_device_connection_obejct()
-    #inv.deviceConnections[0].print_device_connection()
 
 
 if __name__ == '__main__':
