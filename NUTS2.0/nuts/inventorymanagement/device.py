@@ -1,14 +1,30 @@
 class Device:
+    deviceId = 0
+    platform = 0
     username = 0
     password = 0
-    deviceId = 0
-    adress = 0
+    hostname = 0
+    deviceConnections = []
 
-    def __init__(self, username, password, deviceId, adress):
+    def __init__(self, deviceid, platform, username, password, address, device_connections):
+        self.deviceId = deviceid
+        self.platform = platform
         self.username = username
         self.password = password
-        self.deviceid = deviceId
-        self.adress = adress
+        self.hostname = address
+        self.deviceConnections = device_connections
+
+    def get_platform(self):
+        return self.platform
+
+    def get_username(self):
+        return self.username
+
+    def get_password(self):
+        return self.password
+
+    def get_hostname(self):
+        return self.hostname
 
     def print_device(self):
-        print(self.username, self.password, self.deviceid, self.adress)
+        print(self.deviceId, self.platform, self.username, self.password, self.hostname, self.deviceConnections)

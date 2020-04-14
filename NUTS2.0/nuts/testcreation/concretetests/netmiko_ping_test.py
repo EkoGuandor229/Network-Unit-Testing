@@ -1,4 +1,5 @@
 from nornir import InitNornir
+from nornir.plugins.functions.text import print_result
 from nornir.plugins.tasks.networking import netmiko_send_command
 
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
@@ -34,3 +35,7 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def evaluate_result(self, result) -> bool:
         return self.expected in str(result)
+
+    def print_result(self, result):
+        print(self.expected)
+        print_result(result)

@@ -4,7 +4,7 @@ from nuts.utilities.logger import Logger
 
 
 class TestBundle:
-    tests = []
+    network_tests = []
     testContext = 0
     logger = 0
     testFactory = 0
@@ -12,9 +12,17 @@ class TestBundle:
     def __init__(self):
         self.testContext = TestContext
         self.logger = Logger
-        self.testFactory = TestStrategyFactory
+        self.testFactory = TestStrategyFactory()
 
     def create_test_bundle(self, test_definitions):
-        for definition in test_definitions:
-            self.tests.append(self.testFactory.factory_method(definition))
-        return self.tests
+        for test_definition in test_definitions.values():
+            test = self.testFactory.factory_method(
+                test_definition.get_command(),
+                test_definition.get_test_devices().get_platform(),
+                test_definition.get_test_devices().get_hostname(),
+                test_definition.get_test_devices().get_username(),
+                test_definition.get_test_devices().get_password(),
+                test_definition.get_target()
+            )
+            self.network_tests.append(test)
+        return self.network_tests

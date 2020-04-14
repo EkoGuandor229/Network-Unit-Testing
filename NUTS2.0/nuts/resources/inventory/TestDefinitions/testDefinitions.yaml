@@ -1,11 +1,13 @@
 test01:
-  - PingTest1
-  - Ping
-  - switch01,switch02
-  - pingOk
+  - PingR1Lo0
+  - Netmiko
+  - router01
+  - 172.16.255.1
+  - Success rate is 100 percent (5/5)
 
 test02:
-  - PingTest2
-  - Ping
-  - switch03,switch04
-  - pingOk
+  - PingR1Lo1
+  - Netmiko
+  - router01
+  - 172.16.255.1
+  - Success rate is 100 percent (5/5)
