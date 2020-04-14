@@ -1,4 +1,3 @@
-
 from nornir import InitNornir
 from nornir.plugins.tasks.networking import netmiko_send_command
 
@@ -10,19 +9,22 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def __init__(self, platform, hostname, username, password, destination):
         self.destination = destination
-        self.nr = InitNornir(inventory={
-            "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
-            "options": {
-                "hosts": {
-                    "host1": {
-                        "platform": str(platform),
-                        "hostname": str(hostname),
-                        "username": str(username),
-                        "password": str(password),
+        self.nr = InitNornir(
+            inventory={
+                "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
+                "options": {
+                    "hosts": {
+                        "host1": {
+                            "platform": str(platform),
+                            "hostname": str(hostname),
+                            "username": str(username),
+                            "password": str(password),
+                        }
                     }
                 }
-            }
-        })
+            },
+            logging={"enabled": False}
+        )
 
     def run_test(self):
         return self.nr.run(

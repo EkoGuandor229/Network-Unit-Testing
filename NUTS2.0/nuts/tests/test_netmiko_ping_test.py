@@ -1,8 +1,10 @@
 import pytest
 import nuts.testcreation.concretetests.netmiko_ping_test as pingtest
+from unittest.mock import call
 
 
 class TestNetmikoPingTest:
+
     @pytest.mark.parametrize(
         "platform, hostname, username, password",
         [
@@ -20,4 +22,24 @@ class TestNetmikoPingTest:
         assert inventory.hostname == hostname
         assert inventory.username == username
         assert inventory.password == password
+
+    @pytest.mark.parametrize(
+        "mocked_result, expected",
+        [
+            ("Success rate is 100 percent (5/5)", True),
+            ("Success rate is 100 percent (3/5)", False),
+            ("Success rate is 100 percent (0/5)", False),
+            ("Some String", False),
+            (12, False),
+        ],
+    )
+    def test_evaluate_result(self, mocked_result, expected):
+        instance = pingtest.NetmikoPingTest(
+            "cisco_ios",
+            "192.168.0.1",
+            "cisco",
+            "cisco",
+            "0.0.0.0"
+        )
+        assert instance.evaluate_result(mocked_result) == expected
 
