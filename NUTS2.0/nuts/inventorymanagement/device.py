@@ -14,5 +14,17 @@ class Device:
         self.hostname = address
         self.deviceConnections = device_connections
 
+    def get_platform(self):
+        return self.platform
+
+    def get_username(self):
+        return self.username
+
+    def get_password(self):
+        return self.password
+
+    def get_hostname(self):
+        return self.hostname
+
     def print_device(self):
         print(self.deviceId, self.platform, self.username, self.password, self.hostname, self.deviceConnections)

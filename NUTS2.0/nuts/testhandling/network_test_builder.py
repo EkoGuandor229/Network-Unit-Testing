@@ -12,26 +12,31 @@ class TestBuilder:
     testOrder = 0
     logger = 0
     testDefinitions = {}
+    tests = []
 
     def __init__(self):
         self.testDefinitions = self.testDefinitionLoader.create_test_definition_object()
 
     def create_test_suite(self):
         for test in self.testDefinitions:
-            test_devices = self.testDefinitions[test].get_test_devices()
-            devices = []
-            for test_device in test_devices:
-                devices.append(self.inventory.devices[test_device])
-            self.testDefinitions[test].set_test_devices(devices)
+            test_device = self.testDefinitions[test].get_test_devices()
+            device = self.inventory.devices[test_device]
+            self.testDefinitions[test].set_test_devices(device)
 
     def define_test_order(self):
         self.testOrder = [1, 2, 3]
+
+
+    def run_tests(self):
+        self.tests = self.testBundle.create_test_bundle(self.testDefinitions)
 
 
 def main():
     builder = TestBuilder()
     builder.create_test_suite()
     builder.testDefinitions["PingR1Lo0"].print_test_definition()
+    print(builder.testDefinitions.values())
+    builder.run_tests()
 
 
 if __name__ == '__main__':

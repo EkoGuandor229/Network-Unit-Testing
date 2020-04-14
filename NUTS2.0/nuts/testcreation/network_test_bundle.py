@@ -15,6 +15,13 @@ class TestBundle:
         self.testFactory = TestStrategyFactory
 
     def create_test_bundle(self, test_definitions):
-        for definition in test_definitions:
-            self.tests.append(self.testFactory.factory_method(definition))
+        for test_definition in test_definitions.values():
+            self.tests.append(self.testFactory.factory_method(
+                test_definition[1],
+                test_definition[2].get_platform(),
+                test_definition[2].get_hostname(),
+                test_definition[2].get_username(),
+                test_definition[2].get_password(),
+                test_definition[3])
+            )
         return self.tests
