@@ -26,16 +26,17 @@ class TestBuilder:
     def define_test_order(self):
         self.testOrder = [1, 2, 3]
 
-
     def run_tests(self):
         self.tests = self.testBundle.create_test_bundle(self.testDefinitions)
+        for test in self.tests:
+            result = test.run_test()
+            evaluation = test.evaluate_result((result["host1"][0]))
+            print(evaluation)
 
 
 def main():
     builder = TestBuilder()
     builder.create_test_suite()
-    builder.testDefinitions["PingR1Lo0"].print_test_definition()
-    print(builder.testDefinitions.values())
     builder.run_tests()
 
 

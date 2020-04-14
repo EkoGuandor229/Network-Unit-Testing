@@ -6,7 +6,7 @@ from nuts.testcreation.network_test_factory import TestFactoryInterface
 class TestStrategyFactory(TestFactoryInterface):
 
     def factory_method(self, type_of_test, *args):
-        if type_of_test == "Netmiko":
+        if str(type_of_test) == "Netmiko":
             return NetmikoPingTest(
                 args[0],
                 args[1],

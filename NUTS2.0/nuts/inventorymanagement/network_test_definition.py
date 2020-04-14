@@ -12,6 +12,9 @@ class TestDefinition:
         self.target = target
         self.expectedResult = expectedResult
 
+    def get_command(self):
+        return self.command
+
     def print_test_definition(self):
         print(self.testId, self.command, self.testDevices, self.target, self.expectedResult)
 
@@ -20,3 +23,6 @@ class TestDefinition:
 
     def set_test_devices(self, test_devices):
         self.testDevices = test_devices
+
+    def get_target(self):
+        return self.target

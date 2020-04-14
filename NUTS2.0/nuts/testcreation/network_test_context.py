@@ -12,7 +12,6 @@ class TestContext:
     tests.append(factory_instance.factory_method("Netmiko", "cisco_ios", "10.20.0.34", "cisco", "cisco", "172.16.255.1"))
     tests.append(factory_instance.factory_method("Netmiko", "cisco_ios", "10.20.0.35", "cisco", "cisco", "172.16.255.1"))
 
-
     def run_all_tests(self):
         for test in self.tests:
             result = test.run_test()
