@@ -21,8 +21,6 @@ class TestController:
         print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
-        self.testBuilder.create_test_suite()
-
         self.progress_bar("Progress", 0.01)
 
         print(Fore.CYAN + "+" + 78 * "-" + "+")
@@ -30,7 +28,7 @@ class TestController:
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
         print("This may take a few seconds")
-        result = (self.testRunner.run_all_tests())
+        self.testRunner.run_all_tests(self.testBuilder.tests)
         print("Tests successful")
         self.progress_bar("Analyzing Results", 0.02)
 
@@ -38,7 +36,7 @@ class TestController:
         print(Fore.CYAN + "|" + 31 * " " + "Test Results" + 35 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
-        self.evaluator.compare(result)
+        self.evaluator.compare(self.testBuilder.tests)
 
     def progress_bar(self, description, time):
         for i in tqdm(range(100), desc=description, ncols=80,

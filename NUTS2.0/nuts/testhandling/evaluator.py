@@ -7,7 +7,11 @@ class Evaluator:
     logger = 0
     evaluationResult = 0
 
-    def compare(self, result):
+    def compare(self, tests):
+        for test in tests:
+            print(test.evaluate_result(test.get_result()))
+
+    def compare_gui(self, result):
         passed = 0
         failed = 0
         passed_tests = []

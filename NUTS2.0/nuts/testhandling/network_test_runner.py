@@ -6,23 +6,8 @@ from nornir.plugins.connections.netmiko import Netmiko
 
 class TestRunner:
     logger = 0
-    connection = 0
-    testSuite = []
-    testResult = 0
 
-    def run_all_tests(self):
-        nr = InitNornir(config_file="../nuts/resources/config.yaml")
-        result = nr.run(
-            task=netmiko_send_command,
-            command_string="show ip int brief"
-        )
-        return result
+    def run_all_tests(self, tests):
+        for test in tests:
+            test.set_result(test.run_test())
 
-
-def main():
-    runner = TestRunner()
-    runner.run_all_tests()
-
-
-if __name__ == '__main__':
-    main()
