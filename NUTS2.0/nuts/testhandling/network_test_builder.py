@@ -30,7 +30,7 @@ class TestBuilder:
         self.tests = self.testBundle.create_test_bundle(self.testDefinitions)
         for test in self.tests:
             result = test.run_test()
-            evaluation = test.evaluate_result((result["host1"][0]))
+            evaluation = test.evaluate_result(result)
             print(evaluation)
 
 

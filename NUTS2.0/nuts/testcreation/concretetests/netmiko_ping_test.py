@@ -34,7 +34,7 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         )
 
     def evaluate_result(self, result) -> bool:
-        return self.expected in str(result)
+        return self.expected in str(result["host1"][0])
 
     def print_result(self, result):
         print(self.expected)
