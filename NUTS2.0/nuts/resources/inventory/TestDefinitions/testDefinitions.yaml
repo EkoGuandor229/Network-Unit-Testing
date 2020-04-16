@@ -9,5 +9,12 @@ test02:
   - PingR1Lo1
   - Netmiko
   - router01
-  - 172.16.255.1
+  - 172.16.255.2
+  - Success rate is 100 percent (5/5)
+
+test03:
+  - Pingself
+  - Ping Myself
+  - router01
+  - 10.30.0.1
   - Success rate is 100 percent (5/5)
