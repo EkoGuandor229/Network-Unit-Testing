@@ -1,8 +1,11 @@
 class Connection:
-    connection = 0
     logger = 0
-    connectionFactory = 0
-    connectionContext = 0
 
-    def create_connection(self):
-        return self.connection
+    def define_connection(self, test_definitions):
+        for test_definition in test_definitions:
+            if test_definition.get_platform() == "cisco_ios":
+                keyword = test_definition.get_command()
+                command = "Netmiko" + keyword
+                test_definition.set_command(command)
+            else:
+                print("This Platform is not supported")

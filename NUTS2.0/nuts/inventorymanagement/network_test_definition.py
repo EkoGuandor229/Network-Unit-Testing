@@ -27,5 +27,8 @@ class TestDefinition:
     def get_expected_result(self):
         return self.expectedResult
 
+    def set_command(self, command):
+        self.command = command
+
     def set_test_device(self, test_device):
         self.testDevice = test_device
