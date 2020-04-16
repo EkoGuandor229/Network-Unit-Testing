@@ -13,3 +13,9 @@ class DeviceConnection:
 
     def get_device_a(self):
         return self.device_a
+
+    def get_device_b(self):
+        return self.device_b
+
+    def get_connection_speed(self):
+        return self.connection_speed

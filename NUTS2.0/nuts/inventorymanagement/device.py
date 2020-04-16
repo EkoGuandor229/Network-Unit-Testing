@@ -6,12 +6,12 @@ class Device:
     hostname = 0
     deviceConnections = []
 
-    def __init__(self, deviceid, platform, username, password, address, device_connections):
+    def __init__(self, deviceid, platform, username, password, hostname, device_connections):
         self.deviceId = deviceid
         self.platform = platform
         self.username = username
         self.password = password
-        self.hostname = address
+        self.hostname = hostname
         self.deviceConnections = device_connections
 
     def get_platform(self):

@@ -21,7 +21,7 @@ class TestBuilder:
         for test in self.testDefinitions:
             test_device = self.testDefinitions[test].get_test_devices()
             device = self.inventory.devices[test_device]
-            self.testDefinitions[test].set_test_devices(device)
+            self.testDefinitions[test].set_test_device(device)
 
     def define_test_order(self):
         self.testOrder = [1, 2, 3]
