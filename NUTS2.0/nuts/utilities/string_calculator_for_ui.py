@@ -51,7 +51,7 @@ class StringCalc(object):
         f = Figlet(font='slant')
         print(f.renderText("NUTS 2.0"))
         print(Fore.CYAN + "+" + 78 * "-" + "+")
-        4
+
         print("+" + 78 * "-" + "+" + Fore.RESET)
         print()
         print(Fore.CYAN + "Overview" + Fore.RESET)
