@@ -1,3 +1,6 @@
+from tkinter import BooleanVar
+
+
 class TestDefinition:
     """
     The TestDefinition-class specifies tests, that should be executed against
@@ -29,6 +32,7 @@ class TestDefinition:
     target = None
     expected_result = None
     connection = None
+    is_executed = None
 
     def __init__(self, test_id, command, test_device, target, expected_result):
         self.test_id = test_id
@@ -36,9 +40,13 @@ class TestDefinition:
         self.test_device = test_device
         self.target = target
         self.expected_result = expected_result
+        self.is_executed = BooleanVar()
 
     def print_test_definition(self):
         print(self.test_id, self.command, self.test_device, self.target, self.expected_result)
+
+    def get_test_id(self):
+        return self.test_id
 
     def get_command(self):
         return self.command
@@ -54,6 +62,12 @@ class TestDefinition:
 
     def get_connection(self):
         return self.connection
+
+    def get_is_executed(self):
+        return self.is_executed
+
+    def set_is_executed(self, is_executed):
+        self.is_executed = is_executed
 
     def set_command(self, command):
         self.command = command
