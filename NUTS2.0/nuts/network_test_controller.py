@@ -78,7 +78,8 @@ class TestController:
         print(Fore.CYAN + "|" + 31 * " " + "Test Results" + 35 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
-        self.evaluator.compare(test_bundle)
+        evaluated_results = self.evaluator.compare(test_bundle)
+        print(evaluated_results)
 
     def progress_bar(self, description, time):
         for i in tqdm(range(100), desc=description, ncols=80,

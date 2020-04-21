@@ -46,3 +46,6 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def set_result(self, result):
         self.result = result
+
+    def get_expected(self):
+        return self.expected
