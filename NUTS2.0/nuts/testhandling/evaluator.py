@@ -2,10 +2,14 @@ from colorama import Fore
 
 
 class Evaluator:
-    testRunnerResult = 0
-    testExpectation = 0
-    logger = 0
-    evaluationResult = 0
+    """
+    The Evaluator class compares the expected values for each test with the
+    normalized return values of the test-executions.
+    """
+    test_runner_results = None
+    test_expectations = None
+    logger = None
+    evaluation_results = None
 
     def compare(self, tests):
         for test in tests:
@@ -21,7 +25,7 @@ class Evaluator:
         for key in result.keys():
             # expected = (result[key][0])
             expected = "Expected Result Mockstring"
-            if (result[key][0] == expected):
+            if result[key][0] == expected:
                 passed += 1
                 passed_tests.append(key)
 

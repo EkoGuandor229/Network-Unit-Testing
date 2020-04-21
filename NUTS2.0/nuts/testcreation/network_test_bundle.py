@@ -35,7 +35,8 @@ class TestBundle:
         self.testFactory = TestStrategyFactory()
 
     def create_test_bundle(self, test_definitions):
-        """Fills the network_tests connection with instantiated tests for each
+        """
+        Fills the network_tests connection with instantiated tests for each
            test defined in the test definition
 
         Parameters

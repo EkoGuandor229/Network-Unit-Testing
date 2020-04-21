@@ -1,4 +1,8 @@
 class Reporter:
+    """
+    The Reporter-class is responsible to print the test results to the
+    console and write a logfile with the test information.
+    """
     evaluationResult = "All tests successful"
     fileHandler = "FileHandler"
 
