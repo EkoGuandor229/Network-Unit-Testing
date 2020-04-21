@@ -2,6 +2,9 @@ import abc
 
 
 class NetworkTestStrategyInterface(metaclass=abc.ABCMeta):
+    """
+    Interface for concrete network test class implementation
+    """
 
     @abc.abstractmethod
     def run_test(self):

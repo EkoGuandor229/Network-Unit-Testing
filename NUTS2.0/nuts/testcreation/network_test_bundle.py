@@ -43,7 +43,6 @@ class TestBundle:
         test_definitions: collection, mandatory
             A collection of defined network tests which should be executed
             according to the test definitions
-
         """
         for test_definition in test_definitions.values():
             test = self.testFactory.factory_method(test_definition)
