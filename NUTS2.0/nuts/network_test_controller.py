@@ -57,7 +57,6 @@ class TestController:
         executes the tests with the test_runner, evaluates the test-results
         with the evaluator and finally prints the evaluated results on the
         console and into a log-file.
-
         """
         print(Fore.CYAN + "+" + 78 * "-" + "+")
         print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
