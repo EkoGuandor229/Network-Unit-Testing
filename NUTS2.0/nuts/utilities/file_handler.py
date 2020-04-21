@@ -2,7 +2,11 @@ import yaml
 
 
 class FileHandler:
-    logger = 0
+    """
+    The filehandler is responsible for writing and reading files to/from
+    the file system.
+    """
+    logger = None
 
     def read_file(self, path):
         try:
@@ -17,4 +21,6 @@ class FileHandler:
                     print("The Informations are not entered correctly or not in the right Format")
         except IOError:
             print("File not found")
+        finally:
+            file.close()
 

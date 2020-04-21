@@ -1,13 +1,36 @@
 class Device:
-    deviceId = 0
-    platform = 0
-    username = 0
-    password = 0
-    hostname = 0
+    """
+    The Device class saves information about a device in the network, so the
+    program can access this information for processing.
+
+    ...
+
+    Attributes
+    ----------
+    device_id
+        The device id is used to uniquely identify a device across the
+        network system.
+    platform
+        The platform refers to the device operating system, which determines,
+        what kind of connections can be used to access the device over the
+        internet.
+    username
+        The login name to connect to the device and execute commands on it.
+    password
+        The password used to authenticate the user to the device
+    hostname
+        The hostname is the ip-address, under which the device is accessible
+        over the network.
+    """
+    device_id = None
+    platform = None
+    username = None
+    password = None
+    hostname = None
     deviceConnections = []
 
-    def __init__(self, deviceid, platform, username, password, hostname, device_connections):
-        self.deviceId = deviceid
+    def __init__(self, device_id, platform, username, password, hostname, device_connections):
+        self.device_Id = device_id
         self.platform = platform
         self.username = username
         self.password = password
@@ -27,4 +50,4 @@ class Device:
         return self.hostname
 
     def print_device(self):
-        print(self.deviceId, self.platform, self.username, self.password, self.hostname, self.deviceConnections)
+        print(self.device_id, self.platform, self.username, self.password, self.hostname, self.deviceConnections)
