@@ -3,14 +3,42 @@ from nuts.inventorymanagement.network_test_definition import TestDefinition
 
 
 class TestDefinitionLoader:
-    testDefinitions = {}
-    fileHandler = FileHandler()
+    """
+    The TestDefinitionLoader is a helper-class, that loads the definitions of
+    the tests to be executed from a test-definition file in the .yaml format
+
+    ...
+
+    Attributes
+    ----------
+    test_definitions: collection
+        The test definitions specify the tests that should be executed against
+        a network system. They are loaded from one or multiple .yaml files
+    file_handler
+        Reference to the FileHandler-class that is responsible for reading and
+        writing in the directory
+    """
+    test_definitions = {}
+    file_handler = None
 
     def create_test_definition_object(self):
-        test_definition_yaml = self.fileHandler.read_file(r"./resources/inventory/TestDefinitions/testDefinitions.yaml")
+        """
+        Loads test definitions from the file system specified in the
+        definition_location and instantiates NetworkTestDefinition classes
+        """
+        self.file_handler = FileHandler()
+        definition_location = r"./resources/inventory/TestDefinitions/testDefinitions.yaml"
+        test_definition_yaml = self.file_handler.read_file(definition_location)
         try:
             for test_definition in test_definition_yaml:
-                self.testDefinitions[test_definition[0]] = TestDefinition(test_definition[0], test_definition[1], test_definition[2], test_definition[3], test_definition[4])
-            return self.testDefinitions
+                self.test_definitions[test_definition[0]] = TestDefinition(
+                    test_definition[0],
+                    test_definition[1],
+                    test_definition[2],
+                    test_definition[3],
+                    test_definition[4]
+                )
         except ValueError:
             print("There are Values missing or in the wrong Format")
+        else:
+            return self.test_definitions
