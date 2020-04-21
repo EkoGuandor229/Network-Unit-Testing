@@ -71,7 +71,7 @@ class TestController:
 
         print("This may take a few seconds")
         self.network_test_runner.run_all_tests(test_bundle)
-        print("Tests successful")
+        print("Test execution successful")
         self.progress_bar("Analyzing Results", 0.02)
 
         print(Fore.CYAN + "+" + 78 * "-" + "+")
@@ -79,7 +79,7 @@ class TestController:
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
         evaluated_results = self.evaluator.compare(test_bundle)
-        print(evaluated_results)
+        self.reporter.print_results(evaluated_results)
 
     def progress_bar(self, description, time):
         for i in tqdm(range(100), desc=description, ncols=80,
