@@ -60,6 +60,7 @@ class TestBuilder:
 
         self.get_test_definitions()
         self.connect_device_objects()
+        self.connection.define_connection(self.network_test_definitions)
         self.get_runnable_tests()
 
     def get_test_definitions(self):

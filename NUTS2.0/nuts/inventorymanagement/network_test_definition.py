@@ -20,12 +20,15 @@ class TestDefinition:
         Defines a result which is expected as return value from the test
         e.g. a ping-command should either return successful, unsuccessful or
         with a specified percentage of success (five packets sent, 3 successful)
+    connection
+        Specifies the type of connection with witch Nornir will connect
     """
     test_id = None
     command = None
     test_device = None
     target = None
     expected_result = None
+    connection = None
 
     def __init__(self, test_id, command, test_device, target, expected_result):
         self.test_id = test_id
@@ -49,8 +52,14 @@ class TestDefinition:
     def get_expected_result(self):
         return self.expected_result
 
+    def get_connection(self):
+        return self.connection
+
     def set_command(self, command):
         self.command = command
 
     def set_test_device(self, test_device):
         self.test_device = test_device
+
+    def set_connection(self, connection):
+        self.connection = connection
