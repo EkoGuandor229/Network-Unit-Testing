@@ -36,7 +36,8 @@ class TestStrategyFactory(TestFactoryInterface):
                 test_definition.get_test_devices().get_hostname(),
                 test_definition.get_test_devices().get_username(),
                 test_definition.get_test_devices().get_password(),
-                test_definition.get_target()
+                test_definition.get_target(),
+                test_definition.get_expected_result()
             )
         else:
             return NoTestDefined(type_of_test)

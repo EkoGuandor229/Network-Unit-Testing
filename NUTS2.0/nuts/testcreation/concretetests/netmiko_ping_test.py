@@ -7,8 +7,8 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NetmikoPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination):
-        self.expected = "Success rate is 100 percent (5/5)"
+    def __init__(self, platform, hostname, username, password, destination, expected):
+        self.expected = expected
         self.result = None
         self.destination = destination
         self.nr = InitNornir(
@@ -31,7 +31,7 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=netmiko_send_command,
-            command_string="ping " + str(self.destination)
+            command_string=f"ping {self.destination}"
         )
 
     def evaluate_result(self, result) -> bool:

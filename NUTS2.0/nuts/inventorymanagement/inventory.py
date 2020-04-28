@@ -18,9 +18,9 @@ class Inventory:
             try:
                 device_connections = self.find_device_connection(device[0])
             except ValueError:
-                print(device[0] + ": A Problem occurred during this Class Instance")
+                print(f"{device[0]}: A Problem occurred during this Class Instance")
             except KeyError:
-                print(device[0] + ": There was a problem with the instantiation of this device")
+                print(f"{device[0]}: There was a problem with the instantiation of this device")
             else:
                 self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4],
                                                  device_connections)

@@ -40,10 +40,6 @@ class TestController:
     logic()
         runs the program logic
     """
-    reporter = None
-    network_test_runner = None
-    evaluator = None
-    network_test_builder = None
 
     def __init__(self):
         self.network_test_runner = TestRunner()
@@ -59,6 +55,7 @@ class TestController:
         console and into a log-file.
         """
         print(Fore.CYAN + "+" + 78 * "-" + "+")
+        print(Fore.CYAN + "+{:-^78}+".format(""))
         print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 

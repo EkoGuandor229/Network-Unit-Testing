@@ -16,7 +16,7 @@ class NoTestDefined(NetworkTestStrategyInterface):
         pass
 
     def run_test(self):
-        result = ("Test: " + str(self.test_command) + " is not yet implemented")
+        result = f"Test: {self.test_command} is not yet implemented"
         return result
 
     def evaluate_result(self, result):

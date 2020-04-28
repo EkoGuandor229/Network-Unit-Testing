@@ -25,14 +25,14 @@ class Reporter:
             print("No tests failed")
 
     def save_results(self):
-        print("Results saved to file with " + self.fileHandler)
+        print(f"Results saved to file with {self.fileHandler}")
 
     def print_passed_results(self, passed_results):
         print(Fore.GREEN + "Passed Tests")
         print(Fore.GREEN + ".")
         print(Fore.GREEN + "|-- Show Ip Int Brief")
         for test_result in passed_results:
-            print(Fore.GREEN + "|   |-- Device: " + str() + 50 * "." + "PASSED")
+            print(Fore.GREEN + f"|   |-- Device: {test_result}" + 50 * "." + "PASSED")
 
     def print_failed_results(self, failed_results):
         print(Fore.RED + "Failed Tests")
