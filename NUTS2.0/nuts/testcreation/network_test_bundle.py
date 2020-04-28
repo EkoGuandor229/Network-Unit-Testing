@@ -45,7 +45,7 @@ class TestBundle:
             A collection of defined network tests which should be executed
             according to the test definitions
         """
-        for test_definition in test_definitions.values():
+        for test_definition in test_definitions:
             test = self.testFactory.factory_method(test_definition)
             self.network_tests.append(test)
         return self.network_tests
