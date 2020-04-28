@@ -22,15 +22,9 @@ class Device:
         The hostname is the ip-address, under which the device is accessible
         over the network.
     """
-    device_id = None
-    platform = None
-    username = None
-    password = None
-    hostname = None
-    deviceConnections = []
 
     def __init__(self, device_id, platform, username, password, hostname, device_connections):
-        self.device_Id = device_id
+        self.device_id = device_id
         self.platform = platform
         self.username = username
         self.password = password

@@ -6,10 +6,10 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
 class NetmikoPingTest(NetworkTestStrategyInterface):
-    expected = "Success rate is 100 percent (5/5)"
-    result = None
 
     def __init__(self, platform, hostname, username, password, destination):
+        self.expected = "Success rate is 100 percent (5/5)"
+        self.result = None
         self.destination = destination
         self.nr = InitNornir(
             inventory={

@@ -15,9 +15,6 @@ class DeviceConnection:
         the bandwidth-speed of a given connection between two devices is used
         for some specific tests
     """
-    device_a = None
-    device_b = None
-    connection_speed = None
 
     def __init__(self, device_a, device_b, connection_speed):
         self.device_a = device_a

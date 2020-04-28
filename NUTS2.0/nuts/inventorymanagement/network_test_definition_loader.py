@@ -18,15 +18,16 @@ class TestDefinitionLoader:
         Reference to the FileHandler-class that is responsible for reading and
         writing in the directory
     """
-    test_definitions = {}
-    file_handler = None
+
+    def __init__(self):
+        self.test_definitions = {}
+        self.file_handler = FileHandler()
 
     def create_test_definition_object(self):
         """
         Loads test definitions from the file system specified in the
         definition_location and instantiates NetworkTestDefinition classes
         """
-        self.file_handler = FileHandler()
         definition_location = r"./resources/inventory/TestDefinitions/testDefinitions.yaml"
         test_definition_yaml = self.file_handler.read_file(definition_location)
         try:

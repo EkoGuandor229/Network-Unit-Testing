@@ -6,12 +6,11 @@ class Evaluator:
     The Evaluator class compares the expected values for each test with the
     normalized return values of the test-executions.
     """
-    logger = None
-    evaluation_results = {}
 
     def compare(self, tests):
         passed_tests = []
         failed_tests = []
+        evaluation_results = {}
 
         for test in tests:
             actual_result = test.get_result()
@@ -21,9 +20,9 @@ class Evaluator:
             else:
                 failed_tests.append(test)
 
-        self.evaluation_results["Passed Tests"] = passed_tests
-        self.evaluation_results["Failed Tests"] = failed_tests
-        return self.evaluation_results
+        evaluation_results["Passed Tests"] = passed_tests
+        evaluation_results["Failed Tests"] = failed_tests
+        return evaluation_results
 
 
 

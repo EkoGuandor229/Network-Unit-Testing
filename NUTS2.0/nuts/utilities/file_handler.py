@@ -6,7 +6,6 @@ class FileHandler:
     The filehandler is responsible for writing and reading files to/from
     the file system.
     """
-    logger = None
 
     def read_file(self, path):
         try:

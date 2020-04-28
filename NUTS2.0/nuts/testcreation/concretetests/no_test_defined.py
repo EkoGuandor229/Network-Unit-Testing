@@ -9,7 +9,6 @@ class NoTestDefined(NetworkTestStrategyInterface):
     instead NUTS will complete and notify the user, that test was specified
     wrongly.
     """
-    result = 0
 
     def __init__(self, test_command):
         self.test_command = test_command

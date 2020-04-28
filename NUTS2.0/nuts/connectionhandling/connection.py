@@ -11,7 +11,6 @@ class Connection:
     connectionMapper
         maps the platform type to the right connection
     """
-    logger = None
     connectionMapper = {
         "cisco_ios": "Netmiko"
     }

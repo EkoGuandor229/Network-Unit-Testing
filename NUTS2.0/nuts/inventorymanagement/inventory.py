@@ -4,11 +4,9 @@ from nuts.utilities.file_handler import FileHandler
 
 
 class Inventory:
-    devices = {}
-    deviceConnections = []
-    fileHandler = None
-
     def __init__(self):
+        self.devices = {}
+        self.deviceConnections = []
         self.fileHandler = FileHandler()
         self.create_inventory()
 
@@ -22,14 +20,16 @@ class Inventory:
             except KeyError:
                 print(device[0] + ": There was a problem with the instantiation of this device")
             else:
-                self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4], device_connections)
-
+                self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4],
+                                                 device_connections)
 
     def create_device_connection_obejct(self):
-        device_connection_yaml = self.fileHandler.read_file(r"./resources/inventory/DeviceConnections/deviceconnections.yaml")
+        device_connection_yaml = self.fileHandler.read_file(
+            r"./resources/inventory/DeviceConnections/deviceconnections.yaml")
         for device_connection in device_connection_yaml:
             try:
-                self.deviceConnections.append(DeviceConnection(device_connection[0], device_connection[1], device_connection[2]))
+                self.deviceConnections.append(
+                    DeviceConnection(device_connection[0], device_connection[1], device_connection[2]))
             except ValueError:
                 print("A Problem occurred during this Class Instance")
 
