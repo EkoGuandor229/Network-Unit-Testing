@@ -4,6 +4,6 @@ core:
 inventory:
   plugin: nornir.plugins.inventory.simple.SimpleInventory
   options:
-    host_file: "../nuts/resources/inventory/hosts.yaml"
-    group_file: "../nuts/resources/inventory/groups.yaml"
-    defaults_file: "../nuts/resources/inventory/defaults.yaml"
+    host_file: "resources/inventory/hosts.yaml"
+    group_file: "resources/inventory/groups.yaml"
+    defaults_file: "resources/inventory/defaults.yaml"

@@ -12,6 +12,7 @@ class NoTestDefined(NetworkTestStrategyInterface):
 
     def __init__(self, test_command):
         self.test_command = test_command
+        self.result = None
         pass
 
     def run_test(self):

@@ -1,6 +1,7 @@
 from nuts.inventorymanagement.device import Device
 from nuts.inventorymanagement.device_connection import DeviceConnection
 from nuts.utilities.file_handler import FileHandler
+from pathlib import Path
 
 
 class Inventory:
@@ -11,7 +12,8 @@ class Inventory:
         self.create_inventory()
 
     def create_device_object(self):
-        devices_yaml = self.fileHandler.read_file(r"./resources/inventory/Devices/devices.yaml")
+        file_path = Path("resources/inventory/Devices/devices.yaml")
+        devices_yaml = self.fileHandler.read_file(file_path)
         for device in devices_yaml:
             try:
                 device_connections = self.find_device_connection(device[0])
@@ -24,8 +26,8 @@ class Inventory:
                                                  device_connections)
 
     def create_device_connection_obejct(self):
-        device_connection_yaml = self.fileHandler.read_file(
-            r"./resources/inventory/DeviceConnections/deviceconnections.yaml")
+        file_path = Path("resources/inventory/DeviceConnections/deviceconnections.yaml")
+        device_connection_yaml = self.fileHandler.read_file(file_path)
         for device_connection in device_connection_yaml:
             try:
                 self.deviceConnections.append(

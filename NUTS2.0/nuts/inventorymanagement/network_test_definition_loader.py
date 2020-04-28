@@ -1,5 +1,6 @@
 from nuts.utilities.file_handler import FileHandler
 from nuts.inventorymanagement.network_test_definition import TestDefinition
+from pathlib import Path
 
 
 class TestDefinitionLoader:
@@ -28,7 +29,7 @@ class TestDefinitionLoader:
         Loads test definitions from the file system specified in the
         definition_location and instantiates NetworkTestDefinition classes
         """
-        definition_location = r"./resources/inventory/TestDefinitions/testDefinitions.yaml"
+        definition_location = Path("resources/inventory/TestDefinitions/testDefinitions.yaml")
         test_definition_yaml = self.file_handler.read_file(definition_location)
         try:
             for test_definition in test_definition_yaml:
