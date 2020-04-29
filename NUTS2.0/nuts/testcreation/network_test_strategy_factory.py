@@ -40,4 +40,4 @@ class TestStrategyFactory(TestFactoryInterface):
                 test_definition.get_expected_result()
             )
         else:
-            return NoTestDefined(type_of_test)
+            return NoTestDefined(type_of_test, test_definition.get_test_devices())

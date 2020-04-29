@@ -1,13 +1,17 @@
 from colorama import Fore
 
+from nuts.utilities.file_handler import FileHandler
+from nuts.utilities.logger import Logger
+
 
 class Reporter:
     """
     The Reporter-class is responsible to print the test results to the
     console and write a logfile with the test information.
     """
-    evaluationResult = "All tests successful"
-    fileHandler = "FileHandler"
+    def __init__(self):
+        self.logger = Logger()
+        self.file_handler = FileHandler()
 
     def print_results(self, results):
         passed = results["Passed Tests"]
@@ -25,23 +29,23 @@ class Reporter:
             print("No tests failed")
 
     def save_results(self):
-        print(f"Results saved to file with {self.fileHandler}")
+        print(f"Results saved to file with {self.file_handler}")
 
     def print_passed_results(self, passed_results):
         print(Fore.GREEN + "Passed Tests")
         print(Fore.GREEN + ".")
-        print(Fore.GREEN + "|-- Show Ip Int Brief")
+        print(Fore.GREEN + "|-- Netmiko Pingtest")
         for test_result in passed_results:
-            print(Fore.GREEN + f"|   |-- Device: {test_result}" + 50 * "." + "PASSED")
+            print(Fore.GREEN + f"|   |-- Test: {test_result.get_test_name()} has PASSED")
 
     def print_failed_results(self, failed_results):
         print(Fore.RED + "Failed Tests")
         print(Fore.RED + ".")
-        print(Fore.RED + "|-- Show Ip Int Brief")
-        for device in failed_results:
-            print(Fore.RED + "|   |-- Device: " + str(device) + 50 * "." + "FAILED")
-            print(Fore.RED + "|   |   |-- Expected: \n" + str(5))
-            print(Fore.RED + "|   |   |-- Actual: \n" + str(229))
+        print(Fore.RED + "|-- Netmiko Pingtest")
+        for test_result in failed_results:
+            print(Fore.RED + f"|   |-- Test: {test_result.get_test_name()} has FAILED")
+            print(Fore.RED + f"|   |   |-- Expected: {test_result.get_expected_value()}")
+            print(Fore.RED + f"|   |   |-- Actual: {test_result.get_result()}")
             print(Fore.RED + "|   |")
 
 

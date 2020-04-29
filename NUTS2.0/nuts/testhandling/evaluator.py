@@ -1,4 +1,4 @@
-from colorama import Fore
+from nuts.utilities.logger import Logger
 
 
 class Evaluator:
@@ -6,6 +6,8 @@ class Evaluator:
     The Evaluator class compares the expected values for each test with the
     normalized return values of the test-executions.
     """
+    def __init__(self):
+        self.logger = Logger()
 
     def compare(self, tests):
         passed_tests = []
@@ -15,7 +17,6 @@ class Evaluator:
         for test in tests:
             actual_result = test.get_result()
             test_result = test.evaluate_result(actual_result)
-            print(test_result)
             if test_result is True:
                 passed_tests.append(test)
             else:

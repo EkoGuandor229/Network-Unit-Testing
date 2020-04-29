@@ -42,9 +42,9 @@ class TestController:
     """
 
     def __init__(self):
+        self.network_test_builder = TestBuilder()
         self.network_test_runner = TestRunner()
         self.evaluator = Evaluator()
-        self.network_test_builder = TestBuilder()
         self.reporter = Reporter()
 
     def logic(self):
