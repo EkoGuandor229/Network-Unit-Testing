@@ -1,0 +1,47 @@
+\documentclass[]{subfiles}
+
+\begin{document}
+\section*{Management Summary}
+   \subsection*{Ausgangslage}
+   Fehler in Teilbereichen von Netzwerksystemen können dazu führen, 
+   dass das ganze System nicht mehr funktioniert.
+   Aus diesem Grund ist es essentiell, dass selbst kleine Änderungen
+   an Netzwerken getestet werden können. 
+   Diese Tests werden meistens von Hand oder durch Skripte durchgeführt.
+   Ein Tool, welches das automatisierte Testen von Netzwerksystemen 
+   ermöglicht, kann dabei helfen, Fehler zu erkennen, bevor sie zu
+   einem Problem werden.
+
+   \subsection*{Vorgehen, Technologien}
+   Zu Beginn wurde eine Domänenanalyse durchgeführt, um die Akteure und 
+   Bestandteile einer Netzwerkumgebung zu bestimmen und die zu entwickelnden
+   Netzwerktests zu evaluieren.
+   Darauf aufbauend wurden die funktionalen und nichtfunktionalen Anforderungen
+   an die Software spezifiziert.
+   Auf dieser Basis wurde die Softwarearchitekur ausgearbeitet und mit 
+   der Entwicklung begonnen.
+
+   Das Programm wurde in der Programmiersprache Python geschrieben und 
+   beinhaltet das Modul "Nornir"\,, ein Framework, welches automatisierte
+   Tasks auf Netzwerksysteme, wie z.B. Konfiguration oder Tests, ermöglicht. 
+
+   \subsection*{Ergebnisse}
+   Aus dieser Studienarbeit ist ein Python-Programm entstanden, welches 
+   Netzwerktests, die in einer Definitionssprache spezifiziert werden,
+   gegen ein Netzwerk durchführt und die Ergebnisse selbstständig auswertet
+   und dem Benutzer anzeigt. Nornir erlaubt dabei, eine Vielzahl von 
+   Netzwerkgräten anzusprechen, welche über herkömmliche Methoden wie
+   SSH umfänglicher zu testen wären.
+
+   Die Software lässt sich ohne Installation auf jedem Gerät ausführen, 
+   welches Python-Code ausführen kann, unabhängig vom Betriebssystem.
+   Geräte, auf denen Python nicht installiert ist, müssen dies zuerst
+   Installieren, können das Programm danach aber ohne weiteres ausführen.
+
+   Dadurch, dass das Programm reiner Pyhton Code ist, lässt es sich einfach
+   in ein bestehendes Tool für die kontinuierliche Integration einbinden.
+   Die Testdefinitionen lassen sich über ein Versionsverwaltungstool 
+   zentralisieren, so dass mehrere Netzwerkleute gleichzeitig Tests für 
+   eine Umgebung entwickeln können. 
+   
+\end{document}

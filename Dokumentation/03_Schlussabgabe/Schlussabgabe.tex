@@ -36,19 +36,21 @@
 % Preface --------------------------------------------------------------------
 \pagenumbering{Roman}
 
-% Zweck
-\section*{Zweck}
-Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das Projekt NUTS, dessen Planung und Organisation, sowie über weitere Bereiche des Projektaufbaus. Der Projektplan dient als Grundlage und Referenz für nachfolgende Projektdokumente
 
-% Änderungsgeschichte
-\section*{Änderungsgeschichte}
-\begin{tabularx}{0.9\textwidth}{llXl}
-	\toprule
-	Datum & Version & Änderung & Autor \\
-	\midrule
-	18.02.2020 & 1.0 & Initial Setup & Janik Schlatter \\
-	\bottomrule
-\end{tabularx}
+\addcontentsline{toc}{section}{Aufgabenstellung}
+\subfile{Kapitel/Aufgabenstellung}
+
+\newpage
+
+\subfile{Kapitel/Abstract}
+\setcounter{page}{2}
+\addcontentsline{toc}{section}{Abstract}
+
+\newpage
+
+
+\subfile{Kapitel/ManagementSummary}
+\addcontentsline{toc}{section}{Management Summary}
 \cleardoublepage
 
 % Inhaltsverzeichnis
@@ -60,10 +62,32 @@ Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das
 \pagenumbering{arabic}
 % Jede Überschrift 1 auf neuer Seite
 \let\stdsection\section
-\renewcommand\section{\clearpage\stdsection}
+\section*{I. Technischer Bericht}
+\addcontentsline{toc}{section}{I. Technischer Bericht}
 
 % Inhalt ---------------------------------------------------------------------
-\subfile{Kapitel/Beispielkapitel}
-\subfile{Kapitel/Beispielkapitel2}
+\subfile{Kapitel/Einleitung.tex}
+\renewcommand\section{\clearpage\stdsection}
+\subfile{Kapitel/Anforderungen.tex}
+\subfile{Kapitel/Design.tex}
+\subfile{Kapitel/Realisierung.tex}
+\subfile{Kapitel/Ergebnisse.tex}
+\subfile{Kapitel/Ausblick.tex}
+\subfile{Kapitel/Glossar.tex}
+
+% Anhang----------------------------------------------------------------------
+
+\section*{II. Anhang}
+\renewcommand\section{\stdsection}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\addcontentsline{toc}{section}{II. Anhang}
+\subfile{Kapitel/Anhang/Projektplanung.tex}
+\renewcommand\section{\clearpage\stdsection}
+\subfile{Kapitel/Anhang/Zeitauswertung.tex}
+\subfile{Kapitel/Anhang/Benutzeranleitung.tex}
+\subfile{Kapitel/Anhang/Persönliche Berichte.tex}
+\subfile{Kapitel/Anhang/Eigenständigkeitserklärung.tex}
+\subfile{Kapitel/Anhang/Rechtliches.tex}
 
 \end{document}
