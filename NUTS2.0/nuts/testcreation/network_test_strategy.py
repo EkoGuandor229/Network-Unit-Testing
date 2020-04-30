@@ -33,3 +33,11 @@ class NetworkTestStrategyInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_result(self):
         pass
+
+    @abc.abstractmethod
+    def get_expected_value(self):
+        pass
+
+    @abc.abstractmethod
+    def get_test_name(self):
+        pass

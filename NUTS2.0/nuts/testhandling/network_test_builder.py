@@ -2,6 +2,7 @@ from nuts.connectionhandling.connection import Connection
 from nuts.inventorymanagement.inventory import Inventory
 from nuts.testcreation.network_test_bundle import TestBundle
 from nuts.inventorymanagement.network_test_definition_loader import TestDefinitionLoader
+from nuts.testhandling.network_test_order import TestOrder
 
 
 class TestBuilder:
@@ -45,21 +46,20 @@ class TestBuilder:
         calls the network_test_bundle class to instantiate concrete tests
         according to the test definitions
     """
-    network_test_bundle = None
-    connection = None
-    inventory = None
-    network_test_definition_loader = None
-    network_test_definitions = {}
-    network_tests = []
 
     def __init__(self):
-        self.network_test_bundle = TestBundle()
-        self.connection = Connection()
         self.inventory = Inventory()
+        self.connection = Connection()
         self.network_test_definition_loader = TestDefinitionLoader()
+        self.network_test_bundle = TestBundle()
+        self.network_test_order = TestOrder()
+        self.network_test_definitions = {}
+        self.network_tests = []
 
         self.get_test_definitions()
         self.connect_device_objects()
+        self.connection.define_connection(self.network_test_definitions)
+        self.network_test_order.define_test_order(self.network_test_definitions)
         self.get_runnable_tests()
 
     def get_test_definitions(self):
@@ -89,5 +89,3 @@ class TestBuilder:
         test_definitions = self.network_test_definitions
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle
-
-

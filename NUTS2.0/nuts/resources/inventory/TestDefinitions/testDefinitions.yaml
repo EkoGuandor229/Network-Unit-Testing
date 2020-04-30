@@ -1,21 +1,34 @@
 test01:
-  - PingR1Lo0
+  - PingRouter1Loopback0
   - Netmiko
   - router01
   - 172.16.255.1
   - Success rate is 100 percent (5/5)
 
 test02:
-  - PingR1Lo1
+  - PingRouter1Loopback1
   - Netmiko
   - router01
   - 172.16.255.2
   - Success rate is 100 percent (5/5)
 
 test03:
-  - Pingself
-  - Ping Myself
+  - PingSelf
+  - Ping own ip-address
   - router01
   - 10.30.0.1
   - Success rate is 100 percent (5/5)
 
+test04:
+  - GetInterfacesFromRouter02
+  - Netconf
+  - router02
+  - Whatever
+  - Whatever
+
+test05:
+  - PingGoogleFromRouter3
+  - Napalm
+  - router03
+  - 172.217.168.4
+  - Success rate is 0 percent (0/5)
