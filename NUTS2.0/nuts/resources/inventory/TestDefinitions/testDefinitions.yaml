@@ -21,7 +21,14 @@ test03:
 
 test04:
   - GetInterfacesFromRouter02
-  - Show Interfaces
+  - Netconf
   - router02
   - Whatever
   - Whatever
+
+test05:
+  - PingGoogleFromRouter3
+  - Napalm
+  - router03
+  - 172.217.168.4
+  - Success rate is 0 percent (0/5)
