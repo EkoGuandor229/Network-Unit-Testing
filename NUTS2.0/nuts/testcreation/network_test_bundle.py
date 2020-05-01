@@ -26,11 +26,9 @@ class TestBundle:
     create_test_bundle(test_definitions)
         Instantiates tests that are defined in the test definitions
     """
-    network_tests = []
-    testFactory = None
-    logger = None
 
     def __init__(self):
+        self.network_tests = []
         self.logger = Logger()
         self.testFactory = TestStrategyFactory()
 

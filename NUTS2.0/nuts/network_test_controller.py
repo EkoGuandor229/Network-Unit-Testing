@@ -40,15 +40,11 @@ class TestController:
     logic()
         runs the program logic
     """
-    reporter = None
-    network_test_runner = None
-    evaluator = None
-    network_test_builder = None
 
     def __init__(self):
+        self.network_test_builder = TestBuilder()
         self.network_test_runner = TestRunner()
         self.evaluator = Evaluator()
-        self.network_test_builder = TestBuilder()
         self.reporter = Reporter()
 
     def logic(self):
@@ -59,6 +55,7 @@ class TestController:
         console and into a log-file.
         """
         print(Fore.CYAN + "+" + 78 * "-" + "+")
+        print(Fore.CYAN + "+{:-^78}+".format(""))
         print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
@@ -71,14 +68,15 @@ class TestController:
 
         print("This may take a few seconds")
         self.network_test_runner.run_all_tests(test_bundle)
-        print("Tests successful")
+        print("Test execution successful")
         self.progress_bar("Analyzing Results", 0.02)
 
         print(Fore.CYAN + "+" + 78 * "-" + "+")
         print(Fore.CYAN + "|" + 31 * " " + "Test Results" + 35 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
-        self.evaluator.compare(test_bundle)
+        evaluated_results = self.evaluator.compare(test_bundle)
+        self.reporter.print_results(evaluated_results)
 
     def progress_bar(self, description, time):
         for i in tqdm(range(100), desc=description, ncols=80,

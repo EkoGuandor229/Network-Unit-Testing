@@ -1,4 +1,4 @@
-
+from nuts.testcreation.concretetests.netconf_show_interfaces import NetconfShowInterfaces
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
 from nuts.testcreation.network_test_factory import TestFactoryInterface
@@ -36,7 +36,16 @@ class TestStrategyFactory(TestFactoryInterface):
                 test_definition.get_test_devices().get_hostname(),
                 test_definition.get_test_devices().get_username(),
                 test_definition.get_test_devices().get_password(),
-                test_definition.get_target()
+                test_definition.get_target(),
+                test_definition.get_expected_result()
+            )
+        elif str(type_of_test) == "Napalm":
+            return NetconfShowInterfaces(
+                "ios",
+                test_definition.get_test_devices().get_hostname(),
+                test_definition.get_test_devices().get_username(),
+                test_definition.get_test_devices().get_password(),
+                test_definition.get_expected_result()
             )
         else:
-            return NoTestDefined(type_of_test)
+            return NoTestDefined(type_of_test, test_definition.get_test_devices())

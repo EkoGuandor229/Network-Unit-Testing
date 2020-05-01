@@ -1,60 +1,31 @@
-from colorama import Fore
+from nuts.utilities.logger import Logger
 
 
 class Evaluator:
-    test_runner_results = None
-    test_expectations = None
-    logger = None
-    evaluation_results = None
+    """
+    The Evaluator class compares the expected values for each test with the
+    normalized return values of the test-executions.
+    """
+    def __init__(self):
+        self.logger = Logger()
 
     def compare(self, tests):
-        for test in tests:
-            print(test.evaluate_result(test.get_result()))
-
-    def compare_gui(self, result):
-        passed = 0
-        failed = 0
         passed_tests = []
         failed_tests = []
-        failed_tests_expectations = []
-        failed_tests_actual = []
-        for key in result.keys():
-            # expected = (result[key][0])
-            expected = "Expected Result Mockstring"
-            if result[key][0] == expected:
-                passed += 1
-                passed_tests.append(key)
+        evaluation_results = {}
 
+        for test in tests:
+            actual_result = test.get_result()
+            test_result = test.evaluate_result(actual_result)
+            if test_result is True:
+                passed_tests.append(test)
             else:
-                failed += 1
-                failed_tests.append(key)
-                failed_tests_expectations.append(expected)
-                failed_tests_actual.append(result[key][0])
+                failed_tests.append(test)
 
-        print(Fore.CYAN + "Overview")
-        print(Fore.GREEN + "Tests passed:" + 66 * "." + str(passed))
-        print(Fore.RED + "Tests failed: " + 65 * "." + str(failed))
-        print(Fore.CYAN + 80 * "-")
+        evaluation_results["Passed Tests"] = passed_tests
+        evaluation_results["Failed Tests"] = failed_tests
+        return evaluation_results
 
-        if len(passed_tests) > 0:
-            print(Fore.GREEN + "Passed Tests")
-            print(Fore.GREEN + ".")
-            print(Fore.GREEN + "|-- Show Ip Int Brief")
-            for device in passed_tests:
-                print(Fore.GREEN + "|   |-- Device: " + str(device) + 50 * "." + "PASSED")
 
-        if len(failed_tests) > 0:
-            print(Fore.RED + "Failed Tests")
-            print(Fore.RED + ".")
-            print(Fore.RED + "|-- Show Ip Int Brief")
-            index = 0
-            for device in failed_tests:
-                print(Fore.RED + "|   |-- Device: " + str(device) + 50 * "." + "FAILED")
-                print(Fore.RED + "|   |   |-- Expected: \n" + str(failed_tests_expectations[index]))
-                print(Fore.RED + "|   |   |-- Actual: \n" + str(failed_tests_actual[index]))
-                print(Fore.RED + "|   |")
-                index += 1
-
-        print(Fore.CYAN + 80 * "-")
 
 

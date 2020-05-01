@@ -46,20 +46,15 @@ class TestBuilder:
         calls the network_test_bundle class to instantiate concrete tests
         according to the test definitions
     """
-    network_test_bundle = None
-    connection = None
-    inventory = None
-    network_test_definition_loader = None
-    network_test_order = None
-    network_test_definitions = {}
-    network_tests = []
 
     def __init__(self):
-        self.network_test_bundle = TestBundle()
-        self.connection = Connection()
         self.inventory = Inventory()
+        self.connection = Connection()
         self.network_test_definition_loader = TestDefinitionLoader()
+        self.network_test_bundle = TestBundle()
         self.network_test_order = TestOrder()
+        self.network_test_definitions = {}
+        self.network_tests = []
 
         self.get_test_definitions()
         self.connect_device_objects()

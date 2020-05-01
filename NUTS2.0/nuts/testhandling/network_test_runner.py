@@ -1,11 +1,14 @@
-from nornir import InitNornir
-from nornir.plugins.tasks.networking import netmiko_send_command
-from nornir.plugins.functions.text import print_result
-from nornir.plugins.connections.netmiko import Netmiko
+from nuts.utilities.logger import Logger
 
 
 class TestRunner:
-    logger = 0
+    """
+    The TestRunner-class executes the tests that are given to it by the
+    test controller against a network
+    """
+
+    def __init__(self):
+        self.logger = Logger()
 
     def run_all_tests(self, tests):
         for test in tests:

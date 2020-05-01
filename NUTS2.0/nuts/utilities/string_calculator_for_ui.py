@@ -2,7 +2,12 @@ import colorama
 from colorama import Fore
 from pyfiglet import Figlet
 
-
+# TODO: Delete this, when the project is done.
+"""
+Helper class that functions as a blueprint for the ui interface and 
+lets the user calculate the amount of space left after a string gets printet
+this helps to keep the length of a row at 80 characters
+"""
 def main():
     strCalc = StringCalc()
     print("What would you like to do?")

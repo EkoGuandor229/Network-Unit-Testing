@@ -1,16 +1,16 @@
 from nornir import InitNornir
 from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.networking import netmiko_send_command
+from nornir.plugins.tasks.networking import napalm_get
 
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoPingTest(NetworkTestStrategyInterface):
+class NetconfShowInterfaces(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination, expected):
-        self.expected = expected
+    def __init__(self, platform, hostname, username, password, expectet):
+        self.expected = expectet
         self.result = None
-        self.destination = destination
+        self.hostname = hostname
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
@@ -20,7 +20,7 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
                             "platform": str(platform),
                             "hostname": str(hostname),
                             "username": str(username),
-                            "password": str(password),
+                            "password": str(password)
                         }
                     }
                 }
@@ -30,8 +30,9 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def run_test(self):
         return self.nr.run(
-            task=netmiko_send_command,
-            command_string=f"ping {self.destination}"
+            task=napalm_get,
+            getters=["interfaces"]
+
         )
 
     def evaluate_result(self, result) -> bool:
@@ -51,4 +52,4 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"Ping {self.destination}"
+        return f"Show interfaces of {self.hostname}"

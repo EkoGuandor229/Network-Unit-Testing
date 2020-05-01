@@ -26,13 +26,6 @@ class TestDefinition:
     connection
         Specifies the type of connection with witch Nornir will connect
     """
-    test_id = None
-    command = None
-    test_device = None
-    target = None
-    expected_result = None
-    connection = None
-    is_executed = None
 
     def __init__(self, test_id, command, test_device, target, expected_result):
         self.test_id = test_id

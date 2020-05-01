@@ -1,22 +1,24 @@
-import yaml
-
+import ruamel.yaml as yaml
 
 class FileHandler:
-    logger = None
+    """
+    The filehandler is responsible for writing and reading files to/from
+    the file system.
+    """
 
     def read_file(self, path):
-        try:
-            with open(path) as file:
+        with open(path) as file:
+            try:
                 information_yaml = []
-                information_list = yaml.full_load(file)
+                information_list = yaml.safe_load(file)
                 try:
                     for device, dev in information_list.items():
                         information_yaml.append(dev)
                     return information_yaml
                 except ValueError:
                     print("The Informations are not entered correctly or not in the right Format")
-        except IOError:
-            print("File not found")
-        finally:
-            file.close()
-
+                print(yaml.safe_load(file))
+            except yaml.YAMLError as exc:
+                print(exc)
+            finally:
+                file.close()

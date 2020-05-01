@@ -9,14 +9,14 @@ class NoTestDefined(NetworkTestStrategyInterface):
     instead NUTS will complete and notify the user, that test was specified
     wrongly.
     """
-    result = 0
 
-    def __init__(self, test_command):
+    def __init__(self, test_command, device_name):
         self.test_command = test_command
-        pass
+        self.device_name = device_name
+        self.result = None
 
     def run_test(self):
-        result = ("Test: " + str(self.test_command) + " is not yet implemented")
+        result = f"Test: {self.test_command} is not yet implemented"
         return result
 
     def evaluate_result(self, result):
@@ -30,3 +30,9 @@ class NoTestDefined(NetworkTestStrategyInterface):
 
     def get_result(self):
         return self.result
+
+    def get_test_name(self):
+        return f"Test with command: {self.test_command}"
+
+    def get_expected_value(self):
+        return "Some test implemented"
