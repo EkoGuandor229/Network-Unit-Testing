@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 
+from nuts.testhandling.GUI.ToggledFrame import ToggledFrame
+
 
 class TestOrder:
     cbuts = []
@@ -11,27 +13,41 @@ class TestOrder:
 
     def create_frame(self):
         self.root.title("Define Test-Order")
-        self.root.geometry('350x400')
         tab_control = ttk.Notebook(self.root)
         self.tab1 = ttk.Frame(tab_control)
         self.tab2 = ttk.Frame(tab_control)
         tab_control.add(self.tab1, text="Tests")
         tab_control.add(self.tab2, text="Order")
         Label(self.tab1, text="Choose Tests for execution").grid(column=0, row=0)
-        Button(self.tab1, text="all", command=self.select_all).grid(column=0, row=1)
-        Button(self.tab1, text="none", command=self.deselect_all).grid(column=1, row=1)
+        Button(self.tab1, text="all", command=self.select_all).grid(column=0, row=1, sticky=W)
+        Button(self.tab1, text="none", command=self.deselect_all).grid(column=1, row=1, sticky=W)
         tab_control.grid(column=0, row=0)
 
     def create_cbuts(self, test_definitions):
+        groups = []
+        for test_definition in test_definitions.values():
+            if test_definition.get_test_group() not in groups:
+                groups.append(test_definition.get_test_group())
+
         i = 0
         j = 2
-        for test_definition in test_definitions.values():
-            self.cbuts.append(Checkbutton(self.tab1, text=test_definition.get_test_id(), var=test_definition.is_executed))
-            self.cbuts[i].grid(column=0, row=j)
-            i += 1
-            j += 1
-        btn_selected = Button(self.tab1, text="Select", command=lambda: self.selected(test_definitions))
-        btn_selected.grid(column=0, row=j)
+        for group in groups:
+            t = ToggledFrame(self.tab1, text=group, relief="raised", borderwidth=1)
+            t.grid(column=0, row=j, sticky=W)
+
+            for test_definition in test_definitions.values():
+                if test_definition.get_test_group() == group:
+                    self.cbuts.append(Checkbutton(t.sub_frame, text=test_definition.get_test_id(), var=test_definition.is_executed))
+                    self.cbuts[i].grid(column=0, row=j+1, sticky=W)
+                    i += 1
+                    j += 1
+
+        Button(self.tab1, text="Select", command=lambda: self.selected(test_definitions)).grid(
+            column=0,
+            row=j,
+            sticky=W,
+            pady=10
+        )
 
     def select_all(self):
         for i in self.cbuts:
@@ -65,7 +81,7 @@ class TestOrder:
 
     def selected(self, test_definitions):
         for test_definition in test_definitions.values():
-            if test_definition not  in self.ordered_test_definitions:
+            if test_definition not in self.ordered_test_definitions:
                 if test_definition.get_is_executed().get():
                     self.ordered_test_definitions.append(test_definition)
         self.refresh_screen()
