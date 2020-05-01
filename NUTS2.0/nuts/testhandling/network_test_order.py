@@ -19,8 +19,8 @@ class TestOrder:
         tab_control.add(self.tab1, text="Tests")
         tab_control.add(self.tab2, text="Order")
         Label(self.tab1, text="Choose Tests for execution").grid(column=0, row=0)
-        Button(self.tab1, text="all", command=self.select_all).grid(column=0, row=1, sticky=W)
-        Button(self.tab1, text="none", command=self.deselect_all).grid(column=1, row=1, sticky=W)
+        Button(self.tab1, text="all", width=10, command=self.select_all).grid(column=0, row=1, sticky=W)
+        Button(self.tab1, text="none", width=10, command=self.deselect_all).grid(column=1, row=1, sticky=W)
         tab_control.grid(column=0, row=0)
 
     def create_cbuts(self, test_definitions):
@@ -37,7 +37,13 @@ class TestOrder:
 
             for test_definition in test_definitions.values():
                 if test_definition.get_test_group() == group:
-                    self.cbuts.append(Checkbutton(t.sub_frame, text=test_definition.get_test_id(), var=test_definition.is_executed))
+                    self.cbuts.append(
+                        Checkbutton(
+                            t.sub_frame,
+                            text=test_definition.get_test_id(),
+                            var=test_definition.is_executed
+                        )
+                    )
                     self.cbuts[i].grid(column=0, row=j+1, sticky=W)
                     i += 1
                     j += 1
@@ -89,10 +95,11 @@ class TestOrder:
     def refresh_screen(self):
         i = 0
         for test_definition in self.ordered_test_definitions:
-            Label(self.tab2, text=test_definition.get_test_id()).grid(column=0, row=i)
-            Button(self.tab2, text="MoveUp", command=lambda x=test_definition: self.move_up(x)).grid(column=1, row=i)
-            Button(self.tab2, text="MoveDown", command=lambda x=test_definition: self.move_down(x)).grid(column=2, row=i)
+            Label(self.tab2, text=test_definition.get_test_id(), width=25, anchor=W).grid(column=0, row=i)
+            Button(self.tab2, text="Up", command=lambda x=test_definition: self.move_up(x)).grid(column=1, row=i)
+            Button(self.tab2, text="Down", command=lambda x=test_definition: self.move_down(x)).grid(column=2, row=i)
             i += 1
+        Button(self.tab2, text="Save and Quit", command=lambda: self.quit()).grid(column=0, row=i, sticky=W, pady=10)
 
     def define_test_order(self, test_definitions):
         self.create_frame()
