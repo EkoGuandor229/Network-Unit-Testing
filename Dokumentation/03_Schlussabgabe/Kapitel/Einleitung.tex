@@ -7,8 +7,34 @@
     Jede dieser Komponente hat eine eigene Konfiguration und Aufgabe.
     In den letzten Jahren ist es durch die softwaregesteuerte Konfiguration
     von Netzwerkgeräten einfacher geworden, die Komponenten für ihre
-    Aufgabe einzustellen. Trotzdem werden die Überprüfung der Konfiguration 
+    Aufgabe einzustellen. Trotzdem werden die Überprüfungen der Konfiguration 
+    auch heute noch manuell vorgenommen. Dies kann dazu führen, dass wegen menschlicher
+    Fehler ein Fehlverhalten eines der Netzwerkkomponente dazu führt,
+    dass das gesammte Netzwerk gestört wird. 
+    
+    In der Softwareentwicklung werden schon seit 
+    Ende der 80er-Jahre Komponententests, sogenannte Unit-Tests, durchgeführt, um einzelne 
+    Komponenten (Units) automatisiert zu Testen. Dabei wird ein Computerprogramm ausgeführt,
+    welches mit verschiedenen Eingabeparametern überprüft, ob die Ausgabe des zu testenden
+    Programms den erwarteten Ergebnissen entspricht.
+
+    Dabei ist es möglich die Tests vor und nach einer geplanten Änderung durchzuführen,
+    um zu überprüfen, ob die Software innerhalb der definierten Funktionsparameter operiert.
+    Tests sollen dafür so geschrieben werden, dass möglichst jede Situation mit den 
+    Eingabeparametern abgebildet wird und Unittests sollen regelmässig durchgeführt werden,
+    damit Fehler früh gefunden werden und sich nicht auf das gesammte System auswirken können.
 
     \subsection{Aufgabenstellung}
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-\end{document}
+    Ziel dieser Arbeit ist, ein Programm zu entwickeln, mit dem sich Netzwerktests mit 
+    der gleichen Arbeitsweise durchführen lassen, wie Unittests in der Softwareentwicklung
+    durchgeführt werden. Dabei müssen folgende Punkte erfüllt sein:
+    \begin{itemize}
+        \item Tests müssen planbar sein. Es soll ein Testplan existieren.
+        \item Tests müssen systematisch spezifiziert werden. Es existieren Test-Spezifikationen.
+        \item Testresultate werden Dokumentiert.
+        \item Tests sollen, wo möglich, automatisiert durchgeführt werden.
+        \item Testergebnisse müssen reproduzierbar und nachvollziehbar sein.
+    \end{itemize}
+    Es soll evaluiert werden, welche bereits verfügbaren Tools sich für ein solches Testprogramm
+    eignen. Die Umsetzung soll diese Tools einbinden. 
+    \end{document}
