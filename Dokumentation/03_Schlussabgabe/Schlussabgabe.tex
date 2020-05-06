@@ -24,6 +24,7 @@
 \input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
 \input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
 
+\setcounter{tocdepth}{3}
 \begin{document}
 
 % Deckblatt ------------------------------------------------------------------
@@ -57,6 +58,8 @@
 \phantomsection
 \pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
 \tableofcontents
+
+
 \cleardoublepage
 
 \pagenumbering{arabic}
@@ -88,6 +91,7 @@
 \subfile{Kapitel/Anhang/Benutzeranleitung.tex}
 \subfile{Kapitel/Anhang/Persönliche Berichte.tex}
 \subfile{Kapitel/Anhang/Eigenständigkeitserklärung.tex}
+
 
 \subfile{Kapitel/Anhang/Rechtliches.tex}
 
