@@ -1,3 +1,5 @@
+import logging
+
 from nuts.utilities.file_handler import FileHandler
 from nuts.inventorymanagement.network_test_definition import TestDefinition
 from pathlib import Path
@@ -21,6 +23,7 @@ class TestDefinitionLoader:
     """
 
     def __init__(self):
+        self.logger = logging.getLogger(__name__)
         self.test_definitions = {}
         self.file_handler = FileHandler()
 
@@ -41,7 +44,9 @@ class TestDefinitionLoader:
                     test_definition[4],
                     test_definition[5]
                 )
-        except ValueError:
+                self.logger.info('Testdefinitio Object "{}" created'.format(test_definition[0]))
+        except ValueError as ex:
             print("There are Values missing or in the wrong Format")
+            self.logger.exception(ex)
         else:
             return self.test_definitions

@@ -1,5 +1,4 @@
 from nuts.testcreation.network_test_strategy_factory import TestStrategyFactory
-from nuts.utilities.logger import Logger
 
 
 class TestBundle:
@@ -29,7 +28,6 @@ class TestBundle:
 
     def __init__(self):
         self.network_tests = []
-        self.logger = Logger()
         self.testFactory = TestStrategyFactory()
 
     def create_test_bundle(self, test_definitions):

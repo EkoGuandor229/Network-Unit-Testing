@@ -1,4 +1,4 @@
-from nuts.utilities.logger import Logger
+import logging
 
 
 class TestRunner:
@@ -8,7 +8,7 @@ class TestRunner:
     """
 
     def __init__(self):
-        self.logger = Logger()
+        self.logger = logging.getLogger(__name__)
 
     def run_all_tests(self, tests):
         for test in tests:
