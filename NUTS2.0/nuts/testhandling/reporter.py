@@ -1,7 +1,8 @@
+import logging
+
 from colorama import Fore
 
 from nuts.utilities.file_handler import FileHandler
-from nuts.utilities.logger import Logger
 
 
 class Reporter:
@@ -10,7 +11,7 @@ class Reporter:
     console and write a logfile with the test information.
     """
     def __init__(self):
-        self.logger = Logger()
+        self.logger = logging.getLogger(__name__)
         self.file_handler = FileHandler()
 
     def print_results(self, results):
