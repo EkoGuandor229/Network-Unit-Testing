@@ -29,8 +29,11 @@ class Reporter:
         else:
             print("No tests failed")
 
-    def save_results(self):
-        print(f"Results saved to file with {self.file_handler}")
+    def save_results(self, results):
+        print("Saving Results")
+        self.file_handler.write_new_run()
+        self.file_handler.write_passed_results(results["Passed Tests"])
+        self.file_handler.write_failed_results(results["Failed Tests"])
 
     def print_passed_results(self, passed_results):
         print(Fore.GREEN + "Passed Tests")
