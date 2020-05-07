@@ -56,4 +56,5 @@ class FileHandler:
                 fp.write("      Expected: " + result.get_expected_value() + "\n")
                 fp.write("      Actual:   " + str(result.get_result()) + "\n")
             fp.write("End of Test Run \n")
+            fp.write("\n")
 

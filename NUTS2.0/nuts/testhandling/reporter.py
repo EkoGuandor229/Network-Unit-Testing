@@ -37,15 +37,11 @@ class Reporter:
 
     def print_passed_results(self, passed_results):
         print(Fore.GREEN + "Passed Tests")
-        print(Fore.GREEN + ".")
-        print(Fore.GREEN + "|-- Netmiko Pingtest")
         for test_result in passed_results:
             print(Fore.GREEN + f"|   |-- Test: {test_result.get_test_name()} has PASSED")
 
     def print_failed_results(self, failed_results):
         print(Fore.RED + "Failed Tests")
-        print(Fore.RED + ".")
-        print(Fore.RED + "|-- Netmiko Pingtest")
         for test_result in failed_results:
             print(Fore.RED + f"|   |-- Test: {test_result.get_test_name()} has FAILED")
             print(Fore.RED + f"|   |   |-- Expected: {test_result.get_expected_value()}")

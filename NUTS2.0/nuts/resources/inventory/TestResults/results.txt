@@ -13,3 +13,36 @@
       Expected: Success rate is 0 percent (0/5)
       Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
 End of Test Run 
+New Test Run on 2020-05-07 17:04:24.903765:
+  Passed Tests: 
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+    Test: PingRouter1Loopback0 has FAILED 
+      Expected: Success rate is 100 percent (5/5)
+      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
+    Test: Test with command: Ping own ip-address has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Ping own ip-address is not yet implemented
+    Test: Test with command: Netconf has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Netconf is not yet implemented
+    Test: Show interfaces of 10.20.0.33 has FAILED 
+      Expected: Success rate is 0 percent (0/5)
+      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
+End of Test Run 
+New Test Run on 2020-05-07 17:06:06.403936:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+    Test: Test with command: Ping own ip-address has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Ping own ip-address is not yet implemented
+    Test: Test with command: Netconf has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Netconf is not yet implemented
+    Test: Show interfaces of 10.20.0.33 has FAILED 
+      Expected: Success rate is 0 percent (0/5)
+      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
+End of Test Run 
+
