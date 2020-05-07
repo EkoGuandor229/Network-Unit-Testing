@@ -1,3 +1,5 @@
+import logging
+
 from nuts.connectionhandling.connection import Connection
 from nuts.inventorymanagement.inventory import Inventory
 from nuts.testcreation.network_test_bundle import TestBundle
@@ -48,6 +50,7 @@ class TestBuilder:
     """
 
     def __init__(self):
+        self.logger = logging.getLogger(__name__)
         self.inventory = Inventory()
         self.connection = Connection()
         self.network_test_definition_loader = TestDefinitionLoader()
@@ -70,6 +73,7 @@ class TestBuilder:
         loader = self.network_test_definition_loader
         definitions = loader.create_test_definition_object()
         self.network_test_definitions = definitions
+        self.logger.info("Unordered Test-Definitions loaded")
 
     def connect_device_objects(self):
         """
@@ -80,6 +84,7 @@ class TestBuilder:
             test_device = self.network_test_definitions[test].get_test_devices()
             device = self.inventory.devices[test_device]
             self.network_test_definitions[test].set_test_device(device)
+        self.logger.info("Device Objects connected to Test-Definitions")
 
     def get_runnable_tests(self):
         """
@@ -89,3 +94,4 @@ class TestBuilder:
         test_definitions = self.network_test_order.ordered_test_definitions
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle
+        self.logger.info("Runnable Tests created")

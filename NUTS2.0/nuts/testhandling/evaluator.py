@@ -1,4 +1,4 @@
-from nuts.utilities.logger import Logger
+import logging
 
 
 class Evaluator:
@@ -7,7 +7,7 @@ class Evaluator:
     normalized return values of the test-executions.
     """
     def __init__(self):
-        self.logger = Logger()
+        self.logger = logging.getLogger(__name__)
 
     def compare(self, tests):
         passed_tests = []
