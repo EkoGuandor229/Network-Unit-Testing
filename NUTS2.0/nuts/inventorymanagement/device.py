@@ -48,5 +48,8 @@ class Device:
     def get_hostname(self):
         return self.hostname
 
+    def get_device_connections(self):
+        return self.deviceConnections
+
     def print_device(self):
         print(self.device_id, self.platform, self.username, self.password, self.hostname, self.deviceConnections)
