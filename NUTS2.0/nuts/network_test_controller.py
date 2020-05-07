@@ -55,7 +55,6 @@ class TestController:
         console and into a log-file.
         """
         print(Fore.CYAN + "+" + 78 * "-" + "+")
-        print(Fore.CYAN + "+{:-^78}+".format(""))
         print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 

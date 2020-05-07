@@ -31,6 +31,9 @@ class Device:
         self.hostname = hostname
         self.deviceConnections = device_connections
 
+    def get_id(self):
+        return self.device_id
+
     def get_platform(self):
         return self.platform
 
