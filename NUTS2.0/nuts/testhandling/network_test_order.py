@@ -5,7 +5,7 @@ from nuts.testhandling.GUI.ToggledFrame import ToggledFrame
 
 
 class TestOrder:
-    cbuts = []
+    checkbuttons = []
     ordered_test_definitions = []
     root = Tk()
     tab1 = 0
@@ -23,7 +23,7 @@ class TestOrder:
         Button(self.tab1, text="none", width=10, command=self.deselect_all).grid(column=1, row=1, sticky=W)
         tab_control.grid(column=0, row=0)
 
-    def create_cbuts(self, test_definitions):
+    def create_checkbuttons(self, test_definitions):
         groups = []
         for test_definition in test_definitions.values():
             if test_definition.get_test_group() not in groups:
@@ -37,14 +37,14 @@ class TestOrder:
 
             for test_definition in test_definitions.values():
                 if test_definition.get_test_group() == group:
-                    self.cbuts.append(
+                    self.checkbuttons.append(
                         Checkbutton(
                             t.sub_frame,
                             text=test_definition.get_test_id(),
                             var=test_definition.is_executed
                         )
                     )
-                    self.cbuts[i].grid(column=0, row=j+1, sticky=W)
+                    self.checkbuttons[i].grid(column=0, row=j + 1, sticky=W)
                     i += 1
                     j += 1
 
@@ -56,11 +56,11 @@ class TestOrder:
         )
 
     def select_all(self):
-        for i in self.cbuts:
+        for i in self.checkbuttons:
             i.select()
 
     def deselect_all(self):
-        for i in self.cbuts:
+        for i in self.checkbuttons:
             i.deselect()
 
     def move_up(self, test_definition):
@@ -103,6 +103,6 @@ class TestOrder:
 
     def define_test_order(self, test_definitions):
         self.create_frame()
-        self.create_cbuts(test_definitions)
+        self.create_checkbuttons(test_definitions)
         self.root.mainloop()
 

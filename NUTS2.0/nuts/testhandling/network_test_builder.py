@@ -95,3 +95,9 @@ class TestBuilder:
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle
         self.logger.info("Runnable Tests created")
+
+    def get_network_tests(self):
+        return self.network_tests
+
+       
+
