@@ -32,6 +32,7 @@ class TestStrategyFactory(TestFactoryInterface):
         type_of_test = test_definition.get_command()
         if str(type_of_test) == "Netmiko":
             return NetmikoPingTest(
+                test_definition.get_test_id(),
                 test_definition.get_test_devices().get_platform(),
                 test_definition.get_test_devices().get_hostname(),
                 test_definition.get_test_devices().get_username(),

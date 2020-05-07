@@ -7,7 +7,8 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NetmikoPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination, expected):
+    def __init__(self, test_id, platform, hostname, username, password, destination, expected):
+        self.test_id = test_id
         self.expected = expected
         self.result = None
         self.destination = destination
@@ -51,4 +52,4 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"Ping {self.destination}"
+        return self.test_id
