@@ -86,6 +86,6 @@ class TestBuilder:
         Gets concrete tests for the tests specified in the
         network_test_definitions collection from the network_test_bundle class
         """
-        test_definitions = self.network_test_definitions
+        test_definitions = self.network_test_order.ordered_test_definitions
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle

@@ -26,13 +26,15 @@ class TestDefinition:
     connection
         Specifies the type of connection with witch Nornir will connect
     """
+    connection = None
 
-    def __init__(self, test_id, command, test_device, target, expected_result):
+    def __init__(self, test_id, command, test_device, target, expected_result, test_group):
         self.test_id = test_id
         self.command = command
         self.test_device = test_device
         self.target = target
         self.expected_result = expected_result
+        self.test_group = test_group
         self.is_executed = BooleanVar()
 
     def print_test_definition(self):
@@ -58,6 +60,9 @@ class TestDefinition:
 
     def get_is_executed(self):
         return self.is_executed
+
+    def get_test_group(self):
+        return self.test_group
 
     def set_is_executed(self, is_executed):
         self.is_executed = is_executed

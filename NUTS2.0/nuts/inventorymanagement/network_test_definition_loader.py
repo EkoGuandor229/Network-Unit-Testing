@@ -38,7 +38,8 @@ class TestDefinitionLoader:
                     test_definition[1],
                     test_definition[2],
                     test_definition[3],
-                    test_definition[4]
+                    test_definition[4],
+                    test_definition[5]
                 )
         except ValueError:
             print("There are Values missing or in the wrong Format")
