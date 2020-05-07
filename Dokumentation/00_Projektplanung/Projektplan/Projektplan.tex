@@ -1,0 +1,383 @@
+\documentclass[
+	ngerman,
+	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
+	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
+]{scrartcl}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+
+% Dokumenteninformationen ----------------------------------------------------
+\newcommand{\titel}{Projektplan}
+\newcommand{\untertitel}{Studienarbeit \semester}
+\newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
+\newcommand{\datum}{\today}
+
+\newcommand{\vorlagenOrdner}{../../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
+
+\newcommand{\betriebLogo}{\vorlagenOrdner/Bilder/logo}
+
+% Konfiguration -------------------------------------------------------------
+\input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
+\input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
+
+\begin{document}
+
+% Deckblatt ------------------------------------------------------------------
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{\vorlagenOrdner/Konfiguration/Deckblatt}
+\cleardoublepage
+
+% Preface --------------------------------------------------------------------
+\pagenumbering{Roman}
+
+% Zweck
+\section*{Zweck}
+Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das Projekt Network Unit Testing System, dessen Planung und Organisation, sowie über weitere Bereiche des Projektaufbaus. Der Projektplan dient als Grundlage und Referenz für nachfolgende Projektdokumente
+
+% Änderungsgeschichte
+\section*{Änderungsgeschichte}
+\begin{tabularx}{0.9\textwidth}{llXl}
+	\toprule
+	Datum & Version & Änderung & Autor \\
+	\midrule
+	20.02.2018 & 1.0 & Initial Setup & Janik Schlatter \\
+	\bottomrule
+\end{tabularx}
+\cleardoublepage
+
+% Inhaltsverzeichnis
+\phantomsection
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+% Inhalt ---------------------------------------------------------------------
+\section{Einführung}
+
+	\subsection{Sprache}
+		Die allgemeine Projektsprache (Dokumentation, Use Cases, etc.) wird in deutscher Schriftsprache verfasst.
+		Der Code, das GitHub-Repository und die Versionskontrolle wird in englischer Sprache geschrieben.
+
+	\subsection{Referenzen}
+		Alle Dokumente werden auf dem GitHub-Repository abgelegt und verwaltet.
+
+	\begin{tabularx}{\textwidth}{lX}
+		Git Repository & \url{https://github.com/EkoGuandor229/Network-Unit-Testing.git} \\
+		Vorarbeit NUTS & \url{https://github.com/HSRNetwork/Nuts.git}\\
+	\end{tabularx}
+
+	\subsection{Vorarbeit NUTS}
+		Die Studienarbeit aus dem Jahr 2016 hat ein Programm erarbeitet, die mit SaltStack, einer Lösung für die Automatisierung von Projekten, das testen von Netzwerkumgebungen mittels Python ermöglicht.
+		Dabei wurden umfangreiche Tests in der Serialisierungssprache YAML spezifiziert und umgesetzt. 
+		Die Schwierigkeit lag vor allem darin, dass nicht jedes Netzwerkgerät dieselben Funktionen für spezifische Befehle bietet, da Hersteller unterschiedliche Befehle für ihre Geräte verwenden.	
+		Darauf aufbauend wird in dieser Arbeit die Testdefinition weiterverwendet und nach Bedarf ergänzt oder ausgebaut.
+
+\section{Projektübersicht}
+
+	\subsection{Projektübersicht}
+
+	\subsection{Zweck und Ziel}
+		Das testen von Netzwerkkonfigurationen findet auch heute noch hauptsächlich mit handgeschriebenen CLI-Befehlen oder kleinen Skripten statt. 
+		Wenn der Netzwerktechniker einen Test vergisst, oder die Formulierung nicht stimmt,	kann es vorkommen, dass im Netzwerk Fehler auftreten, deren Ursprung schwierig zu ermitteln ist und eine komplette Repetition der (handgeschriebenen) Tests erfordert. 
+		Ein Programm, welches wie in der Softwareentwicklung vordefinierte und automatisch durchgeführte Tests, sogenannte Unit-Tests, ermöglicht, könnte diese Probleme stark verringern.
+		Dabei können zwei grobe Arbeitsvorgänge beschrieben werden. 
+		Im ersten schreibt ein Netzwerktechniker Tests, die ein bestehendes Netzwerk möglichst genau abbilden/beschreiben sollen.
+		Die Tests lassen sich jederzeit durchführen und testen den Zustand und die Konfiguration des Netzwerks. 
+		Falls nun ein Fehler auftritt, können die Tests automatisiert durchgeführt werden und dann, vorausgesetzt sie sind vollständig, sollte der Report aufzeigen, was genau schiefgegangen ist und wo der Fehler liegt.
+		Der Zweite Arbeitsvorgang entspricht dem in der Softwareentwicklung gängigen Test-Driven-Development (TDD). 
+		Beim TDD werden Tests geschrieben, bevor das System verändert wird oder bevor man neuen Code schreibt. 
+		Auf ein Netzwerk abstrahiert könnte beispielsweise ein Administrator, der eine Änderung am Netzwerk vornehmen will, zuerst die Tests schreiben, welche die Änderung testen sollen. 
+		Danach werden die Konfigurationen verändert und die Tests durchgeführt. 
+		Falls die Tests nun fehlschlagen, kann man die Konfiguration anpassen oder sogar auf einen früheren Zustand zurücksetzen. 
+		Beide Arbeitsvorgänge erleichtern die Fehlersuche und erhöhen die Stabilität des Netzwerks.	
+
+	\subsection{Lieferumfang}
+		Im Rahmen der Studienarbeit wird folgendes erstellt:
+		\begin{itemize}
+			\item Eine Überarbeitung der Testdefinionssprache (TDS), die in der Vorarbeit ausgearbeitet wurde.
+			\item Python-Software, die die TDS umsetzt und auf Netzwerkinfrastrukturen Tests durchführen kann.
+		\end{itemize}
+	\subsection{Annahmen und Einschränkungen}
+		Das Programm soll so entwickelt werden, dass künftige Anpassungen und Erweiterungen, z.B. Ergänzungen um weitere Tests oder automatische Penetration-Tests, einfach eingebaut werden können.
+
+\section{Projektorganisation}
+
+	\subsection{Projektmitglieder}
+		\begin{tabularx}{0.9\textwidth}{lX}
+			\toprule
+			Name & Email \\
+			\midrule
+			Janik Schlatter & \url{jschlatt@hsr.ch} \\
+			Mike Schmid & \url{mschmid@hsr.ch} \\
+			\bottomrule
+		\end{tabularx}
+
+	\subsection{Externe Schnittstellen}
+		\begin{tabularx}{0.9\textwidth}{lXl}
+			\toprule
+			Name & Email & Zuständikeit \\
+			\midrule
+			Beat Stettler & \url{beat.stettler@hsr.ch} & Betreuer \\
+			Urs Baumann & \url{urs.baumgartner@hsr.ch} & Betreuer \\
+			\bottomrule
+		\end{tabularx}
+
+\section{Management Abläufe}
+
+	\subsection{Kostenvoranschlag}
+		Das Projekt wurde am 20.02.2020 gestartet und wird voraussichtlich am 28.05.2020 enden.
+		Das heisst, es stehen 15 Wochen während dem Semester zur Verfügung. 
+		Jedes Projektmitglied arbeitet insgesamt 240 Stunden an dem Projekt, sprich 16 Stunden pro Woche pro Projektmitglied.
+		Da der Dienstag 14.04.2020 und der Donnerstag 21.05.2020 jeweils ein Unterrichtsfreier Tag ist, werden die 16 Stunden pro Projektmitglied auf jeweils vier Samstage im Projekt verteilt aufgeteilt.
+		Diese Samstage dienen dem Ziel, die Dokumentation nachzutragen und die Risiken, wie sie im Kapitel~\ref{sec:risikomanagement} beschrieben sind, zu minimieren. 
+		Dazu gehören Bugfixing, Recherchen und Aufarbeiten von Themen, die ungenügend verstanden sind und Refactoring des Codes.
+
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{Xl}
+				\midrule
+				Projektdauer & 15 Wochen \\
+				\midrule
+				Anzahl Projektmitglieder & 2 \\
+				\midrule
+				Arbeitsstunden pro Woche und Person & 16 \\
+				\midrule
+				Arbeitsstunden insgesamt & 480 \\
+				\midrule
+				Projektstart & 20.02.2020 \\
+				\midrule
+				Projektende & 28.05.2020 \\
+				\midrule
+			\end{tabularx}
+			\caption{Projektparameter}
+		\end{table}
+
+	\subsection{Zeitliche Planung}
+		Die 15 Wochen des Projekts werden in fünf Phasen unterteilt: Initialisierung, Analyse, Design, Realisierung und Abschluss.\\
+		\begin{figure}[!h]
+			\begin{center}
+				\label{ZeitplanOverview}
+				\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/Projektphasen}
+			\end{center}
+			\caption{Zeitplanung}
+		\end{figure}
+
+	\subsection{Phasen/Iterationen}
+	\minisec{Phasen}
+		Wir halten uns an die folgenden 5 Phasen: 
+
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lll}
+				\toprule
+				Farbe* & Bezeichnung & Zeitrahmen \\
+				\midrule
+				\textcolor{green}{Grün} & Initialisierung & 1 Woche \\
+				\textcolor{orange}{Orange} & Analyse & 3 Wochen \\
+				\textcolor{red}{Rot} & Design & 3 Wochen \\
+				\textcolor{blue}{Blau} & Realisierung & 6 Wochen \\
+				\textcolor{yellow}{Gelb} & Abschluss & 2 Wochen \\
+				\bottomrule
+			\end{tabularx}
+			\caption{Projektphasen}
+		\end{table}
+
+		\minisec{Iterationen}
+		Die Iterationen werden wöchentlich durchgeführt.
+		Da wir auch ein Mal in der Woche das Meeting haben passt das gut aufeinander.
+		Die Iterationen in der Realisierungsphase, welche zum Zeitpunkt der Projektplanung noch nicht eindeutig festgelegt werden können, werden mit \textcolor{red}{TODO} annotiert.
+
+		\begin{table}[!h]
+			\begin{tabularx}{\textwidth}{lXll}
+				\toprule
+				Iteration & Inhalt & Start & Ende \\
+				\midrule
+				Initialisierung & Projektstart und Kick-Off Meeting & 20.02.2020 & 23.02.2020 \\
+				\midrule
+				Analyse 1 & Projektplanung & 24.02.2020 & 01.03.2020 \\
+				Analyse 2 & Evaluation Module (Nornir, Napalm, Openconfig) & 02.03.2020 & 08.03.2020 \\
+				Analyse 3 & Requirements \& Analyse Testcases & 09.03.2020 & 15.03.2020 \\
+				\midrule
+				Design 1 & Architekturdesign & 16.03.2020 & 22.03.2020 \\
+				Design 2 & Testen der Module & 23.03.2020 & 29.03.2020 \\
+				Design 3 & Prototyp programmieren & 30.03.2020 & 05.04.2020 \\
+				\midrule
+				Realisierung 1 & Umsetzung Filehandler, Testrunner,  & 06.04.2020 & 12.04.2020 \\
+				 & Inventarmanagement und Testdefinitionsklassen & & \\
+				Realisierung 2 & Umsetzung Testerstellung-Strategy-Factory & 13.04.2020 & 19.04.2020 \\
+				 & und Testresultat-Mapper & & \\
+				Realisierung 3 & Umsetzung Connection-Strategy-Factory und Evaluator & 20.04.2020 & 26.04.2020 \\
+				Realisierung 4 & Umsetzung Testbuilder, Testcontroller, und Reporter & 27.04.2020 & 03.05.2020 \\
+				Realisierung 5 & Umsetzung Testreihenfolge, automatische  & 04.05.2020 & 10.05.2020 \\
+				 & Geräteerfassung und Kommandozeilen-UI & & \\
+				Realisierung 6 & Fertigstellung und Refactoring & 11.05.2020 & 19.05.2020 \\
+				\midrule
+				Abschluss 1 & Bugfixes, Refactoring und Dokumentation & 18.05.2020 & 22.05.2020\\
+				Abschluss 2 & Fertigstellung Schlussbericht & 23.05.2020 & 28.04.2020\\
+				\bottomrule
+			\end{tabularx}
+			\caption{Projektiterationen}
+		\end{table}
+		\newpage
+
+	\subsection{Meilensteine}
+	Im Projekt wurden folgende Meilensteine festgelegt.
+		\begin{table}[!h]	
+			\begin{tabularx}{\linewidth}{lllX}
+				\toprule
+				Nr & Bezeichnung & Termin & Beschreibung \\
+				\midrule
+				M1 & Projektplan & So 01.03.2020 & Grundentwurf der Requirements, Risikoanalyse \& -management, Projektorganisation, Managementabläufe, Infrastrukturentwurf, Qualitätsmassnahmen Grundentwurf.\\
+				\midrule
+				M2 & Requirements & So 15.03.2020 & Ausgearbeitete Requirements, Nichtfunktionale Anforderung, Zu verwendende Tools und Schnittstellen beschrieben.\\
+				\midrule 
+				M3 & Prototyp & So 05.04.2020 & Architektur festgelegt, Schnittstellen angelegt, Architekturdokumentation, Erster lauffähiger Prototyp.\\
+				\midrule
+				M4 & Feature Freeze & Do 07.05.2020 & Hauptfunktionalität der Software implementiert, Bugs sind bekannt und Dokumentiert, Codedokumentation zu 60\% fertiggestellt.\\
+				\midrule
+				M5 & Codefreeze \& Codeabgabe & Di 19.05.2020 & Bugfixes erstellt, Tests sind alle erfolgreich, Codedokumentation zu 80\% fertiggestellt.\\
+				\midrule
+				M6 & Projektabgabe & Do 28.05.2020 & Dokumentation fertiggestellt und abgegeben.\\
+				\bottomrule
+			\end{tabularx}
+		\caption{Meilensteine}
+		\end{table}	
+
+	\subsection{Arbeitspakete (Tickets) }
+	Die Arbeitspakete, welche zu Beginn der Arbeit feststehen, werden in diesem Dokument erfasst.
+	Für die definitiven Arbeitspackete wird ein separates Dokument erstellt.
+	Arbeitspaketverwaltung werden mit Git-Issues vorgenommen und über das Projekt verteilt dokumentiert.
+	Pakete, die zum Zeitpunkt der Projektplanung noch nicht feststehen, werden mit \textcolor{red}{TODO} annotiert	
+	\begin{landscape}
+			\begin{table}[!h]
+				\begin{tabularx}{\linewidth}{lXllll}
+					\toprule
+					Name & Inhalt & Iteration & Wer & Soll & Ist\\
+					\midrule
+					Projektstart & Projektübersicht verschaffen \& erststudium der Vorarbeit & Initialisierung & alle & 8 & 8 \\
+					\midrule
+					Projektplanung & Zeitplanung, Projektphasen, Iterationen, Meilensteine, Risikoanalyse und grobe Arbeitspakete & Analyse 1 & alle & 32 & 28 \\
+					Netzwerktests Analyse & Recherche und Vergleich mit mit Vorarbeit & Analyse 2 & alle & 16 & 0 \\
+					Analyse und einarbeitung mit Tools & Python, PyTest, Nornir, Napalm, OpenConfig, Netconf und Restconf & Analyse 2 \& 3 & alle & 16 & 0 \\
+					Anforderungen & Use Cases in brief-Format, Personas beschreiben, Nichtfunktionale Anforderungen spezifizieren & Analyse 3 & alle & 8 & 0 \\
+					\midrule
+					Evaluation Tools & Auswahl der zu verwendenden Tools aufgrund der Erkenntnisse aus der Analysephase & Design 1 & alle & 8 & 0 \\
+					Erstellung Prototyp & Ausarbeiten eines ersten Prototypen für eine einfache Netzwerkkonfiguration & Design 2 & alle & 32 & 0 \\
+					Architekturdesign & Domänenmodell, Softwarearchitektur, Deployment Diagramm, Use Cases im Fully-Dressed-Format & Design 3 & 8 & 0 \\
+					\midrule
+					Umsetzung 1 & \textcolor{red}{TODO} & Umsetzung 1 & alle & 32 & 0 \\
+					Umsetzung 2 & \textcolor{red}{TODO} & Umsetzung 2 & alle & 32 & 0 \\
+					Umsetzung 3 & \textcolor{red}{TODO} & Umsetzung 3 & alle & 32 & 0 \\
+					Umsetzung 4 & \textcolor{red}{TODO} & Umsetzung 4 & alle & 32 & 0 \\
+					Umsetzung 5 & \textcolor{red}{TODO} & Umsetzung 5 & alle & 32 & 0 \\
+	
+					Unittesting fertingstellen & Abschliessen der Unittests und Dokumentation & Umsetzung 6 & alle & 10 & 0 \\
+					Refactoring des Code & Verbessern und verschönern des Code & Umsetzung 6 & alle & 10 & 0 \\
+					Bugfixes & Abarbeiten der im Bugtracking erfassten Fehler & Umsetzung 6 & alle & 12 & 0 \\
+					\midrule
+					Installationspackages erstellen & Finalen Build erstellen und Deployen & Abschluss 1 & Janik Schlatter & 16 & 0 \\
+					Benutzeranleitungen fertigstellen & Installations- und Benutzeranleitung schreiben & Abschluss 1 & Mike Schmid & 16 & 0 \\
+					Schlussbericht erstellen & Fertigstellung des Schlussberichts und Abgabe Projekt & Abschluss 2 & alle & 32 & 0 \\
+					\bottomrule
+				\end{tabularx}
+			\caption{Arbeitspakete}	
+			\end{table}
+		\end{landscape}
+
+	\subsection{Besprechungen/Protokolle}
+	\label{sec:dates}
+		Es wurden zwei Termine vereinbart, an welchen sich die Projektmitglieder treffen. 
+		Bei beiden Terminen stehen jeweils mindestens 6 Lektionen zur Verfügung.
+
+		\begin{table}[!h]
+			\begin{tabularx}{0.9 \linewidth}{llX}
+				\toprule
+				Nr & Wann & Beschreibung \\
+				\midrule
+				1 & Dienstag 10:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
+				2 & Donnerstag 08:00 - 17:00 & Gemeinsame Arbeit der Projektmitglieder \\
+				3 & Donnerstag 10:30 ~ 12:00 & Besprechung mit Projektbetreuern \\
+				4 & Samstag 14.03.2020 & Dokumentation und Risikoreduktion\\
+				5 & Samstag 28.03.2020 & Dokumentation und Risikoreduktion\\
+				6 & Samstag 11.04.2020 & Dokumentation und Risikoreduktion\\
+				7 & Samstag 25.04.2020 & Dokumentation und Risikoreduktion\\
+				8 & Samstag 09.05.2020 & Dokumentation und Risikoreduktion\\
+				9 & Samstag 23.05.2020 & Dokumentation und Risikoreduktion\\
+
+				\bottomrule
+			\end{tabularx}
+			\caption{Termine}
+		\end{table}
+			
+
+\section{Risikomanagement}
+\label{sec:risikomanagement}
+
+	\subsection{Risiken}
+		Eine Riskoanalyse mit gewichtetem Schaden und Informationen zur Vorbeugung ist auf der Ablage zu
+		finden (siehe Dokument TechnischeRisiken.xlsx)
+
+	\subsection{Umgang mit Risiken}
+		Um Probleme gerade während der Init/Analyse Phase möglichst früh zu erkennen, 
+		arbeiten wir wöchentlich zwei Tage nebeneinander, um uns über mögliche Probleme auszutauschen. 
+		Des Weiteren suchen wir auch den Kontakt zum Betreuer sobald Unklarheiten im Team herrschen.
+		Einmal alle zwei Wochen treffen wir uns am Samstag für drei bis vier Stunden, um an der Dokumentation und and der Reduktion aufgetretener Risiken zu arbeiten. 
+		Die genauen Termine werden im Kapitel~\ref{sec:dates} beschrieben.
+
+\section{Infrastruktur}
+	Alle Arbeiten zum Projekt werden von den Projektmitgliedern auf Ihrem jeweiligen Laptop verrichtet.
+	Alternativ stehen in den Studienarbeitszimmern Computer zur Verfügung, mit denen im falle eines Geräteausfalls weitergearbeitet werden kann.
+	Für das Testen der Software wird vom Institut für Networked Solutions eine Router Infrastruktur zur Verfügung gestellt.
+	Die genauen Ausmasse der Infrastruktur sind zum Zeitpunkt der Erstellung des Projektplans noch nicht spezifiziert.
+
+	\subsection{Übersicht der Tools}
+		Für die Umsetzung des Projektes werden folgende Tools verwendet: \\[2ex]
+		\begin{table}[!h]
+			\begin{tabularx}{0.9\linewidth}{lX}
+				\toprule
+				Bezeichung & Beschreibung \\
+				\midrule
+				Git & Versionsverwaltung \\
+				PyCharm & Entwicklungsumgebung \\
+				Visual Studio Code & Editor für die Dokumentation\\
+				\bottomrule
+			\end{tabularx}
+		\caption{Tools im Projekt}
+		\end{table}
+		
+		
+
+\section{Qualitätsmassnahmen}
+	\subsection{Allgemein}
+
+	\subsection{Testing}
+		Für das Unti-Testing wird das Python-Modul PyTest verwendet, ein Framework, welches das einfache Testen von Pythoncode erlaubt.
+
+	\subsection{Besprechungen}
+
+	\subsection{Versionskontrolle}
+		Sämtliche Dokumente werden in einem Git Repository abgelegt. Damit wird, dank der Versionskontrolle, 
+		jede Änderung nachvollziehbar und es können auf sämtlichen alten Versionen zugegriffen werden.
+
+	\subsection{Dokumente}
+
+	\subsection{Code-Qualität}
+		Um die Codequalität zu gewährleisten, werden folgende Massnahmen ergriffen:
+		\begin{itemize}
+			\item Unittests, um Fehler im Code zu verhindern oder früh zu finden.
+			\item In der Versionsverwaltung wird mit Feature-Branches gearbeitet, damit Änderungen nicht zu Merge-Konflikten führen.
+			\item Merges in den Development-Branch dürfen nur nach einem erfolgreichen Pull-Request durchgeführt werden.
+			\item Pull-Requests werden vom jewils anderen Teammitglied überprüft und allfällige Probleme müssen vor der Annahme korrigiert werden.
+			\item Getestet wird die einhaltung der Coderichtlinien, Vorherig definierte Tests und das erfolgreiche durchlaufen des Build-Prozesses.
+			\item Bekannte Bugs werden mittels Git Issues erfasst und verwaltet. Das Abarbeiten dieser Issues ist teil des Projekts und beim Meilenstein M5:Codefreeze \& -abgabe sollten sich keine Issues mehr auf dem Repository befinden
+		\end{itemize}
+\end{document}

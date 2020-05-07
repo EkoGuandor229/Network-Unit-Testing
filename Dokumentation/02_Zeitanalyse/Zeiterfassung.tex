@@ -1,0 +1,125 @@
+\documentclass[
+	ngerman,
+	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
+	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
+]{scrartcl}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+
+% Dokumenteninformationen ----------------------------------------------------
+\newcommand{\titel}{Zeiterfassung}
+\newcommand{\untertitel}{Studienarbeit \semester}
+\newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
+\newcommand{\datum}{\today}
+
+\newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
+
+\newcommand{\betriebLogo}{\vorlagenOrdner/Bilder/logo}
+
+% Konfiguration -------------------------------------------------------------
+\input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
+\input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
+
+\begin{document}
+
+% Deckblatt ------------------------------------------------------------------
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{\vorlagenOrdner/Konfiguration/Deckblatt}
+\cleardoublepage
+
+% Preface --------------------------------------------------------------------
+\pagenumbering{Roman}
+
+% Zweck
+\section*{Zweck}
+Dieses Dokument beschreibt die Zeiterfassung von allen Projektmitgliedern.
+
+% Inhaltsverzeichnis
+\phantomsection
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+% Inhalt ---------------------------------------------------------------------
+\section{Zeiterfassung Janik Schlatter}
+	\begin{tabularx}{\textwidth}{llXl}
+		\toprule
+		Datum & Phase & Beschreibung & Stunden \\
+		\midrule
+		13.02.2020 & Init & Erstbesprechung M.Schmid \& J.Schlatter & 1.5 \\
+		17.02.2020 & Init & Installation der notwendigen Tools & 1.5 \\
+		17.02.2020 & Init & Einarbeiten in LateX \& Python & 5 \\
+		18.02.2020 & Init & Aufetzen der Late Templates & 8 \\
+		20.02.2020 & Init & Aufarbeiten Cn1 \ Cn2 & 3 \\
+		20.02.2020 & Init & Meeting Woche 1 & 1 \\
+		20.02.2020 & Init & Sitzungsprotokoll & 0.5 \\
+		\midrule
+		Zwischensumme: & 22.5 & & \\
+		\midrule
+		25.02.2020 & Analyse & Arbeiten am Projektplan & 7 \\
+		27.02.2020 & Analyse & Meeting Woche 2 & 1 \\
+		27.02.2020 & Analyse & Korrekturen gemäss Meeting & 1 \\
+		27.02.2020 & Analyse & Sitzungsprotokoll & 0.5 \\
+		27.02.2020 & Analyse & Arbeiten an der Anforderungsanalyse & 4 \\
+		\bottomrule
+	\end{tabularx}
+
+\section{Zeiterfassung Mike Schmid}
+	\begin{tabularx}{\textwidth}{llXl}
+		\toprule
+		Datum & Phase & Beschreibung & Stunden \\
+		\midrule
+		03.02.2020 & Init & Erstbesprechung mit B.Stettler und U.Baumann & 0.75 \\
+		13.02.2020 & Init & Erstbesprechung M.Schmid \& J.Schlatter & 1.5 \\
+		18.02.2020 & Init & Vorbereiten GitHub, Einarbeiten LaTeX, Recherche Restconf/Netconf, Aufarbeiten CN1\&2 & 6 \\
+		19.02.2020 & Init & Repetition CN1\&2 & 2 \\
+		20.02.2020 & Init & Einarbeitung und Sitzung & 4 \\
+		21.02.2020 & Init & Recherche Nornir, Napalm, Openconfig & 1 \\
+		\midrule
+		Zwischensumme: & 15.25 & & \\
+		\midrule
+		25.02.2020 & Analyse 1 & Projektplan erstellen & 6 \\
+		26.02.2020 & Analyse 1 & Anpassungen Projektplan & 3 \\
+		27.02.2020 & Analyse 1 & Meeting Woche 2 & 1 \\
+		27.02.2020 & Analyse 1 & Korrekturen gem. Meeting & 1 \\
+		27.02.2020 & Analyse 1 & Nachtrag Arbeitspackete & 3 \\
+		27.02.2020 & Analyse 1 & Arbeiten an Anforderungsanalyse & 2 \\
+		\midrule
+		Zwischensumme: & 16 & & \\
+		\midrule
+		03.03.2020 & Analyse 2 & Recherche Nornir und Openconfig & 6 \\
+		05.03.2020 & Analyse 2 & Recherche Netzwerktests und Protokolle & 3 \\
+		05.03.2020 & Analyse 2 & Arbeiten an Anforderungsanalyse & 4 \\
+		05.03.2020 & Analyse 2 & Meeting Woche 3 & 1 \\
+		\midrule
+		Zwischensumme: & 14 & & \\
+		\midrule
+		10.03.2020 & Analyse 3 & Anforderungsanalyse Nonfunctional Requirements & 8 \\
+		11.03.2020 & Analyse 3 & Meeting Woche 4 & 1 \\
+		11.03.2020 & Analyse 3 & Nachbesprechung Meeting 4 & 2 \\
+		12.03.2020 & Analyse 3 & Revision Anforderungsanalyse & 8 \\
+		14.03.2020 & Analyse 3 & Revision Anforderungsanalyse & 4 \\
+		\midrule
+		Zwischensumme: & 23 & & \\
+		\midrule
+		17.03.2020 & Design 1 & Domainmodell und Prosa & 7 \\
+		18.03.2020 & Design 1 & Meeting Woche 5 & 1 \\
+		18.03.2020 & Design 1 & Kleine Anpassungen an der Anforderungsanalyse gem. Meeting & 0.5 \\
+		\midrule
+		\midrule
+		Total & 76.75 & (Soll: 240) & \\
+		\bottomrule
+	\end{tabularx}
+
+\end{document}
