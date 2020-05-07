@@ -1,14 +1,14 @@
 test01:
   - PingRouter1Loopback0
-  - Netmiko
+  - Ping
   - router01
   - 172.16.255.1
   - Success rate is 100 percent (5/5)
-  - connectivity
+  - Bobbycar
 
 test02:
   - PingRouter1Loopback1
-  - Netmiko
+  - Ping
   - router01
   - 172.16.255.2
   - Success rate is 100 percent (5/5)
@@ -16,7 +16,7 @@ test02:
 
 test03:
   - PingRouter1FromRouter1
-  - Ping own ip-address
+  - Ping
   - router01
   - 10.30.0.1
   - Success rate is 100 percent (5/5)
@@ -24,7 +24,7 @@ test03:
 
 test04:
   - GetInterfacesFromRouter02
-  - Netconf
+  - Show Interfaces
   - router02
   - Whatever
   - Whatever
@@ -32,7 +32,7 @@ test04:
 
 test05:
   - PingGoogleFromRouter3
-  - Napalm
+  - Ping
   - router03
   - 172.217.168.4
   - Success rate is 0 percent (0/5)

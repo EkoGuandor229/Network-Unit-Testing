@@ -1,16 +1,16 @@
 from nornir import InitNornir
 from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.networking import napalm_get
+from nornir.plugins.tasks.networking import napalm_ping
 
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetconfShowInterfaces(NetworkTestStrategyInterface):
+class NapalmPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, expectet):
-        self.expected = expectet
+    def __init__(self, platform, hostname, username, password, destination, expected):
+        self.expected = expected
         self.result = None
-        self.hostname = hostname
+        self.destination = destination
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
@@ -20,7 +20,7 @@ class NetconfShowInterfaces(NetworkTestStrategyInterface):
                             "platform": str(platform),
                             "hostname": str(hostname),
                             "username": str(username),
-                            "password": str(password)
+                            "password": str(password),
                         }
                     }
                 }
@@ -30,9 +30,8 @@ class NetconfShowInterfaces(NetworkTestStrategyInterface):
 
     def run_test(self):
         return self.nr.run(
-            task=napalm_get,
-            getters=["interfaces"]
-
+            task=napalm_ping,
+            dest=self.destination
         )
 
     def evaluate_result(self, result) -> bool:
@@ -52,4 +51,4 @@ class NetconfShowInterfaces(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"Show interfaces of {self.hostname}"
+        return f"Ping {self.destination}"
