@@ -1,3 +1,8 @@
+import os
+import sys
+
+from pip._internal.utils import logging
+
 from nuts.connectionhandling.connection import Connection
 from nuts.inventorymanagement.inventory import Inventory
 from nuts.testcreation.network_test_bundle import TestBundle
@@ -48,6 +53,13 @@ class TestBuilder:
     """
 
     def __init__(self):
+        log_path = os.path.join(os.path.join(os.path.abspath()), 'nuts.log')
+        file_handler = logging.FileHandler(filename=log_path)
+        file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setFormatter(logging.Formatter('%(message)s'))
+        logging.basicConfig(level=logging.INFO, handlers=[file_handler, console_handler])
+
         self.inventory = Inventory()
         self.connection = Connection()
         self.network_test_definition_loader = TestDefinitionLoader()
