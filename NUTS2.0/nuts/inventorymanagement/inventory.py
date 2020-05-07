@@ -25,7 +25,7 @@ class Inventory:
                 self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4],
                                                  device_connections)
 
-    def create_device_connection_obejct(self):
+    def create_device_connection_object(self):
         file_path = Path("resources/inventory/DeviceConnections/deviceconnections.yaml")
         device_connection_yaml = self.file_handler.read_file(file_path)
         for device_connection in device_connection_yaml:
@@ -43,5 +43,5 @@ class Inventory:
         return device_connections
 
     def create_inventory(self):
-        self.create_device_connection_obejct()
+        self.create_device_connection_object()
         self.create_device_object()
