@@ -4,6 +4,7 @@ test01:
   - router01
   - 172.16.255.1
   - Success rate is 100 percent (5/5)
+  - connectivity
 
 test02:
   - PingRouter1Loopback1
@@ -11,13 +12,15 @@ test02:
   - router01
   - 172.16.255.2
   - Success rate is 100 percent (5/5)
+  - connectivity
 
 test03:
-  - PingSelf
+  - PingRouter1FromRouter1
   - Ping own ip-address
   - router01
   - 10.30.0.1
   - Success rate is 100 percent (5/5)
+  - Group2
 
 test04:
   - GetInterfacesFromRouter02
@@ -25,6 +28,7 @@ test04:
   - router02
   - Whatever
   - Whatever
+  - Show
 
 test05:
   - PingGoogleFromRouter3
@@ -32,3 +36,4 @@ test05:
   - router03
   - 172.217.168.4
   - Success rate is 0 percent (0/5)
+  - Group2
