@@ -2,6 +2,7 @@ import logging
 
 import ruamel.yaml as yaml
 
+
 class FileHandler:
     """
     The filehandler is responsible for writing and reading files to/from
@@ -29,3 +30,8 @@ class FileHandler:
             finally:
                 file.close()
                 self.logger.info('File at Path "{}" successfully read'.format(path))
+
+    def write_result(self):
+        path = ""
+        file = "results.txt"
+
