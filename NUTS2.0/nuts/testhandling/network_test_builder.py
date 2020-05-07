@@ -89,3 +89,6 @@ class TestBuilder:
         test_definitions = self.network_test_order.ordered_test_definitions
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle
+
+    def get_network_tests(self):
+        return self.network_tests

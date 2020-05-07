@@ -60,7 +60,7 @@ class TestController:
         print(Fore.CYAN + "+" + 78 * "-" + "+")
 
         self.progress_bar("Progress", 0.01)
-        test_bundle = self.network_test_builder.network_tests
+        test_bundle = self.network_test_builder.get_network_tests()
 
         print(Fore.CYAN + "+" + 78 * "-" + "+")
         print(Fore.CYAN + "|" + 31 * " " + "Run all Tests" + 34 * " " + "|")
