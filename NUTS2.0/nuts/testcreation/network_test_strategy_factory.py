@@ -1,6 +1,10 @@
-from nuts.testcreation.concretetests.netconf_show_interfaces import NetconfShowInterfaces
+from nuts.testcreation.concretetests.napalm_get_interfaces import NapalmShowInterfaces
+from nuts.testcreation.concretetests.napalm_ping_test import NapalmPingTest
+from nuts.testcreation.concretetests.netmiko_get_interfaces import NetmikoShowInterfaces
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
+from nuts.testcreation.concretetests.netmiko_traceroute import NetmikoTraceroute
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
+
 from nuts.testcreation.network_test_factory import TestFactoryInterface
 
 
@@ -19,6 +23,23 @@ class TestStrategyFactory(TestFactoryInterface):
         concrete test or a NoTestDefined instance
     """
 
+    def __init__(self):
+        self.test_map = {
+            "Ping": {
+                "Napalm": NapalmPingTest,
+                "Netmiko": NetmikoPingTest,
+            },
+            "Show Interfaces": {
+                "Napalm": NapalmShowInterfaces,
+                "Netmiko": NetmikoShowInterfaces
+            },
+            "Traceroute": {
+                "Napalm": None,
+                "Netmiko": NetmikoTraceroute
+            }
+            # Add more Tests as "Testcommand: {connection_dictionary}
+        }
+
     def factory_method(self, test_definition):
         """
         Creates concrete instances of tests based on the type of test specified
@@ -29,24 +50,14 @@ class TestStrategyFactory(TestFactoryInterface):
         test_definition: collection, mandatory
             a definition of a single network test
         """
-        type_of_test = test_definition.get_command()
-        if str(type_of_test) == "Netmiko":
-            return NetmikoPingTest(
-                test_definition.get_test_id(),
-                test_definition.get_test_devices().get_platform(),
-                test_definition.get_test_devices().get_hostname(),
-                test_definition.get_test_devices().get_username(),
-                test_definition.get_test_devices().get_password(),
-                test_definition.get_target(),
-                test_definition.get_expected_result()
-            )
-        elif str(type_of_test) == "Napalm":
-            return NetconfShowInterfaces(
-                "ios",
-                test_definition.get_test_devices().get_hostname(),
-                test_definition.get_test_devices().get_username(),
-                test_definition.get_test_devices().get_password(),
-                test_definition.get_expected_result()
-            )
-        else:
-            return NoTestDefined(type_of_test, test_definition.get_test_devices())
+        test_to_implement = NoTestDefined
+        test_command = test_definition.get_command()
+        connection_types = test_definition.get_connection()
+        for connection_option in connection_types:
+            if test_command not in self.test_map:
+                break
+            if self.test_map[test_command][connection_option] is not None:
+                test_to_implement = self.test_map[test_command][connection_option]
+                break
+
+        return test_to_implement(test_definition)

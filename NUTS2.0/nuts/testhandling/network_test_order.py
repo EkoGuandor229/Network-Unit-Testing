@@ -91,6 +91,7 @@ class TestOrder:
                 if test_definition.get_is_executed().get():
                     self.ordered_test_definitions.append(test_definition)
         self.refresh_screen()
+        self.quit()
 
     def refresh_screen(self):
         i = 0

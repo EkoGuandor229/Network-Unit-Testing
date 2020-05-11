@@ -15,7 +15,7 @@ class NetworkTestStrategyInterface(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def evaluate_result(self, result):
+    def evaluate_result(self):
         """
         This method evaluates the return value of an executed test with the
         expected result of a concrete implementation of a test

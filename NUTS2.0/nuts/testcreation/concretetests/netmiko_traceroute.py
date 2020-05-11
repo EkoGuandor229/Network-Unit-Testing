@@ -5,17 +5,17 @@ from nornir.plugins.tasks.networking import netmiko_send_command
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoPingTest(NetworkTestStrategyInterface):
+class NetmikoTraceroute(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
-        device_informations = test_definition.get_test_devices()
-        self.test_name = test_definition.get_test_id()
-        self.hostname = device_informations.get_hostname()
-        self.username = device_informations.get_username()
-        self.password = device_informations.get_password()
-        self.platform = device_informations.get_platform()
-        self.expected = test_definition.get_expected_result()
+        device_information = test_definition.get_test_devices()
+        self.platform = device_information.get_platform()
+        self.hostname = device_information.get_hostname()
+        self.username = device_information.get_username()
+        self.password = device_information.get_password()
         self.destination = test_definition.get_target()
+        self.expected = test_definition.get_expected_result()
+        self.test_name = test_definition.get_test_id()
         self.result = None
 
         self.nr = InitNornir(
@@ -38,11 +38,21 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=netmiko_send_command,
-            command_string=f"ping {self.destination}"
+            command_string=f"traceroute {self.destination}"
         )
 
     def evaluate_result(self) -> bool:
-        return self.expected == self.result
+        if len(self.result) != len(self.expected):
+            return False
+
+        i = 0
+        for line in self.result:
+            array = line.split()
+            if self.expected[i] != array[1]:
+                return False
+            i += 1
+
+        return True
 
     def print_result(self, result):
         print(self.expected)
@@ -52,12 +62,11 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        for host_name, res_data in result.items():
-            mapped_result = res_data[0].result
-        if "Success rate is 100 percent (5/5)" in mapped_result:
-            self.result = "Success"
-        else:
-            self.result = "Failure"
+        self.result = []
+        result_collection = str(result["host1"][0])
+        array = result_collection.splitlines()
+        for line in array[3:]:
+            self.result.append(line)
 
     def get_expected_value(self):
         return self.expected
