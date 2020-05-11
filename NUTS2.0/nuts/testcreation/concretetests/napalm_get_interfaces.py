@@ -7,20 +7,27 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NapalmShowInterfaces(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, target, expectet):
-        self.expected = expectet
+    def __init__(self, test_definition):
+        device_information = test_definition.get_test_devices()
+        self.hostname = device_information.get_hostname()
+        self.username = device_information.get_username()
+        self.password = device_information.get_password()
+        self.expected = test_definition.get_expected_result()
+        self.platform = device_information.get_platform()
         self.result = None
-        self.hostname = hostname
+        if self.platform in "cisco_ios":
+            self.platform = "IOS"
+
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": str(platform),
-                            "hostname": str(hostname),
-                            "username": str(username),
-                            "password": str(password)
+                            "platform": self.platform,
+                            "hostname": self.hostname,
+                            "username": self.username,
+                            "password": self.password
                         }
                     }
                 }
@@ -52,4 +59,4 @@ class NapalmShowInterfaces(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"Show interfaces of {self.hostname}"
+        return f"Show interfaces of device: {self.hostname}"

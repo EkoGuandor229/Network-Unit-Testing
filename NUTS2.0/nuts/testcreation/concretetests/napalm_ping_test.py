@@ -7,20 +7,29 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NapalmPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination, expected):
-        self.expected = expected
+    def __init__(self, test_definition):
+        device_information = test_definition.get_test_devices()
+        self.hostname = device_information.get_hostname()
+        self.username = device_information.get_username()
+        self.password = device_information.get_password()
+        self.platform = device_information.get_platform()
+        self.expected = test_definition.get_expected_result()
+        self.destination = test_definition.get_target()
+        self.loopback = device_information.get_loopback()
         self.result = None
-        self.destination = destination
+
+        if self.platform.lower() in "cisco_ios":
+            self.platform = "IOS"
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": str(platform),
-                            "hostname": str(hostname),
-                            "username": str(username),
-                            "password": str(password),
+                            "platform": self.platform,
+                            "hostname": self.hostname,
+                            "username": self.username,
+                            "password": self.password,
                         }
                     }
                 }
@@ -31,7 +40,7 @@ class NapalmPingTest(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=napalm_ping,
-            dest=self.destination
+            dest=self.destination, source=self.loopback
         )
 
     def evaluate_result(self, result) -> bool:

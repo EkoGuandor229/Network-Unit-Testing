@@ -23,14 +23,14 @@ class Device:
         over the network.
     """
 
-    def __init__(self, device_id, platform, username, password, hostname, device_connections):
+    def __init__(self, device_id, platform, username, password, hostname, device_connections, loopback0):
         self.device_id = device_id
         self.platform = platform
         self.username = username
         self.password = password
         self.hostname = hostname
         self.deviceConnections = device_connections
-
+        self.loopback0 = loopback0
 
     def get_device_id(self):
 
@@ -47,6 +47,9 @@ class Device:
 
     def get_hostname(self):
         return self.hostname
+
+    def get_loopback(self):
+        return self.loopback0
 
     def print_device(self):
         print(self.device_id, self.platform, self.username, self.password, self.hostname, self.deviceConnections)

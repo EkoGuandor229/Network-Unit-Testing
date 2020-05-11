@@ -1,20 +1,22 @@
 from nornir import InitNornir
 from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.networking import netmiko_send_command
+from nornir.plugins.tasks.networking import napalm_get
 
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoShowInterfaces(NetworkTestStrategyInterface):
+class NapalmShowIPInterfaceBrief(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
         device_information = test_definition.get_test_devices()
-        self.platform = device_information.get_platform()
         self.hostname = device_information.get_hostname()
         self.username = device_information.get_username()
         self.password = device_information.get_password()
         self.expected = test_definition.get_expected_result()
+        self.platform = device_information.get_platform()
         self.result = None
+        if self.platform in "cisco_ios":
+            self.platform = "IOS"
 
         self.nr = InitNornir(
             inventory={
@@ -22,10 +24,10 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": str(self.platform),
-                            "hostname": str(self.hostname),
-                            "username": str(self.username),
-                            "password": str(self.password),
+                            "platform": self.platform,
+                            "hostname": self.hostname,
+                            "username": self.username,
+                            "password": self.password
                         }
                     }
                 }
@@ -35,8 +37,9 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
 
     def run_test(self):
         return self.nr.run(
-            task=netmiko_send_command,
-            command_string="show ip interfaces"
+            task=napalm_get,
+            getters=["interfaces_ip"]
+
         )
 
     def evaluate_result(self, result) -> bool:
@@ -56,4 +59,4 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"show ip interfaces of device: {self.hostname}"
+        return f"Show ip-interfaces of device: {self.hostname}"

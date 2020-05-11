@@ -5,7 +5,7 @@ from nornir.plugins.tasks.networking import netmiko_send_command
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoShowInterfaces(NetworkTestStrategyInterface):
+class NetmikoShowIpInterfaceBrief(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
         device_information = test_definition.get_test_devices()
@@ -36,7 +36,7 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=netmiko_send_command,
-            command_string="show ip interfaces"
+            command_string="show ip int brief"
         )
 
     def evaluate_result(self, result) -> bool:
@@ -56,4 +56,4 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return f"show ip interfaces of device: {self.hostname}"
+        return f"show ip interface brief of device: {self.hostname}"

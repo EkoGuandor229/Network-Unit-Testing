@@ -1,8 +1,12 @@
-from nuts.testcreation.concretetests.napalm_get_device_interfaces import NapalmShowInterfaces
+from nuts.testcreation.concretetests.napalm_get_interfaces import NapalmShowInterfaces
 from nuts.testcreation.concretetests.napalm_ping_test import NapalmPingTest
+from nuts.testcreation.concretetests.napalm_show_ip_interface_brief import NapalmShowIPInterfaceBrief
 from nuts.testcreation.concretetests.netmiko_get_interfaces import NetmikoShowInterfaces
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
+from nuts.testcreation.concretetests.netmiko_show_ip_interface_brief import NetmikoShowIpInterfaceBrief
+from nuts.testcreation.concretetests.netmiko_traceroute import NetmikoTraceroute
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
+
 from nuts.testcreation.network_test_factory import TestFactoryInterface
 
 
@@ -25,11 +29,19 @@ class TestStrategyFactory(TestFactoryInterface):
         self.test_map = {
             "Ping": {
                 "Napalm": NapalmPingTest,
-                "Netmiko": NetmikoPingTest
+                "Netmiko": NetmikoPingTest,
             },
             "Show Interfaces": {
                 "Napalm": NapalmShowInterfaces,
                 "Netmiko": NetmikoShowInterfaces
+            },
+            "Traceroute": {
+                "Napalm": None,
+                "Netmiko": NetmikoTraceroute
+            },
+            "Show Ip Interface Brief": {
+                "Napalm": NapalmShowIPInterfaceBrief,
+                "Netmiko": NetmikoShowIpInterfaceBrief
             }
             # Add more Tests as "Testcommand: {connection_dictionary}
         }
@@ -48,14 +60,8 @@ class TestStrategyFactory(TestFactoryInterface):
         test_command = test_definition.get_command()
         connection_types = test_definition.get_connection()
         for connection_option in connection_types:
-            test_to_implement = self.test_map[test_command][connection_option]
-            break
+            if self.test_map[test_command][connection_option] is not None:
+                test_to_implement = self.test_map[test_command][connection_option]
+                break
 
-        return test_to_implement(
-            test_definition.get_test_devices().get_platform(),
-            test_definition.get_test_devices().get_hostname(),
-            test_definition.get_test_devices().get_username(),
-            test_definition.get_test_devices().get_password(),
-            test_definition.get_target(),
-            test_definition.get_expected_result()
-        )
+        return test_to_implement(test_definition)

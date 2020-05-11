@@ -7,20 +7,26 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NetmikoPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination, expected):
-        self.expected = expected
+    def __init__(self, test_definition):
+        device_informations = test_definition.get_test_devices()
+        self.hostname = device_informations.get_hostname()
+        self.username = device_informations.get_username()
+        self.password = device_informations.get_password()
+        self.platform = device_informations.get_platform()
+        self.expected = test_definition.get_expected_result()
+        self.destination = device_informations.get_target()
         self.result = None
-        self.destination = destination
+
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": str(platform),
-                            "hostname": str(hostname),
-                            "username": str(username),
-                            "password": str(password),
+                            "platform": self.platform,
+                            "hostname": self.hostname,
+                            "username": self.username,
+                            "password": self.password,
                         }
                     }
                 }

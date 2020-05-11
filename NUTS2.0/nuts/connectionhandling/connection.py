@@ -12,7 +12,7 @@ class Connection:
         maps the platform type to the right connection
     """
     connectionMapper = {
-        "cisco_ios": ["Netmiko", "Netconf"],
+        "cisco_ios": ["Napalm", "Netmiko"],
         "EOS": ["Napalm", "Netmiko"],
         "IOSXR": ["Napalm", "Netmiko"],
         "JUNOS": [["Napalm", "Netmiko"]],

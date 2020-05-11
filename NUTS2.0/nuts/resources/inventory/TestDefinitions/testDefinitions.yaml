@@ -4,7 +4,7 @@ test01:
   - router01
   - 172.16.255.1
   - Success rate is 100 percent (5/5)
-  - Bobbycar
+  - connectivity
 
 test02:
   - PingRouter1Loopback1
@@ -20,14 +20,14 @@ test03:
   - router01
   - 10.30.0.1
   - Success rate is 100 percent (5/5)
-  - Group2
+  - connectivity
 
 test04:
   - GetInterfacesFromRouter02
   - Show Interfaces
   - router02
-  - Whatever
-  - Whatever
+  - No Target
+  - Success
   - Show
 
 test05:
@@ -37,3 +37,19 @@ test05:
   - 172.217.168.4
   - Success rate is 0 percent (0/5)
   - Group2
+
+test06:
+  - TracerouteFromRouter1ToRouter2
+  - Traceroute
+  - router01
+  - 172.16.255.2
+  - Success
+  - route
+
+test07:
+  - Router03ShowIpInterfaceBrief
+  - Show Ip Interface Brief
+  - router03
+  - None
+  - Success
+  - Show

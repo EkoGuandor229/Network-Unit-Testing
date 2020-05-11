@@ -10,9 +10,9 @@ class NoTestDefined(NetworkTestStrategyInterface):
     wrongly.
     """
 
-    def __init__(self, test_command, device_name):
-        self.test_command = test_command
-        self.device_name = device_name
+    def __init__(self, test_definition):
+        device_information = test_definition.get_test_devices()
+        self.test_command = device_information.get_command()
         self.result = None
 
     def run_test(self):

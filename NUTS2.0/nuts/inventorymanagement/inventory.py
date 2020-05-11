@@ -28,7 +28,7 @@ class Inventory:
                 self.logger.exception(ex)
             else:
                 self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4],
-                                                 device_connections)
+                                                 device_connections, device[5])
                 self.logger.info('Device Object "{}" created'.format(device[0]))
 
     def create_device_connection_object(self):
