@@ -3,7 +3,7 @@ test01:
   - Netmiko
   - router01
   - 172.16.255.1
-  - Success rate is 100 percent (5/5)
+  - Success
   - connectivity
 
 test02:

@@ -46,3 +46,138 @@ New Test Run on 2020-05-07 17:06:06.403936:
       Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
 End of Test Run 
 
+New Test Run on 2020-05-11 13:48:18.175306:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+    Test: Test with command: Ping own ip-address has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Ping own ip-address is not yet implemented
+    Test: Test with command: Netconf has FAILED 
+      Expected: Some test implemented
+      Actual:   Test: Netconf is not yet implemented
+    Test: Show interfaces of 10.20.0.33 has FAILED 
+      Expected: Success rate is 0 percent (0/5)
+      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
+End of Test Run 
+
+New Test Run on 2020-05-11 18:22:34.071276:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 18:25:23.442746:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 18:26:37.964372:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 18:27:18.280832:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 18:40:32.446679:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 18:50:29.427211:
+  Passed Tests: 
+  Failed Tests: 
+    Test: PingRouter1Loopback0 has FAILED 
+      Expected: Success rate is 100 percent (5/5)
+      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
+End of Test Run 
+
+New Test Run on 2020-05-11 18:59:35.527705:
+  Passed Tests: 
+  Failed Tests: 
+    Test: PingRouter1Loopback0 has FAILED 
+      Expected: Success rate is 100 percent (5/5)
+      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
+End of Test Run 
+
+New Test Run on 2020-05-11 19:00:47.634088:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:07:31.448658:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:08:04.378109:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:09:06.351519:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:11:59.609408:
+  Passed Tests: 
+  Failed Tests: 
+    Test: PingRouter1Loopback0 has FAILED 
+      Expected: Success rate is 100 percent (5/5)
+      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
+End of Test Run 
+
+New Test Run on 2020-05-11 19:12:30.850656:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:18:49.819661:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:22:19.009882:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:24:33.627831:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:27:42.746721:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-11 19:32:32.700574:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
