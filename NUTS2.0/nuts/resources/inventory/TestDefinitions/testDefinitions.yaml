@@ -11,15 +11,15 @@ test02:
   - Ping
   - router01
   - 172.16.255.2
-  - Success rate is 100 percent (5/5)
+  - Success
   - connectivity
 
 test03:
   - PingRouter1FromRouter1
   - Ping
   - router01
-  - 10.30.0.1
-  - Success rate is 100 percent (5/5)
+  - 172.16.255.1
+  - Success
   - connectivity
 
 test04:
@@ -27,29 +27,29 @@ test04:
   - Show Interfaces
   - router02
   - No Target
-  - Success
+  - {'GigabitEthernet1': True, 'GigabitEthernet2': True, 'GigabitEthernet3': True, 'GigabitEthernet4': True, 'Loopback0': True}
   - Show
 
 test05:
   - PingGoogleFromRouter3
   - Ping
   - router03
-  - 172.217.168.4
-  - Success rate is 0 percent (0/5)
+  - 10.0.5.96
+  - Success
   - Group2
 
 test06:
-  - TracerouteFromRouter1ToRouter2
+  - TracerouteFromRouter1ToRouter3
   - Traceroute
-  - router01
-  - 172.16.255.2
-  - Success
+  - router03
+  - 172.16.14.4
+  - ["172.16.13.1", "172.16.14.4"]
   - route
 
 test07:
-  - Router03ShowIpInterfaceBrief
-  - Show Ip Interface Brief
-  - router03
-  - None
-  - Success
-  - Show
+  - TestShouldFail
+  - Fail Please
+  - router01
+  - 172.16.14.4
+  - "This test should fail"
+  - janik

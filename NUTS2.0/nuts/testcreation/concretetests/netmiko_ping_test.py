@@ -9,13 +9,13 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
         device_informations = test_definition.get_test_devices()
-        self.test_id = test_definition.get_test_id()
+        self.test_name = test_definition.get_test_id()
         self.hostname = device_informations.get_hostname()
         self.username = device_informations.get_username()
         self.password = device_informations.get_password()
         self.platform = device_informations.get_platform()
         self.expected = test_definition.get_expected_result()
-        self.destination = device_informations.get_target()
+        self.destination = test_definition.get_target()
         self.result = None
 
         self.nr = InitNornir(
@@ -63,4 +63,4 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.expected
 
     def get_test_name(self):
-        return self.test_id
+        return self.test_name

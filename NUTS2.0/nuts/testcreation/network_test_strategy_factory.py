@@ -1,9 +1,7 @@
 from nuts.testcreation.concretetests.napalm_get_interfaces import NapalmShowInterfaces
 from nuts.testcreation.concretetests.napalm_ping_test import NapalmPingTest
-from nuts.testcreation.concretetests.napalm_show_ip_interface_brief import NapalmShowIPInterfaceBrief
 from nuts.testcreation.concretetests.netmiko_get_interfaces import NetmikoShowInterfaces
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
-from nuts.testcreation.concretetests.netmiko_show_ip_interface_brief import NetmikoShowIpInterfaceBrief
 from nuts.testcreation.concretetests.netmiko_traceroute import NetmikoTraceroute
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
 
@@ -38,10 +36,6 @@ class TestStrategyFactory(TestFactoryInterface):
             "Traceroute": {
                 "Napalm": None,
                 "Netmiko": NetmikoTraceroute
-            },
-            "Show Ip Interface Brief": {
-                "Napalm": NapalmShowIPInterfaceBrief,
-                "Netmiko": NetmikoShowIpInterfaceBrief
             }
             # Add more Tests as "Testcommand: {connection_dictionary}
         }
@@ -60,6 +54,8 @@ class TestStrategyFactory(TestFactoryInterface):
         test_command = test_definition.get_command()
         connection_types = test_definition.get_connection()
         for connection_option in connection_types:
+            if test_command not in self.test_map:
+                break
             if self.test_map[test_command][connection_option] is not None:
                 test_to_implement = self.test_map[test_command][connection_option]
                 break

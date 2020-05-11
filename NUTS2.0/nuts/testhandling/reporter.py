@@ -47,6 +47,4 @@ class Reporter:
             print(Fore.RED + f"|   |   |-- Expected: {test_result.get_expected_value()}")
             print(Fore.RED + f"|   |   |-- Actual: {test_result.get_result()}")
             print(Fore.RED + "|   |")
-            test_result.print_result(test_result.get_result())
-
 

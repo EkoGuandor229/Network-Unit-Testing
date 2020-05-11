@@ -15,6 +15,7 @@ class NetmikoTraceroute(NetworkTestStrategyInterface):
         self.password = device_information.get_password()
         self.destination = test_definition.get_target()
         self.expected = test_definition.get_expected_result()
+        self.test_name = test_definition.get_test_id()
         self.result = None
 
         self.nr = InitNornir(
@@ -40,8 +41,18 @@ class NetmikoTraceroute(NetworkTestStrategyInterface):
             command_string=f"traceroute {self.destination}"
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        if len(self.result) != len(self.expected):
+            return False
+
+        i = 0
+        for line in self.result:
+            array = line.split()
+            if self.expected[i] != array[1]:
+                return False
+            i += 1
+
+        return True
 
     def print_result(self, result):
         print(self.expected)
@@ -51,10 +62,14 @@ class NetmikoTraceroute(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        self.result = []
+        result_collection = str(result["host1"][0])
+        array = result_collection.splitlines()
+        for line in array[3:]:
+            self.result.append(line)
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
-        return f"Traceroute {self.destination}"
+        return self.test_name

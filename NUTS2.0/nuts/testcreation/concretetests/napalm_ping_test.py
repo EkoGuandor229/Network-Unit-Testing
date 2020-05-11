@@ -16,6 +16,7 @@ class NapalmPingTest(NetworkTestStrategyInterface):
         self.expected = test_definition.get_expected_result()
         self.destination = test_definition.get_target()
         self.loopback = device_information.get_loopback()
+        self.test_name = test_definition.get_test_id()
         self.result = None
 
         if self.platform.lower() in "cisco_ios":
@@ -43,8 +44,8 @@ class NapalmPingTest(NetworkTestStrategyInterface):
             dest=self.destination, source=self.loopback
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        return self.expected == self.result
 
     def print_result(self, result):
         print(self.expected)
@@ -54,10 +55,15 @@ class NapalmPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        result_collection = result["host1"][0].result["success"]
+        packet_loss = result_collection["packet_loss"]
+        if packet_loss == 0:
+            self.result = "Success"
+        else:
+            self.result = "Failure"
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
-        return f"Ping {self.destination}"
+        return self.test_name

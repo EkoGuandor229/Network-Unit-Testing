@@ -14,6 +14,7 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
         self.username = device_information.get_username()
         self.password = device_information.get_password()
         self.expected = test_definition.get_expected_result()
+        self.test_name = test_definition.get_test_id()
         self.result = None
 
         self.nr = InitNornir(
@@ -36,11 +37,11 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=netmiko_send_command,
-            command_string="show ip interfaces"
+            command_string="show ip interface brief"
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        return self.result == self.expected
 
     def print_result(self, result):
         print(self.expected)
@@ -50,10 +51,17 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        self.result = {}
+        result_collection = str(result["host1"][0])
+        array = result_collection.split()
+        for i in range(6, len(array), 6):
+            if array[i+4] == "up":
+                self.result.update({array[i]: True})
+            else:
+                self.result.update({array[i]: False})
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
-        return f"show ip interfaces of device: {self.hostname}"
+        return self.test_name

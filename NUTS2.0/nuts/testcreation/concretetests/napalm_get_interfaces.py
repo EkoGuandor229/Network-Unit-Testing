@@ -14,6 +14,7 @@ class NapalmShowInterfaces(NetworkTestStrategyInterface):
         self.password = device_information.get_password()
         self.expected = test_definition.get_expected_result()
         self.platform = device_information.get_platform()
+        self.test_name = test_definition.get_test_id()
         self.result = None
         if self.platform in "cisco_ios":
             self.platform = "IOS"
@@ -42,8 +43,8 @@ class NapalmShowInterfaces(NetworkTestStrategyInterface):
 
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        return self.result == self.expected
 
     def print_result(self, result):
         print(self.expected)
@@ -53,10 +54,13 @@ class NapalmShowInterfaces(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        self.result = {}
+        result_collection = result["host1"][0].result["interfaces"]
+        for key in result_collection.keys():
+            self.result.update({key: result_collection[key]["is_up"]})
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
-        return f"Show interfaces of device: {self.hostname}"
+        return self.test_name
