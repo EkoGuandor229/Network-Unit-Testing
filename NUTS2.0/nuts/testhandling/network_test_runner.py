@@ -12,5 +12,6 @@ class TestRunner:
 
     def run_all_tests(self, tests):
         for test in tests:
-            test.set_result(test.run_test())
+            result = test.run_test()
+            test.set_result(result)
 

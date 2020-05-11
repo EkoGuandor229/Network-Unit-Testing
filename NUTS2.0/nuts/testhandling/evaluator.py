@@ -15,8 +15,7 @@ class Evaluator:
         evaluation_results = {}
 
         for test in tests:
-            actual_result = test.get_result()
-            test_result = test.evaluate_result(actual_result)
+            test_result = test.evaluate_result()
             if test_result is True:
                 passed_tests.append(test)
             else:

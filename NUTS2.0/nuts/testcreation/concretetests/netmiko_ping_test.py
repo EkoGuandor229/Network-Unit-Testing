@@ -35,8 +35,8 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
             command_string=f"ping {self.destination}"
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        return self.expected == self.result
 
     def print_result(self, result):
         print(self.expected)
@@ -46,7 +46,12 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        for host_name, res_data in result.items():
+            mapped_result = res_data[0].result
+        if "Success rate is 100 percent (5/5)" in mapped_result:
+            self.result = "Success"
+        else:
+            self.result = "Failure"
 
     def get_expected_value(self):
         return self.expected
