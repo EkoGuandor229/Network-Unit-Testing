@@ -1,6 +1,9 @@
+import datetime
 import logging
+import os
 
 import ruamel.yaml as yaml
+
 
 class FileHandler:
     """
@@ -9,6 +12,8 @@ class FileHandler:
     """
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        self.path = "resources/inventory/TestResults/"
+        self.file = "results.txt"
 
     def read_file(self, path):
         with open(path) as file:
@@ -29,3 +34,27 @@ class FileHandler:
             finally:
                 file.close()
                 self.logger.info('File at Path "{}" successfully read'.format(path))
+
+    def write_new_run(self):
+        time = datetime.datetime.now()
+        with open(os.path.join(self.path, self.file), 'a') as fp:
+            fp.write("New Test Run on " + str(time) + ":")
+            fp.write("\n")
+
+    def write_passed_results(self, results):
+        with open(os.path.join(self.path, self.file), 'a') as fp:
+            fp.write("  Passed Tests: \n")
+            for result in results:
+                fp.write("    Test: " + result.get_test_name() + " has PASSED")
+                fp.write("\n")
+
+    def write_failed_results(self, results):
+        with open(os.path.join(self.path, self.file), 'a') as fp:
+            fp.write("  Failed Tests: \n")
+            for result in results:
+                fp.write("    Test: " + result.get_test_name() + " has FAILED \n")
+                fp.write("      Expected: " + result.get_expected_value() + "\n")
+                fp.write("      Actual:   " + str(result.get_result()) + "\n")
+            fp.write("End of Test Run \n")
+            fp.write("\n")
+

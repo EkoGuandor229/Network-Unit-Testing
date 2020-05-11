@@ -76,6 +76,7 @@ class TestController:
 
         evaluated_results = self.evaluator.compare(test_bundle)
         self.reporter.print_results(evaluated_results)
+        self.reporter.save_results(evaluated_results)
 
     def progress_bar(self, description, time):
         for i in tqdm(range(100), desc=description, ncols=80,

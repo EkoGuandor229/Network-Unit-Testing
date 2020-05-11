@@ -33,7 +33,6 @@ class Device:
         self.loopback0 = loopback0
 
     def get_device_id(self):
-
         return self.device_id
 
     def get_platform(self):
@@ -50,6 +49,9 @@ class Device:
 
     def get_loopback(self):
         return self.loopback0
+
+    def get_device_connections(self):
+        return self.deviceConnections
 
     def print_device(self):
         print(self.device_id, self.platform, self.username, self.password, self.hostname, self.deviceConnections)
