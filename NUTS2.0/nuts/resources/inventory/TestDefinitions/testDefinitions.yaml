@@ -30,7 +30,7 @@ test04:
   - {'GigabitEthernet1': True, 'GigabitEthernet2': True, 'GigabitEthernet3': True, 'GigabitEthernet4': True, 'Loopback0': True}
   - Show
 
-test06:
+test05:
   - TracerouteFromRouter1ToRouter3
   - Traceroute
   - router03
@@ -38,7 +38,7 @@ test06:
   - ["172.16.13.1", "172.16.14.4"]
   - route
 
-test07:
+test06:
   - PingRouter1FromRouter2
   - Ping
   - router02
@@ -46,7 +46,7 @@ test07:
   - Success
   - connectivity
 
-test08:
+test07:
   - PingRouter1FromRouter3
   - Ping
   - router03
@@ -54,7 +54,7 @@ test08:
   - Success
   - connectivity
 
-test09:
+test08:
   - PingRouter1FromRouter4
   - Ping
   - router04
@@ -62,7 +62,7 @@ test09:
   - Success
   - connectivity
 
-test10:
+test09:
   - PingRouter4FromRouter1
   - Ping
   - router01
@@ -70,7 +70,7 @@ test10:
   - Success
   - connectivity
 
-test08:
+test10:
   - GetArpTableFromRouter1
   - Arp Table
   - router01
@@ -85,7 +85,7 @@ test08:
     ]
   - Arp
 
-test09:
+test11:
   - GetOspfNeighbors
   - Ospf Neighbor
   - router01
