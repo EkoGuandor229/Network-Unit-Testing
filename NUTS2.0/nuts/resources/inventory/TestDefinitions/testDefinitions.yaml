@@ -30,14 +30,6 @@ test04:
   - {'GigabitEthernet1': True, 'GigabitEthernet2': True, 'GigabitEthernet3': True, 'GigabitEthernet4': True, 'Loopback0': True}
   - Show
 
-test05:
-  - PingGoogleFromRouter3
-  - Ping
-  - router03
-  - 10.0.5.96
-  - Success
-  - Group2
-
 test06:
   - TracerouteFromRouter1ToRouter3
   - Traceroute
@@ -47,12 +39,36 @@ test06:
   - route
 
 test07:
-  - TestShouldFail
-  - Fail Please
+  - PingRouter1FromRouter2
+  - Ping
+  - router02
+  - 172.16.255.1
+  - Success
+  - connectivity
+
+test08:
+  - PingRouter1FromRouter3
+  - Ping
+  - router03
+  - 172.16.255.1
+  - Success
+  - connectivity
+
+test09:
+  - PingRouter1FromRouter4
+  - Ping
+  - router04
+  - 172.16.255.1
+  - Success
+  - connectivity
+
+test10:
+  - PingRouter4FromRouter1
+  - Ping
   - router01
   - 172.16.14.4
-  - "This test should fail"
-  - janik
+  - Success
+  - connectivity
 
 test08:
   - GetArpTableFromRouter1

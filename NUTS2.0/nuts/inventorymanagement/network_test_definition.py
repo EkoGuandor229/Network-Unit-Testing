@@ -25,6 +25,9 @@ class TestDefinition:
         with a specified percentage of success (five packets sent, 3 successful)
     connection
         Specifies the type of connection with witch Nornir will connect
+    test_group
+        Defines a Group in which the Test later will be in
+        it is used for the test order later on
     """
 
     def __init__(self, test_id, command, test_device, target, expected_result, test_group):

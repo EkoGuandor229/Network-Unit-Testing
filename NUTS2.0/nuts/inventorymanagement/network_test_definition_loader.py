@@ -14,7 +14,9 @@ class TestDefinitionLoader:
 
     Attributes
     ----------
-    test_definitions: collection
+    logger
+        Instance of the logger class
+    test_definitions: dictionary
         The test definitions specify the tests that should be executed against
         a network system. They are loaded from one or multiple .yaml files
     file_handler

@@ -21,6 +21,10 @@ class Device:
     hostname
         The hostname is the ip-address, under which the device is accessible
         over the network.
+    device_connections
+        The connections between devices, these are linked device_connection objects
+    loopback0
+        The loopback0 address of a device
     """
 
     def __init__(self, device_id, platform, username, password, hostname, device_connections, loopback0):

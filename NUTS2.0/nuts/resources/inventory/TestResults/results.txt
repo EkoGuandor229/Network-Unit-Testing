@@ -1,528 +1,4 @@
- New Test Run on 2020-05-07 17:01:55.235238:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-    Test: Test with command: Ping own ip-address has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Ping own ip-address is not yet implemented
-    Test: Test with command: Netconf has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Netconf is not yet implemented
-    Test: Show interfaces of 10.20.0.33 has FAILED 
-      Expected: Success rate is 0 percent (0/5)
-      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
-End of Test Run 
-New Test Run on 2020-05-07 17:04:24.903765:
-  Passed Tests: 
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-    Test: PingRouter1Loopback0 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
-    Test: Test with command: Ping own ip-address has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Ping own ip-address is not yet implemented
-    Test: Test with command: Netconf has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Netconf is not yet implemented
-    Test: Show interfaces of 10.20.0.33 has FAILED 
-      Expected: Success rate is 0 percent (0/5)
-      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
-End of Test Run 
-New Test Run on 2020-05-07 17:06:06.403936:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-    Test: Test with command: Ping own ip-address has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Ping own ip-address is not yet implemented
-    Test: Test with command: Netconf has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Netconf is not yet implemented
-    Test: Show interfaces of 10.20.0.33 has FAILED 
-      Expected: Success rate is 0 percent (0/5)
-      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
-End of Test Run 
-
-New Test Run on 2020-05-11 13:48:18.175306:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-    Test: Test with command: Ping own ip-address has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Ping own ip-address is not yet implemented
-    Test: Test with command: Netconf has FAILED 
-      Expected: Some test implemented
-      Actual:   Test: Netconf is not yet implemented
-    Test: Show interfaces of 10.20.0.33 has FAILED 
-      Expected: Success rate is 0 percent (0/5)
-      Actual:   AggregatedResult (napalm_get): {'host1': MultiResult: [Result: "napalm_get"]}
-End of Test Run 
-
-New Test Run on 2020-05-11 18:22:34.071276:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 18:25:23.442746:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 18:26:37.964372:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 18:27:18.280832:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 18:40:32.446679:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 18:50:29.427211:
-  Passed Tests: 
-  Failed Tests: 
-    Test: PingRouter1Loopback0 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
-End of Test Run 
-
-New Test Run on 2020-05-11 18:59:35.527705:
-  Passed Tests: 
-  Failed Tests: 
-    Test: PingRouter1Loopback0 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
-End of Test Run 
-
-New Test Run on 2020-05-11 19:00:47.634088:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:07:31.448658:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:08:04.378109:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:09:06.351519:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:11:59.609408:
-  Passed Tests: 
-  Failed Tests: 
-    Test: PingRouter1Loopback0 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
-End of Test Run 
-
-New Test Run on 2020-05-11 19:12:30.850656:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:18:49.819661:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:22:19.009882:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:24:33.627831:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:27:42.746721:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:32:32.700574:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:50:54.727863:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:52:21.993778:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:52:53.518784:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:53:25.344256:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:57:39.904877:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 19:58:33.244541:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:00:15.344569:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:02:18.625270:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:05:14.912132:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:08:29.016131:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:13:16.454744:
-  Passed Tests: 
-    Test: Show interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:18:19.526175:
-  Passed Tests: 
-    Test: Ping 172.16.255.1 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:28:30.746840:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:30:08.796716:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:30:49.289660:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:31:31.086091:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:33:06.467948:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:35:22.359607:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:38:01.237763:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:43:53.441397:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:45:18.456538:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:48:23.190111:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:49:13.036842:
-  Passed Tests: 
-  Failed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has FAILED 
-New Test Run on 2020-05-11 20:49:50.639116:
-  Passed Tests: 
-    Test: show ip interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 20:51:12.346863:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   None
-End of Test Run 
-
-New Test Run on 2020-05-11 20:52:03.126398:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   None
-End of Test Run 
-
-New Test Run on 2020-05-11 20:54:20.482322:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   {}
-End of Test Run 
-
-New Test Run on 2020-05-11 20:56:43.041577:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   {}
-End of Test Run 
-
-New Test Run on 2020-05-11 20:58:23.652962:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 20:59:17.984821:
-  Passed Tests: 
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 21:00:15.598354:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:04:30.498208:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.2 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:07:21.052756:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.3 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:08:07.068608:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.4 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:09:20.415289:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.3 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:13:23.178781:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: show ip interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-    Test: PingRouter1Loopback1 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   Success
-    Test: PingRouter1FromRouter1 has FAILED 
-      Expected: Success rate is 100 percent (5/5)
-      Actual:   Failure
-    Test: PingGoogleFromRouter3 has FAILED 
-      Expected: Success rate is 0 percent (0/5)
-      Actual:   Failure
-    Test: Traceroute 172.16.255.3 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:15:43.170518:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-    Test: show ip interfaces of device: 10.20.0.32 has PASSED
-  Failed Tests: 
-    Test: PingRouter1FromRouter1 has FAILED 
-      Expected: Success
-      Actual:   Failure
-    Test: PingGoogleFromRouter3 has FAILED 
-      Expected: Success
-      Actual:   Failure
-    Test: Traceroute 172.16.255.3 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:18:11.130385:
-  Passed Tests: 
-  Failed Tests: 
-    Test: PingGoogleFromRouter3 has FAILED 
-      Expected: Success
-      Actual:   Failure
-End of Test Run 
-
-New Test Run on 2020-05-11 21:34:43.023771:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.255.3 has FAILED 
-      Expected: Success
-      Actual:   []
-End of Test Run 
-
-New Test Run on 2020-05-11 21:38:18.162037:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 21:39:27.923436:
-  Passed Tests: 
-    Test: Traceroute 172.16.14.4 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 21:43:46.583670:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 21:54:16.870210:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 21:56:21.118239:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 22:07:44.018732:
-  Passed Tests: 
-    Test: Traceroute 172.16.14.4 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 22:08:47.278362:
-  Passed Tests: 
-    Test: Traceroute 172.16.14.4 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 22:09:35.360528:
-  Passed Tests: 
-    Test: Traceroute 172.16.14.4 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 22:13:51.408946:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 22:15:17.221915:
-  Passed Tests: 
-    Test: Traceroute 172.16.14.4 has PASSED
-  Failed Tests: 
-End of Test Run 
-
-New Test Run on 2020-05-11 22:16:17.624262:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 22:17:13.824651:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Traceroute 172.16.14.4 has FAILED 
-New Test Run on 2020-05-11 22:24:34.277280:
-  Passed Tests: 
-  Failed Tests: 
-    Test: Test with command: Fail Please has FAILED 
-      Expected: Some test implemented
-      Actual:   None
-End of Test Run 
-
-New Test Run on 2020-05-11 22:29:44.010363:
-  Passed Tests: 
-    Test: PingRouter1Loopback0 has PASSED
-    Test: PingRouter1Loopback1 has PASSED
-    Test: PingRouter1FromRouter1 has PASSED
-    Test: show ip interfaces of device: 10.20.0.32 has PASSED
-    Test: TracerouteFromRouter1ToRouter3 has PASSED
-  Failed Tests: 
-    Test: PingGoogleFromRouter3 has FAILED 
-      Expected: Success
-      Actual:   Failure
-    Test: Test with command: Fail Please has FAILED 
-      Expected: Some test implemented
-      Actual:   None
-End of Test Run 
-
-New Test Run on 2020-05-11 22:33:54.458065:
+New Test Run on 2020-05-12 10:19:13.739937:
   Passed Tests: 
     Test: PingRouter1Loopback0 has PASSED
     Test: PingRouter1Loopback1 has PASSED
@@ -536,6 +12,155 @@ New Test Run on 2020-05-11 22:33:54.458065:
     Test: Test with command: Fail Please has FAILED 
       Expected: Some test implemented
       Actual:   None
+End of Test Run 
+
+New Test Run on 2020-05-12 10:22:52.087998:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+  Failed Tests: 
+    Test: PingGoogleFromRouter3 has FAILED 
+      Expected: Success
+      Actual:   Failure
+    Test: Test with command: Fail Please has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+End of Test Run 
+
+New Test Run on 2020-05-12 11:17:08.255113:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:17:30.830868:
+  Passed Tests: 
+    Test: PingRouter4FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:17:52.317310:
+  Passed Tests: 
+    Test: PingRouter3FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:18:08.538528:
+  Passed Tests: 
+    Test: PingRouter2FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:18:30.147974:
+  Passed Tests: 
+    Test: PingRouter1FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:18:51.584910:
+  Passed Tests: 
+    Test: PingRouter1FromRouter2 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:19:10.631965:
+  Passed Tests: 
+    Test: PingRouter1FromRouter3 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:20:54.911683:
+  Passed Tests: 
+    Test: PingRouter4FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:21:12.211059:
+  Passed Tests: 
+    Test: PingRouter3FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:21:27.681485:
+  Passed Tests: 
+    Test: PingRouter2FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:21:49.128339:
+  Passed Tests: 
+    Test: PingRouter1FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:22:09.160935:
+  Passed Tests: 
+    Test: PingRouter1FromRouter2 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:22:30.431066:
+  Passed Tests: 
+    Test: PingRouter1FromRouter3 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:22:46.116806:
+  Passed Tests: 
+    Test: PingRouter1FromRouter4 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:23:08.619698:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:23:58.346709:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: PingRouter1FromRouter2 has PASSED
+    Test: PingRouter1FromRouter3 has PASSED
+    Test: PingRouter1FromRouter4 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:24:57.576405:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: PingRouter1FromRouter2 has PASSED
+    Test: PingRouter1FromRouter3 has PASSED
+    Test: PingRouter1FromRouter4 has PASSED
+    Test: PingRouter4FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:26:03.812669:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: PingRouter1FromRouter2 has PASSED
+    Test: PingRouter1FromRouter3 has PASSED
+    Test: PingRouter1FromRouter4 has PASSED
+    Test: PingRouter4FromRouter1 has PASSED
+    Test: PingRouter3FromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:28:27.378923:
+  Passed Tests: 
+    Test: PingRouter2FromRouter1 has PASSED
+  Failed Tests: 
 End of Test Run 
 
 New Test Run on 2020-05-12 10:41:29.013429:
