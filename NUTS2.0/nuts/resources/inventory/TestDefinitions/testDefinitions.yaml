@@ -70,18 +70,29 @@ test10:
   - Success
   - connectivity
 
-test11:
-  - PingRouter3FromRouter1
-  - Ping
+test08:
+  - GetArpTableFromRouter1
+  - Arp Table
   - router01
-  - 172.16.13.3
-  - Success
-  - connectivity
+  - No Target
+  - [
+      {'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'},
+      {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'},
+      {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'},
+      {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'},
+      {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'},
+      {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}
+    ]
+  - Arp
 
-test12:
-  - PingRouter2FromRouter1
-  - Ping
+test09:
+  - GetOspfNeighbors
+  - Ospf Neighbor
   - router01
-  - 172.16.255.2
-  - Success
-  - connectivity
+  - No Target
+  - [
+      {'Neighbor-ID': '172.16.255.3', 'Priority': '1', 'State': 'FULL/BDR', 'Address': '172.16.13.3', 'Interface': 'GigabitEthernet4'},
+      {'Neighbor-ID': '172.16.255.2', 'Priority': '1', 'State': 'FULL/BDR', 'Address': '172.16.12.2', 'Interface': 'GigabitEthernet3'},
+      {'Neighbor-ID': '172.16.255.4', 'Priority': '1', 'State': 'FULL/BDR', 'Address': '172.16.14.4', 'Interface': 'GigabitEthernet2'}
+    ]
+  - OSPF

@@ -67,6 +67,6 @@ class Reporter:
         for test_result in failed_results:
             print(Fore.RED + f"|   |-- Test: {test_result.get_test_name()} has FAILED")
             print(Fore.RED + f"|   |   |-- Expected: {test_result.get_expected_value()}")
-            print(Fore.RED + f"|   |   |-- Actual: {test_result.get_result()}")
+            print(Fore.RED + f"|   |   |-- Actual:   {test_result.get_result()}")
             print(Fore.RED + "|   |")
 

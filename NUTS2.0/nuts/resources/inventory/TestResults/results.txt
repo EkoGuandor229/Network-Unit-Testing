@@ -163,3 +163,558 @@ New Test Run on 2020-05-12 11:28:27.378923:
   Failed Tests: 
 End of Test Run 
 
+New Test Run on 2020-05-12 10:41:29.013429:
+  Passed Tests: 
+  Failed Tests: 
+    Test: Test with command: Arp Table has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+End of Test Run 
+
+New Test Run on 2020-05-12 10:45:28.631605:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:46:12.531311:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:47:00.862846:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:47:53.044406:
+  Passed Tests: 
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 10:48:09.821751:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:50:05.104907:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:54:13.014477:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:54:45.320098:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:57:09.524082:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:58:08.046682:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:58:46.130713:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 10:59:37.883710:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 11:00:30.210218:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 11:00:54.121627:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 11:02:43.278371:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 11:20:23.420015:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:21:34.881467:
+  Passed Tests: 
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:21:50.490346:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:22:44.415546:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:23:40.056863:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:24:03.665700:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:26:40.744906:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:38:59.850077:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:39:32.862638:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:40:44.844565:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:41:49.511718:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:44:11.088626:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:45:10.365128:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 11:45:52.624060:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:46:33.765052:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:55:15.547896:
+  Passed Tests: 
+    Test: GetMacAddressTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:57:32.395115:
+  Passed Tests: 
+    Test: GetMacAddressTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 11:57:58.609061:
+  Passed Tests: 
+    Test: GetMacAddressTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:07:56.548765:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:08:45.809739:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:09:28.848817:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:12:25.870947:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:12:50.088280:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:13:33.423620:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:14:12.144383:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:14:33.283373:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:15:01.122412:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:15:32.871027:
+  Passed Tests: 
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:15:47.486053:
+  Passed Tests: 
+    Test: GetOspfBorderRouter has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:17:31.555455:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetOspfNeighbors has FAILED 
+New Test Run on 2020-05-12 12:17:57.584323:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetOspfNeighbors has FAILED 
+New Test Run on 2020-05-12 12:19:54.482894:
+  Passed Tests: 
+    Test: GetOspfNeighbors has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:20:51.221859:
+  Passed Tests: 
+    Test: GetOspfNeighbors has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 12:24:46.448856:
+  Passed Tests: 
+    Test: GetOspfNeighbors has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 13:39:47.652185:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetOspfNeighbors has FAILED 
+New Test Run on 2020-05-12 13:49:47.089152:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetOspfNeighbors has FAILED 
+New Test Run on 2020-05-12 13:51:14.951389:
+  Passed Tests: 
+    Test: GetOspfNeighbors has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 13:51:39.476733:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetOspfNeighbors has FAILED 
+New Test Run on 2020-05-12 13:53:38.938912:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 13:57:09.270037:
+  Passed Tests: 
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 13:57:40.306266:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 13:58:07.502869:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 13:58:50.048857:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 14:00:22.292210:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 14:01:17.811309:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+New Test Run on 2020-05-12 14:03:08.377089:
+  Passed Tests: 
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.1'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+End of Test Run 
+
+New Test Run on 2020-05-12 14:05:53.272285:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+    Test: GetOspfNeighbors has PASSED
+  Failed Tests: 
+    Test: PingGoogleFromRouter3 has FAILED 
+      Expected: Success
+      Actual:   Failure
+    Test: Test with command: Fail Please has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.1'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+End of Test Run 
+
+New Test Run on 2020-05-12 14:09:20.028770:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+    Test: GetArpTableFromRouter1 has PASSED
+    Test: GetOspfNeighbors has PASSED
+
+  Failed Tests: 
+    Test: PingGoogleFromRouter3 has FAILED 
+      Expected: Success
+      Actual:   Failure
+
+    Test: Test with command: Fail Please has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:12:58.208981:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+    Test: GetOspfNeighbors has PASSED
+
+  Failed Tests: 
+    Test: PingGoogleFromRouter3 has FAILED 
+      Expected: Success
+      Actual:   Failure
+
+    Test: Test with command: Fail Please has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:14:38.784406:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   AggregatedResult (netmiko_send_command): {'host1': MultiResult: [Result: "netmiko_send_command"]}
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:15:08.767832:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:15:50.490890:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:16:16.879601:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:17:19.041083:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   None
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:21:27.624631:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   []
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:21:58.610649:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   []
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:24:31.248935:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   []
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:27:00.256613:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   []
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:27:28.657136:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   []
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:28:13.494915:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '5254.0067.a539', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '5254.0028.f09d', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '5254.0016.9160', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '5254.0012.e04c', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '5254.0063.cd6c', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '5254.005d.8ec7', 'ip': '172.16.14.4'}]
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:29:05.679931:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '5254.0067.a539', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '5254.0028.f09d', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '5254.0016.9160', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '5254.0012.e04c', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '5254.0063.cd6c', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '5254.005d.8ec7', 'ip': '172.16.14.4'}]
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:34:05.453812:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '5.5.0.6.a.3', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '5.5.0.2.f.9', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '5.5.0.1.9.6', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '5.5.0.1.e.4', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '5.5.0.6.c.6', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '5.5.0.5.8.c', 'ip': '172.16.14.4'}]
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:34:55.745608:
+  Passed Tests: 
+
+  Failed Tests: 
+    Test: GetArpTableFromRouter1 has FAILED 
+      Expected: [{'interface': 'GigabitEthernet3', 'mac': '52:54:00:67:A5:39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '52:54:00:28:F0:9D', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:16:91:60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '52:54:00:12:E0:4C', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:63:CD:6C', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '52:54:00:5D:8E:C7', 'ip': '172.16.14.4'}]
+      Actual:   [{'interface': 'GigabitEthernet3', 'mac': '525.54.00.67.a5.39', 'ip': '172.16.12.1'}, {'interface': 'GigabitEthernet3', 'mac': '525.54.00.28.f0.9d', 'ip': '172.16.12.2'}, {'interface': 'GigabitEthernet4', 'mac': '525.54.00.16.91.60', 'ip': '172.16.13.1'}, {'interface': 'GigabitEthernet4', 'mac': '525.54.00.12.e0.4c', 'ip': '172.16.13.3'}, {'interface': 'GigabitEthernet2', 'mac': '525.54.00.63.cd.6c', 'ip': '172.16.14.1'}, {'interface': 'GigabitEthernet2', 'mac': '525.54.00.5d.8e.c7', 'ip': '172.16.14.4'}]
+
+End of Test Run 
+
+New Test Run on 2020-05-12 14:36:26.892253:
+  Passed Tests: 
+    Test: GetArpTableFromRouter1 has PASSED
+
+  Failed Tests: 
+End of Test Run 
+
+New Test Run on 2020-05-12 14:38:31.496559:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+    Test: GetArpTableFromRouter1 has PASSED
+    Test: GetOspfNeighbors has PASSED
+
+  Failed Tests: 
+    Test: PingGoogleFromRouter3 has FAILED 
+      Expected: Success
+      Actual:   Failure
+
+    Test: Test with command: Fail Please has FAILED 
+      Expected: Some test implemented
+      Actual:   None
+
+End of Test Run 
+
