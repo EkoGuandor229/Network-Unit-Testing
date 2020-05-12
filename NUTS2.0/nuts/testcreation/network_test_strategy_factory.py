@@ -1,6 +1,9 @@
+from nuts.testcreation.concretetests.napalm_get_arp_table import NapalmShowArpTables
 from nuts.testcreation.concretetests.napalm_get_interfaces import NapalmShowInterfaces
 from nuts.testcreation.concretetests.napalm_ping_test import NapalmPingTest
+from nuts.testcreation.concretetests.netmiko_get_arp_table import NetmikoShowArpTables
 from nuts.testcreation.concretetests.netmiko_get_interfaces import NetmikoShowInterfaces
+from nuts.testcreation.concretetests.netmiko_get_ospf_neighbor import NetmikoShowOspfNeighbor
 from nuts.testcreation.concretetests.netmiko_ping_test import NetmikoPingTest
 from nuts.testcreation.concretetests.netmiko_traceroute import NetmikoTraceroute
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
@@ -36,7 +39,16 @@ class TestStrategyFactory(TestFactoryInterface):
             "Traceroute": {
                 "Napalm": None,
                 "Netmiko": NetmikoTraceroute
+            },
+            "Arp Table": {
+                "Napalm": NapalmShowArpTables,
+                "Netmiko": NetmikoShowArpTables
+            },
+            "Ospf Neighbor": {
+                "Napalm": None,
+                "Netmiko": NetmikoShowOspfNeighbor
             }
+
             # Add more Tests as "Testcommand: {connection_dictionary}
         }
 

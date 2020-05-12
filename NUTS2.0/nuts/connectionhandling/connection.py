@@ -24,11 +24,6 @@ class Connection:
         """
             Maps the connection type to the test_definitions
         """
-        # TODO: Mapping
-        # First: get to execute command from testdefinition
-        # Second: check with support set for that command
-        # if command in supportset, return supported connection type
-        # else return netmiko as backup strat.
 
         for test_definition in test_definitions.values():
             device_os = test_definition.get_test_devices().get_platform()

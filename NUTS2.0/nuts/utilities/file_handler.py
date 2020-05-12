@@ -50,11 +50,11 @@ class FileHandler:
 
     def write_failed_results(self, results):
         with open(os.path.join(self.path, self.file), 'a') as fp:
-            fp.write("  Failed Tests: \n")
+            fp.write("\n  Failed Tests: \n")
             for result in results:
                 fp.write("    Test: " + result.get_test_name() + " has FAILED \n")
-                fp.write("      Expected: " + result.get_expected_value() + "\n")
-                fp.write("      Actual:   " + str(result.get_result()) + "\n")
+                fp.write("      Expected: " + str(result.get_expected_value()) + "\n")
+                fp.write("      Actual:   " + str(result.get_result()) + "\n\n")
             fp.write("End of Test Run \n")
             fp.write("\n")
 
