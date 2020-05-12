@@ -7,6 +7,24 @@ from pathlib import Path
 
 
 class Inventory:
+    """
+    The Inventory Class creates the Device and DeviceConnection Objects and
+    links the Device Connections to the right Devices
+
+    ...
+
+    Attributes
+    ----------
+    logger
+        Instance of the logger Class
+    devices
+        The created Devices in a Dictionary with the Device Id as Key
+    device_connections
+        The created device_connections in an Array to link with the Devices
+    file_handler
+        Instance of the Class file_handler
+    """
+
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.devices = {}
@@ -15,6 +33,9 @@ class Inventory:
         self.create_inventory()
 
     def create_device_object(self):
+        """
+        Creates the Device Objects and Links the DeviceConnection Objects to them
+        """
         file_path = Path("resources/inventory/Devices/devices.yaml")
         devices_yaml = self.file_handler.read_file(file_path)
         for device in devices_yaml:
@@ -32,6 +53,9 @@ class Inventory:
                 self.logger.info('Device Object "{}" created'.format(device[0]))
 
     def create_device_connection_object(self):
+        """
+         Creates the DeviceCOnnection Objects
+        """
         file_path = Path("resources/inventory/DeviceConnections/deviceconnections.yaml")
         device_connection_yaml = self.file_handler.read_file(file_path)
         for device_connection in device_connection_yaml:
@@ -44,6 +68,9 @@ class Inventory:
                 self.logger.exception(ex)
 
     def find_device_connection(self, router_id):
+        """
+        Helper Method to map the right DeviceConnection to the Devices
+        """
         device_connections = []
         for dev_con in self.device_connections:
             if dev_con.get_device_a() == router_id:
@@ -51,5 +78,8 @@ class Inventory:
         return device_connections
 
     def create_inventory(self):
+        """
+        Runs all te Methods in the correct order
+        """
         self.create_device_connection_object()
         self.create_device_object()

@@ -16,6 +16,8 @@ class TestBuilder:
 
     Attributes
     ----------
+    logger
+        Instance of the logger class
     network_test_bundle
         reference to the TestBundle-class that is responsible for the
         instantiation of the concrete test-classes from the test-definitions

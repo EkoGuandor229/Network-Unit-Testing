@@ -67,6 +67,7 @@ class TestController:
 
         print("This may take a few seconds")
         self.network_test_runner.run_all_tests(test_bundle)
+        print("\n")
         print("Test execution successful")
         self.progress_bar("Analyzing Results", 0.02)
 
