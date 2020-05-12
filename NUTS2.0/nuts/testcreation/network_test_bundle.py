@@ -1,4 +1,5 @@
 from nuts.testcreation.network_test_strategy_factory import TestStrategyFactory
+from nuts.utilities.progress_bar_handler import ProgressBarHandler
 
 
 class TestBundle:
@@ -27,6 +28,7 @@ class TestBundle:
     """
 
     def __init__(self):
+        self.progress_bar = ProgressBarHandler()
         self.network_tests = []
         self.testFactory = TestStrategyFactory()
 
@@ -41,7 +43,10 @@ class TestBundle:
             A collection of defined network tests which should be executed
             according to the test definitions
         """
+        self.progress_bar.initiate_progress_bar(len(test_definitions), "Create runnable tests")
         for test_definition in test_definitions:
             test = self.testFactory.factory_method(test_definition)
+            self.progress_bar.update_progress_bar(1)
             self.network_tests.append(test)
+        self.progress_bar.clear_progress_bar()
         return self.network_tests

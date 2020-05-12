@@ -1,5 +1,7 @@
 import logging
 
+from nuts.utilities.progress_bar_handler import ProgressBarHandler
+
 
 class TestRunner:
     """
@@ -16,12 +18,12 @@ class TestRunner:
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        self.progress_bar = ProgressBarHandler()
 
     def run_all_tests(self, tests):
-        """
-        Starts the run Method for each test given
-        """
+        self.progress_bar.initiate_progress_bar(len(tests), "Execute tests")
         for test in tests:
             result = test.run_test()
+            self.progress_bar.update_progress_bar(1)
             test.set_result(result)
-
+        self.progress_bar.clear_progress_bar()
