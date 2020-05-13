@@ -1014,3 +1014,20 @@ New Test Run on 2020-05-13 12:00:05.879531:
   Failed Tests: 
 End of Test Run 
 
+New Test Run on 2020-05-13 13:04:49.876078:
+  Passed Tests: 
+    Test: PingRouter1Loopback0 has PASSED
+    Test: PingRouter1Loopback1 has PASSED
+    Test: PingRouter1FromRouter1 has PASSED
+    Test: GetInterfacesFromRouter02 has PASSED
+    Test: TracerouteFromRouter1ToRouter3 has PASSED
+    Test: PingRouter1FromRouter2 has PASSED
+    Test: PingRouter1FromRouter3 has PASSED
+    Test: PingRouter1FromRouter4 has PASSED
+    Test: PingRouter4FromRouter1 has PASSED
+    Test: GetArpTableFromRouter1 has PASSED
+    Test: GetOspfNeighbors has PASSED
+
+  Failed Tests: 
+End of Test Run 
+
