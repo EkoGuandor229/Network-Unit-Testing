@@ -1,0 +1,5 @@
+devices : "resources/inventory/Devices/devices.yaml"
+device-connections : "resources/inventory/DeviceConnections/deviceconnections.yaml"
+test-definitions : "resources/inventory/TestDefinitions/"
+log-files : "nuts.log"
+always-skip-GUI : True

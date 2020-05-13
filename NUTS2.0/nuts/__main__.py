@@ -3,10 +3,12 @@ import os
 import sys
 
 from nuts import network_test_controller
+from nuts.utilities.file_handler import FileHandler
 
 
 def _init_logger():
-    log_path = os.path.join(os.path.join(os.path.abspath(__file__)), '..',  'nuts.log')
+    file_handler = FileHandler()
+    log_path = file_handler.read_config("log-files")
     file_handler = logging.FileHandler(filename=log_path)
     file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
 

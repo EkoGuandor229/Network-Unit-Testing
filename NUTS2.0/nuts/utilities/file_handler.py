@@ -58,3 +58,7 @@ class FileHandler:
             fp.write("End of Test Run \n")
             fp.write("\n")
 
+    def read_config(self, param):
+        with open("config.yaml") as file:
+            config_map = yaml.load(file, Loader=yaml.ruamel.yaml.Loader)
+        return config_map[param]

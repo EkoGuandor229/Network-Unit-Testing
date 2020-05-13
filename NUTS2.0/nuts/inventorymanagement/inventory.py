@@ -39,7 +39,7 @@ class Inventory:
         """
         Creates the Device Objects and Links the DeviceConnection Objects to them
         """
-        file_path = Path("resources/inventory/Devices/devices.yaml")
+        file_path = Path(self.file_handler.read_config("devices"))
         devices_yaml = self.file_handler.read_file(file_path)
         self.progress_bar.initiate_progress_bar(len(devices_yaml), "Create Device Objects from YAML")
         for device in devices_yaml:
@@ -62,7 +62,7 @@ class Inventory:
         """
          Creates the DeviceCOnnection Objects
         """
-        file_path = Path("resources/inventory/DeviceConnections/deviceconnections.yaml")
+        file_path = Path(self.file_handler.read_config("device-connections"))
         device_connection_yaml = self.file_handler.read_file(file_path)
         for device_connection in device_connection_yaml:
             try:
