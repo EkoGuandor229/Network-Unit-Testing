@@ -1,14 +1,8 @@
-from time import sleep
-
-import colorama
-from colorama import Fore
-from pyfiglet import Figlet
-from tqdm import tqdm
-
 from nuts.testhandling.evaluator import Evaluator
 from nuts.testhandling.network_test_builder import TestBuilder
 from nuts.testhandling.network_test_runner import TestRunner
 from nuts.testhandling.reporter import Reporter
+from nuts.utilities.ui_handler import UIHandler
 
 
 class TestController:
@@ -42,6 +36,7 @@ class TestController:
     """
 
     def __init__(self):
+        self.ui_handler = UIHandler()
         self.network_test_builder = TestBuilder()
         self.network_test_runner = TestRunner()
         self.evaluator = Evaluator()
@@ -54,41 +49,17 @@ class TestController:
         with the evaluator and finally prints the evaluated results on the
         console and into a log-file.
         """
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-        print(Fore.CYAN + "|" + 31 * " " + "Initializing Test Suite" + 24 * " " + "|")
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
 
-        self.progress_bar("Progress", 0.01)
         test_bundle = self.network_test_builder.get_network_tests()
-
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-        print(Fore.CYAN + "|" + 31 * " " + "Run all Tests" + 34 * " " + "|")
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-
-        print("This may take a few seconds")
+        self.ui_handler.create_border_box("Run all tests")
         self.network_test_runner.run_all_tests(test_bundle)
-        print("\n")
-        print("Test execution successful")
-        self.progress_bar("Analyzing Results", 0.02)
-
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-        print(Fore.CYAN + "|" + 31 * " " + "Test Results" + 35 * " " + "|")
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-
+        self.ui_handler.create_border_box("Test results")
         evaluated_results = self.evaluator.compare(test_bundle)
         self.reporter.print_results(evaluated_results)
         self.reporter.save_results(evaluated_results)
 
-    def progress_bar(self, description, time):
-        for i in tqdm(range(100), desc=description, ncols=80,
-                      bar_format="%s {l_bar}{bar}{r_bar} %s" % (Fore.CYAN, Fore.RESET)):
-            sleep(time)
-
 
 def run():
-    colorama.init()
-    f = Figlet(font='slant')
-    print(f.renderText("NUTS 2.0"))
     controller = TestController()
     controller.logic()
 

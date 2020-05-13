@@ -64,7 +64,7 @@ class NetmikoShowOspfNeighbor(NetworkTestStrategyInterface):
             }
 
             self.result.append(neighbor_dict)
-        print(self.result)
+
 
 
 

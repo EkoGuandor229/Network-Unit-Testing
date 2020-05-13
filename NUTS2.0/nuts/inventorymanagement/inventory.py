@@ -5,6 +5,8 @@ from nuts.inventorymanagement.device_connection import DeviceConnection
 from nuts.utilities.file_handler import FileHandler
 from pathlib import Path
 
+from nuts.utilities.progress_bar_handler import ProgressBarHandler
+
 
 class Inventory:
     """
@@ -27,10 +29,12 @@ class Inventory:
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        self.progress_bar = ProgressBarHandler()
         self.devices = {}
         self.device_connections = []
         self.file_handler = FileHandler()
         self.create_inventory()
+
 
     def create_device_object(self):
         """
@@ -38,7 +42,9 @@ class Inventory:
         """
         file_path = Path("resources/inventory/Devices/devices.yaml")
         devices_yaml = self.file_handler.read_file(file_path)
+        self.progress_bar.initiate_progress_bar(len(devices_yaml), "Create Device Objects from YAML")
         for device in devices_yaml:
+            self.progress_bar.update_progress_bar(1)
             try:
                 device_connections = self.find_device_connection(device[0])
             except ValueError as ex:
@@ -51,6 +57,7 @@ class Inventory:
                 self.devices[device[0]] = Device(device[0], device[1], device[2], device[3], device[4],
                                                  device_connections, device[5])
                 self.logger.info('Device Object "{}" created'.format(device[0]))
+        self.progress_bar.clear_progress_bar()
 
     def create_device_connection_object(self):
         """
