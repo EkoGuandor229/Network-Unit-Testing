@@ -69,3 +69,6 @@ class NetmikoShowArpTables(NetworkTestStrategyInterface):
 
     def parse_mac(self, param):
         return f"{param[0:2]}:{param[2:4]}:{param[5:7]}:{param[7:9]}:{param[10:12]}:{param[12:14]}".upper()
+
+    def close_connection(self):
+        self.nr.close_connections()

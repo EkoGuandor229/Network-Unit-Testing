@@ -35,7 +35,6 @@ class Inventory:
         self.file_handler = FileHandler()
         self.create_inventory()
 
-
     def create_device_object(self):
         """
         Creates the Device Objects and Links the DeviceConnection Objects to them

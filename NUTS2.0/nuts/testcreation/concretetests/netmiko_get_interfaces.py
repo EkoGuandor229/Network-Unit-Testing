@@ -65,3 +65,6 @@ class NetmikoShowInterfaces(NetworkTestStrategyInterface):
 
     def get_test_name(self):
         return self.test_name
+
+    def close_connection(self):
+        self.nr.close_connections()

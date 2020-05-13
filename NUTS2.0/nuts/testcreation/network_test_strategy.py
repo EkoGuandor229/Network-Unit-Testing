@@ -41,3 +41,7 @@ class NetworkTestStrategyInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_test_name(self):
         pass
+
+    @abc.abstractmethod
+    def close_connection(self):
+        pass
