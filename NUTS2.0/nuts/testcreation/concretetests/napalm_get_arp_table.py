@@ -40,7 +40,6 @@ class NapalmShowArpTables(NetworkTestStrategyInterface):
         return self.nr.run(
             task=napalm_get,
             getters=["arp_table"]
-
         )
 
     def evaluate_result(self) -> bool:
@@ -65,3 +64,6 @@ class NapalmShowArpTables(NetworkTestStrategyInterface):
 
     def get_test_name(self):
         return self.test_name
+
+    def close_connection(self):
+        self.nr.close_connections()

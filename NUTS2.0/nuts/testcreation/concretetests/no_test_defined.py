@@ -36,3 +36,6 @@ class NoTestDefined(NetworkTestStrategyInterface):
 
     def get_expected_value(self):
         return "Some test implemented"
+
+    def close_connection(self):
+        self.nr.close_connections()

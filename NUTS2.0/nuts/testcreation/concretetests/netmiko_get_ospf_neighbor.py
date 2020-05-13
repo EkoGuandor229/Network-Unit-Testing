@@ -57,19 +57,19 @@ class NetmikoShowOspfNeighbor(NetworkTestStrategyInterface):
         for i in range(8, len(array), 6):
             neighbor_dict = {
                 "Neighbor-ID": array[i],
-                "Priority": array[i+1],
-                "State": array[i+2],
-                "Address": array[i+4],
-                "Interface": array[i+5]
+                "Priority": array[i + 1],
+                "State": array[i + 2],
+                "Address": array[i + 4],
+                "Interface": array[i + 5]
             }
 
             self.result.append(neighbor_dict)
-
-
-
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
         return self.test_name
+
+    def close_connection(self):
+        self.nr.close_connections()
