@@ -14,6 +14,6 @@ class UIHandler:
         self.create_border_box("Initializing test suite")
 
     def create_border_box(self, text: str):
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
-        print(Fore.CYAN + "| " + text.upper() + (77-len(text)) * " " + "|")
-        print(Fore.CYAN + "+" + 78 * "-" + "+")
+        print(Fore.CYAN + "+" + 98 * "-" + "+")
+        print(Fore.CYAN + "| " + text.upper() + (97-len(text)) * " " + "|")
+        print(Fore.CYAN + "+" + 98 * "-" + "+")

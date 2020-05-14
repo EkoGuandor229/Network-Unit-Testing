@@ -4,7 +4,6 @@ import nuts
 
 from nuts.utilities.file_handler import FileHandler
 from nuts.inventorymanagement.network_test_definition import TestDefinition
-from pathlib import Path
 
 from nuts.utilities.progress_bar_handler import ProgressBarHandler
 
@@ -46,7 +45,7 @@ class TestDefinitionLoader:
                 definition_files + filename
             )
             self.progress_bar.initiate_progress_bar(
-                len(test_definition_yaml), "Create test definition objects from " + filename
+                len(test_definition_yaml), "Read objects from " + filename
             )
             try:
                 for test_definition in test_definition_yaml:

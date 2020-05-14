@@ -35,7 +35,7 @@ class Reporter:
             self.print_passed_results(passed)
         else:
             print(Fore.RED + "No tests passed")
-        print(80*"-")
+        print(100*"-")
 
         if len(failed) > 0:
             self.print_failed_results(failed)
