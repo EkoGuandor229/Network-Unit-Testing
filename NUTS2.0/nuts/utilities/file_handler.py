@@ -1,6 +1,7 @@
 import datetime
 import logging
 import os
+import nuts
 
 import ruamel.yaml as yaml
 
@@ -12,6 +13,7 @@ class FileHandler:
     """
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        self.results_file = os.path.join(nuts.basedir, "resources/inventory/Testresults/results.txt")
         self.path = "resources/inventory/TestResults/"
         self.file = "results.txt"
 
@@ -37,19 +39,19 @@ class FileHandler:
 
     def write_new_run(self):
         time = datetime.datetime.now()
-        with open(os.path.join(self.path, self.file), 'a') as fp:
+        with open(self.results_file, 'a') as fp:
             fp.write("New Test Run on " + str(time) + ":")
             fp.write("\n")
 
     def write_passed_results(self, results):
-        with open(os.path.join(self.path, self.file), 'a') as fp:
+        with open(self.results_file, 'a') as fp:
             fp.write("  Passed Tests: \n")
             for result in results:
                 fp.write("    Test: " + result.get_test_name() + " has PASSED")
                 fp.write("\n")
 
     def write_failed_results(self, results):
-        with open(os.path.join(self.path, self.file), 'a') as fp:
+        with open(self.results_file, 'a') as fp:
             fp.write("\n  Failed Tests: \n")
             for result in results:
                 fp.write("    Test: " + result.get_test_name() + " has FAILED \n")
@@ -59,6 +61,7 @@ class FileHandler:
             fp.write("\n")
 
     def read_config(self, param):
-        with open("config.yaml") as file:
+        path = os.path.join(nuts.basedir, "config.yaml")
+        with open(path) as file:
             config_map = yaml.load(file, Loader=yaml.ruamel.yaml.Loader)
         return config_map[param]
