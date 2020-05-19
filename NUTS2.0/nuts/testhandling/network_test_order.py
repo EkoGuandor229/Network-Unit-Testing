@@ -154,3 +154,6 @@ class TestOrder:
         self.create_checkbuttons(test_definitions)
         self.root.mainloop()
 
+    def get_ordered_test_definitions(self):
+        return self.ordered_test_definitions
+

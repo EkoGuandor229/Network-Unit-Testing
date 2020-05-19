@@ -5,6 +5,7 @@ from nuts.inventorymanagement.inventory import Inventory
 from nuts.testcreation.network_test_bundle import TestBundle
 from nuts.inventorymanagement.network_test_definition_loader import TestDefinitionLoader
 from nuts.testhandling.network_test_order import TestOrder
+from nuts.utilities.file_handler import FileHandler
 
 
 class TestBuilder:
@@ -51,7 +52,7 @@ class TestBuilder:
         according to the test definitions
     """
 
-    def __init__(self):
+    def __init__(self, args):
         self.logger = logging.getLogger(__name__)
         self.inventory = Inventory()
         self.connection = Connection()
@@ -60,11 +61,16 @@ class TestBuilder:
         self.network_test_order = TestOrder()
         self.network_test_definitions = {}
         self.network_tests = []
-
         self.get_test_definitions()
         self.connect_device_objects()
         self.connection.define_connection(self.network_test_definitions)
-        self.network_test_order.define_test_order(self.network_test_definitions)
+        self.file_handler = FileHandler()
+        if args.r:
+            self.skip_ui = True
+        else:
+            self.skip_ui = self.file_handler.read_config("skip-UI")
+        if not self.skip_ui:
+            self.network_test_order.define_test_order(self.network_test_definitions)
         self.get_runnable_tests()
 
     def get_test_definitions(self):
@@ -93,7 +99,12 @@ class TestBuilder:
         Gets concrete tests for the tests specified in the
         network_test_definitions collection from the network_test_bundle class
         """
-        test_definitions = self.network_test_order.ordered_test_definitions
+        if self.skip_ui:
+            test_definitions = []
+            for definition in self.network_test_definitions.values():
+                test_definitions.append(definition)
+        else:
+            test_definitions = self.network_test_order.get_ordered_test_definitions()
         test_bundle = self.network_test_bundle.create_test_bundle(test_definitions)
         self.network_tests = test_bundle
         self.logger.info("Runnable Tests created")

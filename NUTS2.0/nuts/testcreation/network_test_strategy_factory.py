@@ -9,6 +9,7 @@ from nuts.testcreation.concretetests.netmiko_traceroute import NetmikoTraceroute
 from nuts.testcreation.concretetests.no_test_defined import NoTestDefined
 
 from nuts.testcreation.network_test_factory import TestFactoryInterface
+from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
 class TestStrategyFactory(TestFactoryInterface):
@@ -52,7 +53,7 @@ class TestStrategyFactory(TestFactoryInterface):
             # Add more Tests as "Testcommand: {connection_dictionary}
         }
 
-    def factory_method(self, test_definition):
+    def factory_method(self, test_definition) -> NetworkTestStrategyInterface:
         """
         Creates concrete instances of tests based on the type of test specified
         in the test_definition

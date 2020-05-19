@@ -1,3 +1,5 @@
+import argparse
+
 from nuts.testhandling.evaluator import Evaluator
 from nuts.testhandling.network_test_builder import TestBuilder
 from nuts.testhandling.network_test_runner import TestRunner
@@ -36,8 +38,14 @@ class TestController:
     """
 
     def __init__(self):
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-r", "-runalltests",
+                            help="executes all tests without ui-prompt",
+                            action="store_true")
+        args = parser.parse_args()
+
         self.ui_handler = UIHandler()
-        self.network_test_builder = TestBuilder()
+        self.network_test_builder = TestBuilder(args)
         self.network_test_runner = TestRunner()
         self.evaluator = Evaluator()
         self.reporter = Reporter()
@@ -57,6 +65,9 @@ class TestController:
         evaluated_results = self.evaluator.compare(test_bundle)
         self.reporter.print_results(evaluated_results)
         self.reporter.save_results(evaluated_results)
+
+    def get_skip_ui(self):
+        return self.skip_ui
 
 
 def run():

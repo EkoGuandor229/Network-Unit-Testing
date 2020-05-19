@@ -1,9 +1,9 @@
 import logging
 import os
+import nuts
 
 from nuts.utilities.file_handler import FileHandler
 from nuts.inventorymanagement.network_test_definition import TestDefinition
-from pathlib import Path
 
 from nuts.utilities.progress_bar_handler import ProgressBarHandler
 
@@ -38,13 +38,14 @@ class TestDefinitionLoader:
         Loads test definitions from the file system specified in the
         definition_location and instantiates NetworkTestDefinition classes
         """
-        definition_location = Path(self.file_handler.read_config("test-definitions"))
-        for filename in os.listdir(definition_location):
+        definition_location = (self.file_handler.read_config("test-definitions"))
+        definition_files = os.path.join(nuts.basedir, definition_location)
+        for filename in os.listdir(definition_files):
             test_definition_yaml = self.file_handler.read_file(
-                self.file_handler.read_config("test-definitions") + filename
+                definition_files + filename
             )
             self.progress_bar.initiate_progress_bar(
-                len(test_definition_yaml), "Create test definition objects from " + filename
+                len(test_definition_yaml), "Read objects from " + filename
             )
             try:
                 for test_definition in test_definition_yaml:

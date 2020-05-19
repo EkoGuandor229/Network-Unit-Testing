@@ -1,9 +1,10 @@
 import logging
+import os
+import nuts
 
 from nuts.inventorymanagement.device import Device
 from nuts.inventorymanagement.device_connection import DeviceConnection
 from nuts.utilities.file_handler import FileHandler
-from pathlib import Path
 
 from nuts.utilities.progress_bar_handler import ProgressBarHandler
 
@@ -39,8 +40,9 @@ class Inventory:
         """
         Creates the Device Objects and Links the DeviceConnection Objects to them
         """
-        file_path = Path(self.file_handler.read_config("devices"))
-        devices_yaml = self.file_handler.read_file(file_path)
+        file_path = self.file_handler.read_config("devices")
+        devices_path = os.path.join(nuts.basedir, file_path)
+        devices_yaml = self.file_handler.read_file(devices_path)
         self.progress_bar.initiate_progress_bar(len(devices_yaml), "Create Device Objects from YAML")
         for device in devices_yaml:
             self.progress_bar.update_progress_bar(1)
@@ -62,8 +64,9 @@ class Inventory:
         """
          Creates the DeviceCOnnection Objects
         """
-        file_path = Path(self.file_handler.read_config("device-connections"))
-        device_connection_yaml = self.file_handler.read_file(file_path)
+        file_path = self.file_handler.read_config("device-connections")
+        dev_connections_path = os.path.join(nuts.basedir, file_path)
+        device_connection_yaml = self.file_handler.read_file(dev_connections_path)
         for device_connection in device_connection_yaml:
             try:
                 self.device_connections.append(
