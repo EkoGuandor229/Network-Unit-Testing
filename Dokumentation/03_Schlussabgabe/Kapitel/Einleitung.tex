@@ -15,10 +15,11 @@
     Konfiguration sich das Netzwerk zur Laufzeit dynamisch anpasst, 
     um die Performanz des Systems zu optimieren und Fehler sowie Ausfälle
     zu korrigieren. 
-    Dieses Verhalten wird über verschiedene Netzwerkprotokolle gesteuert
+    Dieses Verhalten wird über verschiedene Netzwerkprotokolle gesteuert, z.B. OSPF oder
+    BGP.
     
     In der Softwareentwicklung werden schon seit 
-    Ende der 80er-Jahre Komponententests, sogenannte Unit-Tests, durchgeführt, um einzelne 
+    Ende der 80er-Jahre Komponententests, sogenannte Unit-Tests durchgeführt, um einzelne 
     Komponenten (Units) automatisiert zu Testen. Dabei wird ein Computerprogramm ausgeführt,
     welches mit verschiedenen Eingabeparametern überprüft, ob die Ausgabe des zu testenden
     Programms den erwarteten Ergebnissen entspricht.
@@ -26,7 +27,7 @@
     Dabei ist es möglich die Tests vor und nach einer geplanten Änderung durchzuführen,
     um zu überprüfen, ob die Software innerhalb der definierten Funktionsparameter operiert.
     Tests sollen dafür so geschrieben werden, dass möglichst jede Situation mit den 
-    Eingabeparametern abgebildet wird und Unittests sollen regelmässig durchgeführt werden,
+    Eingabeparametern abgebildet wird. Unittests sollen regelmässig durchgeführt werden,
     damit Fehler früh gefunden werden und sich nicht auf das gesammte System auswirken können.
 
     \newpage
@@ -34,7 +35,7 @@
     \subsection{Aufgabenstellung}
     Ziel dieser Arbeit ist, ein Programm zu entwickeln, mit dem sich Netzwerktests mit 
     der gleichen Arbeitsweise durchführen lassen, wie Unittests in der Softwareentwicklung
-    durchgeführt werden. Dabei müssen folgende Punkte erfüllt sein:
+    durchgeführt werden. Dabei müssen folgende Anforderungen an die Tests erfüllt sein:
     \begin{itemize}
         \item Tests müssen planbar sein. Es soll ein Testplan existieren.
         \item Tests müssen systematisch spezifiziert werden. Es existieren Test-Spezifikationen.
@@ -53,9 +54,9 @@
    Eine der grössten Herausforderungen an ein automatisiertes Testsystem sind die 
    verschiedenen Protokolle und die Unterschiede der Standards von diversen Herstellern.
 
-   Ohne kenntnisse, welche Protokolle auf einem Netzwerkgerät konfiguriert sind, 
+   Ohne Kenntnisse, welche Protokolle auf einem Netzwerkgerät konfiguriert sind, 
    können diese Netzwerkgeräte nicht effizient getestet werden, da die Netzwerkprotokolle
-   das Verhalten des Geräts zur Laufzeit beeinflusst. 
+   das Verhalten der Geräte zur Laufzeit beeinflussen. 
    Deshalb müssen für die Testdurchführung im vornherein die Konfigurationen und verwendeten
    Protokolle der Netzwerkgeräte bekannt sein und ein Testsystem muss mit diesen interagieren
    können.
@@ -69,3 +70,6 @@
    Dies setzt eine enorme flexibilität für ein Testprogramm voraus, welches ein 
    beliebiges Netzwerk mit unterschiedlichen Geräten von verschiedenen Herstellern 
    testen soll. 
+
+   \subsection{Vorarbeit}
+   \textcolor{red}{TODO}
