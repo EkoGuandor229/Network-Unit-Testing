@@ -1,0 +1,201 @@
+\documentclass[
+	ngerman,
+	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
+	toc=bibliography, % Literaturverzeichnis in das Inhaltsverzeichnis aufnehmen
+	footnotes=multiple, % Trennen von direkt aufeinander folgenden Fußnoten
+	parskip=half, % vertikalen Abstand zwischen Absätzen verwenden anstatt horizontale Einrückung von Folgeabsätzen
+	numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach DIN 5008)
+]{scrartcl}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+
+% Dokumenteninformationen ----------------------------------------------------
+\newcommand{\titel}{User Manual}
+\newcommand{\untertitel}{Studienarbeit \semester}
+\newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
+\newcommand{\datum}{\today}
+
+\newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
+
+\newcommand{\betriebLogo}{\vorlagenOrdner/Bilder/logo}
+
+% Konfiguration -------------------------------------------------------------
+\input{\vorlagenOrdner/Konfiguration/Metadaten} % Metadaten zu diesem Dokument (Autor usw.)
+\input{\vorlagenOrdner/Konfiguration/Packages} % verwendete Packages
+\input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
+\input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
+
+\begin{document}
+
+% Deckblatt ------------------------------------------------------------------
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{\vorlagenOrdner/Konfiguration/Deckblatt}
+\cleardoublepage
+
+% Preface --------------------------------------------------------------------
+\pagenumbering{Roman}
+
+% Inhaltsverzeichnis
+\phantomsection
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+% Inhalt ---------------------------------------------------------------------
+\section{Installation}
+	Es wird keine spezielle Installation benötigt. Das Repository auf GitHub muss lokal geklont werden.
+	Danach muss man noch das requirements File installieren mit dem Befehl: 'pip install requirements.txt'.
+	\subsection{Ausführen}
+	Das Programm kan regulär in einer Programmierumgebung wie zum Beispiel PyCharm ausgeführt werden.
+	Um es in einer Konsole zu starten muss zum Ordner NUTS2.0 navigiert werden. 
+	Man kann es mit dem Befehl: 'python -m nuts' starten. Wenn man das GUI auslassen möchte und direkt alle Tests 
+	ausführen möchte kann man mit dem Befehl: 'python -m nuts -r' starten.
+	\subsubsection{Konfiguration}
+	Im File 'Config.yaml' können die Pfäde aller Ordner geändert werden. 
+	Zusätzlich kann noch bestimmt werden, ob das GUI Per default übersprungen werden soll.
+
+\section{Inventar}
+	Um Netzwerktests auszuführen braucht man zuerst ein Inventar mit Devices und Device Connections.
+	Die Devices sind die Netzwerkgeräte wie zum Beispiel Router oder Switches.
+	Die Device Connections sind die Verbindungen zwischen den Devices.
+
+	\subsection{Devices}
+		Die Definitionen der Devices sind unter Resources/Inventory/Devices/Devices.yaml:\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices_yaml.png}
+
+		Um Devices zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+		\begin{tabularx}{\textwidth}{ll}
+			\toprule
+			Attribut & Beschreibung \\
+			\midrule
+			device\_id & Eine eindeutige ID für das Device \\
+			platform & Das OS welches das Device benutzt \\
+			username & Der username welches das Device für das Login benutzt\\
+			password & Das Passwort welches das Device für das Login benutzt\\
+			hostname & Die Ip Adresse über welche das Device angesprochen werden kann\\
+			\midrule
+		\end{tabularx}
+
+		Diese Informationen sollten wie folgt dargestellt werden: \\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices.png}
+
+	\subsection{Device Connections}
+		Die Definitionen der Device Connections sind unter Resources/Inventory/DeviceConnections/DeviceConnections.yaml:\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/DeviceConnections_yaml.png}
+
+		Um Device Connections zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+		\begin{tabularx}{\textwidth}{ll}
+			\toprule
+			Attribut & Beschreibung \\
+			\midrule
+			device a & Die ID des ersten Devices \\
+			device b & Die ID des zweiten Devices \\
+			connection speed & Die Übertragungsrate der Verbindung\\
+			\midrule
+		\end{tabularx}
+
+		Diese Informationen sollten wie folgt dargestellt werden: \\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/DeviceConnections.png}
+
+\section{Netzwerktests}
+	Die Netzwerktests sind die Tests, welche effektiv auf dem zu testenden Netzwerk ausgeführt werden.
+	Die Testdefinitionen befinden sich unter Resources/Inventory/TestDefinitions:\\
+	\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestDefinitions_yaml.png}
+
+	Es können in diesem Ordner beliebig viele YAML Files abgelegt werden und es werden vonn allen Files die Tests erfasst.
+
+	Um die Tests zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+	\begin{tabularx}{\textwidth}{ll}
+		\toprule
+		Attribut & Beschreibung \\
+		\midrule
+		test\_id & Eine eindeutige ID für den Test \\
+		command & Ein Command um den Test zu bestimmen \\
+		test\_device & Die ID des Devices auf welchem der Test ausgeführt werden soll\\
+		target & Das Ziel (Zum Beispiel eine IP im Falle eines Pings)\\
+		expected\_result & Das erwartete Resultat (Zum Beispiel Success im Falle eines Pings)\\
+		test\_group & Ein Gruppenname um später die Tests zu Kategorisieren\\
+		\midrule
+	\end{tabularx}
+
+	Diese Informationen sollten wie folgt dargestellt werden: \\
+	\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestDefinitions.png}
+	\newpage
+
+	\subsection{Commands}
+		Folgende Commands sind bereits implementiert und können mit den jeweiligen expected\_results verwendet werden:
+		\subsubsection{Ping}
+			Als erwartetes Resultat kann 'Success' oder 'Failure' verwendet werden.
+		\subsubsection{Show Interfaces}
+			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
+			Als erwartetes Resultat wird ein Dictionary mit key:'Interfacename' und value:'True' oder 'False' verwendet werden.
+			Dies sollte in folgender Form dargestellt werden:\\
+			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ShowInterfaces.png}
+		\subsubsection{Traceroute}
+			Als erwartetes Resultat wird ein Array von IP Adressen angegeben.
+			Dies sollte in folgeder Form dargestellt werden:\\
+			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Traceroute.png}
+		\subsubsection{Arp Table}
+			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
+			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. In den Dictionaries werden folgende Informationen benötigt:
+			'interface' : 'interfacename', 'mac' : 'macadresse', 'ip' : 'ipadresse'\\
+			Dies sollte in folgeder Form dargestellt werden:\\
+			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ArpTable.png}
+		\subsubsection{Ospf Neighbor}
+			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
+			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. In den Dictionaries werden folgende Informationen benötigt:
+			'Neighbor-ID' : 'ipadresse', 'Priority' : 'Nummer', 'State' : 'Den Status', 'Address' : 'ipadresse', 'Interface' : 'Interfacename'\\
+			Dies sollte in folgeder Form dargestellt werden:\\
+			\includegraphics[scale=0.6]{\vorlagenOrdner/Bilder/Manual/OspfNeighbor.png}
+
+\section{Durchführung}
+	Nachdem dass Inventar erstellt und die Testdefinitionen erfasst wurden kann man das Programm starten.
+	Falls die Option Skip-GUI aktiviert wurde werden alle Tests durchgeführt. Falls dies nicht aktiviert wurde
+	öffnet sich ein GUI.
+
+	\subsection{GUI}
+		Das GUI für die Definition der Test Reihenfolge besteht aus zweit Tabs:\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/GUI1.png}
+
+		Im ersten Tab werden alle Tests nach Gruppen sortiert angezeigt. 
+		Hier kann der Benutzer auswählen welche Tests er ausführen möchte.
+		Nachdem die Tests ausgewählt wurden weden mit dem Button 'Select' alle ausgewählten Tests in den zweiten Tab gezogen.
+
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/GUI2.png}
+
+		Im zweiten Tab werden alle ausgewählten Tests angezeigt und der Benutzer kann mit den jeweiligen Buttons die Reihenfolge bestimmen.
+		Nachdem der Benutzer mit der Reihenfolge zufrieden ist kann mit dem Button 'Save and Quit' das GUI beendet werden.
+
+	\subsection{Test Resultate}
+		Die Resultate der jeweiligen Durchführungen werden in der Konsole angezeigt und zusätzlich noch in einem File gespeichert.
+		In der Konsole sehen die Resultate wie folgt aus: \\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ConsoleGUI.png}
+
+		Das File befindet sich unter: 'Resources/Inventory/TestResults/results.txt'.\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestResults_txt.png}
+
+		In dem File wird zuerst die Zeit des TestRuns angegeben, danach werden zuerst die Passed Tests und danach die Failed Tests angezeigt.
+		Bei den Failed Tests werden zusätzlich noch das Erwartete und das Effektive Resultat angezeigt.\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestResults.png}
+
+\section{Zusätzliche Tests hinzufügen}
+	Falls der Benutzer eigene Tests hinzufügen möchte müssen an folgenden Orten änderungen vorgenommen werden:
+	\subsection{Conctrete Tests}
+		In diesem Ordner muss ein neues File angelegt werden mit dem Test, der implementiert werden möchte.
+		Bei der Strucktur des Files sollte man sich an die bisherigen Files halten.\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/concretetests.png}
+	\subsection{Network Test Strategy Factory}
+		In dieser Klasse ist die Test Map aufgrund welcher entschieden wird, welcher Test verwendet wird für welche Test Definition.
+		Hier muss in der Test Map der neue Test vermerkt werden.\\
+		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/strategyfactory.png}
+
+
+
+
+\end{document}
