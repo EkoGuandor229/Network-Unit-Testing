@@ -3,4 +3,86 @@
 \begin{document}
 \section{Realisierung}
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-\end{document}
+
+    \paragraph{Paramiko-Treiber}
+    Paramiko unterstützt sämtliche Geräte, zu denen eine SSH Verbindung aufgebaut werden kann.
+    Es werden in der Dokumentation von Paramiko keine Spezifischen Hersteller oder Betriebssysteme
+    genannt, die nicht von Paramiko unterstützt werden. 
+    
+    \paragraph{Netmiko-Treiber}
+    Die Geräteunterstützung von Netmiko lässt sich in drei Kategorien unterteilen:
+    Regelmässig getestet, Limitiert getestet und Experimentell.
+    
+    Bei regelmässig getesteten Geräten wird die komplette Test-Suite vor dem aktuellen
+    Release von Netmiko durchgeführt. 
+    Die unterstützten Betriebssysteme sind:
+    
+    \begin{itemize}
+        \item Arista vEOS
+        \item Cisco ASA
+        \item Cisco IOS
+        \item Cisco IOS-XE
+        \item Cisco IOS-XR
+        \item Cisco NX-OS
+        \item Cisco SG300
+        \item HP ProCurve
+        \item Juniper Junos
+        \item Linux
+    \end{itemize}
+    
+    \newpage
+    
+    Bei limitiert getestete Geräten werden die show- und config-Befehle getestet.
+    Die unterstützten Betriebssysteme sind:
+    
+    \begin{itemize}
+        \item Alcatel AOS6/AOS8
+        \item Apresia Systems AEOS
+        \item Calix B6
+        \item Cisco AireOS (Wireless LAN Controllers)
+        \item CloudGenix ION
+        \item Dell OS9 (Force10)
+        \item Dell OS10
+        \item Dell PowerConnect
+        \item Extreme ERS (Avaya)
+        \item Extreme VSP (Avaya)
+        \item Extreme VDX (Brocade)
+        \item Extreme MLX/NetIron (Brocade/Foundry)
+        \item HPE Comware7
+        \item Huawei
+        \item Huawei OLT
+        \item Huawei SmartAX
+        \item IP Infusion OcNOS
+        \item Juniper ScreenOS
+        \item Mellanox
+        \item MikroTik RouterOS
+        \item MikroTik SwitchOS
+        \item NetApp cDOT
+        \item Nokia/Alcatel SR OS
+        \item OneAccess
+        \item Palo Alto PAN-OS
+        \item Pluribus
+        \item Ruckus ICX/FastIron
+        \item Ruijie Networks
+        \item Ubiquiti EdgeSwitch
+        \item Vyatta VyOS
+    \end{itemize}
+    
+    Experimentelle Geräteunterstützung bedeutet, dass für diese spezifischen Geräte keine
+    eigenen Unittests existieren und die Unterstützung somit nicht getestet ist.
+    
+    Die aktuelle Netmiko-Dokumentation kann auf https://github.com/ktbyers/netmiko angesehen werden.
+    
+    
+    \paragraph{Napalm-Treiber}
+    Generell werden folgende Betriebssysteme von Napalm unterstützt:
+    
+    \begin{itemize}
+        \item EOS 
+        \item Junos
+        \item IOS-XR
+        \item NX-OS
+        \item NX-OS SSH
+        \item IOS
+    \end{itemize}
+    \end{document}

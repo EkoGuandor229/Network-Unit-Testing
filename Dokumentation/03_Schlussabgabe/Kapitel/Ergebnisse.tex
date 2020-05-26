@@ -2,6 +2,7 @@
 
 \begin{document}
 \section{Ergebnisse}
+\subsection{Resultat der Arbeit}
 Die Studienarbeit hat ein Python-Programm entwickelt, welches basierend auf einer Testdefinition
 im YAML-Format automatische Tests gegen ein Netzwerk ausführen kann.
 
@@ -10,7 +11,72 @@ ist und die Automation von Netzwerktätigkeiten ermötlicht.
 Nornir erlaubt dem Anwender, automatisiert Konfigurationsänderungen oder -abfragen an ein 
 Netzwerk zu senden.
 
-Dabei stehen verschiedene Netzwerkschnittstellen zur Verfügung:
+Die im Kapitel~\ref{subsec:Aufgabenstellung} genannten Anforderungen an die Tests werden 
+vom Programm vollständig erfüllt:
+
+\paragraph{Planbarkeit von Tests/Test-Spezifikation} 
+Die Testdefinition entspricht dem Testplan/ der Test-Spezifikation.
+Netzwerktests werden in der Testdefinition spezifiziert und in der Defininitionsreihenfolge,
+sofern nicht über das Grafische Userinterface anders definiert, durchgeführt.
+
+\paragraph{Dokumentation von Testresultaten} 
+Die Testresultate werden in einem txt-File mit dem Datum und Zeitpunkt der Durchführung 
+gespeichert. 
+Somit lassen sich sämtliche vergangenen Testdurchführungen nachvollziehen.
+
+\paragraph{Automatische Testdurchführung} 
+NUTS2.0 lässt sich vollautomatisch durchführen.
+Eine Orchestrierungssoftware muss dafür lediglich den Kommandozeilenbefehl
+'python -m nuts -r' zu festgelegten Zeitpunkten ausführen und das 
+Programm läuft danach selbstständig durch und dokumentiert die Ergebnisse.
+
+\paragraph{Reproduzierbarkeit/Nachvollziehbarkeit der Ergebnisse} 
+Wenn sich die Konfiguration im Netzwerk zwischen der Testdurchführung nicht verändert,
+wird auch das Testergebniss gleich ausfallen. 
+Testergebnisse werden in einem einheitlichen Format gespeichert und bei nicht bestandenen
+Tests wird zusätzlich zum Testnamen noch das erwartete und das tatsächliche Ergebnis
+ausgegeben, um einen Soll-Ist-Vergleich durchführen zu können.
+
+
+Eine mögliche paralelle Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
+angesprochen, konnte aber aufgrund des engen Zeitrahmens der Arbeit nicht umgesetzt werden.
+Stattdessen wurde die Zeit investiert, damit die Implementierten Tests korrekt funktionieren
+und die Erweiterung um neue Tests so einfach wie möglich ist.
+Die Erweiterung um eine paralelle Ausführung wird in die künftigen Arbeiten übernommen.
+
+\newpage
+
+\subsection{Programmausführung}
+Das Programm kann auf einem Beliebigen Betriebssystem, welches Python installiert hat,
+ausgeführt werden.
+Mit dem Befehl 'python -m nuts' im Order 'Nuts2.0' wird das Programm gestartet und
+lädt selbstständig die Informationen aus dem Inventar und die Testdefinitionen.
+Mit dem Kommandozeilenparameter '-r' kann dabei das Grafische Userinterface übersprungen
+werden, um Netzwerktests automatisiert ausführen zu lassen.
+Das GUI wird verwendet, um spezifische Tests zu selektieren und die Reihenfolge der 
+selektierten Tests festzulegen.
+Wird das GUI übersprungen, werden alle Netzwerktests in der Reihenfolge durchgeführt,
+in der sie in der Testdefinition angegeben wurden.
+
+Die Testergebnisse werden nach der Testdurchführung in der Konsole angezeigt und 
+in einem Result.txt, unter angabe des Zeitstempels gespeichert. 
+Erfolgreiche Tests werden nur mit dem Testnamen aus der Testdefinition und dem Vermerk
+'PASSED' ausgegeben/gespeichert, da hauptsächlich die nicht bestandenen Netzwerktests 
+relevant sind.
+Nicht bestandene Tests haben zusätzlich zum Testnamen aus der Testdefinition noch das
+erwartete Ergebniss und das tatsächliche Ergebniss für einen Soll-Ist-Vergleich.
+
+\newpage
+
+\subsection{Geräte-/Herstellerunterstützung}
+Das Modul Nornir erlaubt mit seinen Plugins eine breite Unterstützung von diversen 
+Herstellergeräten. 
+Verschiedene Plugins haben dabei ein unterschiedliches Rückgabeformat, welches 
+in den konkreten Netzwerktests in eine Normalform gebracht werden muss, damit 
+NUTS2.0 einheitlich damit umgehen kann.
+
+Nachfolgend sind die verschiedenen Plugins für die Verbindungsschnittstellen beschrieben:
+
 \paragraph{Napalm}
 Abkürzung für "Network Automation and Programmability Abstraction Layer with Multivendor support".
 Napalm ist eine Pyhton Library welche verschiedene Funktionen anbietet, mit denen man 
@@ -29,108 +95,5 @@ zu bieten und die Kommunikation zwischen Endgeräten und Server zu vereinfachen.
 Das Network Configuration Protocoll ist ein Protokoll für das Netzwerk Management.
 Netconf wurde als RFC 6241 publiziert und bietet Mechanismen für die Installation,
 Manipulation und das Löschen von Konfigurationen auf Netzwerkgeräten.
-
-\newpage
-
-\subsection{Architekturüberblick}
-Die erarbeitete Software baut sich aus fünf Kernbereichen und einer Utility-Gruppe zusammen.
-\paragraph{Inventory-Management}
-Das Inventory umfasst die Klassen, welche für die Verwaltung des Inventars benötigt werden.
-Dazu gehören die Verwaltung der Devices und deren Verbindungen sowie die Verwaltung der 
-Testdefinitionen.
-
-Devices und Deviceconnections beschreiben die Netzwerkgeräte und die Verbindungen zwischen
-den Geräten. 
-Diese Informationen werden vom Testprogramm benötigt, um die konkreten Tests für das 
-jeweilige Gerät evaluieren zu können, da z.B. ein traceroute-Befehl mit einem Netmiko
-Befehl ausgeführt werden kann und mit einem Napalm-Befehl nicht ausführbar ist.
-Ausserdem lassen sich bestimmte Napalm-Befehle auf spezifischen Betriebssystemen 
-(z.B. Cisco-IOS) ausführen, funktionieren aber auf anderen Systemen (Cisco NXOS) nicht.
-
-Die Testdefinitionen beschreiben, welche Tests auf welchen Geräten ausgeführt werden sollen.
-Sie beinhalten den Testnamen, den Testcommand, das zu erwartende Ergebniss und weitere Parameter,
-wie beispielsweise das Zielgerät für einen Ping-Test.
-
-\paragraph{Resources}
-Im Resourcen-Ordner sind die YAML-Dokumente gespeichert, welche die Devices, Deviceconnections
-und die Testdefinitionen beschreiben. Ausserdem werden die die Testergebnisse im Unterordner
-TestResults im .txt-Format abgelegt.
-
-Das YAML Format wurde ausgewählt, da die Beschreibungssprache für Netzwerkleute bereits bekannt
-ist und sich einfach interpretieren und schreiben lässt.
-
-Die Testdefinitionen können alle in einem Dokument oder in mehreren Dokumenten verfasst werden,
-um bei Bedarf die Definitionen nach Art der Tests oder nach Bereichen im Netzwerk zu sortieren.
-
-\paragraph{Connection-Handling}
-Das Connection-Handling befasst sich mit der Logik, welche Netzwerkschnittstelle für welches
-Device-Betriebssystem und -version verwendet werden soll. 
-Nach Möglichkeit wird dabei der Napalm-Treiber von Nornir verwendet und der Netmiko-Treiber
-als Fallback-Lösung implementiert.
-
-\newpage
-
-\paragraph{Testcreation}
-Die Testerstellung befasst sich mit der Instanzierung der konkreten Netzwerktests.
-Dafür wird eine Kombination der beiden Software Patterns Strategy Pattern und Factory Pattern
-angewendet, um die Tests zur Laufzeit gemäss der Testdefinitionen mit den Korrekten 
-Netzwerkschnittstellen zu instanzieren. 
-Jeder Netzwerktest beinhaltet dabei die Logik, welche für die Ausführung, Evaluation und 
-Reporting benötigt werden. Somit müssen in den Klassen, die diese Funktionalitäten ausführen
-lediglich die Methoden der jeweiligen Tests aufgerufen werden.
-
-Das Strategy Pattern ist ein Verhaltenspattern und spezifiziert eine Gruppe von Strategien,
-in diesem Fall Netzwerktests, die basierend auf einem Kontext implementiert werden.
-Die Anwendung dieses Patterns erlaubt das Austauschen einer Strategie mit einer anderen
-zur Laufzeit, ohne dass die Programmlogik desshalb verändert wird.
-Dadurch erhöht sich die Wiederverwendbarkeit und Flexibilität der Implementierung.
-
-Das Factory Pattern ist eines der meistverwendeten Patterns in der Softwareentwicklung und
-erlaubt die Trennung der Instanzierungslogik von dem Verhalten einer Klasse.
-Dabei wird eine Factory-Klasse implementiert, welche eine Methode beinhaltet, die die
-Konkreten Klassen instanziert, welche vom rest des Programms verwendet wird.
-Der grösste Vorteil der Verwendung dieses Patterns ist die einfachere Erweiterbarkeit des
-Programms, da nur die Instanzierungslogik in der Factory angepasst werden muss, wenn eine 
-neue Testklasse implementiert werden soll.
-
-\paragraph{Testhandling}
-Das Testhandling befasst sich mit der Erstellung, Ausführung, Evaluation und dem Reporting
-der einzelnen Netzwerktests.
-
-Der Netzwerk-Test-Builder erzeugt die Netzwerktest, indem die Methoden der oben genannten
-Testerstellung aufgerufen werden. 
-
-Mit der Netzwerk-Test-Order können die Tests bei bedarf über eine Grafische 
-Benutzeroberfläche (GUI) ausgewählt und die Ausführungsreihenfolge definiert werden.
-Wird das Programm aus der Kommandozeile ausgeführt, kann die Auswahl mit dem GUI
-übersprungen werden, damit sich das Programm auch automatisch mit einer 
-Orchestrierungssoftware ausführen lässt. 
-In dem Fall werden die Tests in der Reihenfolge ausgeführt, in welcher sie in der 
-Testdefinitionen spezifiziert sind. 
-
-Der Netzwerk-Test-Runner führt die Netzwerktest, welche in der Testdefinition spezifiziert
-sind, gegen das Netzwerk aus.
-
-Der Evaluator vergleicht die Rückgabewerte der ausgeführten Tests mit dem Erwartungswert
-welcher in der Testdefinition spezifiziert ist und entscheidet aufgrund der Evaluation,
-ob ein Test bestanden oder fehlgeschschlagen ist.
-
-Der Reporter gibt die Ergebnisse der Testdurchführung auf der Konsole aus und 
-speichert sie in einem Resultat-Dokument.
-Die Testergebnisse werden dabei nach bestandenen und fehlgeschschlagen Tests sortiert.
-Bei den bestandenen Tests wird nur der Testname ausgegeben.
-Ist ein Test fehlgeschschlagen, wird der Testname, das erwartete Ergebnis und das 
-tatsächliche Ergebnis ausgegeben, damit direkt ein Vergleich vorgenommen werden kann. 
-
-\paragraph{Utilities}
-Zu den Utilities gehören der Filehandler, der Progressbar-Handler und der UI-Handler.
-
-Der Filehandler liest und schreibt informationen in den YAML und TXT Dokumenten aus,
-die während der Ausführung der Tests benötigt werden.
-
-Der Progressbar-Handler und UI-Handler erzeugen das Userinterface in der Kommandozeile
-während der Programmdurchführung.
-
-
 
 \end{document}

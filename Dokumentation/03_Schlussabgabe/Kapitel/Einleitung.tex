@@ -33,6 +33,7 @@
     \newpage
     
     \subsection{Aufgabenstellung}
+    \label{subsec:Aufgabenstellung}
     Ziel dieser Arbeit ist, ein Programm zu entwickeln, mit dem sich Netzwerktests mit 
     der gleichen Arbeitsweise durchführen lassen, wie Unittests in der Softwareentwicklung
     durchgeführt werden. Dabei müssen folgende Anforderungen an die Tests erfüllt sein:
@@ -72,4 +73,29 @@
    testen soll. 
 
    \subsection{Vorarbeit}
-   \textcolor{red}{TODO}
+   Die Studienarbeit 'Network Unit Testing' aus dem Herbstsemester 2016 von 
+   Andreas Stalder und David Meister hat sich bereits mit dem Thema automatisierte 
+   Netzwerktests auseinandergesetzt. 
+   Der Fokus lag dabei auf dem Ausarbeiten einer Testdefinitionssprache, mit der 
+   solche Netzwerktests annotiert werden können. 
+   Zudem wurde mit SaltStack ein Konfigurationsmanagement-Tool evaluiert und auf 
+   dessen basis eine Software entwickelt, mit der man Netzwerktests ausführen konnte.
+
+   Die grössten Herausforderungen der Vorarbeit lagen dabei auf den Unterschieden 
+   verschiedener Hersteller und darin, dass die Outputformate der Neztwerktests 
+   je nach Hersteller anders zu Parsen sind. 
+   Diese Herausforderungen haben dazu geführt, dass beim Parsen der Ergebnisse 
+   oftmals auf reguläre Ausdrücke zurückgegriffen wurde, deren Implementation
+   umständlich und schwierig zu lesen ist.
+   Die Autoren haben dabei die Hoffnung angemerkt, dass man die Resultate künftig
+   einfacher verarbeiten kann und die Hersteller ein einheitliches Rückgabeformat 
+   verwenden.
+
+   Der grösste Nachteil in der Verwendung der Lösung aus der Vorarbeit besteht darin, 
+   dass die Implementation neuer Netzwerktests eher umständlich ist.
+   Ausserdem besteht eine starke Abhängigkeit zum Tool SaltStack, bei dem 
+   keine Garantie für eine langfristige Verfügbarkeit besteht.
+
+   Zukünftige Arbeiten sollen desshalb eine geringere Abhängigkeit zu externen Tools
+   haben und die erweiterung um neue Tests so einfach wie möglich umsetzen.
+
