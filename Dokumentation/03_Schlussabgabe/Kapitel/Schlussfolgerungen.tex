@@ -102,7 +102,26 @@ Solche Tests müssten manuell implementiert werden und benötigen allenfalls and
 Module als Nornir.
 
 \paragraph{Mögliche Tests}
-\textcolor{red}{TODO}
+Die folgende Auflistung zeigt einige der gängigsten CLI-Befehle, wie sie im Netzwerkumfeld
+verwendet werden um die Netzwerkumgebung zu testen. 
+
+\begin{itemize}
+    \item 'show running-configuration'
+    \item 'show startup-configuration'
+    \item 'show ip protocols'
+    \item 'show ip route'
+    \item 'show interfaces status'
+    \item 'show interfaces trunk'
+    \item 'show interfaces'
+    \item 'show ip ospf interface'
+    \item 'show ip ospf border-routers'
+    \item 'show ip ospf virtual-links'
+    \item 'show ip pgp'
+    \item 'show ip pgp summary'
+    \item 'show ip bgp neighbor'
+    \item 'show ip bgp paths'
+\end{itemize}
+
 
 \subsubsection*{Asynchrone Durchführung der Tests}
 Momentan werden alle Netzwerktests nacheinander, d.H. Synchron durchgeführt.
@@ -112,3 +131,10 @@ Man könnte in einer zukünftigen Erweiterung Tests mit der gleichen Kategorie, 
 Ping-Tests asynchron (parallel) ausführen, was zu einer kürzeren Durchführungszeit 
 führen würde. 
 \end{document}
+
+\subsubsection*{Automatische Erstellung repetitiver Tests}
+Eine weitere Möglichkeit für die Erweiterung der Software ist, dass repetitive Netzwerktests
+automatisch erstellt werden. Beispielsweise könnten Ping tests für sämtliche Geräte, die im 
+Inventory definiert sind vom Programm erstellt und nicht manuell erfasst werden.
+Weiterhin könnte eine Erweiterung vorgenommen werden, die bestimmte Tests bei der Erfassung
+vorschlägt, z.B. show ip interface brief für einen Router.
