@@ -49,28 +49,42 @@
 
 % Inhalt ---------------------------------------------------------------------
 \section{Installation}
-	Es wird keine spezielle Installation benötigt. Das Repository auf GitHub muss lokal geklont werden.
-	Danach muss man noch das requirements File installieren mit dem Befehl: 'pip install requirements.txt'.
+	\subsection{Installationsvoraussetzungen}
+	NUTS2.0 sollte sich auf jedem Betriebssystem ausführen lassen.
+	Für die Ausführung wird eine Python 3.7 installation (oder aktueller) benötigt.
+	Diese kann unter https://www.python.org/downloads/ heruntergeladen werden.
+
+	Um NUTS2.0 ausführen zu können, muss zuerst das Github-Repository geklont werden:\\
+	https://github.com/EkoGuandor229/Network-Unit-Testing. 
+	Danach können die verwendeten Module über das Requirements-File mit dem Befehl
+	'pip install requirements.txt' installiert werden.
+
 	\subsection{Ausführen}
-	Das Programm kan regulär in einer Programmierumgebung wie zum Beispiel PyCharm ausgeführt werden.
-	Um es in einer Konsole zu starten muss zum Ordner NUTS2.0 navigiert werden. 
-	Man kann es mit dem Befehl: 'python -m nuts' starten. Wenn man das GUI auslassen möchte und direkt alle Tests 
-	ausführen möchte kann man mit dem Befehl: 'python -m nuts -r' starten.
+	Das Programm kann zu testzwecken regulär in einer Programmierumgebung 
+	wie zum Beispiel PyCharm ausgeführt werden.
+
+	Um NUTS2.0 aus einer Konsole zu starten muss zum Root-Ordner NUTS2.0 navigiert werden. 
+	Man kann das Programm mit dem Befehl: 'python -m nuts' starten. 
+	Wenn man das GUI auslassen und direkt alle Tests ausführen möchte kann
+	man mit dem Befehl: 'python -m nuts -r' starten.
+
 	\subsubsection{Konfiguration}
-	Im File 'Config.yaml' können die Pfäde aller Ordner geändert werden. 
+	Im File 'Config.yaml' können die Pfäde aller Ordner geändert werden, um beispielsweise
+	das Inventory oder die Resultate zentral in einem Repository zu verwalten. 
 	Zusätzlich kann noch bestimmt werden, ob das GUI Per default übersprungen werden soll.
 
 \section{Inventar}
-	Um Netzwerktests auszuführen braucht man zuerst ein Inventar mit Devices und Device Connections.
+	Um Netzwerktests auszuführen benötigt man zuerst ein Inventar mit Devices und 
+	Device Connections.
 	Die Devices sind die Netzwerkgeräte wie zum Beispiel Router oder Switches.
 	Die Device Connections sind die Verbindungen zwischen den Devices.
 
 	\subsection{Devices}
-		Die Definitionen der Devices sind unter Resources/Inventory/Devices/Devices.yaml:\\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices_yaml.png}
+		Die Definitionen der Devices sind unter Resources/Inventory/Devices/Devices.yaml abgelegt:\\
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/Devices_yaml.png}
 
-		Um Devices zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
-		\begin{tabularx}{\textwidth}{ll}
+		Um neue Devices zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+		\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Attribut & Beschreibung \\
 			\midrule
@@ -79,17 +93,21 @@
 			username & Der username welches das Device für das Login benutzt\\
 			password & Das Passwort welches das Device für das Login benutzt\\
 			hostname & Die Ip Adresse über welche das Device angesprochen werden kann\\
+			loopback-addresse & IP-Addresse des Loopback-Interface. Für einige Tests benötigt.\\
 			\midrule
 		\end{tabularx}
 
-		Diese Informationen sollten wie folgt dargestellt werden: \\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices.png}
+		Diese Informationen sollten gemäss folgendem Beispiel dargestellt werden: \\
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/Devices.png}
 
 	\subsection{Device Connections}
-		Die Definitionen der Device Connections sind unter Resources/Inventory/DeviceConnections/DeviceConnections.yaml:\\
+		Die Definitionen der Device Connections sind unter \\
+		Resources/Inventory/DeviceConnections/DeviceConnections.yaml abgelegt
+
 		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/DeviceConnections_yaml.png}
 
-		Um Device Connections zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+		Um Device Connections zu erfassen müssen folgende Informationen im yaml eingegeben werden:
+
 		\begin{tabularx}{\textwidth}{ll}
 			\toprule
 			Attribut & Beschreibung \\
@@ -100,17 +118,21 @@
 			\midrule
 		\end{tabularx}
 
-		Diese Informationen sollten wie folgt dargestellt werden: \\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/DeviceConnections.png}
+		Diese Informationen sollten wie folgt dargestellt werden: 
+
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/DeviceConnections.png}
 
 \section{Netzwerktests}
-	Die Netzwerktests sind die Tests, welche effektiv auf dem zu testenden Netzwerk ausgeführt werden.
-	Die Testdefinitionen befinden sich unter Resources/Inventory/TestDefinitions:\\
-	\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestDefinitions_yaml.png}
+	Die Netzwerktests sind die Tests, welche effektiv auf dem zu testenden Netzwerk 
+	ausgeführt werden sollen.
+	Die Testdefinitionen befinden sich unter Resources/Inventory/TestDefinitions:
+
+	\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/TestDefinitions_yaml.png}
 
 	Es können in diesem Ordner beliebig viele YAML Files abgelegt werden und es werden vonn allen Files die Tests erfasst.
 
-	Um die Tests zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
+	Um die Tests zu erfassen müssen folgende Informationen im yaml eingegeben werden:
+
 	\begin{tabularx}{\textwidth}{ll}
 		\toprule
 		Attribut & Beschreibung \\
@@ -124,76 +146,196 @@
 		\midrule
 	\end{tabularx}
 
-	Diese Informationen sollten wie folgt dargestellt werden: \\
-	\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestDefinitions.png}
+	Diese Informationen sollten wie folgt dargestellt werden: 
+
+	\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/TestDefinitions.png}
 	\newpage
 
 	\subsection{Commands}
 		Folgende Commands sind bereits implementiert und können mit den jeweiligen expected\_results verwendet werden:
 		\subsubsection{Ping}
+			Führt einen Ping-Test auf das spezifizierte Target mit 4 ICMP Packeten aus.
+			In der jetzigen Konfiguration wird eine 100\% Erfolgsquote erwartet, 
+			damit der Ping-Test als erfolgreich gilt.
+			Wenn andere Werte erwartet werden, muss dafür ein neuer Ping-Test implementiert
+			werden, welche unterschiedliche Erwartungswerte implementiert hat.
+
 			Als erwartetes Resultat kann 'Success' oder 'Failure' verwendet werden.
+
 		\subsubsection{Show Interfaces}
-			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
-			Als erwartetes Resultat wird ein Dictionary mit key:'Interfacename' und value:'True' oder 'False' verwendet werden.
-			Dies sollte in folgender Form dargestellt werden:\\
-			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ShowInterfaces.png}
+			Der 'Show Interfaces'-Befehl benötigt kein Target, da die Interfaces des test\_device
+			abgefragt werden. 
+			Bei der Definition kann somit einfach 'No Target' eingegeben werden.
+			Als erwartetes Resultat wird ein Dictionary mit key:'Interfacename' und 
+			value:'True' oder 'False' verwendet werden.
+			Dies sollte in folgender Form dargestellt werden:
+
+			\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/ShowInterfaces.png}
+
 		\subsubsection{Traceroute}
+			Führt einen Traceroute vom test\_device auf das in target angegebene Ziel aus.
 			Als erwartetes Resultat wird ein Array von IP Adressen angegeben.
-			Dies sollte in folgeder Form dargestellt werden:\\
-			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Traceroute.png}
+			Diese müssen in der Reihenfolge, in denen die Hops im Traceroute besucht werden,
+			angegeben werden. Für Hops, die keine IP-Addresse anzeigen, kann ein '*' in das
+			Array eingetragen werden.
+
+			Das Array bei expected\_result kann beispielsweise so aussehen:
+
+			\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/Traceroute.png}
+
 		\subsubsection{Arp Table}
-			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
-			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. In den Dictionaries werden folgende Informationen benötigt:
-			'interface' : 'interfacename', 'mac' : 'macadresse', 'ip' : 'ipadresse'\\
-			Dies sollte in folgeder Form dargestellt werden:\\
+			Für den Befehl 'Arp Table' wird kein Target benötigt, 
+			da der Arp Table des im test\_device angegebenen Netzwerkgeräts abgefragt wird. 
+			Es kann 'No Target' im 'target'-Feld eingegeben werden.
+			Als erwartetes Resultat wird ein Array von Dictionaries erwartet. 
+			In den Dictionaries werden folgende Informationen erwartet:
+
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Parametername & Parameterwert \\
+				\midrule
+				'interface': &  Name des Interface. \\
+				'mac': &  MAC-Addresse des Nachbargeräts \\
+				'ip': & IP-Addresse des Nachbargeräts \\
+				\bottomrule
+			\end{tabularx}
+
+			Im Bild ist ein Beispiel des Arrays mit den Dictionaries in jeder Zeile angegeben:
+
 			\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ArpTable.png}
+
 		\subsubsection{Ospf Neighbor}
-			Dies benötigt kein Target also kann bei der definition einfach 'No Target' eingegeben werden.
-			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. In den Dictionaries werden folgende Informationen benötigt:
-			'Neighbor-ID' : 'ipadresse', 'Priority' : 'Nummer', 'State' : 'Den Status', 'Address' : 'ipadresse', 'Interface' : 'Interfacename'\\
-			Dies sollte in folgeder Form dargestellt werden:\\
-			\includegraphics[scale=0.6]{\vorlagenOrdner/Bilder/Manual/OspfNeighbor.png}
+			Für den Befehl 'Ospf Neighbor' wird kein Target benötigt, 
+			da OSPF Nachbarn des im test\_device angegebenen Netzwerkgeräts abgefragt wird. 
+			Es kann 'No Target' im 'target'-Feld eingegeben werden.	
+			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. 
+			In den Dictionaries werden folgende Informationen benötigt:
+
+			\begin{tabularx}{\textwidth}{lX}
+				\toprule
+				Parametername & Parameterwert\\
+				\midrule 
+				'Neighbor-ID': & IP-Addresse des Nachbargeräts \\
+				'Priority': & OSPF-Priorität als Ganzzahl\\
+				'State': & Status des Nachbargeräts \\
+				'Address': & IP-Addresse des Interface, über welches der Nachbar erreichbar ist. \\
+				'Interface': & Name des Interface, über welches der Nachbar erreichbar ist. \\
+				\bottomrule
+			\end{tabularx}
+			
+			Das folgende Beispiel zeigt das Array von Dictionaries, wie es im YAML dargestellt wird:
+
+			\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/Manual/OspfNeighbor.png}
 
 \section{Durchführung}
-	Nachdem dass Inventar erstellt und die Testdefinitionen erfasst wurden kann man das Programm starten.
-	Falls die Option Skip-GUI aktiviert wurde werden alle Tests durchgeführt. Falls dies nicht aktiviert wurde
-	öffnet sich ein GUI.
+	Nachdem dass Inventar erstellt und die Testdefinitionen erfasst wurden,
+	kann man das Programm starten.
+	Falls die Option Skip-GUI aktiviert wurde, werden alle Tests in der Reihenfolge durchgeführt,
+	in der sie in der Testdefinition angegeben wurden. 
+	Falls dies nicht aktiviert wurde öffnet sich ein Grafikinterface.
 
 	\subsection{GUI}
-		Das GUI für die Definition der Test Reihenfolge besteht aus zweit Tabs:\\
+		Das GUI für die Definition der Test Reihenfolge besteht aus zweit Tabs:
+
 		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/GUI1.png}
 
-		Im ersten Tab werden alle Tests nach Gruppen sortiert angezeigt. 
+		Im ersten Tab werden alle Tests nach Gruppen sortiert angezeigt.
+		Die Gruppierung ist diejenige, die in der Testdefinition angegeben wurde. 
 		Hier kann der Benutzer auswählen welche Tests er ausführen möchte.
-		Nachdem die Tests ausgewählt wurden weden mit dem Button 'Select' alle ausgewählten Tests in den zweiten Tab gezogen.
+		Nachdem die Tests ausgewählt wurden weden mit dem Button 'Select' 
+		alle ausgewählten Tests selektiert und man kann danach die Reihenfolge der
+		selektierten Test im zweiten Tab einstellen.
 
 		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/GUI2.png}
 
-		Im zweiten Tab werden alle ausgewählten Tests angezeigt und der Benutzer kann mit den jeweiligen Buttons die Reihenfolge bestimmen.
-		Nachdem der Benutzer mit der Reihenfolge zufrieden ist kann mit dem Button 'Save and Quit' das GUI beendet werden.
+		Im zweiten Tab werden alle selektierten Tests angezeigt und der Benutzer 
+		kann mit den jeweiligen Buttons die Reihenfolge bestimmen.
+		Nachdem der Benutzer mit der Reihenfolge zufrieden ist,
+		kann mit dem Button 'Save and Quit' das GUI beendet werden.
+		Alle selektierten Tests werden nun in der angegebenen Reihenfolge durchgeführt.
 
 	\subsection{Test Resultate}
-		Die Resultate der jeweiligen Durchführungen werden in der Konsole angezeigt und zusätzlich noch in einem File gespeichert.
-		In der Konsole sehen die Resultate wie folgt aus: \\
+		Die Resultate der jeweiligen Durchführungen werden in der Konsole angezeigt 
+		und zusätzlich noch in einem File gespeichert.
+		Bestandene Tests werden nur mit ihrem Namen und dem Vermerk, dass der Test bestanden ist,
+		angegeben. 
+		Nicht bestandene Tests haben den Testnamen, das erwartete Ergebniss und das tatsächliche
+		Ergebniss für einen soll-ist-Vergleich.
+
+		Das folgende Bild zeigt eine komplette Durchführung des Programms mit elf bestandenen
+		Tests und null nicht bestandenen Tests: 
+
 		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ConsoleGUI.png}
 
-		Das File befindet sich unter: 'Resources/Inventory/TestResults/results.txt'.\\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestResults_txt.png}
+		\newpage
 
-		In dem File wird zuerst die Zeit des TestRuns angegeben, danach werden zuerst die Passed Tests und danach die Failed Tests angezeigt.
-		Bei den Failed Tests werden zusätzlich noch das Erwartete und das Effektive Resultat angezeigt.\\
+		Das File, in dem der Testreport abgespeichert wird, befindet sich unter: 
+		'Resources/Inventory/TestResults/results.txt'.
+
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/TestResults_txt.png}
+
+		In dem File wird zuerst der Zeitstempel der Testdurchführung angegeben, 
+		danach werden zuerst die bestandenen Tests und am Schluss die nicht bestandenen Tests angezeigt.
+		Bei den nicht bestandenen Tests werden zusätzlich noch das erwartete und das tatsächliche
+		Resultat angezeigt.
+
 		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/TestResults.png}
 
-\section{Zusätzliche Tests hinzufügen}
-	Falls der Benutzer eigene Tests hinzufügen möchte müssen an folgenden Orten änderungen vorgenommen werden:
+\section{Neue Tests hinzufügen}
+	Falls der Benutzer eigene Tests hinzufügen möchte,
+	 müssen an folgenden Orten änderungen vorgenommen werden:
+
 	\subsection{Conctrete Tests}
-		In diesem Ordner muss ein neues File angelegt werden mit dem Test, der implementiert werden möchte.
-		Bei der Strucktur des Files sollte man sich an die bisherigen Files halten.\\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/concretetests.png}
+		Die konkreten Tests befinden sich unter 'nuts/testcreation/concretetests'
+		In diesem Ordner muss ein neues Python-File angelegt werden.
+		Im File wird der Test als Klasse implementiert.
+		Es ist darauf zu achten, dass das Basisinterface 'NetworkTestStrategyInterface' 
+		von der Testklasse implementiert wird, um davon die grundlegenden Funktionalitäten
+		zu erben.
+
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/concretetests.png}
+
+		Nach der Erstellung muss der Test geschrieben werden.
+		Dazu wird in der \_\_init\_\_ Methode die Funktion self.nr. = InitNornir() aufgerufen
+		und darin die benötigten Parameter übergeben.
+
+		In der Methode run\_test(): wird angegeben, welches Nornir-Plugin mit welchem Task
+		verwendet wird, z.B. task=napalm\_get.
+		
+		In der set\_result() Methode wird die Logik für das Parsen des Rückgabewerts des Tests
+		implementiert. 
+		Es ist darauf zu achten, dass dabei das Resultat in ein einheitliches Format gebracht 
+		wird, so dass man in der evaluate\_result() Methode das erwartete Ergebnis möglichst 
+		mit einem == zum tatsächlichen Ergebnis vergleichen kann.
+		Falls dies nicht möglich ist, muss im evaluate\_result() zusätzlich Logik implementiert
+		werden, um die Resultate zu vergleichen.
+
+		Mehr Informationen, welche Begehle mit Nornir ausgeführt werden können, findet man 
+		auf https://nornir.readthedocs.io
+
+		Informationen zum Napalm-Treiber findet man auf https://napalm.readthedocs.io
+
+		Die bereits erstellten Tests können als Vorlage für weitere Testimplementationen verwendet 
+		werden.
+		
 	\subsection{Network Test Strategy Factory}
-		In dieser Klasse ist die Test Map aufgrund welcher entschieden wird, welcher Test verwendet wird für welche Test Definition.
-		Hier muss in der Test Map der neue Test vermerkt werden.\\
-		\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/strategyfactory.png}
+		Die Network Test Strategy Factory implementiert die Logik, nach der die Tests ausgewählt 
+		und instanziert werden.
+		Dafür werden sämtliche Tests in einer test\_map gespeichert. 
+		Die test\_map ist ein Dictionary von Dictionaries und hat als äusseren Key 
+		den Befehl, welcher Test ausgeführt werden soll und als inneren Key die Connection,
+		die für den Test verwendet wird. 
+		Als Value ist die konkrete Klasse eingetragen, die für den Test instanziert werden soll.
+		Gibt es für eine Kombination aus Command-Connection keinen konkreten Test, 
+		muss hier statt der Testklasse ein 'None' angegeben werden. 
+		Falls in der Instanzierungslogik ein Test, welcher in der Testdefinition angegeben wurde,
+		nicht existiert, wird stattdessen ein NoTestDefined-Test instanziert, welcher 
+		in der Evaluation immer 'nicht bestanden' zurückgibt mit der Anmerkung, dass dieser
+		Test noch nicht erstellt wurde.
+
+		Das folgende Bild zeigt die test\_map mit den oben beschriebenen Werten.
+
+		\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/strategyfactory.png}
 
 
 
