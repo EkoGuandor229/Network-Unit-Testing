@@ -1,0 +1,99 @@
+\documentclass[]{subfiles}
+
+\begin{document}
+\section{Ergebnisse}
+\subsection{Resultat der Arbeit}
+Die Studienarbeit hat ein Python-Programm entwickelt, welches basierend auf einer Testdefinition
+im YAML-Format automatische Tests gegen ein Netzwerk ausführen kann.
+
+Kern der Software ist das Nornir-Modul für Python, ein Framework welches in Python geschrieben
+ist und die Automation von Netzwerktätigkeiten ermötlicht. 
+Nornir erlaubt dem Anwender, automatisiert Konfigurationsänderungen oder -abfragen an ein 
+Netzwerk zu senden.
+
+Die im Kapitel~\ref{subsec:Aufgabenstellung} genannten Anforderungen an die Tests werden 
+vom Programm vollständig erfüllt:
+
+\paragraph{Planbarkeit von Tests/Test-Spezifikation} 
+Die Testdefinition entspricht dem Testplan/ der Test-Spezifikation.
+Netzwerktests werden in der Testdefinition spezifiziert und in der Defininitionsreihenfolge,
+sofern nicht über das Grafische Userinterface anders definiert, durchgeführt.
+
+\paragraph{Dokumentation von Testresultaten} 
+Die Testresultate werden in einem txt-File mit dem Datum und Zeitpunkt der Durchführung 
+gespeichert. 
+Somit lassen sich sämtliche vergangenen Testdurchführungen nachvollziehen.
+
+\paragraph{Automatische Testdurchführung} 
+NUTS2.0 lässt sich vollautomatisch durchführen.
+Eine Orchestrierungssoftware muss dafür lediglich den Kommandozeilenbefehl
+'python -m nuts -r' zu festgelegten Zeitpunkten ausführen und das 
+Programm läuft danach selbstständig durch und dokumentiert die Ergebnisse.
+
+\paragraph{Reproduzierbarkeit/Nachvollziehbarkeit der Ergebnisse} 
+Wenn sich die Konfiguration im Netzwerk zwischen der Testdurchführung nicht verändert,
+wird auch das Testergebniss gleich ausfallen. 
+Testergebnisse werden in einem einheitlichen Format gespeichert und bei nicht bestandenen
+Tests wird zusätzlich zum Testnamen noch das erwartete und das tatsächliche Ergebnis
+ausgegeben, um einen Soll-Ist-Vergleich durchführen zu können.
+
+
+Eine mögliche paralelle Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
+angesprochen, konnte aber aufgrund des engen Zeitrahmens der Arbeit nicht umgesetzt werden.
+Stattdessen wurde die Zeit investiert, damit die Implementierten Tests korrekt funktionieren
+und die Erweiterung um neue Tests so einfach wie möglich ist.
+Die Erweiterung um eine paralelle Ausführung wird in die künftigen Arbeiten übernommen.
+
+\newpage
+
+\subsection{Programmausführung}
+Das Programm kann auf einem Beliebigen Betriebssystem, welches Python installiert hat,
+ausgeführt werden.
+Mit dem Befehl 'python -m nuts' im Order 'Nuts2.0' wird das Programm gestartet und
+lädt selbstständig die Informationen aus dem Inventar und die Testdefinitionen.
+Mit dem Kommandozeilenparameter '-r' kann dabei das Grafische Userinterface übersprungen
+werden, um Netzwerktests automatisiert ausführen zu lassen.
+Das GUI wird verwendet, um spezifische Tests zu selektieren und die Reihenfolge der 
+selektierten Tests festzulegen.
+Wird das GUI übersprungen, werden alle Netzwerktests in der Reihenfolge durchgeführt,
+in der sie in der Testdefinition angegeben wurden.
+
+Die Testergebnisse werden nach der Testdurchführung in der Konsole angezeigt und 
+in einem Result.txt, unter angabe des Zeitstempels gespeichert. 
+Erfolgreiche Tests werden nur mit dem Testnamen aus der Testdefinition und dem Vermerk
+'PASSED' ausgegeben/gespeichert, da hauptsächlich die nicht bestandenen Netzwerktests 
+relevant sind.
+Nicht bestandene Tests haben zusätzlich zum Testnamen aus der Testdefinition noch das
+erwartete Ergebniss und das tatsächliche Ergebniss für einen Soll-Ist-Vergleich.
+
+\newpage
+
+\subsection{Geräte-/Herstellerunterstützung}
+Das Modul Nornir erlaubt mit seinen Plugins eine breite Unterstützung von diversen 
+Herstellergeräten. 
+Verschiedene Plugins haben dabei ein unterschiedliches Rückgabeformat, welches 
+in den konkreten Netzwerktests in eine Normalform gebracht werden muss, damit 
+NUTS2.0 einheitlich damit umgehen kann.
+
+Nachfolgend sind die verschiedenen Plugins für die Verbindungsschnittstellen beschrieben:
+
+\paragraph{Napalm}
+Abkürzung für "Network Automation and Programmability Abstraction Layer with Multivendor support".
+Napalm ist eine Pyhton Library welche verschiedene Funktionen anbietet, mit denen man 
+mit Netzwerkgeräten über eine einheitliche Schnittstelle kommunizieren kann.
+
+\paragraph{Paramiko}
+Paramiko ist eine Python-Implementation des SSHv2 Protokolls für die sichere Kommunikation
+zwischen verschiedenen Endgeräten.
+
+\paragraph{Netmiko}
+Netmiko ist eine Library, welche die Paramiko SSH verbindung vereinfacht. 
+Das Ziel von Netmiko ist, für verschiedene Herstellergeräte eine einheitliche Schnittstelle
+zu bieten und die Kommunikation zwischen Endgeräten und Server zu vereinfachen.
+
+\paragraph{Netconf}
+Das Network Configuration Protocoll ist ein Protokoll für das Netzwerk Management.
+Netconf wurde als RFC 6241 publiziert und bietet Mechanismen für die Installation,
+Manipulation und das Löschen von Konfigurationen auf Netzwerkgeräten.
+
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[]{subfiles}
+
+\begin{document}
+\section{Schlussfolgerungen}
+\subsection{Künftige Arbeiten}
+\subsubsection*{Automatische Geräteerkennung}
+Im aktuellen Programm müssen sämtliche Netzwerkgeräte von Hand in das Inventar aufgenommen
+werden, was genaue Kenntnisse des Netzwerks voraussetzt und zeitintensiv ist.
+Eine mögliche Erweiterung von NUTS2.0 wäre eine automatische Erkennung aller Geräte im 
+Netzwerk und das automatische Erstellen des Inventars.
+Dieses Vorgehen würde dem Anwender einiges an Arbeit einsparen und den Prozess für die 
+Erstellung von Netzwerktests beschleunigen.
+
+\subsubsection*{Anbindung einer Datenbank}
+Die Anbindung einer Datenbank würde viele Vorteile mit sich bringen.
+Die Verwaltung des Inventars oder der Testdefinitionen müsste nicht mehr in YAML-Files 
+gemacht werden, sondern könnte mit einer Datenbank vereinfacht werden.
+Das Speichern von Testresultaten in einer Datenbank würde es ermöglichen, 
+spezifische Queries für individuelle Testresultate oder Testdurchführungen zu verwenden.
+Dadurch könnte man wirkungsvolle Abfragen durchführen, um beispielsweise sämtliche 
+Tests vor einer geplanten Änderung und danach abzurufen und auszuwerten.
+
+\subsubsection*{Komplette GUI geführte Durchführung}
+Die aktuelle Software hat nur ein minimalistisches GUI für die Auswahl und Reihenfolge
+der Testdurchführung. 
+Eine mögliche Erweiterung ist das Einbinden eines GUI für die gesammte Testdurchführung.
+Ein Benutzer könnte z.B. die Testdefinitionen über ein Interface gesteuert erfassen, 
+statt diese in einem YAML selber zu erstellen. 
+Man könnte für sämtliche Testcommands beschreibungen anzeigen, was diese Tests machen
+und wie sie verwendet werden. 
+Es könnte eine Grafische Abbildung des Netzwerks angezeigt werden (Digitaler Zwilling), 
+in dem man sämtliche Neztwerkgeräte mit ihren Parametern anzeigt. 
+
+\subsubsection*{Erweiterung um Tests}
+Zum Zeitpunkt der Studienarbeit wurden nur einige Netzwerktests implementiert, die 
+sich auf das Testnetzwerk auch ausführen liessen. 
+Das System liesse sich um sämtliche Netzwerktests erweitern, die in allen möglichen 
+Netzwerken auch tatsächlich ausgeführt werden könnten.
+Ausserdem gibt es Netzwerktests, die sich mit Nornir zum jetzigen Zeitpunkt gar nicht
+ausführen lassen, z.B. die Grafische darstellung des OSPF spanning Tree. 
+Solche Tests müssten manuell implementiert werden und benötigen allenfalls andere 
+Module als Nornir.
+
+\subsubsection*{Asynchrone Durchführung der Tests}
+Momentan werden alle Netzwerktests nacheinander, d.H. Synchron durchgeführt.
+Dadurch benötigt das Programm für die Durchführung von umfangreichen Testdefinitionen 
+viel Zeit.
+Man könnte in einer zukünftigen Erweiterung Tests mit der gleichen Kategorie, z.B.
+Ping-Tests asynchron (paralell) ausführen, was zu einer kürzeren Durchführungszeit 
+führen würde. 
+\end{document}
