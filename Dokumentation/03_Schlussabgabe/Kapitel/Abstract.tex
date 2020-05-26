@@ -2,6 +2,36 @@
 
 \begin{document}
 \section*{Abstract}
-    \textcolor{red}{TODO}
+    Die Durchchführung von Tests wird im Netzwerkbereich auch heute noch von Hand durch die Verwendung
+    von Kommandozeilenbefehle wie 'Ping', 'Traceroute' oder diverse Show-Befehle durchgeführt.
+    Wenn bei Konfigurationsänderungen ein Fehler gemacht wird und dieser nicht direkt durch
+    einen Test gefunden wird, kann das dazu führen, dass das gesamte Netzwerk zu einem 
+    zufälligen Zeitpunkt einem Ausfall erliegt.
+    In der Softwareentwicklung werden seit einigen Jahren sogenannte Unit-Tests durchgeführt,
+    um die Stabilität der Sowftware zu Testen und zu gewährleisten.
+    Diese Tests werden entweder Regelmässig durch die Entwickler oder automatisiert durch
+    ein Programm durchgeführt, wenn Änderungen am Programm vorgenommen werden.
+    Dadurch lassen sich Fehler früh in der Entwicklung erkennen und Fehler die früh erkannt 
+    werden, sind günstiger zu beheben, als Fehler die erst im laufenden Betrieb erkannt werden.
+
+    Ziel dieser Studienarbeit ist, eine Software zu entwickeln, mit der man Unittests
+    auf beliebige Netzwerke ausführen kann. 
+    Ein starker Fokus wurde dabei auf die Erweiterbarkeit der Software um weitere Tests gelegt.
+    Weiterhin soll darauf geachtet werden, dass die Software möglichst unabhängig von externen
+    Programmen ausgeführt werden kann.
+
+    Aus dieser Arbeit ist eine Python-Software entstanden, mit der man automatisiert Netzwerktests
+    auf beliebige Netzwerke ausführen kann.
+    Die Software baut auf dem Nornir-Automatisierungs-Framework auf, ein Python-Modul, welches
+    eine Vielzahl von Methoden und Kommunikationsschnittstellen bietet, 
+    mit denen man mit Netzwerkgeräten kommunizieren kann.
+    Die Umsetzung als Reines Python-Programm erlaubt es, die gesamte Software zu erweitern, 
+    ohne dass neben Python eine weitere Programmiersprache erlernt werden muss.
+    Neue Netzwerktests lassen sich einfach hinzufügen, ohne dass dabei ein grosser Teil der 
+    Software angepasst werden muss.
+
+
+
+    
 
 \end{document}
