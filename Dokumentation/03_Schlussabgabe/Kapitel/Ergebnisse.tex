@@ -8,11 +8,21 @@ im YAML-Format automatische Tests gegen ein Netzwerk ausführen kann.
 
 Kern der Software ist das Nornir-Modul für Python, ein Framework welches in Python geschrieben
 ist und die Automation von Netzwerktätigkeiten ermötlicht. 
+Die Auswahl von Nornir ist das Ergebnis der Evaluation möglicher Tools für die Software,
+wobei schon zu Beginn der Analysephase die Verwendung von Nornir feststand, da das
+Framework ein breites Spektrum von Funktionen für die Durchführung und Auswertung von 
+Netzwerktests bietet.
 Nornir erlaubt dem Anwender, automatisiert Konfigurationsänderungen oder -abfragen an ein 
 Netzwerk zu senden.
 
-Die im Kapitel~\ref{subsec:Aufgabenstellung} genannten Anforderungen an die Tests werden 
-vom Programm vollständig erfüllt:
+Eine mögliche paralelle Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
+angesprochen, konnte aber aufgrund des engen Zeitrahmens der Arbeit nicht umgesetzt werden.
+Stattdessen wurde die Zeit investiert, damit die Implementierten Tests korrekt funktionieren
+und die Erweiterung um neue Tests so einfach wie möglich ist.
+Die Erweiterung um eine paralelle Ausführung wird in die künftigen Arbeiten übernommen.
+
+Die im Kapitel~\ref{subsec:Aufgabenstellung}-Aufgabenstellung genannten Anforderungen an 
+die Tests werden vom Programm vollständig erfüllt:
 
 \paragraph{Planbarkeit von Tests/Test-Spezifikation} 
 Die Testdefinition entspricht dem Testplan/ der Test-Spezifikation.
@@ -36,15 +46,6 @@ wird auch das Testergebniss gleich ausfallen.
 Testergebnisse werden in einem einheitlichen Format gespeichert und bei nicht bestandenen
 Tests wird zusätzlich zum Testnamen noch das erwartete und das tatsächliche Ergebnis
 ausgegeben, um einen Soll-Ist-Vergleich durchführen zu können.
-
-
-Eine mögliche paralelle Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
-angesprochen, konnte aber aufgrund des engen Zeitrahmens der Arbeit nicht umgesetzt werden.
-Stattdessen wurde die Zeit investiert, damit die Implementierten Tests korrekt funktionieren
-und die Erweiterung um neue Tests so einfach wie möglich ist.
-Die Erweiterung um eine paralelle Ausführung wird in die künftigen Arbeiten übernommen.
-
-\newpage
 
 \subsection{Programmausführung}
 Das Programm kann auf einem Beliebigen Betriebssystem, welches Python installiert hat,
@@ -95,5 +96,47 @@ zu bieten und die Kommunikation zwischen Endgeräten und Server zu vereinfachen.
 Das Network Configuration Protocoll ist ein Protokoll für das Netzwerk Management.
 Netconf wurde als RFC 6241 publiziert und bietet Mechanismen für die Installation,
 Manipulation und das Löschen von Konfigurationen auf Netzwerkgeräten.
+
+\newpage
+
+\subsection{Implementierte Netzwerktests}
+Die nachfolgende Auflistung beschreibt die Netzwerktests, die zum Zeitpunkt des Projektabschlusses
+implementiert sind.
+In erster Linie wurden Tests implementiert, die auf das gegebene Testnetzwerk ausgeführt werden
+konnten.
+Im Kapitel~\ref{subsec:Künftige Arbeiten}-Künftige Arbeiten werden weitere Netzwerktests beschrieben,
+die in das System integriert werden können.
+
+\begin{table}[h!]
+    \begin{tabularx}{\textwidth}{lX}
+        \toprule
+        Testname & Testbeschreibung \\
+        \midrule
+        Napalm Ping & Test der einen Ping auf ein Zielgerät mit dem Napalm-Treiber durchführt.\\
+        Netmiko Ping & Test der einen Ping auf ein Zielgerät mit dem Netmiko-Treiber durchführt. \\
+        Napalm show Interfaces & Test der mit dem Napalm-Treiber die Interfaces des Hostgeräts anzeigt.\\
+        Netmiko show Interfaces & Test der mit dem Netmiko-Treiber die Interfaces des Hostgeräts anzeigt.\\
+        Netmiko Traceroute & Test der die Hops zwischen dem Hostgerät und einem Zielgerät anzeigt.\\
+        Napalm show ARP Table & Test der die ARP-Tabelle des Hostgeräts mit dem Napalm-Treiber abfragt. \\
+        Netmiko show ARP-Table & Test der die ARP-Tabelle des Hostgeräts mit dem Netmiko-Treiber abfragt. \\
+        Napalm OSPF Neighbors & Test der die OSPF Nachbarn des Hostgeräts mit dem Napalm-Treiber abfragt. \\
+        Netmiko OSPF Neighbors & Test der die OSPF Nachbarn des Hostgeräts mit dem Netmiko-Treiber abfagt. \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Implementierte Tests}
+\end{table}
+
+
+Man könnte nun argumentieren, dass mehrere Tests doppelt Implementiert seien, was duplizierter Code wäre.
+Allerdings kann man nicht für beliebige Hostbetriebssysteme die gleichen Netzwerktests verwenden.
+Zudem gibt es bestimmte Tests, z.B. Traceroute, die sich nicht mit Napalm implementieren lassen
+(zumindest nicht zum Zeitpunkt der Implementierung, ein Pull-Request für die integrierung des 
+Napalm Traceroute steht offen).
+Das Programm entscheidet, basierend auf dem Betriebssystem des Hostgeräts, welcher 
+konkrete Test instanziert werden soll. 
+Napalm wurde dabei als der default Test für die IOS Geräte des Testnetzwerks implementiert,
+mit den Netmiko-Tests als Fallback und für Tests, die sich mit dem Napalm-Treiber nicht umsetzen liessen.
+
+
 
 \end{document}

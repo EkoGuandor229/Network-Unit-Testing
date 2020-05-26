@@ -2,7 +2,67 @@
 
 \begin{document}
 \section{Schlussfolgerungen}
+\subsection{Endresultat}
+Das Endergebnis der Studienarbeit hat leichte Abweichungen von dem, was wir zu Beginn
+des Projekts geplant haben. 
+In der Architektur wurde zuerst eine weitere Strategy-Factory für die Erstellung 
+der Netzwerk-Verbindungen geplant. Diese wurde aber nicht implementiert, da 
+sich herausgestellt hat, dass eine Strategy-Factory nur für weitere Komplexität 
+im Code sorgt. 
+Stattdessen wurde ein Mapping der Hostbetriebssysteme auf die 
+kompatiblen Verbindungsschnittstellen mittels einem Dictionary vorgenommen.
+Dieses Vorgehen bietet eine ähnliche Funktionalität, ist aber weitaus simpler 
+in der Anwendung und im Verständniss.
+
+Weiterhin wurde ein grosser Teil der Testdurchführungslogik in die konkreten Testimplementationen
+verschoben. 
+Am Anfang wurde geplant, dass jede Komponente die Logik beinhaltet die für die Testdurchführung,
+die Evaluation der Ergebnisse und das Mapping der Resultatwerte benötigt werden.
+Stattdessen wurde die Funktionalität des Mappers, des Evaluators und des Testrunners soweit 
+vereinfacht, dass darin für jeden Test die jeweilige Methode aufgerufen wird, die diese
+Logik spezifisch für jeden Test implementiert.
+Durch dieses Vorgehen konnte beispielsweise das Mapping der Testresultate für jeden 
+Netzwerktest innerhalb des Tests vorgenommen werden. 
+Dadurch wurde viel Code im Mapper gespart, da jeder Test eine andere Formatierung der 
+Rückgabewerte hat und dementsprechend für jeden Test ein spezifisches Mapping der Ergebnisse
+hätte gemach werden müssen.
+
+Das Nornir-Framework erlaubt es dem Benutzer, schnell und einfach Netzwerkbefehle an ein
+definiertes Netzwerkgerät zu senden und die Rückgabewerte werden dabei in einem 
+Dictionary von Resultatwerten zurückgegeben. 
+Dadurch müssen die Resultate nicht mit verwendung von regulären Ausdrücken mühsam 
+geparst werden, sondern sie können unter Anwendung von einfachen Operationen 
+in eine einheitliche Form gebracht und mit den Erwartungswerten verglichen werden.
+Der grösste Nachteil in der Verwendung von Nornir ist die Navigierung durch die Dokumentation.
+Will man die einzelnen Netzwerktreiber (Napalm, Netmiko, etc.) verwenden, muss man 
+oftmals in den Dokumentationen der Treiber selber nachsehen, wie genau man die
+Implementation nun vornehmen muss, vorausgesetzt, es exisiert eine spezifische Anleitung
+für die Implementation. 
+
+\newpage
+
+\subsection{Vergleich mit der Vorarbeit}
+Die Studienarbeit aus dem Herbstsemester 2016 hat im vergleich mit dieser Studienarbeit
+mehr konkrete Netzwerktests umgesetzt. 
+Allerdings hat diese Studienarbeit einen höheren Fokus auf der Erweiterbarkeit um neue
+Tests und es werden mehr verschiedene Gerätehersteller unterstützt.
+
+Die reine Pyhton-Implementation erlaubt ein Deployment auf eine vielzahl von Geräten 
+mit unterschiedlichen Betriebssystemen unabhängig von externen Frameworks.
+NUTS2.0 lässt sich in ein bestehendes Configuration Mangement Tool einbinden und kann
+auf jedem Gerät ausgeführt werden, welches Python3 unterstützt.
+Im vergleich dazu wurde NUTS1.0 hauptsächlich für die Verwendung auf Linux-Systemen entwickelt.
+
+Die Erweiterung des Systems ist in NUTS2.0 einfacher gestaltet, da sämtlicher Code in 
+Python geschrieben ist und die verwendeten Module ebenfalls in Python entwickelt wurden.
+
+\newpage
+
+
+
+
 \subsection{Künftige Arbeiten}
+\label{subsec:Künftige Arbeiten}
 \subsubsection*{Automatische Geräteerkennung}
 Im aktuellen Programm müssen sämtliche Netzwerkgeräte von Hand in das Inventar aufgenommen
 werden, was genaue Kenntnisse des Netzwerks voraussetzt und zeitintensiv ist.
@@ -40,6 +100,9 @@ Ausserdem gibt es Netzwerktests, die sich mit Nornir zum jetzigen Zeitpunkt gar 
 ausführen lassen, z.B. die Grafische darstellung des OSPF spanning Tree. 
 Solche Tests müssten manuell implementiert werden und benötigen allenfalls andere 
 Module als Nornir.
+
+\paragraph{Mögliche Tests}
+\textcolor{red}{TODO}
 
 \subsubsection*{Asynchrone Durchführung der Tests}
 Momentan werden alle Netzwerktests nacheinander, d.H. Synchron durchgeführt.
