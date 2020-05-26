@@ -89,22 +89,6 @@
 	\end{tabularx}
 	\newpage
 
-	\minisec{TestResultMapper}
-	Da die Ergebnisse der Netzwerktests, je nach Betriebssystem des Neztwerkgeräts und Typ der Verbindung (Netconf, Restconf, NAPALM), ein anderes Rückgabeformat hat, müssen die Testresultate normalisiert werden.
-	Der TestResultMapper bringt die verschiedenen Rückgabeformate in ein einheitliches Format, welches dem Evaluator für den Ist-, Soll-Vergleich übgeben wird.
-
-	\begin{tabularx}{\textwidth}{lX}
-		\toprule
-			Komponenten & Beschreibung \\
-		\midrule
-			connectionType & Der Typ der Connection, mit welchem auf das Netzwerk verbunden wird. \\
-			logger & Referenz auf das Logger-Objekt. \\	
-			testResult & Die Resultate, welche der TestRunner zurück gibt. \\
-		\midrule
-			mapTestResult() & Methode, die die Resultate des TestRunners in eine einheitliche Norm bringt. \\
-		\bottomrule
-	\end{tabularx}
-
 	\minisec{Reporter}
 	Der Reporter schreibt die Testergebnisse der fertig ausgeführten Tests auf die Konsole/Benutzeroberfläche und erstellt ein Testprotokoll, welches er über den FileHandler im Directory abspeichert.
 
@@ -112,8 +96,8 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			evaluationResult & Die Ergebnisse des Evaluators, wie der Soll- Ist-Vergleich der Tests abgelaufen ist. \\
-			fileHandler & Referenz auf das FileHandler-Objekt. \\	
+			logger & Referenz auf die Logger-Instanz. \\
+			fileHandler & Referenz auf die FileHandler-Instanz. \\	
 		\midrule
 			printResults() & Methode die die Testergebnisse auf der Konsole ausgibt. \\
 			safeResults() & Methode, die über den FileHandler die Testergebnisse in einem File im Directory abspeichert. \\
@@ -127,10 +111,7 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			testRunnerResult & Ergebnisse der auf dem Netzwerk vom Runner ausgeführten Tests. \\
-			testExpectation & Zu erwartende Ergebnisse für einen spezifischen Test der Testsuite. \\
-			logger & Referenz auf das Logger-Objekt. \\
-			evaluationResult & Resultat des Soll-Ist-Vergleichs, welches dem Controller zurückgegeben wird.\\
+			logger & Referenz auf die Logger-Instanz. \\
 		\midrule
 			compare() & Methode, die testRunnerResult mit testExpectation vergleicht und entscheidet, ob der Test erfolgreich war, oder gescheitert ist. \\
 		\bottomrule
@@ -144,16 +125,16 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			logger & Referenz auf das Logger-Objekt. \\
+			logger & Referenz auf die Logger-Instanz. \\
 			file & Pfad zu dem zu lesenden/schreibenden File. \\
-			fileType & Typ des Files, YAML, XML, JSON usw. \\
 		\midrule
 			readFile() & Methode, die ein vorgegebenes File öffnet und deren Inhalt in das Programm einliest. \\
+			readConfig() & Methode, die das Konfigurationsfile für NUTS2.0 liest. \\
 			writeFile() & Methode, die einen vorgegebenen Text aus dem Programm in ein File im Directory schreibt. \\
 		\bottomrule
 	\end{tabularx}
 
-	\minisec{Testbuilder}
+	\minisec{NetworkTestbuilder}
 	Der Testbuilder ist für die Zusammenstellung der Tests verantwortlich. 
 	Er instanziert einen TestDefinitionLoader, der aus dem TestDefinitionsDirectory, worin mehrere Files mit TestDefinitionen gespeichert sind, die einzelnen TestDefinitionen ausliest.
 	Dann holt er sich aus dem Inventory die Devices und deren Connections. 
@@ -165,21 +146,23 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			testBundle & Collection von Tests mit Parametern für die Ausführung als Referent auf ein TestBundle-Objekt. \\
-			connection & Referenz auf das Connection-Objekt. \\
-			inventory & Referenz auf das Inventory-Objekt. \\
-			testDefinitionLoader & Referenz auf ein TestDefinitionLoader-Objekt.\\
-			testOrder & Definition, in welcher Reihenfolge die Tests ausgeführt werden sollen. \\
-			logger & Referenz auf das Logger-Objekt.  \\
-			testDefinitions & Collection mit Referenzen auf TestDefinition-Objekte. \\
+			logger & Referenz auf die Logger-Instanz.  \\
+			inventory & Referenz auf die Inventory-Instanz. \\
+			connection & Referenz auf die Connection-Instanz. \\
+			networkTestDefinitionLoader & Referenz auf die TestDefinitionLoader-Instanz.\\
+			networkTestBundle &  Referenz auf die TestBundle-Instanz. \\
+			networkTestOrder & Definition, in welcher Reihenfolge die Tests ausgeführt werden sollen. \\
+			fileHandler & Referenz auf die FileHandler-Instanz. \\
+			network\_test\_definitions & Collection mit Referenzen auf TestDefinition-Objekte. \\
 		\midrule
-			createTestSuite() & Methode, die aus den destDefinitionen, dem Inventar und der Testreihenfolge eine TestSuite erstellt. \\
-			defineTestOrder() & Methode, die die Testreihenfolge vom Softwareuser einstellen lassen kann. \\
+			get\_test\_definitions() & Methode, die die TestDefinitionen lädt. \\
+			connect\_device\_objects() & Methode, die die Verknüpfung der Testdefinitionen mit den Geräten vornimmt. \\
+			get\_runnable\_test() & Methode, die die Testinstanzierung aufruft. \\
 		\bottomrule
 	\end{tabularx}
 	\newpage
 
-	\minisec{TestBundle}
+	\minisec{NetworkTestBundle}
 	Das TestBundle ist dafür zuständig, gemäss der TestDefinitionen die Tests zusammenzustellen. 
 	Dazu wird ein TestContext und eine TestFactory instanziert und damit die Tests ausgewählt und instanziert.
 
@@ -187,41 +170,36 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			tests & Collection von Tests, die von der TestFactory instanziert wurden und dem TestBuilder als Rückgabewert zurückgegeben wird. \\
-			testContext & Referenz auf das TestContext-Objekt. \\
-			logger & Referenz auf das Logger-Objekt. \\
-			testFactory & Referenz auf das TestFactory objekt. \\
+			network\_tests & Collection von Tests, die von der TestFactory instanziert wurden und dem TestBuilder als Rückgabewert zurückgegeben wird. \\
+			networkTestStrategyFactory & Referenz auf die NetworkTestStrategyFactory-Instanz. \\
 		\midrule
 			createTestBundle() & Methode, die aus den TestDefinitionen über eine TestFactory die konkreten Tests auswählt und in einer Collection zusammenfasst. \\
 		\bottomrule
 	\end{tabularx}
 
-	\minisec{TestContext}
-	Der TestContext wird benötigt, um unter Anwendung des Strategy-Pattern die Auswahl der Tests durchzuführen.
-	Die Methode setText() ruft dabei die Factory auf und instanziert die konkreten Tests.
-
-	\minisec{TestStrategy}
+	\minisec{NetworkTestStrategy}
 	Das TestStrategy-Interface dient als Basis für die konkreten Implementationen der Tests. 
 	Das Interface gibt den Test-Classes dafür die benötigte Funktionalität vor, die wiederum von den konkreten Tests implementiert werden müssen.
 	Die ExecuteTest() Methode ist ein Beispiel für eine solche Funktionalität.
 
-	\minisec{TestFactory}
+	\minisec{NetworkTestFactory}
 	Die TestFactory ist die Anwendung des Factory Method Pattern, welches den Tests erlaubt, instanziert zu werden, ohne dass sich diese selbst um die Instanzierungslogik kümmern müssen.
 	Die Factory entscheidet dabei, welche Tests für welche Definitionen instanziert werden müssen und instanziert diese konkreten Tests mit der getTest() Methode.
 
 	\newpage
 
-	\minisec{TestDefinitionLoader}
+	\minisec{NetworkTestDefinitionLoader}
 	Der TestDefinitionLoader ist dafür zuständeg, die TestDefinitionen aus dem Directory zu laden und als einzelne TestDefinitionen zu instanzieren.
 	
 	\begin{tabularx}{\textwidth}{lX}
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			testDefinitions & Collection von TestDefinitionen, die dem TestBuilder als Rückgabewerte zurückgegeben werden. \\
+			logger & Referenz auf die Logger-Instanz \\
 			fileHandler & Referenz auf das FileHandler-Objekt. \\
+			test\_definitions & Collection von TestDefinitionen, die dem TestBuilder als Rückgabewerte zurückgegeben werden. \\
 		\midrule
-			createTestDefinitionObject & Methode, die die TestDefinitionen aus dem FileSystem ausliest und TestDefinition-Objekte für jede Definition instanziert. \\
+			create\_test\_definition\_object & Methode, die die TestDefinitionen aus dem FileSystem ausliest und TestDefinition-Objekte für jede Definition instanziert. \\
 		\bottomrule
 	\end{tabularx}
 
@@ -233,13 +211,14 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
+			logger & Referenz auf die Logger-Instanz. \\
 			devices & Collection der eingelesenen Geräte.\\
 			deviceConnection & Collection der Geräteverbindungen. \\
 			fileHandler & Referenz auf das FileHandler-Objekt.\\
 		\midrule
 			createInventory() & Methode, die das Inventar erstellt. \\
-			createDeviceObject & Methode, die aus dem FileSystem die einzelnen Devices ausliest und für jedes ein Device-Objekt erstellt. \\
-			createDeviceConnectionObject & Methode, die aus dem FileSystem die Geräteverbindungen ausliest und für jede Verbindung ein deviceConnection-Objekt erstellt.\\
+			create\_device\_object & Methode, die aus dem FileSystem die einzelnen Devices ausliest und für jedes ein Device-Objekt erstellt. \\
+			create\_device\_connection\_object & Methode, die aus dem FileSystem die Geräteverbindungen ausliest und für jede Verbindung ein deviceConnection-Objekt erstellt.\\
 		\bottomrule
 	\end{tabularx}
 	\newpage
@@ -252,22 +231,11 @@
 		\toprule
 			Komponenten & Beschreibung \\
 		\midrule
-			connection & Ausgewählte Netzwerkschnittstelle, die dem TestBuilder als Rückgabewert geliefert wird. \\
-			logger & Referenz auf das Logger-Objekt. \\
-			connectionFactory & Referenz auf das ConnectionFactory-Objekt. \\
-			connectionContext & Referenz auf das ConnectionContext-Objekt. \\
+			connection\_mapper & Ausgewählte Netzwerkschnittstelle, die dem TestBuilder als Rückgabewert geliefert wird. \\
 		\midrule
-			createConnection() & Methode, die aufgrund der Parameter der Devices eine mögliche Netzwerkschnittstelle auswählt.\\
+			define\_connection() & Methode, die aufgrund der Parameter der Devices eine mögliche Netzwerkschnittstelle auswählt.\\
 		\bottomrule
 	\end{tabularx}
-
-	\minisec{ConnectionContext}
-	Anwendung des Strategy Pattern für die Netzwerkschnittstelle. 
-	Der ConnectionContext hält eine Referenz auf das konkrete Schnittstellen-Objekt.
-
-	\minisec{ConnectionFactory}
-	Anwendung des Factory-Pattern auf die Netzwerkschnittstelle.
-	Die Factory ist zuständig für die Instanzierung der konkreten Schnittstelle, mit der das Programm die Netzwerkumgebung testet.
 
 	\minisec{Logger}
 	Der Logger wird verwendet, um wichtiche Informationen zentral zu speichern. 
