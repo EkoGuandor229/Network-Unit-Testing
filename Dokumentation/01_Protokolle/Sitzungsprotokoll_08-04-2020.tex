@@ -9,10 +9,10 @@
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
 
 % Dokumenteninformationen ----------------------------------------------------
-\newcommand{\titel}{Sitzung Design 1}
+\newcommand{\titel}{Sitzung Umsetzung 1}
 \newcommand{\untertitel}{Studienarbeit \semester}
 \newcommand{\kompletterTitel}{\titel{} \\ \untertitel}
-\newcommand{\datum}{11.03.2020}
+\newcommand{\datum}{08.04.2020}
 
 \newcommand{\vorlagenOrdner}{../99_Vorlagen} % Falls im Unterordner ../ vorne hinzufügen
 
@@ -46,18 +46,13 @@
 
 \section*{Traktanden}
 \begin{enumerate}
-	\item Besprechung Anforderungsanalyse
-	\item Speicherungsart der Passwörter
+	\item Besprechung Connection Factory
+	\item Besprechung Zwischenstand der Implementierung
 \end{enumerate}
 
 \section*{Beschlüsse}
-	Die Anforderungsanalyse muss noch einmal überarbeitet werden.
 	\begin{itemize}
-		\item Die UseCases müssen verständlicher formuliert werden.
-		\item Eine allgemeine Beschreibung mit dem Ziel der Applikation fehlt.
-		\item Abgrenzungen des Programms fehlen.
-		\item Die Personas sind in der falschen Reihenfolge, beziehungsweise zu unverständlich.
-		\item Die NFA und die Einbussen dazu sind zu speziefisch.
+		\item Die Connection Factory wird durch eine einfache Klasse ersetzt, da eine Factory hier keinen Sinn macht.
 	\end{itemize}
 
 \section*{Offene Punkte}
@@ -65,7 +60,8 @@
 	\toprule
 	Was & Verantwortlicher & Datum \\
 	\midrule
-	 Anforderungsanalyse überarbeiten & Mike Schmid, Janik Schlatter & 17.03.2020 \\
+	 Test Factory Implementation & Mike Schmid & 15.04.2020 \\
+	 Inventory Management Implementation & Janik Schlatter & 15.04.2020 \\
 	\bottomrule
 \end{tabularx}
 
