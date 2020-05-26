@@ -1,22 +1,23 @@
 from nornir import InitNornir
 from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.networking import netmiko_send_command
+from nornir.plugins.tasks.networking import napalm_get
 
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoPingTest(NetworkTestStrategyInterface):
+class NapalmShowArpTables(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
-        device_informations = test_definition.get_test_devices()
-        self.test_name = test_definition.get_test_id()
-        self.hostname = device_informations.get_hostname()
-        self.username = device_informations.get_username()
-        self.password = device_informations.get_password()
-        self.platform = device_informations.get_platform()
+        device_information = test_definition.get_test_devices()
+        self.hostname = device_information.get_hostname()
+        self.username = device_information.get_username()
+        self.password = device_information.get_password()
         self.expected = test_definition.get_expected_result()
-        self.destination = test_definition.get_target()
+        self.platform = device_information.get_platform()
+        self.test_name = test_definition.get_test_id()
         self.result = None
+        if self.platform in "cisco_ios":
+            self.platform = "IOS"
 
         self.nr = InitNornir(
             inventory={
@@ -27,7 +28,7 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
                             "platform": self.platform,
                             "hostname": self.hostname,
                             "username": self.username,
-                            "password": self.password,
+                            "password": self.password
                         }
                     }
                 }
@@ -37,8 +38,8 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
 
     def run_test(self):
         return self.nr.run(
-            task=netmiko_send_command,
-            command_string=f"ping {self.destination}"
+            task=napalm_get,
+            getters=["arp_table"]
         )
 
     def evaluate_result(self) -> bool:
@@ -52,12 +53,11 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        for host_name, res_data in result.items():
-            mapped_result = res_data[0].result
-        if "Success rate is 100 percent (5/5)" in mapped_result:
-            self.result = "Success"
-        else:
-            self.result = "Failure"
+        self.result = []
+        result_collection = result["host1"][0].result["arp_table"]
+        for i in range(0, len(result_collection)):
+            del result_collection[i]["age"]
+            self.result.append((result_collection[i]))
 
     def get_expected_value(self):
         return self.expected

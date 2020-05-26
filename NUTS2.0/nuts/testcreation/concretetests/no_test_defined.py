@@ -10,23 +10,23 @@ class NoTestDefined(NetworkTestStrategyInterface):
     wrongly.
     """
 
-    def __init__(self, test_command, device_name):
-        self.test_command = test_command
-        self.device_name = device_name
+    def __init__(self, test_definition):
+        self.test_command = test_definition.get_command()
+        self.failure_string = f"Test: {self.test_command} is not yet implemented"
         self.result = None
 
     def run_test(self):
-        result = f"Test: {self.test_command} is not yet implemented"
+        result = self.failure_string
         return result
 
-    def evaluate_result(self, result):
-        return result
+    def evaluate_result(self):
+        return False
 
     def print_result(self, result):
         print(result)
 
     def set_result(self, result):
-        self.result = result
+        pass
 
     def get_result(self):
         return self.result
@@ -36,3 +36,6 @@ class NoTestDefined(NetworkTestStrategyInterface):
 
     def get_expected_value(self):
         return "Some test implemented"
+
+    def close_connection(self):
+        self.nr.close_connections()

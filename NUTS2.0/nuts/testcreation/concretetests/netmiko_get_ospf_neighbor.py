@@ -5,17 +5,16 @@ from nornir.plugins.tasks.networking import netmiko_send_command
 from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 
-class NetmikoPingTest(NetworkTestStrategyInterface):
+class NetmikoShowOspfNeighbor(NetworkTestStrategyInterface):
 
     def __init__(self, test_definition):
-        device_informations = test_definition.get_test_devices()
-        self.test_name = test_definition.get_test_id()
-        self.hostname = device_informations.get_hostname()
-        self.username = device_informations.get_username()
-        self.password = device_informations.get_password()
-        self.platform = device_informations.get_platform()
+        device_information = test_definition.get_test_devices()
+        self.platform = device_information.get_platform()
+        self.hostname = device_information.get_hostname()
+        self.username = device_information.get_username()
+        self.password = device_information.get_password()
         self.expected = test_definition.get_expected_result()
-        self.destination = test_definition.get_target()
+        self.test_name = test_definition.get_test_id()
         self.result = None
 
         self.nr = InitNornir(
@@ -24,10 +23,10 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": self.platform,
-                            "hostname": self.hostname,
-                            "username": self.username,
-                            "password": self.password,
+                            "platform": str(self.platform),
+                            "hostname": str(self.hostname),
+                            "username": str(self.username),
+                            "password": str(self.password),
                         }
                     }
                 }
@@ -38,11 +37,11 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
     def run_test(self):
         return self.nr.run(
             task=netmiko_send_command,
-            command_string=f"ping {self.destination}"
+            command_string="show ip ospf neighbor"
         )
 
     def evaluate_result(self) -> bool:
-        return self.expected == self.result
+        return self.result == self.expected
 
     def print_result(self, result):
         print(self.expected)
@@ -52,12 +51,19 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        for host_name, res_data in result.items():
-            mapped_result = res_data[0].result
-        if "Success rate is 100 percent (5/5)" in mapped_result:
-            self.result = "Success"
-        else:
-            self.result = "Failure"
+        self.result = []
+        result_collection = str(result["host1"][0])
+        array = result_collection.split()
+        for i in range(8, len(array), 6):
+            neighbor_dict = {
+                "Neighbor-ID": array[i],
+                "Priority": array[i + 1],
+                "State": array[i + 2],
+                "Address": array[i + 4],
+                "Interface": array[i + 5]
+            }
+
+            self.result.append(neighbor_dict)
 
     def get_expected_value(self):
         return self.expected
