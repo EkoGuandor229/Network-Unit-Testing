@@ -1,0 +1,31 @@
+router01:
+  - router01
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.31
+  - 172.16.255.1
+
+router02:
+  - router02
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.32
+  - 172.16.255.2
+
+router03:
+  - router03
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.33
+  - 172.16.255.3
+
+router04:
+  - router04
+  - cisco_ios
+  - Cisco
+  - cisco
+  - 10.20.0.34
+  - 172.16.255.4

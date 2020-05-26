@@ -1,0 +1,15 @@
+test01:
+  - PingRouter1Loopback0
+  - Ping
+  - router01
+  - 172.16.255.1
+  - Success
+  - connectivity
+
+test02:
+  - PingRouter1Loopback1
+  - Ping
+  - router01
+  - 172.16.255.2
+  - Success
+  - connectivity

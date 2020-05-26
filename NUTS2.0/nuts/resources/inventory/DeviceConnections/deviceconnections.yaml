@@ -1,0 +1,34 @@
+connection1:
+  - router01
+  - router02
+  - 100Mbit
+
+connection2:
+  - router01
+  - router03
+  - 100Mbit
+
+connection3:
+  - router01
+  - router04
+  - 100Mbit
+
+connection4:
+  - router02
+  - router03
+  - 100Mbit
+
+connection5:
+  - router02
+  - router01
+  - 100Mbit
+
+connection6:
+  - router03
+  - router02
+  - 100Mbit
+
+connection7:
+  - Router04
+  - Router01
+  - 100Mbit
