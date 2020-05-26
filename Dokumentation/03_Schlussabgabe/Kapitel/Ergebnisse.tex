@@ -7,7 +7,7 @@ Die Studienarbeit hat ein Python-Programm entwickelt, welches basierend auf eine
 im YAML-Format automatische Tests gegen ein Netzwerk ausführen kann.
 
 Kern der Software ist das Nornir-Modul für Python, ein Framework welches in Python geschrieben
-ist und die Automation von Netzwerktätigkeiten ermötlicht. 
+ist und die Automation von Netzwerktätigkeiten ermöglicht. 
 Die Auswahl von Nornir ist das Ergebnis der Evaluation möglicher Tools für die Software,
 wobei schon zu Beginn der Analysephase die Verwendung von Nornir feststand, da das
 Framework ein breites Spektrum von Funktionen für die Durchführung und Auswertung von 
@@ -15,11 +15,11 @@ Netzwerktests bietet.
 Nornir erlaubt dem Anwender, automatisiert Konfigurationsänderungen oder -abfragen an ein 
 Netzwerk zu senden.
 
-Eine mögliche paralelle Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
+Eine mögliche parallele Ausführung der Netzwerktests wurde in der frühen Phase des Projekts
 angesprochen, konnte aber aufgrund des engen Zeitrahmens der Arbeit nicht umgesetzt werden.
 Stattdessen wurde die Zeit investiert, damit die Implementierten Tests korrekt funktionieren
 und die Erweiterung um neue Tests so einfach wie möglich ist.
-Die Erweiterung um eine paralelle Ausführung wird in die künftigen Arbeiten übernommen.
+Die Erweiterung um eine parallele Ausführung wird in die künftigen Arbeiten übernommen.
 
 Die im Kapitel~\ref{subsec:Aufgabenstellung}-Aufgabenstellung genannten Anforderungen an 
 die Tests werden vom Programm vollständig erfüllt:
@@ -42,7 +42,7 @@ Programm läuft danach selbstständig durch und dokumentiert die Ergebnisse.
 
 \paragraph{Reproduzierbarkeit/Nachvollziehbarkeit der Ergebnisse} 
 Wenn sich die Konfiguration im Netzwerk zwischen der Testdurchführung nicht verändert,
-wird auch das Testergebniss gleich ausfallen. 
+wird auch das Testergebnis gleich ausfallen. 
 Testergebnisse werden in einem einheitlichen Format gespeichert und bei nicht bestandenen
 Tests wird zusätzlich zum Testnamen noch das erwartete und das tatsächliche Ergebnis
 ausgegeben, um einen Soll-Ist-Vergleich durchführen zu können.
@@ -60,12 +60,12 @@ Wird das GUI übersprungen, werden alle Netzwerktests in der Reihenfolge durchge
 in der sie in der Testdefinition angegeben wurden.
 
 Die Testergebnisse werden nach der Testdurchführung in der Konsole angezeigt und 
-in einem Result.txt, unter angabe des Zeitstempels gespeichert. 
+in einem Result.txt, unter Angabe des Zeitstempels gespeichert. 
 Erfolgreiche Tests werden nur mit dem Testnamen aus der Testdefinition und dem Vermerk
 'PASSED' ausgegeben/gespeichert, da hauptsächlich die nicht bestandenen Netzwerktests 
 relevant sind.
 Nicht bestandene Tests haben zusätzlich zum Testnamen aus der Testdefinition noch das
-erwartete Ergebniss und das tatsächliche Ergebniss für einen Soll-Ist-Vergleich.
+erwartete Ergebnis und das tatsächliche Ergebnis für einen Soll-Ist-Vergleich.
 
 \newpage
 
@@ -120,7 +120,7 @@ die in das System integriert werden können.
         Napalm show ARP Table & Test der die ARP-Tabelle des Hostgeräts mit dem Napalm-Treiber abfragt. \\
         Netmiko show ARP-Table & Test der die ARP-Tabelle des Hostgeräts mit dem Netmiko-Treiber abfragt. \\
         Napalm OSPF Neighbors & Test der die OSPF Nachbarn des Hostgeräts mit dem Napalm-Treiber abfragt. \\
-        Netmiko OSPF Neighbors & Test der die OSPF Nachbarn des Hostgeräts mit dem Netmiko-Treiber abfagt. \\
+        Netmiko OSPF Neighbors & Test der die OSPF Nachbarn des Hostgeräts mit dem Netmiko-Treiber abfragt. \\
         \bottomrule
     \end{tabularx}
     \caption{Implementierte Tests}
@@ -130,10 +130,10 @@ die in das System integriert werden können.
 Man könnte nun argumentieren, dass mehrere Tests doppelt Implementiert seien, was duplizierter Code wäre.
 Allerdings kann man nicht für beliebige Hostbetriebssysteme die gleichen Netzwerktests verwenden.
 Zudem gibt es bestimmte Tests, z.B. Traceroute, die sich nicht mit Napalm implementieren lassen
-(zumindest nicht zum Zeitpunkt der Implementierung, ein Pull-Request für die integrierung des 
+(zumindest nicht zum Zeitpunkt der Implementierung, ein Pull-Request für die Integrierung des 
 Napalm Traceroute steht offen).
 Das Programm entscheidet, basierend auf dem Betriebssystem des Hostgeräts, welcher 
-konkrete Test instanziert werden soll. 
+konkrete Test instanziiert werden soll. 
 Napalm wurde dabei als der default Test für die IOS Geräte des Testnetzwerks implementiert,
 mit den Netmiko-Tests als Fallback und für Tests, die sich mit dem Napalm-Treiber nicht umsetzen liessen.
 
