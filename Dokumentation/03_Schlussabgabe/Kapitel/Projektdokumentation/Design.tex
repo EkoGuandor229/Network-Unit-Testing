@@ -55,7 +55,7 @@
 	\minisec{NetworkTestController}
 	Der TestController ist das Kernstück des Programms. 
 	Er beinhaltet die Main-Methode und steuert den Ablauf des Programms. 
-	Vom TestController werden der TestRunner, der TestBuilder, der Evaluator 
+	Vom TestController werden der NetworkTestRunner, der NetworkTestBuilder, der Evaluator 
 	und der Reporter instanziert und er ist zuständig für die Kommunikation 
 	zwischen diesen Komponenten.
 	
@@ -64,9 +64,9 @@
 			Komponenten & Beschreibung \\
 		\midrule
 			reporter & Referenz auf die Reporter-Instanz \\
-			testRunner & Referenz auf die TestRunner-Instanz \\
+			networkTestRunner & Referenz auf die TestRunner-Instanz \\
 			evaluator & Referenz auf die Evaluator-Instanz \\
-			testBuilder & Referenz auf die TestBuilder-Instanz \\
+			networkTestBuilder & Referenz auf die TestBuilder-Instanz \\
 		\midrule
 			logic() & Methode, die für die Programmausführung sämtliche referenzierten Komponenten instanziert und deren Funktionalität in der korrekten Reihenfolge ausführt.\\
 			run() & Main-Methode, die den Testcontroller instanziert. \\
@@ -74,7 +74,7 @@
 	\end{tabularx}
 
 	\minisec{NetworkTestRunner}
-	Der TestRunner führt die ihm vom Controller mitgeteilten Tests gemäss der, in der TestSuite angegebenen, Parameter aus. 
+	Der TestRunner führt die ihm vom Controller mitgeteilten Tests gemäss der in der TestSuite angegebenen Parameter aus. 
 	Die zu verwendende Netzwerkschnittstelle (Restconf, Netconf, SSH etc.) wird ihm ebenfalls vom Controller mitgeteilt.
 	Die Resultate der Netzwerktests gibt er dem TestController in Form von Rückgabewerten zurück.
 
@@ -84,7 +84,7 @@
 		\midrule
 			logger & Referenz auf die Logger-Instanz \\ 
 		\midrule
-			runAllTests() & Methode, die die in der Testsuite spezifizierten Tests auf der in der Connection spezifizierten Netzwerkschnittstelle ausführt. \\
+			run\_all\_tests() & Methode, die die in der Testsuite spezifizierten Tests auf der in der Connection spezifizierten Netzwerkschnittstelle ausführt. \\
 		\bottomrule
 	\end{tabularx}
 	\newpage
@@ -99,8 +99,8 @@
 			logger & Referenz auf die Logger-Instanz. \\
 			fileHandler & Referenz auf die FileHandler-Instanz. \\	
 		\midrule
-			printResults() & Methode die die Testergebnisse auf der Konsole ausgibt. \\
-			safeResults() & Methode, die über den FileHandler die Testergebnisse in einem File im Directory abspeichert. \\
+			print\_results() & Methode die die Testergebnisse auf der Konsole ausgibt. \\
+			safe\_results() & Methode, die über den FileHandler die Testergebnisse in einem File im Directory abspeichert. \\
 		\bottomrule
 	\end{tabularx}
 
@@ -128,17 +128,17 @@
 			logger & Referenz auf die Logger-Instanz. \\
 			file & Pfad zu dem zu lesenden/schreibenden File. \\
 		\midrule
-			readFile() & Methode, die ein vorgegebenes File öffnet und deren Inhalt in das Programm einliest. \\
-			readConfig() & Methode, die das Konfigurationsfile für NUTS2.0 liest. \\
-			writeFile() & Methode, die einen vorgegebenen Text aus dem Programm in ein File im Directory schreibt. \\
+			read\_file() & Methode, die ein vorgegebenes File öffnet und deren Inhalt in das Programm einliest. \\
+			read\_config() & Methode, die das Konfigurationsfile für NUTS2.0 liest. \\
+			write\_file() & Methode, die einen vorgegebenen Text aus dem Programm in ein File im Directory schreibt. \\
 		\bottomrule
 	\end{tabularx}
 
 	\minisec{NetworkTestbuilder}
 	Der Testbuilder ist für die Zusammenstellung der Tests verantwortlich. 
-	Er instanziert einen TestDefinitionLoader, der aus dem TestDefinitionsDirectory, worin mehrere Files mit TestDefinitionen gespeichert sind, die einzelnen TestDefinitionen ausliest.
+	Er instanziert einen NetworkTestDefinitionLoader, der aus dem TestDefinitionsDirectory, worin mehrere Files mit TestDefinitionen gespeichert sind, die einzelnen TestDefinitionen ausliest.
 	Dann holt er sich aus dem Inventory die Devices und deren Connections. 
-	Die TestDefinitionen attributisiert er mit den, in der TestStrategy definierten Tests, und erstellt mit den Parametern aus dem Inventar das TestBundle. 
+	Die TestDefinitionen attributisiert er mit den, in der NetworkTestStrategy definierten Tests, und erstellt mit den Parametern aus dem Inventar das NetworkTestBundle. 
 	Hier kann vom Benutzer auch die Auswahl der einzelnen Tests, welche durchgeführt werden sollen, sowie die Durchführungsreihenfolge festgelegt werden.
 	Die Connection spezifiziert die konkrete Netzwerkschnittstelle, über welche die Netzwerktests vom Runner dann durchgeführt werden sollen.
 
@@ -164,7 +164,7 @@
 
 	\minisec{NetworkTestBundle}
 	Das TestBundle ist dafür zuständig, gemäss der TestDefinitionen die Tests zusammenzustellen. 
-	Dazu wird ein TestContext und eine TestFactory instanziert und damit die Tests ausgewählt und instanziert.
+	Dazu wird eine NetworkTestStrategyFactory instanziert und damit die Tests ausgewählt und instanziert.
 
 	\begin{tabularx}{\textwidth}{lX}
 		\toprule
@@ -173,18 +173,18 @@
 			network\_tests & Collection von Tests, die von der TestFactory instanziert wurden und dem TestBuilder als Rückgabewert zurückgegeben wird. \\
 			networkTestStrategyFactory & Referenz auf die NetworkTestStrategyFactory-Instanz. \\
 		\midrule
-			createTestBundle() & Methode, die aus den TestDefinitionen über eine TestFactory die konkreten Tests auswählt und in einer Collection zusammenfasst. \\
+			create\_test\_bundle() & Methode, die aus den TestDefinitionen über eine Factory die konkreten Tests auswählt und in einer Collection zusammenfasst. \\
 		\bottomrule
 	\end{tabularx}
 
 	\minisec{NetworkTestStrategy}
 	Das TestStrategy-Interface dient als Basis für die konkreten Implementationen der Tests. 
 	Das Interface gibt den Test-Classes dafür die benötigte Funktionalität vor, die wiederum von den konkreten Tests implementiert werden müssen.
-	Die ExecuteTest() Methode ist ein Beispiel für eine solche Funktionalität.
+	Die run\_test() Methode ist ein Beispiel für eine solche Funktionalität.
 
-	\minisec{NetworkTestFactory}
+	\minisec{NetworkTestStrategyFactory}
 	Die TestFactory ist die Anwendung des Factory Method Pattern, welches den Tests erlaubt, instanziert zu werden, ohne dass sich diese selbst um die Instanzierungslogik kümmern müssen.
-	Die Factory entscheidet dabei, welche Tests für welche Definitionen instanziert werden müssen und instanziert diese konkreten Tests mit der getTest() Methode.
+	Die Factory entscheidet dabei, welche Tests für welche Definitionen instanziert werden müssen und instanziert diese konkreten Tests mit der factory\_method() Methode.
 
 	\newpage
 
@@ -216,7 +216,7 @@
 			deviceConnection & Collection der Geräteverbindungen. \\
 			fileHandler & Referenz auf das FileHandler-Objekt.\\
 		\midrule
-			createInventory() & Methode, die das Inventar erstellt. \\
+			create\_inventory() & Methode, die das Inventar erstellt. \\
 			create\_device\_object & Methode, die aus dem FileSystem die einzelnen Devices ausliest und für jedes ein Device-Objekt erstellt. \\
 			create\_device\_connection\_object & Methode, die aus dem FileSystem die Geräteverbindungen ausliest und für jede Verbindung ein deviceConnection-Objekt erstellt.\\
 		\bottomrule
@@ -224,8 +224,10 @@
 	\newpage
 
 	\minisec{Connection}
-	Die Connection-Klasse spezifiziert die Netzwerk-Schnittstelle, die für die Verbindung zwischen dem Programm und des zu Testenden Netzwerks verwendet werden soll.
-	Für die Auswahl und Instanzierung wird eine ConnectionFactory verwendet und die Verbindungen lassen sich mittels einem Strategy-Pattern auswählen.
+	Die Connection-Klasse spezifiziert die Netzwerk-Schnittstelle,
+	die für die Verbindung zwischen dem Programm und des zu Testenden Netzwerks verwendet
+	werden soll.
+	
 
 	\begin{tabularx}{\textwidth}{lX}
 		\toprule
