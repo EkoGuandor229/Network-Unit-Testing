@@ -42,13 +42,13 @@
 
 		\begin{figure}[h!]
 			\begin{center}
-				\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/Devices_yaml.png}
+				\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices_yaml.png}
 				\caption{Position devices.yaml}
 			\end{center}
 		\end{figure}
 
-		Um neue Devices zu erfassen müssen folgende Informationen im yaml eingegeben werden:\\
-		\begin{table}
+		Um neue Devices zu erfassen müssen Informationen gemäss der Tabelle~\ref{table:Deviceparameter} im yaml eingegeben werden:\\
+		\begin{table}[h!]
 			\begin{tabularx}{\textwidth}{lX}
 			\toprule
 			Attribut & Beschreibung \\
@@ -62,16 +62,20 @@
 			\midrule
 			\end{tabularx}
 			\caption{Deviceparameter}
+			\label{table:Deviceparameter}
 		\end{table}
 		
-		Diese Informationen sollten gemäss folgendem Beispiel dargestellt werden: 
+		Diese Informationen sollten wie in der Abbildung~\ref{fig:DeviceErfassung} dargestellt werden: 
 
 		\begin{figure}[h!]
 			\begin{center}
-				\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/Devices.png}
+				\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/Devices.png}
 				\caption{Beispiel-Erfassung Device}
+				\label{fig:DeviceErfassung}
 			\end{center}
 		\end{figure}
+
+	\newpage
 
 	\subsubsection{Device Connections}
 		Die Definitionen der Device Connections sind unter 
@@ -84,9 +88,9 @@
 			\end{center}
 		\end{figure}
 
-		Um Device Connections zu erfassen müssen folgende Informationen im yaml eingegeben werden:
+		Um Device Connections zu erfassen müssen Informationen gemäss der Tabelle~\ref{table:DeviceConnectionParameter} im yaml eingegeben werden:
 
-		\begin{table}
+		\begin{table}[h!]
 			\begin{tabularx}{\textwidth}{ll}
 			\toprule
 			Attribut & Beschreibung \\
@@ -97,18 +101,21 @@
 			\midrule
 			\end{tabularx}
 			\caption{DeviceConnection Parameter}
+			\label{table:DeviceConnectionParameter}
 		\end{table}
 		
 
-		Diese Informationen sollten wie folgt dargestellt werden: 
+		Diese Informationen sollten wie in der Abbildung~\ref{fig:ErfassungConnection} dargestellt werden: 
 
 		\begin{figure}[h!]
 			\begin{center}
 				\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/DeviceConnections.png}
 				\caption{Beispiel-Erfassung Connection}
+				\label{fig:ErfassungConnection}
 			\end{center}
 		\end{figure}
 
+		\newpage
 
 \subsection{Netzwerktests}
 	Die Netzwerktests sind die Tests, welche effektiv auf dem zu testenden Netzwerk 
@@ -125,9 +132,9 @@
 
 	Es können in diesem Ordner beliebig viele YAML Files abgelegt werden und es werden vonn allen Files die Tests erfasst.
 
-	Um die Tests zu erfassen müssen folgende Informationen im yaml eingegeben werden:
+	Um die Tests zu erfassen müssen Informationen gemäss der Tabelle~\ref{table:TestDefinitionParameter} im yaml eingegeben werden:
 
-	\begin{table}
+	\begin{table}[h!]
 		\begin{tabularx}{\textwidth}{ll}
 		\toprule
 		Attribut & Beschreibung \\
@@ -141,15 +148,17 @@
 		\midrule
 		\end{tabularx}
 		\caption{Testdefinition Parameter}
+		\label{table:TestDefinitionParameter}
 	\end{table}
 	
 
-	Diese Informationen sollten wie folgt dargestellt werden: 
+	Diese Informationen sollten wie in der Abbildung~\ref{fig:TestDefinitionErfassung} dargestellt werden: 
 
 	\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/TestDefinitions.png}
 			\caption{Beispiel-Erfassung Testdefinition}
+			\label{fig:TestDefinitionErfassung}
 		\end{center}
 	\end{figure}
 	\newpage
@@ -171,12 +180,13 @@
 			Bei der Definition kann somit einfach 'No Target' eingegeben werden.
 			Als erwartetes Resultat wird ein Dictionary mit key:'Interfacename' und 
 			value:'True' oder 'False' verwendet werden.
-			Dies sollte in folgender Form dargestellt werden:
+			Dies sollte gemäss der Abbildung~\ref{fig:ShowInterfacesErwarungswert}:
 
 			\begin{figure}[h!]
 				\begin{center}
 					\includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/ShowInterfaces.png}
 					\caption{Show Interfaces Erwartungswert}
+					\label{fig:ShowInterfacesErwarungswert}
 				\end{center}
 			\end{figure}
 
@@ -203,7 +213,7 @@
 			Als erwartetes Resultat wird ein Array von Dictionaries erwartet. 
 			In den Dictionaries werden folgende Informationen erwartet:
 
-			\begin{table}
+			\begin{table}[h!]
 				\begin{tabularx}{\textwidth}{lX}
 				\toprule
 				Parametername & Parameterwert \\
@@ -217,12 +227,13 @@
 			\end{table}
 			
 
-			Im Bild ist ein Beispiel des Arrays mit den Dictionaries in jeder Zeile angegeben:
+			In Abbildung~\ref{fig:ARPTableErwartungswert} ist ein Beispiel des Arrays mit den Dictionaries in jeder Zeile angegeben:
 
 			\begin{figure}[h!]
 				\begin{center}
 					\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ArpTable.png}
 					\caption{ARP Table Erwartungswert}
+					\label{ARPTableErwartungswert}
 				\end{center}
 			\end{figure}
 
@@ -231,9 +242,9 @@
 			da OSPF Nachbarn des im test\_device angegebenen Netzwerkgeräts abgefragt wird. 
 			Es kann 'No Target' im 'target'-Feld eingegeben werden.	
 			Als erwartetes Resultat wird ein Array mit Dictionaries erwartet. 
-			In den Dictionaries werden folgende Informationen benötigt:
+			In den Dictionaries werden Informationen gemäss der Tabelle~\ref{table:OSPFErwartungswert}benötigt:
 
-			\begin{table}
+			\begin{table}[h!]
 				\begin{tabularx}{\textwidth}{lX}
 				\toprule
 				Parametername & Parameterwert\\
@@ -246,15 +257,17 @@
 				\bottomrule
 				\end{tabularx}
 				\caption{OSPF Neighbor Erwartungswert Parameter}
+				\label{table:OSPFErwartungswert}
 			\end{table}
 			
 			
-			Das folgende Beispiel zeigt das Array von Dictionaries, wie es im YAML dargestellt wird:
+			Das Beispiel in Abbildung~\ref{fig:OSPFNeighborErwartungswert} zeigt das Array von Dictionaries, wie es im YAML dargestellt wird:
 
 			\begin{figure}[h!]
 				\begin{center}
 					\includegraphics[scale=0.7]{\vorlagenOrdner/Bilder/Manual/OspfNeighbor.png}
 					\caption{OSPF Neighbor Erwartungswert}
+					\label{fig:OSPFNeighborErwartungswert}
 				\end{center}
 			\end{figure}
 
@@ -264,6 +277,8 @@
 	Falls die Option Skip-GUI aktiviert wurde, werden alle Tests in der Reihenfolge durchgeführt,
 	in der sie in der Testdefinition angegeben wurden. 
 	Falls dies nicht aktiviert wurde öffnet sich ein Grafikinterface.
+
+	\newpage
 
 	\subsubsection{GUI}
 		Das GUI für die Definition der Test Reihenfolge besteht aus zweit Tabs:
@@ -282,6 +297,8 @@
 		alle ausgewählten Tests selektiert und man kann danach die Reihenfolge der
 		selektierten Test im zweiten Tab einstellen.
 
+		\newpage
+
 		\begin{figure}[h!]
 			\begin{center}
 				\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/GUI2.png}
@@ -295,6 +312,9 @@
 		kann mit dem Button 'Save and Quit' das GUI beendet werden.
 		Alle selektierten Tests werden nun in der angegebenen Reihenfolge durchgeführt.
 
+	\newpage
+		
+
 	\subsubsection{Test Resultate}
 		Die Resultate der jeweiligen Durchführungen werden in der Konsole angezeigt 
 		und zusätzlich noch in einem File gespeichert.
@@ -303,7 +323,7 @@
 		Nicht bestandene Tests haben den Testnamen, das erwartete Ergebniss und das tatsächliche
 		Ergebniss für einen soll-ist-Vergleich.
 
-		Das folgende Bild zeigt eine komplette Durchführung des Programms mit elf bestandenen
+		Die Abbildung~\ref{fig:ChooseTestGui} zeigt eine komplette Durchführung des Programms mit elf bestandenen
 		Tests und null nicht bestandenen Tests: 
 
 
@@ -311,6 +331,7 @@
 			\begin{center}
 				\includegraphics[scale=0.8]{\vorlagenOrdner/Bilder/Manual/ConsoleGUI.png}
 				\caption{Programmausführung im PyCharm}
+				\label{fig:ChooseTestGui}
 			\end{center}
 		\end{figure}
 
@@ -337,6 +358,8 @@
 				\caption{Testresultate.txt}
 			\end{center}
 		\end{figure}
+
+		\newpage
 
 \subsection{Neue Tests hinzufügen}
 	Falls der Benutzer eigene Tests hinzufügen möchte,
@@ -373,9 +396,9 @@
 		werden, um die Resultate zu vergleichen.
 
 		Mehr Informationen, welche Begehle mit Nornir ausgeführt werden können, findet man 
-		auf https://nornir.readthedocs.io
+		auf: \newline \url{https://nornir.readthedocs.io}
 
-		Informationen zum Napalm-Treiber findet man auf https://napalm.readthedocs.io
+		Informationen zum Napalm-Treiber findet man auf: \url{https://napalm.readthedocs.io}
 
 		Die bereits erstellten Tests können als Vorlage für weitere Testimplementationen verwendet 
 		werden.
@@ -395,12 +418,13 @@
 		in der Evaluation immer 'nicht bestanden' zurückgibt mit der Anmerkung, dass dieser
 		Test noch nicht erstellt wurde.
 
-		Das folgende Bild zeigt die test\_map mit den oben beschriebenen Werten.
+		Die Abbildung~\ref{fig:TestMap} zeigt die test\_map mit den oben beschriebenen Werten.
 
 		\begin{figure}[h!]
 			\begin{center}
 		        \includegraphics[scale=1.0]{\vorlagenOrdner/Bilder/Manual/strategyfactory.png}
 				\caption{TestMap in der TestStrategyFactory}
+				\label{fig:TestMap}
 			\end{center}
 		\end{figure}
         
