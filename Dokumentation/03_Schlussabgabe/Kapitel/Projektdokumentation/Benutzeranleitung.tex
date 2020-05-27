@@ -11,21 +11,21 @@
 	Um NUTS2.0 ausführen zu können, muss zuerst das Github-Repository geklont werden:\\
 	https://github.com/EkoGuandor229/Network-Unit-Testing. 
 	Danach können die verwendeten Module über das Requirements-File mit dem Befehl
-	'pip install requirements.txt' installiert werden.
+	'pip install -r requirements.txt' installiert werden.
 
 	\subsubsection{Ausführen}
 	Das Programm kann zu Testzwecken regulär in einer Programmierumgebung 
 	wie zum Beispiel PyCharm ausgeführt werden.
 
 	Um NUTS2.0 aus einer Konsole zu starten muss zum Root-Ordner NUTS2.0 navigiert werden. 
-	Z.B. C:Programs/Python/NUTS2.0.
+	Z.B. C:/Programs/Python/NUTS2.0.
 
 	Man kann das Programm mit dem Befehl: 'python -m nuts' starten. 
 	Wenn man das GUI auslassen und direkt alle Tests ausführen möchte kann
 	man mit dem Befehl: 'python -m nuts -r' starten.
 
 	\subsubsection{Konfiguration}
-	Im File 'Config.yaml' können die Pfäde aller Ordner geändert werden, um beispielsweise
+	Im File 'config.yaml' können die Pfäde aller Ordner geändert werden, um beispielsweise
 	das Inventory oder die Resultate zentral in einem Repository zu verwalten. 
 	Zusätzlich kann noch bestimmt werden, ob das GUI Per default übersprungen werden soll.
 
@@ -38,7 +38,7 @@
 	Die Device Connections sind die Verbindungen zwischen den Devices.
 
 	\subsubsection{Devices}
-		Die Definitionen der Devices sind unter Resources/Inventory/Devices/Devices.yaml abgelegt:
+		Die Definitionen der Devices sind unter Resources/Inventory/Devices/devices.yaml abgelegt:
 
 		\begin{figure}[h!]
 			\begin{center}
@@ -75,7 +75,7 @@
 
 	\subsubsection{Device Connections}
 		Die Definitionen der Device Connections sind unter 
-		Resources/Inventory/DeviceConnections/DeviceConnections.yaml abgelegt
+		Resources/Inventory/DeviceConnections/deviceConnections.yaml abgelegt
 
 		\begin{figure}[h!]
 			\begin{center}
