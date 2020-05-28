@@ -24,6 +24,7 @@
 \input{\vorlagenOrdner/Konfiguration/Seitenstil_Bericht} % Definitionen zum Aussehen der Seiten
 \input{\vorlagenOrdner/Konfiguration/Befehle} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
 
+\setcounter{tocdepth}{3}
 \begin{document}
 
 % Deckblatt ------------------------------------------------------------------
@@ -36,34 +37,72 @@
 % Preface --------------------------------------------------------------------
 \pagenumbering{Roman}
 
-% Zweck
-\section*{Zweck}
-Dieses Dokument beschreibt den Projektplan und liefert eine Übersicht über das Projekt NUTS, dessen Planung und Organisation, sowie über weitere Bereiche des Projektaufbaus. Der Projektplan dient als Grundlage und Referenz für nachfolgende Projektdokumente
 
-% Änderungsgeschichte
-\section*{Änderungsgeschichte}
-\begin{tabularx}{0.9\textwidth}{llXl}
-	\toprule
-	Datum & Version & Änderung & Autor \\
-	\midrule
-	18.02.2020 & 1.0 & Initial Setup & Janik Schlatter \\
-	\bottomrule
-\end{tabularx}
+\addcontentsline{toc}{section}{Aufgabenstellung}
+\subfile{Kapitel/Aufgabenstellung}
+
+\newpage
+
+\subfile{Kapitel/Abstract}
+\setcounter{page}{2}
+\addcontentsline{toc}{section}{Abstract}
+
+\newpage
+
+
+\subfile{Kapitel/ManagementSummary}
+\addcontentsline{toc}{section}{Management Summary}
 \cleardoublepage
 
 % Inhaltsverzeichnis
 \phantomsection
 \pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
 \tableofcontents
+
+
 \cleardoublepage
 
 \pagenumbering{arabic}
 % Jede Überschrift 1 auf neuer Seite
 \let\stdsection\section
-\renewcommand\section{\clearpage\stdsection}
+\section*{I. Technischer Bericht}
+\addcontentsline{toc}{section}{I. Technischer Bericht}
 
 % Inhalt ---------------------------------------------------------------------
-\subfile{Kapitel/Beispielkapitel}
-\subfile{Kapitel/Beispielkapitel2}
+\subfile{Kapitel/Einleitung.tex}
+\renewcommand\section{\clearpage\stdsection}
+
+
+\subfile{Kapitel/Ergebnisse.tex}
+\subfile{Kapitel/Schlussfolgerungen.tex}
+
+
+% Projektdokumentation --------------------------------------------------------
+
+\section*{II. Projektdokumentation}
+
+\renewcommand\section{\stdsection}
+
+\setcounter{section}{0}
+\addcontentsline{toc}{section}{II. Projektdokumentation}
+\subfile{Kapitel/Projektdokumentation/Projektplanung.tex}
+\renewcommand\section{\clearpage\stdsection}
+\subfile{Kapitel/Projektdokumentation/Anforderungen.tex}
+\subfile{Kapitel/Projektdokumentation/Design.tex}
+\subfile{Kapitel/Projektdokumentation/Architektur.tex}
+\subfile{Kapitel/Projektdokumentation/Zeitauswertung.tex}
+\subfile{Kapitel/Projektdokumentation/Protokolle.tex}
+\subfile{Kapitel/Projektdokumentation/Benutzeranleitung.tex}
+\setcounter{section}{0}
+\addcontentsline{toc}{section}{III. Anhang}
+\addcontentsline{toc}{section}{Persönliche Berichte}
+\subfile{Kapitel/Anhang/PersönlicherBerichtJanik.tex}
+\subfile{Kapitel/Anhang/PersönlicherBerichtMike.tex}
+\addcontentsline{toc}{section}{Eigenständigkeitserklärung}
+\subfile{Kapitel/Anhang/Eigenständigkeitserklärung.tex}
+\addcontentsline{toc}{section}{Rechtliches}
+\subfile{Kapitel/Anhang/Rechtliches.tex}
+\addcontentsline{toc}{section}{Glossar}
+\subfile{Kapitel/Anhang/Glossar.tex}
 
 \end{document}

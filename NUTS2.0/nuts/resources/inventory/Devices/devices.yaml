@@ -4,6 +4,7 @@ router01:
   - Cisco
   - cisco
   - 10.20.0.31
+  - 172.16.255.1
 
 router02:
   - router02
@@ -11,6 +12,7 @@ router02:
   - Cisco
   - cisco
   - 10.20.0.32
+  - 172.16.255.2
 
 router03:
   - router03
@@ -18,6 +20,7 @@ router03:
   - Cisco
   - cisco
   - 10.20.0.33
+  - 172.16.255.3
 
 router04:
   - router04
@@ -25,3 +28,4 @@ router04:
   - Cisco
   - cisco
   - 10.20.0.34
+  - 172.16.255.4

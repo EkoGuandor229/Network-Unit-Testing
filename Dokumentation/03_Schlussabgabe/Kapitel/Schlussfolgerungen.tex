@@ -1,0 +1,140 @@
+\documentclass[]{subfiles}
+
+\begin{document}
+\section{Schlussfolgerungen}
+\subsection{Endresultat}
+Das Endergebnis der Studienarbeit hat leichte Abweichungen von dem, was wir zu Beginn
+des Projekts geplant haben. 
+In der Architektur wurde zuerst eine weitere Strategy-Factory für die Erstellung 
+der Netzwerk-Verbindungen geplant. Diese wurde aber nicht implementiert, da 
+sich herausgestellt hat, dass eine Strategy-Factory nur für weitere Komplexität 
+im Code sorgt. 
+Stattdessen wurde ein Mapping der Hostbetriebssysteme auf die 
+kompatiblen Verbindungsschnittstellen mittels einem Dictionary vorgenommen.
+Dieses Vorgehen bietet eine ähnliche Funktionalität, ist aber weitaus simpler 
+in der Anwendung und im Verständnis.
+
+Weiterhin wurde ein grosser Teil der Testdurchführungslogik in die konkreten Testimplementationen
+verschoben. 
+Am Anfang wurde geplant, dass jede Komponente die Logik beinhaltet die für die Testdurchführung,
+die Evaluation der Ergebnisse und das Mapping der Resultatwerte benötigt werden.
+Stattdessen wurde die Funktionalität des Mappers, des Evaluators und des Testrunners soweit 
+vereinfacht, dass darin für jeden Test die jeweilige Methode aufgerufen wird, die diese
+Logik spezifisch für jeden Test implementiert.
+Durch dieses Vorgehen konnte beispielsweise das Mapping der Testresultate für jeden 
+Netzwerktest innerhalb des Tests vorgenommen werden. 
+Dadurch wurde viel Code im Mapper gespart, da jeder Test eine andere Formatierung der 
+Rückgabewerte hat und dementsprechend für jeden Test ein spezifisches Mapping der Ergebnisse
+hätte gemacht werden müssen.
+
+Das Nornir-Framework erlaubt es dem Benutzer, schnell und einfach Netzwerkbefehle an ein
+definiertes Netzwerkgerät zu senden und die Rückgabewerte werden dabei in einem 
+Dictionary von Resultatwerten zurückgegeben. 
+Dadurch müssen die Resultate nicht mit Verwendung von regulären Ausdrücken mühsam 
+geparst werden, sondern sie können unter Anwendung von einfachen Operationen 
+in eine einheitliche Form gebracht und mit den Erwartungswerten verglichen werden.
+Der grösste Nachteil in der Verwendung von Nornir ist die Navigierung durch die Dokumentation.
+Will man die einzelnen Netzwerktreiber (Napalm, Netmiko, etc.) verwenden, muss man 
+oftmals in den Dokumentationen der Treiber selbst nachsehen, wie genau man die
+Implementation nun vornehmen muss, vorausgesetzt es existiert eine spezifische Anleitung
+für die Implementation. 
+
+\newpage
+
+\subsection{Vergleich mit der Vorarbeit}
+Die Studienarbeit aus dem Herbstsemester 2016 hat im Vergleich mit dieser Studienarbeit
+mehr konkrete Netzwerktests umgesetzt. 
+Allerdings hat diese Studienarbeit einen höheren Fokus auf der Erweiterbarkeit um neue
+Tests und es werden mehr verschiedene Gerätehersteller unterstützt.
+
+Die reine Pyhton-Implementation erlaubt ein Deployment auf eine Vielzahl von Geräten 
+mit unterschiedlichen Betriebssystemen unabhängig von externen Frameworks.
+NUTS2.0 lässt sich in ein bestehendes Configuration Mangement Tool einbinden und kann
+auf jedem Gerät ausgeführt werden, welches Python3 unterstützt.
+Im Vergleich dazu wurde NUTS1.0 hauptsächlich für die Verwendung auf Linux-Systemen entwickelt.
+
+Die Erweiterung des Systems ist in NUTS2.0 einfacher gestaltet, da sämtlicher Code in 
+Python geschrieben ist und die verwendeten Module ebenfalls in Python entwickelt wurden.
+
+\newpage
+
+
+
+
+\subsection{Künftige Arbeiten}
+\label{subsec:Künftige Arbeiten}
+\subsubsection*{Automatische Geräteerkennung}
+Im aktuellen Programm müssen sämtliche Netzwerkgeräte von Hand in das Inventar aufgenommen
+werden, was genaue Kenntnisse des Netzwerks voraussetzt und zeitintensiv ist.
+Eine mögliche Erweiterung von NUTS2.0 wäre eine automatische Erkennung aller Geräte im 
+Netzwerk und das automatische Erstellen des Inventars.
+Dieses Vorgehen würde dem Anwender einiges an Arbeit einsparen und den Prozess für die 
+Erstellung von Netzwerktests beschleunigen.
+
+\subsubsection*{Anbindung einer Datenbank}
+Die Anbindung einer Datenbank würde viele Vorteile mit sich bringen.
+Die Verwaltung des Inventars oder der Testdefinitionen müsste nicht mehr in YAML-Files 
+gemacht werden, sondern könnte mit einer Datenbank vereinfacht werden.
+Das Speichern von Testresultaten in einer Datenbank würde es ermöglichen, 
+spezifische Queries für individuelle Testresultate oder Testdurchführungen zu verwenden.
+Dadurch könnte man wirkungsvolle Abfragen durchführen, um beispielsweise sämtliche 
+Tests vor einer geplanten Änderung und danach abzurufen und auszuwerten.
+
+\subsubsection*{Komplette GUI geführte Durchführung}
+Die aktuelle Software hat nur ein minimalistisches GUI für die Auswahl und Reihenfolge
+der Testdurchführung. 
+Eine mögliche Erweiterung ist das Einbinden eines GUI für die gesamte Testdurchführung.
+Ein Benutzer könnte z.B. die Testdefinitionen über ein Interface gesteuert erfassen, 
+statt diese in einem YAML selber zu erstellen. 
+Man könnte für sämtliche Testcommands Beschreibungen anzeigen, was diese Tests machen
+und wie sie verwendet werden. 
+Es könnte eine Grafische Abbildung des Netzwerks angezeigt werden (Digitaler Zwilling), 
+in dem man sämtliche Neztwerkgeräte mit ihren Parametern anzeigt. 
+
+\subsubsection*{Erweiterung um Tests}
+Zum Zeitpunkt der Studienarbeit wurden nur einige Netzwerktests implementiert, die 
+sich auf das Testnetzwerk auch ausführen liessen. 
+Das System liesse sich um sämtliche Netzwerktests erweitern, die in allen möglichen 
+Netzwerken auch tatsächlich ausgeführt werden könnten.
+Ausserdem gibt es Netzwerktests, die sich mit Nornir zum jetzigen Zeitpunkt gar nicht
+ausführen lassen, z.B. die Grafische Darstellung des OSPF spanning Tree. 
+Solche Tests müssten manuell implementiert werden und benötigen allenfalls andere 
+Module als Nornir.
+
+\paragraph{Mögliche Tests}
+Die folgende Auflistung zeigt einige der gängigsten CLI-Befehle, wie sie im Netzwerkumfeld
+verwendet werden um die Netzwerkumgebung zu testen. 
+
+\begin{itemize}
+    \item 'show running-configuration'
+    \item 'show startup-configuration'
+    \item 'show ip protocols'
+    \item 'show ip route'
+    \item 'show interfaces status'
+    \item 'show interfaces trunk'
+    \item 'show interfaces'
+    \item 'show ip ospf interface'
+    \item 'show ip ospf border-routers'
+    \item 'show ip ospf virtual-links'
+    \item 'show ip bgp'
+    \item 'show ip bgp summary'
+    \item 'show ip bgp neighbor'
+    \item 'show ip bgp paths'
+\end{itemize}
+
+
+\subsubsection*{Asynchrone Durchführung der Tests}
+Momentan werden alle Netzwerktests nacheinander, d.H. Synchron durchgeführt.
+Dadurch benötigt das Programm für die Durchführung von umfangreichen Testdefinitionen 
+viel Zeit.
+Man könnte in einer zukünftigen Erweiterung Tests mit der gleichen Kategorie, z.B.
+Ping-Tests asynchron (parallel) ausführen, was zu einer kürzeren Durchführungszeit 
+führen würde. 
+\end{document}
+
+\subsubsection*{Automatische Erstellung repetitiver Tests}
+Eine weitere Möglichkeit für die Erweiterung der Software ist, dass repetitive Netzwerktests
+automatisch erstellt werden. Beispielsweise könnten Ping Tests für sämtliche Geräte, die im 
+Inventory definiert sind vom Programm erstellt und nicht manuell erfasst werden.
+Weiterhin könnte eine Erweiterung vorgenommen werden, die bestimmte Tests bei der Erfassung
+vorschlägt, z.B. show ip interface brief für einen Router.

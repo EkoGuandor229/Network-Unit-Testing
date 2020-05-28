@@ -7,20 +7,27 @@ from nuts.testcreation.network_test_strategy import NetworkTestStrategyInterface
 
 class NetmikoPingTest(NetworkTestStrategyInterface):
 
-    def __init__(self, platform, hostname, username, password, destination, expected):
-        self.expected = expected
+    def __init__(self, test_definition):
+        device_informations = test_definition.get_test_devices()
+        self.test_name = test_definition.get_test_id()
+        self.hostname = device_informations.get_hostname()
+        self.username = device_informations.get_username()
+        self.password = device_informations.get_password()
+        self.platform = device_informations.get_platform()
+        self.expected = test_definition.get_expected_result()
+        self.destination = test_definition.get_target()
         self.result = None
-        self.destination = destination
+
         self.nr = InitNornir(
             inventory={
                 "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
                 "options": {
                     "hosts": {
                         "host1": {
-                            "platform": str(platform),
-                            "hostname": str(hostname),
-                            "username": str(username),
-                            "password": str(password),
+                            "platform": self.platform,
+                            "hostname": self.hostname,
+                            "username": self.username,
+                            "password": self.password,
                         }
                     }
                 }
@@ -34,8 +41,8 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
             command_string=f"ping {self.destination}"
         )
 
-    def evaluate_result(self, result) -> bool:
-        return self.expected in str(result["host1"][0])
+    def evaluate_result(self) -> bool:
+        return self.expected == self.result
 
     def print_result(self, result):
         print(self.expected)
@@ -45,10 +52,18 @@ class NetmikoPingTest(NetworkTestStrategyInterface):
         return self.result
 
     def set_result(self, result):
-        self.result = result
+        for host_name, res_data in result.items():
+            mapped_result = res_data[0].result
+        if "Success rate is 100 percent (5/5)" in mapped_result:
+            self.result = "Success"
+        else:
+            self.result = "Failure"
 
     def get_expected_value(self):
         return self.expected
 
     def get_test_name(self):
-        return f"Ping {self.destination}"
+        return self.test_name
+
+    def close_connection(self):
+        self.nr.close_connections()

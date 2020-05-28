@@ -1,0 +1,101 @@
+\documentclass[]{subfiles}
+
+\begin{document}
+    \section{Einleitung}
+    \subsection{Problemstellung}
+    Netzwerke bestehen aus dutzenden bis tausenden Komponenten. 
+    Jede dieser Komponente hat eine eigene Konfiguration und Aufgabe.
+    In den letzten Jahren ist es durch die softwaregesteuerte Konfiguration
+    von Netzwerkgeräten einfacher geworden, die Komponenten für ihre
+    Aufgabe einzustellen. Trotzdem werden die Überprüfungen der Konfiguration 
+    auch heute noch manuell vorgenommen. Dies kann dazu führen, dass wegen menschlicher
+    Fehler ein Fehlverhalten eines der Netzwerkkomponente dazu führt,
+    dass das gesamte Netzwerk gestört wird. 
+    Weiterhin wird die Überprüfung noch komplizierter, da neben der statischen 
+    Konfiguration sich das Netzwerk zur Laufzeit dynamisch anpasst, 
+    um die Performanz des Systems zu optimieren und Fehler sowie Ausfälle
+    zu korrigieren. 
+    Dieses Verhalten wird über verschiedene Netzwerkprotokolle gesteuert, z.B. OSPF oder
+    BGP.
+    
+    In der Softwareentwicklung werden schon seit 
+    Ende der 80er-Jahre Komponententests, sogenannte Unit-Tests durchgeführt, um einzelne 
+    Komponenten (Units) automatisiert zu Testen. Dabei wird ein Computerprogramm ausgeführt,
+    welches mit verschiedenen Eingabeparametern überprüft, ob die Ausgabe des zu testenden
+    Programms den erwarteten Ergebnissen entspricht.
+
+    Dabei ist es möglich die Tests vor und nach einer geplanten Änderung durchzuführen,
+    um zu überprüfen, ob die Software innerhalb der definierten Funktionsparameter operiert.
+    Tests sollen dafür so geschrieben werden, dass möglichst jede Situation mit den 
+    Eingabeparametern abgebildet wird. Unittests sollen regelmässig durchgeführt werden,
+    damit Fehler früh gefunden werden und sich nicht auf das gesamte System auswirken können.
+
+    \newpage
+    
+    \subsection{Aufgabenstellung}
+    \label{subsec:Aufgabenstellung}
+    Ziel dieser Arbeit ist, ein Programm zu entwickeln, mit dem sich Netzwerktests mit 
+    der gleichen Arbeitsweise durchführen lassen, wie Unittests in der Softwareentwicklung
+    durchgeführt werden. Dabei müssen folgende Anforderungen an die Tests erfüllt sein:
+    \begin{itemize}
+        \item Tests müssen planbar sein. Es soll ein Testplan existieren.
+        \item Tests müssen systematisch spezifiziert werden. Es existieren Test-Spezifikationen.
+        \item Testresultate werden Dokumentiert.
+        \item Tests sollen, wo möglich, automatisiert durchgeführt werden.
+        \item Testergebnisse müssen reproduzierbar und nachvollziehbar sein.
+    \end{itemize}
+    Es soll evaluiert werden, welche bereits verfügbaren Tools sich für ein solches Testprogramm
+    eignen. Die Umsetzung soll diese Tools einbinden.
+    Eine wichtige Anforderung an das zu entwickelnde System ist, dass sich weitere 
+    Netzwerktests möglichst einfach hinzufügen lassen, ohne dass dafür der gesamte Code
+    geändert werden muss. 
+    \end{document}
+
+   \subsection{Herausforderungen}
+   Eine der grössten Herausforderungen an ein automatisiertes Testsystem sind die 
+   verschiedenen Protokolle und die Unterschiede der Standards von diversen Herstellern.
+
+   Ohne Kenntnisse, welche Protokolle auf einem Netzwerkgerät konfiguriert sind, 
+   können diese Netzwerkgeräte nicht effizient getestet werden, da die Netzwerkprotokolle
+   das Verhalten der Geräte zur Laufzeit beeinflussen. 
+   Deshalb müssen für die Testdurchführung im vornherein die Konfigurationen und verwendeten
+   Protokolle der Netzwerkgeräte bekannt sein und ein Testsystem muss mit diesen interagieren
+   können.
+
+   Unterschiedliche Hersteller haben verschiedene Kommandozeilenbefehle (CLI-Commands) 
+   für ihre Geräte, welche für die Konfiguration und Abfrage der Konfiguration verwendet
+   werden.
+   Ausserdem kann es vorkommen, dass ein Hersteller mit der Einführung einer neuen 
+   Version des Gerätebetriebssystems neue CLI-Commands einführt oder alte Befehle
+   ändert.
+   Dies setzt eine enorme Flexibilität für ein Testprogramm voraus, welches ein 
+   beliebiges Netzwerk mit unterschiedlichen Geräten von verschiedenen Herstellern 
+   testen soll. 
+
+   \subsection{Vorarbeit}
+   Die Studienarbeit 'Network Unit Testing' aus dem Herbstsemester 2016 von 
+   Andreas Stalder und David Meister hat sich bereits mit dem Thema automatisierte 
+   Netzwerktests auseinandergesetzt. 
+   Der Fokus lag dabei auf dem Ausarbeiten einer Testdefinitionssprache, mit der 
+   solche Netzwerktests annotiert werden können. 
+   Zudem wurde mit SaltStack ein Konfigurationsmanagement-Tool evaluiert und auf 
+   dessen Basis eine Software entwickelt, mit der man Netzwerktests ausführen konnte.
+
+   Die grössten Herausforderungen der Vorarbeit lagen dabei auf den Unterschieden 
+   verschiedener Hersteller und darin, dass die Outputformate der Neztwerktests 
+   je nach Hersteller anders zu Parsen sind. 
+   Diese Herausforderungen haben dazu geführt, dass beim Parsen der Ergebnisse 
+   oftmals auf reguläre Ausdrücke zurückgegriffen wurde, deren Implementation
+   umständlich und schwierig zu lesen ist.
+   Die Autoren haben dabei die Hoffnung angemerkt, dass man die Resultate künftig
+   einfacher verarbeiten kann und die Hersteller ein einheitliches Rückgabeformat 
+   verwenden.
+
+   Der grösste Nachteil in der Verwendung der Lösung aus der Vorarbeit besteht darin, 
+   dass die Implementation neuer Netzwerktests eher umständlich ist.
+   Ausserdem besteht eine starke Abhängigkeit zum Tool SaltStack, bei dem 
+   keine Garantie für eine langfristige Verfügbarkeit besteht.
+
+   Zukünftige Arbeiten sollen deshalb eine geringere Abhängigkeit zu externen Tools
+   haben und die Erweiterung um neue Tests so einfach wie möglich umsetzen.
+
