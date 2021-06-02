@@ -45,5 +45,5 @@ textfsm==1.1.0
 tk==0.1.0
 tqdm==4.45.0
 typing-extensions==3.7.4.1
-urllib3==1.25.8
+urllib3==1.26.5
 wcwidth==0.1.9
