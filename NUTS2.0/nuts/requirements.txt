@@ -23,7 +23,7 @@ netmiko==3.0.0
 nornir==2.4.0
 nxapi-plumbing==0.5.2
 packaging==20.3
-paramiko==2.7.1
+paramiko==2.10.1
 passlib==1.7.2
 pluggy==0.13.1
 py==1.8.1
